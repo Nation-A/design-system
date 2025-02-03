@@ -1,0 +1,82 @@
+
+
+export const colors = {
+  white: '#ffffff',
+  black: '#000000',
+  background: '#f2f4f5',
+  backgroundDark: '#303030',
+
+  neutral10: '#f4f4f5',
+  neutral20: '#efeff0',
+  neutral30: '#e4e4e7',
+  neutral40: '#dadadd',
+  neutral50: '#cfcfd3',
+  neutral100: '#c9c9cf',
+  neutral200: '#afafb6',
+  neutral300: '#94949e',
+  neutral400: '#797986',
+  neutral500: '#61616b',
+  neutral600: '#494950',
+  neutral700: '#303036',
+  neutral800: '#18181b',
+  neutral900: '#0c0c0d',
+
+  purple100: '#e9ddfd',
+  purple200: '#cbacfb',
+  purple300: '#ac7cf8',
+  purple400: '#8d4bf6',
+  purple500: '#6e1bf4',
+  purple600: '#570ad1',
+  purple700: '#4308a0',
+  purple800: '#2f0670',
+  purple900: '#1a033f',
+
+  red100: '#ffe5ec',
+  red200: '#ffccd8',
+  red250: '#ff9e9e',
+  red300: '#ff99b1',
+  red400: '#ff668b',
+  red500: '#ff3364',
+  red600: '#ff003d',
+  red700: '#cc0031',
+  red800: '#990025',
+  red900: '#660018',
+
+  green100: '#f2fcfd',
+  green200: '#c7f1f5',
+  green300: '#9ce5ed',
+  green400: '#71dae5',
+  green500: '#45cfdd',
+  green600: '#25bbcb',
+  green700: '#1d94a0',
+  green800: '#156c74',
+  green900: '#0d4449',
+
+  blue900: '#0066FF',
+  blue800: '#8AC0FF',
+
+  /* 투명도 */
+  whiteAlpha10: 'rgba(255,255,255,0.1)',
+  whiteAlpha20: 'rgba(255,255,255,0.2)',
+  whiteAlpha30: 'rgba(255,255,255,0.3)',
+  whiteAlpha40: 'rgba(255,255,255,0.4)',
+  whiteAlpha50: 'rgba(255,255,255,0.5)',
+  whiteAlpha60: 'rgba(255,255,255,0.6)',
+  whiteAlpha70: 'rgba(255,255,255,0.7)',
+  whiteAlpha80: 'rgba(255,255,255,0.8)',
+  whiteAlpha90: 'rgba(255,255,255,0.9)',
+  whiteAlpha95: 'rgba(255,255,255,0.95)',
+
+  blackAlpha10: 'rgba(0,0,0,0.1)',
+  blackAlpha20: 'rgba(0,0,0,0.2)',
+  blackAlpha30: 'rgba(0,0,0,0.3)',
+  blackAlpha40: 'rgba(0,0,0,0.4)',
+  blackAlpha50: 'rgba(0,0,0,0.5)',
+  blackAlpha60: 'rgba(0,0,0,0.6)',
+  blackAlpha70: 'rgba(0,0,0,0.7)',
+  blackAlpha80: 'rgba(0,0,0,0.8)',
+  blackAlpha90: 'rgba(0,0,0,0.9)',
+} as const;
+
+export type Colors = typeof colors;
+export type ColorKeys = keyof typeof colors;

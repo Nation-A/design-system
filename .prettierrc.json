@@ -1,0 +1,26 @@
+ 
+{
+    "printWidth": 120,
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always",
+    "semi": false,
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "jsxSingleQuote": false,
+    "quoteProps": "as-needed",
+    "embeddedLanguageFormatting": "auto",
+    "singleAttributePerLine": false,
+    "importOrder": [
+        "^react$",
+        "^react-dom$",
+        "^next$",
+        "<THIRD_PARTY_MODULES>",
+        "^~/",
+        "^~/"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
+}

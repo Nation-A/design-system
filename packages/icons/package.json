@@ -1,0 +1,34 @@
+{
+  "name": "@nation-a/icons",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run build:scripts && npm run build:react",
+    "build:scripts": "tsc -p tsconfig.node.json",
+    "build:react": "tsc -p tsconfig.react.json",
+    "generate:icons": "ts-node src/scripts/generate-icons.ts"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/react": "^18.2.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^4.0.0",
+    "vite-plugin-dts": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
