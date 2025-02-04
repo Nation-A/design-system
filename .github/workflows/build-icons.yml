@@ -1,6 +1,7 @@
 name: Build Icons
 
 on:
+  workflow_dispatch:
   push:
     # branches:
     #   - main
@@ -13,11 +14,10 @@ jobs:
     permissions:
       contents: write
    
-    
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.head_ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -35,10 +35,7 @@ jobs:
       - name: Build icons
         run: pnpm build:icons
         
-      - name: Commit changes
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add packages/icons
-          git commit -m "[Automation] update icon components" || echo "No changes to commit"
-          git push 
+      # Commit all changed files back to the repository
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "[Automation] update icon components"
