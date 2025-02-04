@@ -1,7 +1,6 @@
 name: Build Icons
 
 on:
-  workflow_dispatch:
   push:
     # branches:
     #   - main
