@@ -68,6 +68,9 @@ const getSvgPaths = (svgString: string): string[] => {
  * @returns 아이콘 파일명 SVG path들
  */
 const processIconData = (icon: IconaDataType[string]) => {
+  if (!icon.name || !icon.svg) {
+    return null
+  }
   const iconName = icon.name.replace('_24', '')
   const filename = path.basename(toPascalCase(removeInvalidCharacters(iconName)), '.tsx')
   const svgPath = getSvgPaths(icon.svg).join('\n')

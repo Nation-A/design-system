@@ -1,14 +1,14 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import dts from 'vite-plugin-dts';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   plugins: [
     react(),
     dts({
-      tsConfigFilePath: './tsconfig.app.json',
-      insertTypesEntry: true,
-      outputDir: 'dist/types',
+      entryRoot: 'src/components',
+      tsconfigPath: './tsconfig.app.json',
+      outDir: 'dist/types',
     }),
   ],
   build: {
@@ -28,6 +28,6 @@ export default defineConfig({
     },
     outDir: 'dist',
     sourcemap: true,
-    minify: true
+    minify: true,
   },
-});
+})
