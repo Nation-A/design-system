@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
+      tsConfigFilePath: './tsconfig.app.json',
       insertTypesEntry: true,
       outputDir: 'dist/types',
     }),
@@ -14,7 +15,7 @@ export default defineConfig({
     lib: {
       entry: 'src/index.ts',
       name: 'Icons',
-      fileName: (format) => `icons.${format}.js`,
+      fileName: (format) => `index.${format}.js`,
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
