@@ -14,7 +14,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.ts',
-      name: 'Icons',
+      name: '@nation-a/icons',
       fileName: (format) => `index.${format}.js`,
       formats: ['es', 'cjs'],
     },
@@ -23,6 +23,7 @@ export default defineConfig({
       output: {
         globals: {
           react: 'React',
+          'react-dom': 'ReactDOM',
         },
       },
     },
