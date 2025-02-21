@@ -9,7 +9,7 @@ type Props = React.SVGProps<SVGSVGElement> & {
   color?: string
 }
 
-function IconComponent({ size = 24, color = 'white', ...props }: Props) {
+function UnCheckCircleFillIcon({ size = 24, color = 'white', ...props }: Props) {
   return (
     <svg
       width={size}
@@ -20,9 +20,9 @@ function IconComponent({ size = 24, color = 'white', ...props }: Props) {
       strokeWidth="0"
       {...props}
     >
-      {props.children}
+      <circle id="Ellipse 75" cx="12" cy="12" r="9" fill={color} />
     </svg>
   )
 }
 
-export default IconComponent
+export default UnCheckCircleFillIcon

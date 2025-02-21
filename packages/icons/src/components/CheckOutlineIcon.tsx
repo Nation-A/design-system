@@ -9,7 +9,7 @@ type Props = React.SVGProps<SVGSVGElement> & {
   color?: string
 }
 
-function IconComponent({ size = 24, color = 'white', ...props }: Props) {
+function CheckOutlineIcon({ size = 24, color = 'white', ...props }: Props) {
   return (
     <svg
       width={size}
@@ -20,9 +20,16 @@ function IconComponent({ size = 24, color = 'white', ...props }: Props) {
       strokeWidth="0"
       {...props}
     >
-      {props.children}
+      <path
+        id="Vector 1"
+        d="M4 10.8L10.6667 18L20 6"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   )
 }
 
-export default IconComponent
+export default CheckOutlineIcon

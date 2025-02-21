@@ -9,7 +9,7 @@ type Props = React.SVGProps<SVGSVGElement> & {
   color?: string
 }
 
-function IconComponent({ size = 24, color = 'white', ...props }: Props) {
+function ChevronDownOutlineIcon({ size = 24, color = 'white', ...props }: Props) {
   return (
     <svg
       width={size}
@@ -20,9 +20,16 @@ function IconComponent({ size = 24, color = 'white', ...props }: Props) {
       strokeWidth="0"
       {...props}
     >
-      {props.children}
+      <path
+        id="Vector"
+        d="M19 9L12 16L5 9"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   )
 }
 
-export default IconComponent
+export default ChevronDownOutlineIcon

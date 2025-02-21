@@ -9,7 +9,7 @@ type Props = React.SVGProps<SVGSVGElement> & {
   color?: string
 }
 
-function IconComponent({ size = 24, color = 'white', ...props }: Props) {
+function MinusOutlineIcon({ size = 24, color = 'white', ...props }: Props) {
   return (
     <svg
       width={size}
@@ -20,9 +20,9 @@ function IconComponent({ size = 24, color = 'white', ...props }: Props) {
       strokeWidth="0"
       {...props}
     >
-      {props.children}
+      <path id="Vector" d="M5 12H19" stroke={color} strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" />
     </svg>
   )
 }
 
-export default IconComponent
+export default MinusOutlineIcon

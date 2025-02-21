@@ -9,7 +9,7 @@ type Props = React.SVGProps<SVGSVGElement> & {
   color?: string
 }
 
-function IconComponent({ size = 24, color = 'white', ...props }: Props) {
+function PlayFillIcon({ size = 24, color = 'white', ...props }: Props) {
   return (
     <svg
       width={size}
@@ -20,9 +20,13 @@ function IconComponent({ size = 24, color = 'white', ...props }: Props) {
       strokeWidth="0"
       {...props}
     >
-      {props.children}
+      <path
+        id="play"
+        d="M18.697 10.695L8.23952 4.76906C7.23957 4.20242 6 4.92475 6 6.07409V17.9259C6 19.0752 7.23957 19.7976 8.23952 19.2309L18.697 13.305C19.711 12.7304 19.711 11.2696 18.697 10.695Z"
+        fill={color}
+      />
     </svg>
   )
 }
 
-export default IconComponent
+export default PlayFillIcon

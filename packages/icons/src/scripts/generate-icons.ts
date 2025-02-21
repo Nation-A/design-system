@@ -71,7 +71,7 @@ const processIconData = (icon: IconaDataType[string]) => {
   if (!icon.name || !icon.svg) {
     return null
   }
-  const iconName = icon.name.replace('_24', '')
+  const iconName = icon.name
   const filename = path.basename(toPascalCase(removeInvalidCharacters(iconName)), '.tsx')
   const svgPath = getSvgPaths(icon.svg).join('\n')
 
@@ -88,7 +88,7 @@ const processIconData = (icon: IconaDataType[string]) => {
  */
 const generateIconFile = async (name: string, svgPath: string) => {
   const outputFilePath = path.join(outputPath, `${name}Icon.tsx`)
-  const stringifiedPath = `<g>${svgPath.replace(/\n/g, '')}</g>`
+  const stringifiedPath = svgPath.replace(/\n/g, '')
   const outputFileContent = convertTemplateToString(name, stringifiedPath)
 
   // prettier로 포맷팅
