@@ -1,1 +1,1 @@
-export * from './colors';
+export { semantic, primitive, textStyles } from './tokens/tokens'
