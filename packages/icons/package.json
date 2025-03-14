@@ -14,6 +14,9 @@
     "prebuild": "pnpm clean && pnpm gen:icons && pnpm gen:index",
     "build": "tsc && vite build --mode production"
   },
+  "publishConfig": {
+  "access": "public"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
