@@ -25,11 +25,16 @@ jobs:
           node-version: 18
           registry-url: https://registry.npmjs.org/ 
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Build packages  
+        run: pnpm build  
 
       - name: Create .npmrc
         run: |
@@ -44,4 +49,10 @@ jobs:
           publish: pnpm release  
         env:
           GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_KEY }}
+
+      # Commit all changed files back to the repository
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: '[Automation] release to npm with new version'
+
   
