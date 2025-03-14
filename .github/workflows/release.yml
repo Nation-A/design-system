@@ -48,7 +48,7 @@ jobs:
         with:
           publish: pnpm release  
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GH_NPM_RELEASE_KEY }}
 
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v5
