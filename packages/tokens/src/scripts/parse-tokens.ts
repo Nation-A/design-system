@@ -22,22 +22,22 @@ const parseTokens = async () => {
   } = rawTokens
   const semantic = {
     colors: removePrimitive(colors.semantic),
-    shadows: formatShadow(shadow),
+    shadows: flattenShadow(shadow),
   }
 
   const primitive = {
     colors: colors.primitive,
     borderWidths: getPixelValues(borderWidth),
-    spacing: getPixelValues(spacing),
+    spacing: getRemValues(spacing),
     radii: getPixelValues(radii),
-    fontSizes: getPixelValues(fontSize),
+    fontSizes: getRemValues(fontSize),
     letterSpacings: getPixelValues(letterSpacing),
-    lineHeights: getPixelValues(lineHeight),
+    lineHeights: getRemValues(lineHeight),
     fontWeights: fontWeight,
     fonts: fontFamily,
     // textDecorations: textDecoration,
   }
-  const textStyles = formatTypography(typography)
+  const textStyles = flattenTypography(typography)
 
   const tokens = {
     semantic,
@@ -45,13 +45,13 @@ const parseTokens = async () => {
     textStyles,
   }
 
-  const formattedContent = await formatTokensString(tokens)
+  const formattedContent = await formatTokensFile(tokens)
 
   const typesPath = join(__dirname, '../tokens/tokens.ts')
   await writeFile(typesPath, formattedContent, 'utf-8')
 }
 
-const formatTokensString = async (tokens: any) => {
+const formatTokensFile = async (tokens: any) => {
   const tokensString = Object.entries(tokens)
     .map(([key, value]) => `export const ${key} = ${JSON.stringify(value, null, 2)}`)
     .join('\n')
@@ -63,7 +63,7 @@ const formatTokensString = async (tokens: any) => {
   return formattedContent
 }
 
-const formatShadow = (shadow: RawTokens['shadow']): any => {
+const flattenShadow = (shadow: RawTokens['shadow']): any => {
   for (const [_, value] of Object.entries(shadow)) {
     const shadowValue = value.value
     value.value = `${shadowValue.x}px ${shadowValue.y}px ${shadowValue.blur}px ${shadowValue.spread}px ${shadowValue.color.replace('.semantic', '')}`
@@ -71,19 +71,17 @@ const formatShadow = (shadow: RawTokens['shadow']): any => {
   return shadow
 }
 
-const getPixelValues = (tokens: any): any => {
+const formatValue = (tokens: any, callback: (value: any) => string): any => {
   if (Array.isArray(tokens)) {
-    return tokens.map(getPixelValues)
+    return tokens.map((token) => formatValue(token, callback))
   }
 
   if (tokens !== null && typeof tokens === 'object') {
-    // 가장 leaf 오브젝트인지 확인
     if ('value' in tokens) {
-      return { value: `${tokens.value}px` }
+      return { value: callback(tokens.value) }
     }
-
     return Object.keys(tokens).reduce((acc, key) => {
-      acc[key] = getPixelValues(tokens[key])
+      acc[key] = formatValue(tokens[key], callback)
       return acc
     }, {} as any)
   }
@@ -91,49 +89,18 @@ const getPixelValues = (tokens: any): any => {
   return tokens
 }
 
-const removePrimitive = (colors: any): any => {
-  if (Array.isArray(colors)) {
-    return colors.map(removePrimitive)
-  }
+const getPixelValues = (tokens: any) => formatValue(tokens, (value) => `${value}px`)
 
-  if (colors !== null && typeof colors === 'object') {
-    // 가장 leaf 오브젝트인지 확인
-    if ('value' in colors) {
-      return { value: colors.value.replace('.primitive', '') }
-    }
+const getRemValues = (tokens: any) => formatValue(tokens, (value) => `${Number(value) / 16}rem`)
 
-    return Object.keys(colors).reduce((acc, key) => {
-      acc[key] = removePrimitive(colors[key])
+const removePrimitive = (colors: any) => formatValue(colors, (value) => value.replace('.primitive', ''))
+
+const flattenTypography = (typography: any) =>
+  formatValue(typography, (value) =>
+    Object.entries(value).reduce((acc, [k, v]) => {
+      acc[k] = typeof v === 'string' ? v.replace(`{${k}.`, '').replace('}', '') : v
       return acc
-    }, {} as any)
-  }
-
-  return colors
-}
-
-const formatTypography = (typography: any): any => {
-  if (Array.isArray(typography)) {
-    return typography.map(formatTypography)
-  }
-
-  if (typography !== null && typeof typography === 'object') {
-    // 가장 leaf 오브젝트인지 확인
-    if ('value' in typography) {
-      return {
-        value: Object.entries(typography.value).reduce((acc, [k, v]) => {
-          acc[k] = typeof v === 'string' ? v.replace(`{${k}.`, '').replace('}', '') : v
-          return acc
-        }, {} as any),
-      }
-    }
-
-    return Object.keys(typography).reduce((acc, key) => {
-      acc[key] = formatTypography(typography[key])
-      return acc
-    }, {} as any)
-  }
-
-  return typography
-}
+    }, {} as any),
+  )
 
 parseTokens()

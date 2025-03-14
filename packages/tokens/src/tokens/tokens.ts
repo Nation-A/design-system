@@ -605,50 +605,50 @@ export const primitive = {
     },
   },
   spacing: {
-    none: {
-      value: '0px',
+    '0': {
+      value: '0rem',
     },
-    xxs: {
-      value: '4px',
+    '1': {
+      value: '0.25rem',
     },
-    xs: {
-      value: '8px',
+    '2': {
+      value: '0.5rem',
     },
-    sm: {
-      value: '12px',
+    '3': {
+      value: '0.75rem',
     },
-    md: {
-      value: '16px',
+    '4': {
+      value: '1rem',
     },
-    lg: {
-      value: '24px',
+    '6': {
+      value: '1.5rem',
     },
-    xl: {
-      value: '32px',
+    '8': {
+      value: '2rem',
     },
-    '2xl': {
-      value: '48px',
+    '12': {
+      value: '3rem',
     },
-    '3xl': {
-      value: '80px',
+    '20': {
+      value: '5rem',
     },
-    '4xl': {
-      value: '120px',
+    '30': {
+      value: '7.5rem',
     },
-    '5xl': {
-      value: '224px',
+    '56': {
+      value: '14rem',
     },
-    '6xl': {
-      value: '288px',
+    '72': {
+      value: '18rem',
     },
-    '7xl': {
-      value: '384px',
+    '98': {
+      value: '24rem',
     },
-    '8xl': {
-      value: '512px',
+    '128': {
+      value: '32rem',
     },
-    '9xl': {
-      value: '640px',
+    '160': {
+      value: '40rem',
     },
   },
   radii: {
@@ -673,28 +673,28 @@ export const primitive = {
   },
   fontSizes: {
     xs: {
-      value: '12px',
+      value: '0.75rem',
     },
     sm: {
-      value: '14px',
+      value: '0.875rem',
     },
     md: {
-      value: '16px',
+      value: '1rem',
     },
     lg: {
-      value: '20px',
+      value: '1.25rem',
     },
     xl: {
-      value: '24px',
+      value: '1.5rem',
     },
     '2xl': {
-      value: '32px',
+      value: '2rem',
     },
     '3xl': {
-      value: '40px',
+      value: '2.5rem',
     },
     '4xl': {
-      value: '48px',
+      value: '3rem',
     },
   },
   letterSpacings: {
@@ -722,25 +722,25 @@ export const primitive = {
   },
   lineHeights: {
     md: {
-      value: '16px',
+      value: '1rem',
     },
     lg: {
-      value: '20px',
+      value: '1.25rem',
     },
     xl: {
-      value: '24px',
+      value: '1.5rem',
     },
     '2xl': {
-      value: '28px',
+      value: '1.75rem',
     },
     '3xl': {
-      value: '36px',
+      value: '2.25rem',
     },
     '4xl': {
-      value: '44px',
+      value: '2.75rem',
     },
     '5xl': {
-      value: '48px',
+      value: '3rem',
     },
   },
   fontWeights: {
