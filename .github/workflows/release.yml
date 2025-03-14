@@ -43,5 +43,5 @@ jobs:
         with:
           publish: pnpm release  
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_KEY }}
   
