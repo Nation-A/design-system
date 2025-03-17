@@ -1,5 +1,12 @@
 # @nation-a/test-app
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [1aab040]
+  - @nation-a/icons@0.0.5
+
 ## 0.0.3
 
 ### Patch Changes
