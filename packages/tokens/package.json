@@ -5,6 +5,10 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
+    "gen:types": "tsx src/scripts/generate-token-types.ts",
+    "gen:tokens-panda": "tsx src/scripts/parse-tokens-panda.ts",
+    "gen:tokens-emotion": "tsx src/scripts/parse-tokens-emotion.ts",
+    "prebuild": "npm run gen:types && npm run gen:tokens-panda && npm run gen:tokens-emotion",
     "build": "tsup",
     "dev": "tsup --watch",
     "clean": "rm -rf dist"
@@ -13,8 +17,11 @@
     "access": "public"
   },
   "devDependencies": {
-    "typescript": "^5.7.3",
-    "tsup": "^6.7.0"
+    "@types/node": "^18.0.0",
+    "json-to-ts": "^2.1.0",
+    "tsup": "^6.7.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
   },
   "exports": {
     ".": {
