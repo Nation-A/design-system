@@ -1,4 +1,4 @@
-name: Release
+name: Release NPM Packages
 
 on:
   push:
@@ -15,6 +15,20 @@ jobs:
       packages: write
       contents: write
     steps:
+      - name: Check if is NPM Version Bump PR
+        id: pr-title
+        run: |
+          PR_TITLE=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }} | jq -r '.title')
+          
+          echo "PR title: $PR_TITLE"
+          
+          if [[ "$PR_TITLE" != "Version Packages" ]]; then
+            echo "This PR is not for version bump, skipping the workflow."
+            exit 1
+          fi
+        continue-on-error: true  # 버전업 npm release PR이 아니라면 후속 작업을 중단
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -38,7 +52,7 @@ jobs:
       - name: Build packages
         run: pnpm build
 
-      - name: Create Release Pull Request or Publish to npm
+      - name: Publish to npm
         id: changesets
         uses: changesets/action@v1
         with:
@@ -59,7 +73,7 @@ jobs:
         run: |
           PACKAGES=$(echo '${{ steps.changesets.outputs.publishedPackages }}' | jq -r 'map("\(.name)@\(.version)") | join(", ")')
           curl -X POST -H 'Content-type: application/json' --data "{
-            \"text\": \"🚀 NDS: New NPM Version Released! \n📦 Published Packages: ${PACKAGES}\",
+            \"text\": \"🚀 NDS: NEW NPM Version Released! \n📦 Published Packages: ${PACKAGES}\",
             \"username\": \"NDS Npm Release Alert Bot\",
             \"icon_emoji\": \":rocket:\"
           }" $SLACK_WEBHOOK_URL
