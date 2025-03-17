@@ -1,11 +1,13 @@
 name: Release NPM Packages
 
 on:
-  workflow_run:
-    workflows: ["Version Update With Changesets"]
-    types:
-      - completed
-      
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -18,14 +20,14 @@ jobs:
         run: |
           PR_TITLE=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }} | jq -r '.title')
-          
+
           echo "PR title: $PR_TITLE"
-          
+
           if [[ "$PR_TITLE" != "Version Packages" ]]; then
             echo "This PR is not for version bump, skipping the workflow."
             exit 1
           fi
-        continue-on-error: true  # 버전업 npm release PR이 아니라면 후속 작업을 중단
+        continue-on-error: true # 버전업 npm release PR이 아니라면 후속 작업을 중단
 
       - name: Checkout repository
         uses: actions/checkout@v4
