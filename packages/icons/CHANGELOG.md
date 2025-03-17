@@ -1,5 +1,12 @@
 # @nation-a/icons
 
+## 0.0.6
+
+### Patch Changes
+
+- 7b7e66c: Updated rollupOptions for icons
+- 4bf49e5: test update
+
 ## 0.0.5
 
 ### Patch Changes
