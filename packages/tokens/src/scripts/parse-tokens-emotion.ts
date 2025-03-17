@@ -11,7 +11,6 @@ const formatValue = (tokens: any, callback: (value: any) => any = (value) => val
   if (tokens !== null && typeof tokens === 'object') {
     if ('value' in tokens) {
       const formattedValue = callback(tokens.value)
-      //   return JSON.stringify(formattedValue).replaceAll('{', '${') as any
       return typeof formattedValue === 'string'
         ? (formattedValue.replaceAll('{', '${') as any)
         : Object.keys(formattedValue).reduce((acc, key) => {
@@ -90,7 +89,7 @@ const parseTokensEmotion = async () => {
     radii,
     fontWeight,
     fontFamily,
-    textDecoration,
+    // textDecoration,
   } = rawTokens
   const tokens = {
     primitiveColor: formatValue(colors.primitive),
@@ -105,7 +104,7 @@ const parseTokensEmotion = async () => {
     fontWeight: formatValue(fontWeight),
     fontFamily: formatValue(fontFamily),
     typography: flattenTypography(typography),
-    textDecoration: formatValue(textDecoration),
+    // textDecoration: formatValue(textDecoration),
   }
 
   const formattedContent = await formatTokensFile(tokens)
