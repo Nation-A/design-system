@@ -1,13 +1,11 @@
 name: Release NPM Packages
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-
-concurrency: ${{ github.workflow }}-${{ github.ref }}
-
+  workflow_run:
+    workflows: ["Version Update With Changesets"]
+    types:
+      - completed
+      
 jobs:
   release:
     runs-on: ubuntu-latest
