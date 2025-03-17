@@ -45,7 +45,7 @@ jobs:
         run: |
             PACKAGES=$(echo '${{ steps.changesets.outputs.publishedPackages }}' | jq -r 'map("\(.name)@\(.version)") | join(", ")')
             curl -X POST -H 'Content-type: application/json' --data "{
-            \"text\": \"⚡️ NDS: Version Bumped! \n📦 Updated Packages: ${PACKAGES}\",
+            \"text\": \"✅ NDS: Version Bumped! \n📦 Updated Packages: ${PACKAGES}\",
             \"username\": \"NDS Npm Release Alert Bot\",
             \"icon_emoji\": \":rocket:\"
             }" $SLACK_WEBHOOK_URL
