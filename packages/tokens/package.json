@@ -6,9 +6,9 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "gen:types": "tsx src/scripts/generate-token-types.ts",
-    "gen:tokens": "tsx src/scripts/parse-tokens.ts",
+    "gen:tokens-panda": "tsx src/scripts/parse-tokens-panda.ts",
     "gen:tokens-emotion": "tsx src/scripts/parse-tokens-emotion.ts",
-    "prebuild": "npm run gen:types && npm run gen:tokens",
+    "prebuild": "npm run gen:types && npm run gen:tokens-panda && npm run gen:tokens-emotion",
     "build": "tsup",
     "dev": "tsup --watch",
     "clean": "rm -rf dist"
