@@ -352,3 +352,8 @@ export const typography = {
     lg: `font-family: ${fontFamily.inter}; font-weight: ${fontWeight.bold}; font-size: ${fontSize['4xl']}; line-height: ${lineHeight['5xl']}; letter-spacing: ${letterSpacing.xs};`,
   },
 }
+export const textDecoration = {
+  underline: 'underline',
+  none: 'none',
+  lineThrough: 'line-through',
+}
