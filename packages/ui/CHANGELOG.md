@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.1.1
+
+### Patch Changes
+
+- fb0c76a: Updated UI dependency
+
 ## 0.1.0
 
 ### Minor Changes
