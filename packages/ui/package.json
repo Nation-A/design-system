@@ -15,6 +15,9 @@
     "lint": "eslint src --ext ts,tsx",
     "typecheck": "tsc --noEmit"
   },
+  "publishConfig": {
+    "access": "public"
+    },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",

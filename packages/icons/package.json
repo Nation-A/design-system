@@ -1,6 +1,6 @@
 {
   "name": "@nation-a/icons",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
   "types": "./dist/types/index.d.ts",
@@ -13,6 +13,9 @@
     "gen:index": "tsx src/scripts/create-index.ts",
     "prebuild": "pnpm clean && pnpm gen:icons && pnpm gen:index",
     "build": "tsc && vite build --mode production"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "react": "^18.2.0",
