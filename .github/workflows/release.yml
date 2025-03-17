@@ -58,4 +58,12 @@ jobs:
         with:
           commit_message: '[Automation] released to npm with new version'
 
-  
+      - name: Send Slack NPM Release Notification
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "🚀 NDS: New NPM Version has Released!",
+            "username": "NDS Npm Release Alert Bot",
+            "icon_emoji": ":rocket:"
+          }' $SLACK_WEBHOOK_URL
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
