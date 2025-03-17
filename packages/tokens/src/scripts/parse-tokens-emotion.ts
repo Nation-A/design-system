@@ -89,7 +89,7 @@ const parseTokensEmotion = async () => {
     radii,
     fontWeight,
     fontFamily,
-    // textDecoration,
+    textDecoration,
   } = rawTokens
   const tokens = {
     primitiveColor: formatValue(colors.primitive),
@@ -104,7 +104,7 @@ const parseTokensEmotion = async () => {
     fontWeight: formatValue(fontWeight),
     fontFamily: formatValue(fontFamily),
     typography: flattenTypography(typography),
-    // textDecoration: formatValue(textDecoration),
+    textDecoration: formatValue(textDecoration),
   }
 
   const formattedContent = await formatTokensFile(tokens)
