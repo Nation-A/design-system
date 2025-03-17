@@ -13,6 +13,7 @@
     "clean": "turbo run clean",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "build:icons": "pnpm --filter @nation-a/icons build",
+    "build:tokens": "pnpm --filter @nation-a/tokens build",
     "dev:test": "pnpm --filter @nation-a/test-app dev",
     "release": "changeset publish"
   },

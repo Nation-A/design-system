@@ -47,7 +47,7 @@ const parseTokens = async () => {
 
   const formattedContent = await formatTokensFile(tokens)
 
-  const typesPath = join(__dirname, '../tokens/tokens.ts')
+  const typesPath = join(__dirname, '../tokens/tokens-panda.ts')
   await writeFile(typesPath, formattedContent, 'utf-8')
 }
 
