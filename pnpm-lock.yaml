@@ -23,6 +23,9 @@ importers:
       '@nation-a/icons':
         specifier: workspace:*
         version: link:../../packages/icons
+      '@nation-a/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       react:
         specifier: ^18.3
         version: 18.3.1

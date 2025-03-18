@@ -1,8 +1,8 @@
 {
   "name": "@nation-a/icons",
   "version": "0.0.6",
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.es.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/types/index.d.ts",
   "files": [
     "dist"
@@ -37,6 +37,13 @@
     },
     "react-dom": {
       "optional": true
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
     }
   }
 }

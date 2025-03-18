@@ -13,17 +13,29 @@ export default defineConfig({
       tsconfigPath: './tsconfig.app.json',
       insertTypesEntry: true,
       outDir: 'dist/types',
+      rollupTypes: true,
     }),
   ],
   build: {
+    emptyOutDir: true,
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'NationaUI',
+      name: '@nation-a/ui',
       formats: ['es', 'cjs'],
-      fileName: (format) => `index.${format}.js`,
+      fileName: (format) => (format === 'es' ? `esm/index.mjs` : `cjs/index.cjs`),
     },
     rollupOptions: {
       external: ['react', /^react\/.*/, 'react-dom', /react-dom\/.*/], // React는 외부 의존성으로 처리
+      output: {
+        dir: 'dist',
+        exports: 'auto',
+        paths: {
+          '@nation-a/ui': './src/index.ts',
+        },
+      },
     },
+    outDir: 'dist',
+    sourcemap: true,
+    minify: true,
   },
 })

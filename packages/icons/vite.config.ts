@@ -8,6 +8,7 @@ export default defineConfig({
     dts({
       entryRoot: 'src/components',
       tsconfigPath: './tsconfig.json',
+      insertTypesEntry: true,
       outDir: 'dist/types',
     }),
   ],
@@ -15,7 +16,7 @@ export default defineConfig({
     lib: {
       entry: 'src/index.ts',
       name: '@nation-a/icons',
-      fileName: (format) => `index.${format}.js`,
+      fileName: (format) => `index.${format === 'es' ? 'mjs' : format}`,
       formats: ['es', 'cjs'],
     },
     rollupOptions: {

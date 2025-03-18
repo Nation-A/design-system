@@ -11,7 +11,8 @@
   "dependencies": {
     "react": "^18.3",
     "react-dom": "^18.3",
-    "@nation-a/icons": "workspace:*"
+    "@nation-a/icons": "workspace:*",
+    "@nation-a/ui": "workspace:*"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
