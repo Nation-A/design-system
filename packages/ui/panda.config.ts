@@ -1,5 +1,5 @@
 import { defineConfig } from '@pandacss/dev'
-import { theme } from './src/theme'
+import { pandaTokens } from '@nation-a/tokens'
 
 export default defineConfig({
   // Whether to use css reset
@@ -19,9 +19,9 @@ export default defineConfig({
   presets: [],
   theme: {
     extend: {
-      tokens: theme.primitive,
-      semanticTokens: theme.semantic,
-      textStyles: theme.textStyles,
+      tokens: pandaTokens.primitive,
+      semanticTokens: pandaTokens.semantic,
+      textStyles: pandaTokens.textStyles,
     },
   },
 
