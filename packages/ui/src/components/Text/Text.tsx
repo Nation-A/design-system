@@ -8,7 +8,7 @@ interface TextProps extends Omit<ChakraTextProps, 'textStyle' | 'children'> {
   style?: React.CSSProperties
 }
 
-export default function Text({ variant = 'body.md', as, children, style, ...props }: TextProps) {
+export function Text({ variant = 'body.md', as, children, style, ...props }: TextProps) {
   const getElementType = (): React.ElementType => {
     const category = variant?.split('.')[0]
 

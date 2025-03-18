@@ -19,7 +19,7 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: resolve(__dirname, 'src/components/index.ts'),
       name: '@nation-a/ui',
       formats: ['es', 'cjs'],
       fileName: (format) => (format === 'es' ? `esm/index.mjs` : `cjs/index.cjs`),
