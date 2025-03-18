@@ -1,4 +1,5 @@
 export * from './ThemeProvider/ThemeProvider'
+export * from './Text/Text'
 export {
   // Layout
   AspectRatio,
@@ -26,7 +27,6 @@ export {
   Link,
   List,
   Mark,
-  Text,
 
   // Components
   Accordion,
