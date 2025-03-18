@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.2.0
+
+### Minor Changes
+
+- 6208fe3: Export Custom Text
+
 ## 0.1.3
 
 ### Patch Changes
