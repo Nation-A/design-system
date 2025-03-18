@@ -1,5 +1,12 @@
 # @nation-a/ui
 
+## 0.1.2
+
+### Patch Changes
+
+- Updated dependencies [59177d0]
+  - @nation-a/tokens@0.1.1
+
 ## 0.1.1
 
 ### Patch Changes
