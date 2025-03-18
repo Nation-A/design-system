@@ -1,14 +1,18 @@
 import React from 'react'
-import { Text as ChakraText, TextProps as ChakraTextProps } from '@chakra-ui/react'
+import { css } from '../../styles/pandacss/css'
+import { UtilityValues } from '../../styles/pandacss/types/prop-type'
 
-interface TextProps extends Omit<ChakraTextProps, 'textStyle' | 'children'> {
-  variant?: string
+type Variant = UtilityValues['textStyle']
+
+interface TextProps {
+  variant?: Variant
   as?: React.ElementType
   children?: React.ReactNode
   style?: React.CSSProperties
+  className?: string
 }
 
-export function Text({ variant = 'body.md', as, children, style, ...props }: TextProps) {
+export function Text({ variant = 'body.md', as, children, style, className, ...props }: TextProps) {
   const getElementType = (): React.ElementType => {
     const category = variant?.split('.')[0]
 
@@ -27,9 +31,17 @@ export function Text({ variant = 'body.md', as, children, style, ...props }: Tex
     }
   }
 
-  return (
-    <ChakraText as={as || getElementType()} textStyle={variant} style={style} {...props}>
-      {children}
-    </ChakraText>
+  const elementType = as || getElementType()
+  const textStyle = css({ textStyle: variant })
+  const combinedClassName = className ? `${textStyle} ${className}` : textStyle
+
+  return React.createElement(
+    elementType,
+    {
+      style,
+      className: combinedClassName,
+      ...props,
+    },
+    children,
   )
 }
