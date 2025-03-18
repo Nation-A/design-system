@@ -7,7 +7,8 @@
     "moduleResolution": "Bundler",
     "skipLibCheck": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@styled-system/*": ["./styled-system/types/*"]
     }
   }
 }

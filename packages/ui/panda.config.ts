@@ -21,5 +21,5 @@ export default defineConfig({
     },
   },
 
-  outdir: 'src/styles/pandacss',
+  outdir: 'styled-system',
 })

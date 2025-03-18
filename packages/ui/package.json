@@ -13,8 +13,7 @@
     "dev": "vite",
     "clean": "rm -rf dist",
     "lint": "eslint src --ext ts,tsx",
-    "typecheck": "tsc --noEmit",
-    "prepare": "panda codegen"
+    "typecheck": "tsc --noEmit"
   },
   "publishConfig": {
     "access": "public"

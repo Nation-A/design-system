@@ -1,6 +1,6 @@
 import React from 'react'
-import { css } from '../../styles/pandacss/css'
-import { UtilityValues } from '../../styles/pandacss/types/prop-type'
+import { UtilityValues } from '../../../styled-system/types/prop-type'
+import { css } from '../../../styled-system/css'
 
 type Variant = UtilityValues['textStyle']
 
