@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.2.1
+
+### Patch Changes
+
+- e177d2f: Delete Default in Text Componet
+
 ## 0.2.0
 
 ### Minor Changes
