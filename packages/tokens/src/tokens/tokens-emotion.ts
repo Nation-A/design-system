@@ -1,4 +1,4 @@
-export const primitiveColor = {
+const primitiveColor = {
   neutral: {
     '0': '#080A0E',
     '100': '#101216',
@@ -116,7 +116,7 @@ export const primitiveColor = {
     '1000': '#004849',
   },
 }
-export const semanticColor = {
+const semanticColor = {
   content: {
     neutral: {
       bold: `${primitiveColor.neutral['1100']}`,
@@ -253,17 +253,17 @@ export const semanticColor = {
     },
   },
 }
-export const shadow = {
+const shadow = {
   raised: `0px 1px 3px 0px ${semanticColor.shadow.raised}`,
   overlay: `0px 20px 25px -5px ${semanticColor.shadow.overlay}`,
 }
-export const borderWidth = {
+const borderWidth = {
   none: '0px',
   sm: '1px',
   md: '2px',
   lg: '4px',
 }
-export const spacing = {
+const spacing = {
   '0': '0rem',
   '1': '0.25rem',
   '2': '0.5rem',
@@ -280,7 +280,7 @@ export const spacing = {
   '128': '32rem',
   '160': '40rem',
 }
-export const radii = {
+const radii = {
   none: '0px',
   xs: '2px',
   sm: '4px',
@@ -288,7 +288,7 @@ export const radii = {
   lg: '16px',
   full: '9999px',
 }
-export const fontSize = {
+const fontSize = {
   xs: '0.75rem',
   sm: '0.875rem',
   md: '1rem',
@@ -298,7 +298,7 @@ export const fontSize = {
   '3xl': '2.5rem',
   '4xl': '3rem',
 }
-export const letterSpacing = {
+const letterSpacing = {
   xs: '-1.5px',
   sm: '-1.2px',
   md: '-1px',
@@ -307,7 +307,7 @@ export const letterSpacing = {
   '2xl': '-0.4px',
   '3xl': '-0.2px',
 }
-export const lineHeight = {
+const lineHeight = {
   md: '1rem',
   lg: '1.25rem',
   xl: '1.5rem',
@@ -316,7 +316,7 @@ export const lineHeight = {
   '4xl': '2.75rem',
   '5xl': '3rem',
 }
-export const fontWeight = {
+const fontWeight = {
   regular: '400',
   medium: '500',
   semibold: '600',
@@ -324,11 +324,11 @@ export const fontWeight = {
   regularItalic: 'Italic',
   mediumItalic: 'Medium Italic',
 }
-export const fontFamily = {
+const fontFamily = {
   inter: 'Inter',
   notoSans: 'Noto Sans',
 }
-export const typography = {
+const typography = {
   body: {
     md: `font-family: ${fontFamily.notoSans}; font-weight: ${fontWeight.regular}; font-size: ${fontSize.sm}; line-height: ${lineHeight.lg}; letter-spacing: ${letterSpacing['3xl']};`,
     lg: `font-family: ${fontFamily.notoSans}; font-weight: ${fontWeight.regular}; font-size: ${fontSize.md}; line-height: ${lineHeight.xl}; letter-spacing: ${letterSpacing['3xl']};`,
@@ -352,8 +352,23 @@ export const typography = {
     lg: `font-family: ${fontFamily.inter}; font-weight: ${fontWeight.bold}; font-size: ${fontSize['4xl']}; line-height: ${lineHeight['5xl']}; letter-spacing: ${letterSpacing.xs};`,
   },
 }
-export const textDecoration = {
+const textDecoration = {
   underline: 'underline',
   none: 'none',
   lineThrough: 'line-through',
 }
+export const tokens = {
+  primitiveColor,
+  semanticColor,
+  shadow,
+  borderWidth,
+  spacing,
+  radii,
+  fontSize,
+  letterSpacing,
+  lineHeight,
+  fontWeight,
+  fontFamily,
+  typography,
+  textDecoration,
+} as const

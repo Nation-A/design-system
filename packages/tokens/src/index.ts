@@ -1,2 +1,2 @@
-export * as pandaTokens from './tokens/tokens-panda'
-export * as emotionTokens from './tokens/tokens-emotion'
+export { tokens as pandaTokens } from './tokens/tokens-panda'
+export { tokens as emotionTokens } from './tokens/tokens-emotion'

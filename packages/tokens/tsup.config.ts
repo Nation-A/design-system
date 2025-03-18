@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig({
-  name: 'tokens',
+  name: '@nation-a/tokens',
   entry: ['src/index.ts'],
   tsconfig: 'tsconfig.json',
   format: ['cjs', 'esm'],

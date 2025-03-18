@@ -62,9 +62,12 @@ const formatStringToTemplateLiteral = (input: string): string => {
 }
 const formatTokensFile = async (tokens: any) => {
   const tokensString = Object.entries(tokens)
-    .map(([key, value]) => `export const ${key} = ${JSON.stringify(value, null, 2)}`)
+    .map(([key, value]) => `const ${key} = ${JSON.stringify(value, null, 2)}`)
     .join('\n')
-  const renamedTokensString = renameColorCategory(tokensString)
+
+  const tokensObject = `export const tokens = {${Object.keys(tokens).join(',\n')}} as const;`
+
+  const renamedTokensString = renameColorCategory(tokensString + '\n' + tokensObject)
   const prettierConfig = await prettier.resolveConfig(process.cwd())
   const formattedContent = await prettier.format(renamedTokensString, {
     ...prettierConfig,

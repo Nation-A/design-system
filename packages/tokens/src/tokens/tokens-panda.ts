@@ -1,4 +1,4 @@
-export const semantic = {
+const semantic = {
   colors: {
     content: {
       neutral: {
@@ -279,7 +279,7 @@ export const semantic = {
     },
   },
 }
-export const primitive = {
+const primitive = {
   colors: {
     neutral: {
       '0': {
@@ -772,7 +772,7 @@ export const primitive = {
     },
   },
 }
-export const textStyles = {
+const textStyles = {
   body: {
     md: {
       value: {
@@ -892,3 +892,4 @@ export const textStyles = {
     },
   },
 }
+export const tokens = { semantic, primitive, textStyles } as const
