@@ -1,5 +1,11 @@
 # @nation-a/tokens
 
+## 0.1.1
+
+### Patch Changes
+
+- 59177d0: Changed export method
+
 ## 0.1.0
 
 ### Minor Changes
