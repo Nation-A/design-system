@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.1.3
+
+### Patch Changes
+
+- d3de0df: Add Text Component, Export Chakra-UI Component
+
 ## 0.1.2
 
 ### Patch Changes
