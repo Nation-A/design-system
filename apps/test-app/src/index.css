@@ -1,7 +1,2 @@
-body,
-#root {
-  width: 100%;
-  height: var(--vh);
-  margin: 0;
-  padding: 0;
-}
+@layer reset, base, tokens, recipes, utilities;
+@import '@nation-a/ui/styles.css';

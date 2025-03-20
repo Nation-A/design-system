@@ -1,41 +1,51 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
-import { resolve } from 'path'
-import tsconfigPaths from 'vite-tsconfig-paths'
+import viteTsconfigPaths from 'vite-tsconfig-paths'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 export default defineConfig({
+  optimizeDeps: {
+    exclude: ['react', 'react-dom'],
+    include: ['@pandacss/dev', '@ark-ui/react'],
+  },
   plugins: [
     react(),
-    tsconfigPaths(),
+    viteTsconfigPaths(),
     dts({
-      entryRoot: 'src/components',
-      tsconfigPath: './tsconfig.app.json',
+      entryRoot: 'src',
+      tsconfigPath: './tsconfig.json',
       insertTypesEntry: true,
       outDir: 'dist/types',
-      rollupTypes: true,
+      copyDtsFiles: true,
+      include: ['src/**/*', 'styled-system/**/*'],
+      bundledPackages: ['@pandacss/dev', '@ark-ui/react'],
+
+      compilerOptions: {
+        preserveSymlinks: true,
+        skipLibCheck: true,
+      },
+    }),
+    viteStaticCopy({
+      targets: [{ src: 'styled-system', dest: '' }],
     }),
   ],
   build: {
-    emptyOutDir: true,
     lib: {
-      entry: resolve(__dirname, 'src/components/index.ts'),
+      entry: 'src/index.ts',
       name: '@nation-a/ui',
+      fileName: (format) => `index.${format === 'es' ? 'js' : format}`,
       formats: ['es', 'cjs'],
-      fileName: (format) => (format === 'es' ? `esm/index.mjs` : `cjs/index.cjs`),
     },
     rollupOptions: {
-      external: ['react', /^react\/.*/, 'react-dom', /react-dom\/.*/], // React는 외부 의존성으로 처리
+      external: ['react', 'react-dom', /react-dom\/.*/, /^react\/.*/], // React는 외부 의존성으로 처리
       output: {
-        dir: 'dist',
-        exports: 'auto',
-        paths: {
-          '@nation-a/ui': './src/index.ts',
-        },
+        inlineDynamicImports: false,
       },
     },
+
     outDir: 'dist',
     sourcemap: true,
-    minify: true,
+    minify: false,
   },
 })

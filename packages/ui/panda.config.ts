@@ -1,5 +1,5 @@
 import { defineConfig } from '@pandacss/dev'
-import { pandaTokens } from '@nation-a/tokens'
+import { preset } from '@/theme'
 
 export default defineConfig({
   preflight: true,
@@ -12,14 +12,8 @@ export default defineConfig({
 
   exclude: [],
 
-  presets: [],
-  theme: {
-    extend: {
-      tokens: pandaTokens.primitive,
-      semanticTokens: pandaTokens.semantic,
-      textStyles: pandaTokens.textStyles,
-    },
-  },
+  presets: [preset],
 
   outdir: 'styled-system',
+  clean: true,
 })

@@ -2,7 +2,7 @@
 import type { AnySelector, Selectors } from './selectors';
 
 export interface Conditions {
-	/** `&:is(:hover, [data-hover])` */
+	/** `@media (hover: hover) and (pointer: fine) &:is(:hover, [data-hover])` */
 	"_hover": string
 	/** `&:is(:focus, [data-focus])` */
 	"_focus": string
@@ -108,13 +108,13 @@ export interface Conditions {
 	"_groupExpanded": string
 	/** `.group:invalid &` */
 	"_groupInvalid": string
-	/** `&:is(:indeterminate, [data-indeterminate], [aria-checked=mixed], [data-state="indeterminate"])` */
+	/** `&:is(:indeterminate, [data-indeterminate], [aria-checked=mixed], [data-state=indeterminate])` */
 	"_indeterminate": string
 	/** `&:is(:required, [data-required], [aria-required=true])` */
 	"_required": string
 	/** `&:is(:valid, [data-valid])` */
 	"_valid": string
-	/** `&:is(:invalid, [data-invalid])` */
+	/** `&:is([aria-invalid])` */
 	"_invalid": string
 	/** `&:autofill` */
 	"_autofill": string
@@ -132,7 +132,7 @@ export interface Conditions {
 	"_selected": string
 	/** `&:is([aria-grabbed=true], [data-grabbed])` */
 	"_grabbed": string
-	/** `&[data-state=under-value]` */
+	/** `&:is([data-state="under-value"])` */
 	"_underValue": string
 	/** `&[data-state=over-value]` */
 	"_overValue": string
@@ -150,15 +150,15 @@ export interface Conditions {
 	"_fullscreen": string
 	/** `&:is([data-loading], [aria-busy=true])` */
 	"_loading": string
-	/** `&:is([hidden], [data-hidden])` */
+	/** `&:is([hidden])` */
 	"_hidden": string
-	/** `&:is([aria-current=true], [data-current])` */
+	/** `&:is([data-current])` */
 	"_current": string
 	/** `&[aria-current=page]` */
 	"_currentPage": string
 	/** `&[aria-current=step]` */
 	"_currentStep": string
-	/** `&[data-today]` */
+	/** `&:is([data-today])` */
 	"_today": string
 	/** `&[data-unavailable]` */
 	"_unavailable": string
@@ -182,7 +182,7 @@ export interface Conditions {
 	"_portrait": string
 	/** `.dark &` */
 	"_dark": string
-	/** `.light &` */
+	/** `:root &, .light &` */
 	"_light": string
 	/** `@media (prefers-color-scheme: dark)` */
 	"_osDark": string
@@ -212,6 +212,62 @@ export interface Conditions {
 	"_icon": string
 	/** `@starting-style` */
 	"_starting": string
+	/** `&:is([aria-collapsed=true], [data-collapsed], [data-state="collapsed"])` */
+	"_collapsed": string
+	/** `&:is([data-state="off"])` */
+	"_off": string
+	/** `&:is([data-state="on"])` */
+	"_on": string
+	/** `@media screen and (min-width: 40rem)` */
+	"sm": string
+	/** `@media screen and (min-width: 40rem) and (max-width: 47.9975rem)` */
+	"smOnly": string
+	/** `@media screen and (max-width: 39.9975rem)` */
+	"smDown": string
+	/** `@media screen and (min-width: 48rem)` */
+	"md": string
+	/** `@media screen and (min-width: 48rem) and (max-width: 63.9975rem)` */
+	"mdOnly": string
+	/** `@media screen and (max-width: 47.9975rem)` */
+	"mdDown": string
+	/** `@media screen and (min-width: 64rem)` */
+	"lg": string
+	/** `@media screen and (min-width: 64rem) and (max-width: 79.9975rem)` */
+	"lgOnly": string
+	/** `@media screen and (max-width: 63.9975rem)` */
+	"lgDown": string
+	/** `@media screen and (min-width: 80rem)` */
+	"xl": string
+	/** `@media screen and (min-width: 80rem) and (max-width: 95.9975rem)` */
+	"xlOnly": string
+	/** `@media screen and (max-width: 79.9975rem)` */
+	"xlDown": string
+	/** `@media screen and (min-width: 96rem)` */
+	"2xl": string
+	/** `@media screen and (min-width: 96rem)` */
+	"2xlOnly": string
+	/** `@media screen and (max-width: 95.9975rem)` */
+	"2xlDown": string
+	/** `@media screen and (min-width: 40rem) and (max-width: 47.9975rem)` */
+	"smToMd": string
+	/** `@media screen and (min-width: 40rem) and (max-width: 63.9975rem)` */
+	"smToLg": string
+	/** `@media screen and (min-width: 40rem) and (max-width: 79.9975rem)` */
+	"smToXl": string
+	/** `@media screen and (min-width: 40rem) and (max-width: 95.9975rem)` */
+	"smTo2xl": string
+	/** `@media screen and (min-width: 48rem) and (max-width: 63.9975rem)` */
+	"mdToLg": string
+	/** `@media screen and (min-width: 48rem) and (max-width: 79.9975rem)` */
+	"mdToXl": string
+	/** `@media screen and (min-width: 48rem) and (max-width: 95.9975rem)` */
+	"mdTo2xl": string
+	/** `@media screen and (min-width: 64rem) and (max-width: 79.9975rem)` */
+	"lgToXl": string
+	/** `@media screen and (min-width: 64rem) and (max-width: 95.9975rem)` */
+	"lgTo2xl": string
+	/** `@media screen and (min-width: 80rem) and (max-width: 95.9975rem)` */
+	"xlTo2xl": string
 	/** The base (=no conditions) styles to apply  */
 	"base": string
 }

@@ -23,7 +23,7 @@ const context = {
   conditions: {
     shift: sortConditions,
     finalize: finalizeConditions,
-    breakpoints: { keys: ["base"] }
+    breakpoints: { keys: ["base","sm","md","lg","xl","2xl"] }
   },
   utility: {
     
