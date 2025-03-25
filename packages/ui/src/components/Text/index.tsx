@@ -1,48 +1,30 @@
-import { ComponentProps, forwardRef } from 'react'
-import { Text as StyledText } from './text.styled'
+import { forwardRef, HTMLAttributes } from 'react'
 import { styled } from '@styled-system/jsx'
-import { UtilityValues } from '@styled-system/types/prop-type'
+import { textRecipe, TextVariantProps } from './text.recipe'
 
-type TextStyles = UtilityValues['textStyle']
-type TextComponentProps = ComponentProps<typeof StyledText>
+export type TextProps = HTMLAttributes<HTMLParagraphElement> & TextVariantProps
 
-export interface TextProps extends TextComponentProps {}
+const Text = forwardRef<HTMLParagraphElement, TextProps>((props, ref) => {
+  const { variant = 'body.md', children, ...rest } = props
 
-export const Text = forwardRef<HTMLParagraphElement, TextProps>((props, ref) => {
-  const { textStyle = 'body.md', children, ...rest } = props
+  const textType = variant?.split('.')[0] || 'body'
 
-  const textType = (textStyle as TextStyles)?.split('.')[0] || 'body'
-
-  if (textType === 'display') {
-    return (
-      <styled.h1 ref={ref} textStyle={textStyle} {...rest}>
-        {children}
-      </styled.h1>
-    )
-  } else if (textType === 'headline') {
-    return (
-      <styled.h2 ref={ref} textStyle={textStyle} {...rest}>
-        {children}
-      </styled.h2>
-    )
-  } else if (textType === 'title') {
-    return (
-      <styled.h3 ref={ref} textStyle={textStyle} {...rest}>
-        {children}
-      </styled.h3>
-    )
-  } else if (textType === 'label') {
-    return (
-      <styled.span ref={ref} textStyle={textStyle} {...rest}>
-        {children}
-      </styled.span>
-    )
+  const componentMap = {
+    display: styled('h1', textRecipe),
+    headline: styled('h2', textRecipe),
+    title: styled('h3', textRecipe),
+    body: styled('p', textRecipe),
+    label: styled('span', textRecipe),
   }
+  const TextComponent = componentMap[textType as keyof typeof componentMap]
+
   return (
-    <styled.p ref={ref} textStyle={textStyle} {...rest}>
+    <TextComponent ref={ref} textStyle={variant} {...rest}>
       {children}
-    </styled.p>
+    </TextComponent>
   )
 })
 
 Text.displayName = 'Text'
+
+export default Text

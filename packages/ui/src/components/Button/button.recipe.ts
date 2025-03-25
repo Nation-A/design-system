@@ -1,5 +1,7 @@
 import { cva } from '@styled-system/css'
 
+export type ButtonVariantProps = typeof buttonRecipe.__type
+
 export const buttonRecipe = cva({
   base: {
     alignItems: 'center',
@@ -42,8 +44,8 @@ export const buttonRecipe = cva({
     color: {
       neuroid_primary: {},
       neuroid_secondary: {},
-      zoltar_primary: {},
-      zoltar_secondary: {},
+      zoltarina_primary: {},
+      zoltarina_secondary: {},
       heyd_primary: {},
       heyd_secondary: {},
       neutral: {},
@@ -97,13 +99,13 @@ export const buttonRecipe = cva({
     },
     {
       variant: 'solid',
-      color: 'zoltar_primary',
-      css: { background: 'background.zoltarPrimary.default', color: 'content.neutral.default_inverse' },
+      color: 'zoltarina_primary',
+      css: { background: 'background.zoltarinaPrimary.default', color: 'content.neutral.default_inverse' },
     },
     {
       variant: 'solid',
-      color: 'zoltar_secondary',
-      css: { background: 'background.zoltarSecondary.default', color: 'content.zoltarinaPrimary.defult_inverse' },
+      color: 'zoltarina_secondary',
+      css: { background: 'background.zoltarinaSecondary.default', color: 'content.zoltarinaPrimary.defult_inverse' },
     },
     {
       variant: 'solid',

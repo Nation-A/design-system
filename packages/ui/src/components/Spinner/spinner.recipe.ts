@@ -1,12 +1,16 @@
 import { cva } from '@styled-system/css'
 
+export type SpinnerVariantProps = typeof spinnerRecipe.__type
+
 export const spinnerRecipe = cva({
   base: {
     display: 'inline-block',
-    borderWidth: '2px',
-    borderColor: 'colorPalette.default',
+    borderWidth: 'md',
+    // borderColor: 'colorPalette.default',
     borderStyle: 'solid',
     borderRadius: 'full',
+    // borderBottomColor: 'transparent',
+    // borderLeftColor: 'transparent',
     width: 'var(--size)',
     height: 'var(--size)',
     animation: 'spin',

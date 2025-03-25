@@ -1,7 +1,7 @@
 import { dialogAnatomy } from '@ark-ui/react'
 import { sva } from '@styled-system/css'
 
-export type DialogRecipeVariantProps = keyof typeof dialogRecipe.variantMap
+export type DialogVariantProps = keyof typeof dialogRecipe.variantMap
 
 export const dialogRecipe = sva({
   className: 'dialog',
@@ -34,8 +34,8 @@ export const dialogRecipe = sva({
       overflow: 'auto',
       position: 'fixed',
       top: '0',
-      width: '100vw',
-      height: '100dvh',
+      width: 'full',
+      height: 'full',
       zIndex: 'modal',
     },
     content: {

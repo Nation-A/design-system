@@ -1,46 +1,49 @@
-import { forwardRef } from 'react'
+import { ButtonHTMLAttributes, forwardRef } from 'react'
 import { Center, styled } from '@styled-system/jsx'
-import { Spinner } from '../Spinner'
-import { Button as StyledButton, type ButtonProps as StyledButtonProps } from './button.styled'
+import Spinner from '../Spinner'
 
-interface ButtonLoadingProps {
-  loading?: boolean
-  loadingText?: React.ReactNode
-}
+import { buttonRecipe, ButtonVariantProps } from './button.recipe'
+import { ark } from '@ark-ui/react'
 
-export interface ButtonProps extends StyledButtonProps, ButtonLoadingProps {}
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  ButtonVariantProps & {
+    loading?: boolean
+    loadingText?: React.ReactNode
+  }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-  const { loading, disabled, loadingText, children, ...rest } = props
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ loading, disabled, loadingText, children, color, variant, size, radius, ...rest }, ref) => {
+    const trulyDisabled = loading || disabled
 
-  const trulyDisabled = loading || disabled
+    const StyledButton = styled(ark.button, buttonRecipe)
 
-  return (
-    <StyledButton disabled={trulyDisabled} ref={ref} {...rest}>
-      {loading && !loadingText ? (
-        <>
-          <ButtonSpinner />
-          <styled.span opacity={0}>{children}</styled.span>
-        </>
-      ) : loadingText ? (
-        loadingText
-      ) : (
-        children
-      )}
-    </StyledButton>
-  )
-})
+    return (
+      <StyledButton
+        disabled={trulyDisabled}
+        ref={ref}
+        color={color}
+        variant={variant}
+        size={size}
+        radius={radius}
+        {...rest}
+      >
+        {loading && !loadingText ? (
+          <>
+            <Center inline position="absolute" transform="translate(-50%, -50%)" top="50%" insetStart="50%">
+              <Spinner />
+            </Center>
+            <styled.span opacity={0}>{children}</styled.span>
+          </>
+        ) : loadingText ? (
+          loadingText
+        ) : (
+          children
+        )}
+      </StyledButton>
+    )
+  },
+)
 
 Button.displayName = 'Button'
 
-const ButtonSpinner = () => (
-  <Center inline position="absolute" transform="translate(-50%, -50%)" top="50%" insetStart="50%">
-    <Spinner
-      width="1.1em"
-      height="1.1em"
-      borderWidth="1.5px"
-      borderTopColor="fg.disabled"
-      borderRightColor="fg.disabled"
-    />
-  </Center>
-)
+export default Button

@@ -14,7 +14,7 @@
     "clean": "rm -rf dist",
     "lint": "eslint src --ext ts,tsx",
     "typecheck": "tsc --noEmit",
-    "panda": "panda codegen && panda"
+    "panda": "panda codegen  && panda"
   },
   "publishConfig": {
     "access": "public"
@@ -41,8 +41,7 @@
   },
   "peerDependencies": {
     "react": "^18",
-    "react-dom": "^18",
-    "@pandacss/dev": "^0.53.1"
+    "react-dom": "^18"
   },
   "peerDependenciesMeta": {
     "@pandacss/dev": {

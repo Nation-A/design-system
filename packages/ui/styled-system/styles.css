@@ -722,6 +722,55 @@
       font-size: var(--font-sizes-sm);
       line-height: var(--line-heights-lg);
 }
+
+    .textStyle_display\.lg {
+      letter-spacing: var(--letter-spacings-xs);
+      font-size: var(--font-sizes-4xl);
+      line-height: var(--line-heights-5xl);
+}
+
+    .textStyle_display\.lg,.textStyle_display\.md {
+      font-family: var(--fonts-inter);
+      font-weight: var(--font-weights-bold);
+}
+
+    .textStyle_display\.md {
+      letter-spacing: var(--letter-spacings-sm);
+      font-size: var(--font-sizes-3xl);
+      line-height: var(--line-heights-4xl);
+}
+
+    .textStyle_headline\.md {
+      letter-spacing: var(--letter-spacings-md);
+      font-family: var(--fonts-inter);
+      font-weight: var(--font-weights-bold);
+      font-size: var(--font-sizes-2xl);
+      line-height: var(--line-heights-3xl);
+}
+
+    .textStyle_headline\.sm {
+      letter-spacing: var(--letter-spacings-lg);
+      font-family: var(--fonts-inter);
+      font-weight: var(--font-weights-semibold);
+      font-size: var(--font-sizes-xl);
+      line-height: var(--line-heights-2xl);
+}
+
+    .textStyle_title\.md {
+      letter-spacing: var(--letter-spacings-xl);
+      font-family: var(--fonts-noto-sans);
+      font-weight: var(--font-weights-medium);
+      font-size: var(--font-sizes-md);
+      line-height: var(--line-heights-xl);
+}
+
+    .textStyle_body\.sm {
+      letter-spacing: var(--letter-spacings-3xl);
+      font-size: var(--font-sizes-xs);
+      font-weight: var(--font-weights-regular);
+      font-family: var(--fonts-noto-sans);
+      line-height: var(--line-heights-md);
+}
 }
 
   .ap_none {
@@ -830,16 +879,16 @@
     color: var(--colors-content-neuroid-primary-default_inverse);
 }
 
-  .bg_background\.zoltarPrimary\.default {
-    background: background.zoltarPrimary.default;
+  .bg_background\.zoltarinaPrimary\.default {
+    background: var(--colors-background-zoltarina-primary-default);
 }
 
   .c_content\.neutral\.default_inverse {
     color: var(--colors-content-neutral-default_inverse);
 }
 
-  .bg_background\.zoltarSecondary\.default {
-    background: background.zoltarSecondary.default;
+  .bg_background\.zoltarinaSecondary\.default {
+    background: var(--colors-background-zoltarina-secondary-default);
 }
 
   .c_content\.zoltarinaPrimary\.defult_inverse {
@@ -878,10 +927,6 @@
     background: var(--colors-background-informative-default);
 }
 
-  .op_0 {
-    opacity: 0;
-}
-
   .pos_absolute {
     position: absolute;
 }
@@ -894,12 +939,8 @@
     inset-inline-start: 50%;
 }
 
-  .w_1\.1em {
-    width: 1.1em;
-}
-
-  .h_1\.1em {
-    height: 1.1em;
+  .op_0 {
+    opacity: 0;
 }
 
   .bkdp_blur\(4px\) {
@@ -931,8 +972,12 @@
     overflow: auto;
 }
 
-  .h_100dvh {
-    height: 100dvh;
+  .w_full {
+    width: var(--sizes-full);
+}
+
+  .h_full {
+    height: var(--sizes-full);
 }
 
   .z_modal {
@@ -1042,24 +1087,16 @@
     top: 50%;
 }
 
-  .bd-w_1\.5px {
-    border-width: 1.5px;
-}
-
-  .bd-t-c_fg\.disabled {
-    border-top-color: fg.disabled;
-}
-
-  .bd-r-c_fg\.disabled {
-    border-right-color: fg.disabled;
-}
-
   .left_0 {
     left: var(--spacing-0);
 }
 
   .top_0 {
     top: var(--spacing-0);
+}
+
+  .bd-c_inherit {
+    border-color: inherit;
 }
 
   .bd-b-c_transparent {
@@ -1070,12 +1107,8 @@
     border-left-color: transparent;
 }
 
-  .bd-w_2px {
-    border-width: 2px;
-}
-
-  .bd-c_colorPalette\.default {
-    border-color: var(--colors-color-palette-default);
+  .bd-w_md {
+    border-width: var(--border-widths-md);
 }
 
   .border-style_solid {
