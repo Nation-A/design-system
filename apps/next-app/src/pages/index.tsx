@@ -2,8 +2,8 @@ import { Button, Dialog, Portal, Text } from '@nation-a/ui'
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-4 w-96">
-      <Button variant="solid" color="neuroid_primary" size="lg">
+    <div className="flex flex-col gap-4">
+      <Button variant="solid" color="zoltarina_primary" size="lg">
         Click me
       </Button>
       <Button variant="solid" color="zoltarina_primary" size="lg" disabled loading>

@@ -10,8 +10,10 @@ const primitiveColor = {
     '700': '#787A7E',
     '800': '#A0A2A6',
     '900': '#B4B6BA',
-    '1000': '#DADCE0',
+    '1000': '#F2F4F8',
+    '1050': '#EDEEF1',
     '1100': '#FAFCFF',
+    '1200': '#F8F9FF',
   },
   black: {
     '700A': 'rgba(0,0,0,0.8)',
@@ -43,7 +45,7 @@ const primitiveColor = {
     '900': '#5d1f1a',
     '1000': '#42221f',
   },
-  yellow: {
+  orange: {
     '100': '#fff5eb',
     '200': '#ffe9d2',
     '300': '#fdc991',
@@ -115,141 +117,184 @@ const primitiveColor = {
     '900': '#056a6b',
     '1000': '#004849',
   },
+  yellow: {
+    '100': '#FFFBED',
+    '200': '#FFF3C5',
+    '300': '#FFEB9D',
+    '400': '#FFE375',
+    '500': '#FFDB4D',
+    '600': '#DDBC38',
+    '700': '#BB9D27',
+    '800': '#997F19',
+    '900': '#77620E',
+    '1000': '#554506',
+  },
 }
 const semanticColor = {
   content: {
     neutral: {
-      bold: `${primitiveColor.neutral['1100']}`,
-      default: `${primitiveColor.neutral['1000']}`,
-      subtle: `${primitiveColor.neutral['900']}`,
-      subtlest: `${primitiveColor.neutral['700']}`,
-      disabled: `${primitiveColor.neutral['600']}`,
-      default_inverse: `${primitiveColor.neutral['0']}`,
+      bold: `${primitiveColor.neutral['0']}`,
+      default: `${primitiveColor.neutral['300']}`,
+      subtle: `${primitiveColor.neutral['600']}`,
+      subtlest: `${primitiveColor.neutral['900']}`,
+      disabled: `${primitiveColor.neutral['800']}`,
+      default_inverse: `${primitiveColor.neutral['1100']}`,
     },
     neuroidPrimary: {
-      default: `${primitiveColor.purple['400']}`,
+      default: `${primitiveColor.purple['500']}`,
       default_inverse: `${primitiveColor.purple['800']}`,
     },
     danger: {
-      default: `${primitiveColor.red['400']}`,
+      default: `${primitiveColor.red['600']}`,
     },
     warning: {
-      default: `${primitiveColor.yellow['400']}`,
+      default: `${primitiveColor.orange['600']}`,
     },
     success: {
-      default: `${primitiveColor.green['400']}`,
+      default: `${primitiveColor.green['600']}`,
     },
     informative: {
-      default: `${primitiveColor.blue['400']}`,
+      default: `${primitiveColor.blue['600']}`,
     },
     zoltarinaPrimary: {
-      default: `${primitiveColor.ohre['400']}`,
-      defult_inverse: `${primitiveColor.ohre['900']}`,
+      default: `${primitiveColor.ohre['800']}`,
+      defult_inverse: `${primitiveColor.ohre['1000']}`,
     },
     heydPrimary: {
-      default: `${primitiveColor.cyan['400']}`,
+      default: `${primitiveColor.cyan['800']}`,
       defult_inverse: `${primitiveColor.cyan['1000']}`,
+    },
+    static: {
+      white: {
+        bold: `${primitiveColor.neutral['1200']}`,
+        default: `${primitiveColor.neutral['1050']}`,
+        subtle: `${primitiveColor.neutral['1000']}`,
+        subtlest: `${primitiveColor.neutral['900']}`,
+        disabled: `${primitiveColor.neutral['800']}`,
+      },
+      black: {
+        bold: `${primitiveColor.neutral['0']}`,
+        default: `${primitiveColor.neutral['200']}`,
+        subtle: `${primitiveColor.neutral['400']}`,
+        subtlest: `${primitiveColor.neutral['600']}`,
+        disabled: `${primitiveColor.neutral['800']}`,
+      },
+    },
+    heybeePrimary: {
+      default: `${primitiveColor.yellow['800']}`,
+      default_inverse: `${primitiveColor.yellow['1000']}`,
     },
   },
   background: {
     neutral: {
-      default: `${primitiveColor.neutral['200']}`,
-      selected: `${primitiveColor.neutral['300']}`,
-      disabled: `${primitiveColor.neutral['400']}`,
+      default: `${primitiveColor.neutral['1050']}`,
+      selected: `${primitiveColor.neutral['1000']}`,
+      disabled: `${primitiveColor.neutral['1000']}`,
     },
     neuroidPrimary: {
-      default: `${primitiveColor.purple['600']}`,
-      selected: `${primitiveColor.purple['700']}`,
-      disabled: `${primitiveColor.neutral['400']}`,
-    },
-    neuroidSecondary: {
       default: `${primitiveColor.purple['300']}`,
       selected: `${primitiveColor.purple['400']}`,
-      disabled: `${primitiveColor.neutral['400']}`,
+    },
+    neuroidSecondary: {
+      default: `${primitiveColor.purple['200']}`,
+      selected: `${primitiveColor.purple['300']}`,
     },
     danger: {
-      default: `${primitiveColor.red['700']}`,
-      selected: `${primitiveColor.red['800']}`,
-      disabled: `${primitiveColor.neutral['400']}`,
+      default: `${primitiveColor.red['300']}`,
+      selected: `${primitiveColor.red['400']}`,
     },
     warning: {
-      default: `${primitiveColor.yellow['700']}`,
-      selected: `${primitiveColor.yellow['800']}`,
-      disabled: `${primitiveColor.neutral['400']}`,
+      default: `${primitiveColor.orange['300']}`,
+      selected: `${primitiveColor.orange['400']}`,
     },
     success: {
-      default: `${primitiveColor.green['700']}`,
-      selected: `${primitiveColor.green['800']}`,
-      disabled: `${primitiveColor.neutral['400']}`,
+      default: `${primitiveColor.green['300']}`,
+      selected: `${primitiveColor.green['400']}`,
     },
     informative: {
-      default: `${primitiveColor.blue['700']}`,
-      selected: `${primitiveColor.blue['800']}`,
-      disabled: `${primitiveColor.neutral['400']}`,
+      default: `${primitiveColor.blue['300']}`,
+      selected: `${primitiveColor.blue['400']}`,
     },
     zoltarinaPrimary: {
       default: `${primitiveColor.ohre['400']}`,
       selected: `${primitiveColor.ohre['500']}`,
-      disabled: `${primitiveColor.neutral['400']}`,
     },
     zoltarinaSecondary: {
       default: `${primitiveColor.ohre['200']}`,
       selected: `${primitiveColor.ohre['300']}`,
-      disabled: `${primitiveColor.neutral['400']}`,
     },
     heydPrimary: {
       default: `${primitiveColor.cyan['500']}`,
       selected: `${primitiveColor.cyan['600']}`,
-      disabled: `${primitiveColor.neutral['400']}`,
     },
     heydSecondary: {
       default: `${primitiveColor.cyan['200']}`,
       selected: `${primitiveColor.cyan['300']}`,
-      disabled: `${primitiveColor.neutral['400']}`,
+    },
+    static: {
+      whiteAlpha: {
+        bold: `${primitiveColor.white['700A']}`,
+        default: `${primitiveColor.white['500A']}`,
+        selected: `${primitiveColor.white['600A']}`,
+        disabled: `${primitiveColor.white['500A']}`,
+      },
+      blackAlpha: {
+        bold: `${primitiveColor.black['700A']}`,
+        default: `${primitiveColor.black['500A']}`,
+        selected: `${primitiveColor.black['600A']}`,
+        disabled: `${primitiveColor.black['500A']}`,
+      },
+    },
+    heybeePrimary: {
+      default: `${primitiveColor.yellow['500']}`,
+      selected: `${primitiveColor.yellow['600']}`,
     },
   },
   surface: {
-    base: `${primitiveColor.neutral['0']}`,
-    layer_1: `${primitiveColor.neutral['100']}`,
-    layer_2: `${primitiveColor.neutral['200']}`,
+    base: `${primitiveColor.neutral['1100']}`,
+    layer_1: `${primitiveColor.neutral['1100']}`,
+    layer_2: `${primitiveColor.neutral['1050']}`,
   },
   shadow: {
-    overlay: `${primitiveColor.black['400A']}`,
-    raised: `${primitiveColor.black['600A']}`,
+    overlay: `${primitiveColor.black['100A']}`,
+    raised: `${primitiveColor.black['400A']}`,
   },
   scrim: {
     default: `${primitiveColor.black['600A']}`,
   },
   skeleton: {
-    default: `${primitiveColor.neutral['100']}`,
-    subtle: `${primitiveColor.neutral['200']}`,
+    default: `${primitiveColor.neutral['800']}`,
+    subtle: `${primitiveColor.neutral['700']}`,
   },
   border: {
     neutral: {
-      default: `${primitiveColor.neutral['400']}`,
-      subtle: `${primitiveColor.neutral['300']}`,
-      disabled: `${primitiveColor.neutral['200']}`,
+      default: `${primitiveColor.neutral['700']}`,
+      subtle: `${primitiveColor.neutral['900']}`,
+      disabled: `${primitiveColor.neutral['1000']}`,
     },
     neuroidPrimary: {
-      default: `${primitiveColor.purple['400']}`,
+      default: `${primitiveColor.purple['500']}`,
     },
     danger: {
-      default: `${primitiveColor.red['400']}`,
+      default: `${primitiveColor.red['500']}`,
     },
     warning: {
-      default: `${primitiveColor.yellow['400']}`,
+      default: `${primitiveColor.orange['500']}`,
     },
     success: {
-      default: `${primitiveColor.green['400']}`,
+      default: `${primitiveColor.green['500']}`,
     },
     informative: {
-      default: `${primitiveColor.blue['400']}`,
+      default: `${primitiveColor.blue['500']}`,
     },
     zoltarinaPrimary: {
-      default: `${primitiveColor.ohre['400']}`,
+      default: `${primitiveColor.ohre['800']}`,
     },
     heydPrimary: {
-      default: `${primitiveColor.cyan['400']}`,
+      default: `${primitiveColor.cyan['800']}`,
+    },
+    heybeePrimary: {
+      default: `${primitiveColor.yellow['800']}`,
     },
   },
 }

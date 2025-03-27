@@ -14,7 +14,7 @@
     "clean": "rm -rf dist",
     "lint": "eslint src --ext ts,tsx",
     "typecheck": "tsc --noEmit",
-    "panda": "panda codegen  && panda"
+    "panda": "panda codegen && panda"
   },
   "publishConfig": {
     "access": "public"
@@ -53,6 +53,31 @@
       "types": "./dist/types/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.js"
+    },
+    "./css": {
+      "types": "./dist/styled-system/css/index.d.ts",
+      "require": "./dist/styled-system/css/index.mjs",
+      "import": "./dist/styled-system/css/index.mjs"
+    },
+    "./tokens": {
+      "types": "./dist/styled-system/tokens/index.d.ts",
+      "require": "./dist/styled-system/tokens/index.mjs",
+      "import": "./dist/styled-system/tokens/index.mjs"
+    },
+    "./types": {
+      "types": "./dist/styled-system/types/index.d.ts",
+      "require": "./dist/styled-system/types/index.mjs",
+      "import": "./dist/styled-system/types/index.mjs"
+    },
+    "./patterns": {
+      "types": "./dist/styled-system/patterns/index.d.ts",
+      "require": "./dist/styled-system/patterns/index.mjs",
+      "import": "./dist/styled-system/patterns/index.mjs"
+    },
+    "./jsx": {
+      "types": "./dist/styled-system/jsx/index.d.ts",
+      "require": "./dist/styled-system/jsx/index.mjs",
+      "import": "./dist/styled-system/jsx/index.mjs"
     },
     "./styles.css": "./dist/styled-system/styles.css"
   }

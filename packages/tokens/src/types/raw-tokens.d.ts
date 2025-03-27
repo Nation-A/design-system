@@ -178,6 +178,7 @@ interface Border {
   informative: Danger;
   zoltarinaPrimary: Danger;
   heydPrimary: Danger;
+  heybeePrimary: Danger;
 }
 
 interface Neutral4 {
@@ -204,16 +205,35 @@ interface Surface {
 
 interface Background {
   neutral: Neutral3;
-  neuroidPrimary: Neutral3;
-  neuroidSecondary: Neutral3;
-  danger: Neutral3;
-  warning: Neutral3;
-  success: Neutral3;
-  informative: Neutral3;
-  zoltarinaPrimary: Neutral3;
-  zoltarinaSecondary: Neutral3;
-  heydPrimary: Neutral3;
-  heydSecondary: Neutral3;
+  neuroidPrimary: NeuroidPrimary2;
+  neuroidSecondary: NeuroidPrimary2;
+  danger: NeuroidPrimary2;
+  warning: NeuroidPrimary2;
+  success: NeuroidPrimary2;
+  informative: NeuroidPrimary2;
+  zoltarinaPrimary: NeuroidPrimary2;
+  zoltarinaSecondary: NeuroidPrimary2;
+  heydPrimary: NeuroidPrimary2;
+  heydSecondary: NeuroidPrimary2;
+  static: Static2;
+  heybeePrimary: NeuroidPrimary2;
+}
+
+interface Static2 {
+  whiteAlpha: WhiteAlpha;
+  blackAlpha: WhiteAlpha;
+}
+
+interface WhiteAlpha {
+  bold: _0;
+  default: _0;
+  selected: _0;
+  disabled: _0;
+}
+
+interface NeuroidPrimary2 {
+  default: _0;
+  selected: _0;
 }
 
 interface Neutral3 {
@@ -231,6 +251,21 @@ interface Content {
   informative: Danger;
   zoltarinaPrimary: ZoltarinaPrimary;
   heydPrimary: ZoltarinaPrimary;
+  static: Static;
+  heybeePrimary: NeuroidPrimary;
+}
+
+interface Static {
+  white: White;
+  black: White;
+}
+
+interface White {
+  bold: _0;
+  default: _0;
+  subtle: _0;
+  subtlest: _0;
+  disabled: _0;
 }
 
 interface ZoltarinaPrimary {
@@ -261,12 +296,13 @@ interface Primitive {
   black: Black;
   white: Black;
   red: Red;
-  yellow: Red;
+  orange: Red;
   blue: Red;
   green: Red;
   purple: Red;
   ohre: Red;
   cyan: Red;
+  yellow: Red;
 }
 
 interface Red {
@@ -304,7 +340,9 @@ interface Neutral {
   '800': _0;
   '900': _0;
   '1000': _0;
+  '1050': _0;
   '1100': _0;
+  '1200': _0;
 }
 
 interface _0 {
