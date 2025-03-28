@@ -13,32 +13,29 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ loading, disabled, loadingText, children, color, variant, size, radius, ...rest }, ref) => {
-    const trulyDisabled = loading || disabled
-
     const StyledButton = styled(ark.button, buttonRecipe)
 
     return (
       <StyledButton
-        disabled={trulyDisabled}
+        disabled={disabled}
         ref={ref}
         color={color}
         variant={variant}
         size={size}
         radius={radius}
+        pointerEvents={loading ? 'none' : 'auto'}
         {...rest}
       >
-        {loading && !loadingText ? (
-          <>
-            <Center inline position="absolute" transform="translate(-50%, -50%)" top="50%" insetStart="50%">
-              <Spinner />
-            </Center>
-            <styled.span opacity={0}>{children}</styled.span>
-          </>
-        ) : loadingText ? (
-          loadingText
-        ) : (
-          children
-        )}
+        {loading
+          ? loadingText || (
+              <>
+                <Center inline position="absolute" transform="translate(-50%, -50%)" top="50%" insetStart="50%">
+                  <Spinner size={size === 'xs' || size === 'sm' ? 'sm' : 'md'} />
+                </Center>
+                <styled.span opacity={0}>{children}</styled.span>
+              </>
+            )
+          : children}
       </StyledButton>
     )
   },

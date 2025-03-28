@@ -923,6 +923,10 @@
     white-space: nowrap;
 }
 
+  .bg_transparent {
+    background: transparent;
+}
+
   .h_7 {
     height: var(--sizes-7);
 }
@@ -971,6 +975,10 @@
     border-radius: var(--radii-md);
 }
 
+  .w_full {
+    width: var(--sizes-full);
+}
+
   .bg_background\.neuroidPrimary\.default {
     background: var(--colors-background-neuroid-primary-default);
 }
@@ -983,24 +991,16 @@
     background: var(--colors-background-neuroid-secondary-default);
 }
 
-  .c_content\.neuroidPrimary\.default_inverse {
-    color: var(--colors-content-neuroid-primary-default_inverse);
+  .c_content\.static\.black\.bold {
+    color: var(--colors-content-static-black-bold);
 }
 
   .bg_background\.zoltarinaPrimary\.default {
     background: var(--colors-background-zoltarina-primary-default);
 }
 
-  .c_content\.neutral\.default_inverse {
-    color: var(--colors-content-neutral-default_inverse);
-}
-
   .bg_background\.zoltarinaSecondary\.default {
     background: var(--colors-background-zoltarina-secondary-default);
-}
-
-  .c_content\.zoltarinaPrimary\.defult_inverse {
-    color: var(--colors-content-zoltarina-primary-defult_inverse);
 }
 
   .bg_background\.heydPrimary\.default {
@@ -1011,8 +1011,8 @@
     background: var(--colors-background-heyd-secondary-default);
 }
 
-  .c_content\.heydPrimary\.defult_inverse {
-    color: var(--colors-content-heyd-primary-defult_inverse);
+  .bg_background\.heybeePrimary\.default {
+    background: var(--colors-background-heybee-primary-default);
 }
 
   .bg_background\.neutral\.default {
@@ -1033,6 +1033,50 @@
 
   .bg_background\.informative\.default {
     background: var(--colors-background-informative-default);
+}
+
+  .c_content\.neuroidPrimary\.default {
+    color: var(--colors-content-neuroid-primary-default);
+}
+
+  .c_content\.zoltarinaPrimary\.default {
+    color: var(--colors-content-zoltarina-primary-default);
+}
+
+  .c_content\.heydPrimary\.default {
+    color: var(--colors-content-heyd-primary-default);
+}
+
+  .c_content\.heybeePrimary\.default {
+    color: var(--colors-content-heybee-primary-default);
+}
+
+  .c_content\.neutral\.default {
+    color: var(--colors-content-neutral-default);
+}
+
+  .c_content\.danger\.default {
+    color: var(--colors-content-danger-default);
+}
+
+  .c_content\.warning\.default {
+    color: var(--colors-content-warning-default);
+}
+
+  .c_content\.success\.default {
+    color: var(--colors-content-success-default);
+}
+
+  .c_content\.informative\.default {
+    color: var(--colors-content-informative-default);
+}
+
+  .pointer-events_none {
+    pointer-events: none;
+}
+
+  .pointer-events_auto {
+    pointer-events: auto;
 }
 
   .pos_absolute {
@@ -1080,10 +1124,6 @@
     overflow: auto;
 }
 
-  .w_full {
-    width: var(--sizes-full);
-}
-
   .h_full {
     height: var(--sizes-full);
 }
@@ -1112,6 +1152,30 @@
     padding: var(--spacing-3);
 }
 
+  .c_content\.neutral\.default_inverse {
+    color: var(--colors-content-neutral-default_inverse);
+}
+
+  .w_7 {
+    width: var(--sizes-7);
+}
+
+  .p_4px {
+    padding: 4px;
+}
+
+  .w_8 {
+    width: var(--sizes-8);
+}
+
+  .w_10 {
+    width: var(--sizes-10);
+}
+
+  .p_8px {
+    padding: 8px;
+}
+
   .sr_true {
     position: absolute;
     width: 1px;
@@ -1128,40 +1192,44 @@
     display: inline-block;
 }
 
-  .w_var\(--size\) {
-    width: var(--size);
+  .bdr-se_full {
+    border-start-end-radius: var(--radii-full);
 }
 
-  .h_var\(--size\) {
-    height: var(--size);
+  .bdr-es_full {
+    border-end-start-radius: var(--radii-full);
 }
 
   .anim_spin {
     animation: var(--animations-spin);
 }
 
-  .\--size_sizes\.3 {
-    --size: var(--sizes-3);
+  .w_4 {
+    width: var(--sizes-4);
 }
 
-  .\--size_sizes\.4 {
-    --size: var(--sizes-4);
+  .h_4 {
+    height: var(--sizes-4);
 }
 
-  .\--size_sizes\.6 {
-    --size: var(--sizes-6);
+  .w_6 {
+    width: var(--sizes-6);
 }
 
-  .\--size_sizes\.8 {
-    --size: var(--sizes-8);
+  .h_6 {
+    height: var(--sizes-6);
 }
 
-  .\--size_sizes\.12 {
-    --size: var(--sizes-12);
+  .w_12 {
+    width: var(--sizes-12);
 }
 
-  .c_content\.neutral\.default {
-    color: var(--colors-content-neutral-default);
+  .w_24 {
+    width: var(--sizes-24);
+}
+
+  .h_24 {
+    height: var(--sizes-24);
 }
 
   .ai_center {
@@ -1189,6 +1257,58 @@
   .trs-tmf_default {
     --transition-easing: var(--easings-default);
     transition-timing-function: var(--easings-default);
+}
+
+  .bd-w_1px {
+    border-width: 1px;
+}
+
+  .border-style_solid {
+    border-style: solid;
+}
+
+  .bd-c_border\.neutral\.default {
+    border-color: var(--colors-border-neutral-default);
+}
+
+  .flex-b_auto {
+    flex-basis: auto;
+}
+
+  .flex-g_1 {
+    flex-grow: 1;
+}
+
+  .bd-c_border\.neuroidPrimary\.default {
+    border-color: var(--colors-border-neuroid-primary-default);
+}
+
+  .bd-c_border\.zoltarinaPrimary\.default {
+    border-color: var(--colors-border-zoltarina-primary-default);
+}
+
+  .bd-c_border\.heydPrimary\.default {
+    border-color: var(--colors-border-heyd-primary-default);
+}
+
+  .bd-c_border\.heybeePrimary\.default {
+    border-color: var(--colors-border-heybee-primary-default);
+}
+
+  .bd-c_border\.danger\.default {
+    border-color: var(--colors-border-danger-default);
+}
+
+  .bd-c_border\.warning\.default {
+    border-color: var(--colors-border-warning-default);
+}
+
+  .bd-c_border\.success\.default {
+    border-color: var(--colors-border-success-default);
+}
+
+  .bd-c_border\.informative\.default {
+    border-color: var(--colors-border-informative-default);
 }
 
   .top_50\% {
@@ -1219,10 +1339,6 @@
     border-width: var(--border-widths-md);
 }
 
-  .border-style_solid {
-    border-style: solid;
-}
-
   .anim-dur_slowest {
     animation-duration: var(--durations-slowest);
 }
@@ -1231,12 +1347,40 @@
     display: none;
 }
 
-  .\[\&_\:where\(svg\)\]\:w_1\.1em :where(svg) {
-    width: 1.1em;
+  .disabled\:bg_background\.neutral\.disabled:is(:disabled, [disabled], [data-disabled]) {
+    background: var(--colors-background-neutral-disabled);
 }
 
-  .\[\&_\:where\(svg\)\]\:h_1\.1em :where(svg) {
-    height: 1.1em;
+  .disabled\:c_content\.neutral\.disabled:is(:disabled, [disabled], [data-disabled]) {
+    color: var(--colors-content-neutral-disabled);
+}
+
+  .disabled\:cursor_not-allowed:is(:disabled, [disabled], [data-disabled]) {
+    cursor: not-allowed;
+}
+
+  .disabled\:pointer-events_none:is(:disabled, [disabled], [data-disabled]) {
+    pointer-events: none;
+}
+
+  .disabled\:bg_transparent:is(:disabled, [disabled], [data-disabled]) {
+    background: transparent;
+}
+
+  .\[\&_\:where\(svg\)\]\:w_20px :where(svg) {
+    width: 20px;
+}
+
+  .\[\&_\:where\(svg\)\]\:h_20px :where(svg) {
+    height: 20px;
+}
+
+  .\[\&_\:where\(svg\)\]\:w_24px :where(svg) {
+    width: 24px;
+}
+
+  .\[\&_\:where\(svg\)\]\:h_24px :where(svg) {
+    height: 24px;
 }
 
   :root .light\:bg_white\.100A,.light .light\:bg_white\.100A {
@@ -1263,7 +1407,91 @@
     animation: var(--animations-dialog-out);
 }
 
-  .\[\&_\:where\(svg\)\]\:fs_1\.1em :where(svg) {
-    font-size: 1.1em;
+  .disabled\:bd-c_border\.neutral\.disabled:is(:disabled, [disabled], [data-disabled]) {
+    border-color: var(--colors-border-neutral-disabled);
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:bg_background\.neuroidPrimary\.selected:is(:hover, [data-hover]) {
+      background: var(--colors-background-neuroid-primary-selected);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:bg_background\.neuroidSecondary\.selected:is(:hover, [data-hover]) {
+      background: var(--colors-background-neuroid-secondary-selected);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:bg_background\.zoltarinaPrimary\.selected:is(:hover, [data-hover]) {
+      background: var(--colors-background-zoltarina-primary-selected);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:bg_background\.zoltarinaSecondary\.selected:is(:hover, [data-hover]) {
+      background: var(--colors-background-zoltarina-secondary-selected);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:bg_background\.heydPrimary\.selected:is(:hover, [data-hover]) {
+      background: var(--colors-background-heyd-primary-selected);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:bg_background\.heydSecondary\.selected:is(:hover, [data-hover]) {
+      background: var(--colors-background-heyd-secondary-selected);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:bg_background\.heybeePrimary\.selected:is(:hover, [data-hover]) {
+      background: var(--colors-background-heybee-primary-selected);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:bg_background\.neutral\.selected:is(:hover, [data-hover]) {
+      background: var(--colors-background-neutral-selected);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:bg_background\.danger\.selected:is(:hover, [data-hover]) {
+      background: var(--colors-background-danger-selected);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:bg_background\.warning\.selected:is(:hover, [data-hover]) {
+      background: var(--colors-background-warning-selected);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:bg_background\.success\.selected:is(:hover, [data-hover]) {
+      background: var(--colors-background-success-selected);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:bg_background\.informative\.selected:is(:hover, [data-hover]) {
+      background: var(--colors-background-informative-selected);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:c_content\.neutral\.bold:is(:hover, [data-hover]) {
+      color: var(--colors-content-neutral-bold);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:td_underline:is(:hover, [data-hover]) {
+      text-decoration: underline;
+}
 }
 }
