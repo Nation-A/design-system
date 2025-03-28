@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "@ark-ui/react": "^5.1.0",
-    "@nation-a/tokens": "workspace:*"
+    "@nation-a/tokens": "workspace:*",
+    "@react-spring/web": "^9.7.5"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.53.1",
