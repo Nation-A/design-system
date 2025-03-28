@@ -1,7 +1,8 @@
-import useBottomSheet from '../../hooks/useBottomSheet'
+
 import { css, cx } from '@styled-system/css';
 import { ReactNode, forwardRef, useEffect, useState } from 'react';
 import { animated, SpringValue, useSpring } from '@react-spring/web'
+import useBottomSheet from '../../hooks/useBottomSheet';
 
 
 const DEFAULT_MIN_SNAP = 0;
@@ -108,12 +109,12 @@ const Backdrop = forwardRef<HTMLDivElement, BottomSheetBackdropProps>(({ onBackd
         height: '100dvh',
         willChange: 'opacity',
         overflow: 'hidden',
-        // touchAction:'none'
+        touchAction:'none',
       })} 
       style={{
         backgroundColor: springs.opacity.to((o: number) => `rgba(0, 0, 0, ${o * bgOpacity})`),
         opacity: springs.opacity,
-        visibility: isBackdropOpen ? 'visible' : 'none'
+        visibility: isBackdropOpen ? 'visible' : 'hidden'
       }} 
       onClick={() => onBackdropClick()} 
       ref={ref}
@@ -126,7 +127,7 @@ const BottomSheetHandle = () => <div className={css({ margin: '22px auto', heigh
 const BottomSheet = ((props: BottomSheetProps) => {  
   const { isOpen = true, onClose, onOpen, children, className = "", snapPercent, bgBlocking = true, backdropOpacity = DEFAULT_BACKDROP_OPACITY, hideHandle = false, expendOnContentDrag = false } = props; 
   
-  const { bottomSheetRef, contentRef, backdropRef, snapToMin, springs } = useBottomSheet({ 
+  const { bottomSheetRef, contentRef, snapToMin, springs } = useBottomSheet({ 
     isOpen,
     onOpen, 
     onClose, 
@@ -143,7 +144,7 @@ const BottomSheet = ((props: BottomSheetProps) => {
 
   return (
     <animated.div> 
-      {bgBlocking && <Backdrop ref={backdropRef} isBackdropOpen={isOpen} opacity={backdropOpacity} onBackdropClick={() => snapToMin()}/>}
+      {bgBlocking && <Backdrop isBackdropOpen={isOpen} opacity={backdropOpacity} onBackdropClick={() => snapToMin()}/>}
       <BottomSheetFrame 
         ref={bottomSheetRef} 
         className={className} 
@@ -160,5 +161,6 @@ const BottomSheet = ((props: BottomSheetProps) => {
 });
 
 BottomSheetFrame.displayName = 'BottomSheetFrame';
+Backdrop.displayName = 'Backdrop'
 
 export default BottomSheet;
