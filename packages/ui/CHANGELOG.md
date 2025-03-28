@@ -1,5 +1,20 @@
 # @nation-a/ui
 
+## 0.4.0
+
+### Minor Changes
+
+- 994ae12: - New icon sets added
+
+  - Icon color is changed to "currentColor"
+  - Light mode tokens added
+  - Button, IconButton added
+
+### Patch Changes
+
+- Updated dependencies [994ae12]
+  - @nation-a/tokens@0.2.0
+
 ## 0.3.0
 
 ### Minor Changes
