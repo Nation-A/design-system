@@ -9,7 +9,7 @@ type Props = SVGProps<SVGSVGElement> & {
   color?: CSSProperties['color']
 }
 
-function AiCircleFillIcon({ size = 24, color = 'currentColor', ...props }: Props) {
+function SendFillIcon({ size = 24, color = 'currentColor', ...props }: Props) {
   return (
     <svg
       width={size}
@@ -25,11 +25,11 @@ function AiCircleFillIcon({ size = 24, color = 'currentColor', ...props }: Props
         id="Subtract"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21ZM10.7916 8.625H10.0305L7.5 15.375H8.83443L9.42906 13.6302H12.0701L12.6647 15.375H13.9992L11.4638 8.625H11.0881H10.7916ZM10.7916 9.87864H10.7076L9.7463 12.6993H11.7529L10.7916 9.87864ZM16.5 8.625H15.2249V15.375H16.5V8.625Z"
+        d="M12.6888 20.2389C13.1346 21.0164 14.2623 20.9544 14.5378 20.1372L19.1764 6.37715C19.4478 5.57205 18.6411 4.76542 17.836 5.03683L4.07601 9.67538C3.25883 9.95085 3.1968 11.0786 3.97431 11.5244L7.97866 13.8201C8.33884 14.0266 8.77621 14.006 9.09242 13.7677L13.3931 10.5265C13.5786 10.3866 13.8266 10.6346 13.6867 10.8202L10.4455 15.1208C10.2072 15.437 10.1866 15.8744 10.3931 16.2345L12.6888 20.2389Z"
         fill="currentColor"
       />
     </svg>
   )
 }
 
-export default AiCircleFillIcon
+export default SendFillIcon
