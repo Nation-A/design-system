@@ -1,8 +1,7 @@
-export { default as Button } from './Button'
-export { default as Text } from './Text'
-export { default as Dialog } from './Dialog'
-export { default as Spinner } from './Spinner'
+export { default as Button, type ButtonProps } from './Button'
+export { default as Text, type TextProps } from './Text'
+export { default as Dialog, type DialogProps } from './Dialog'
+export { default as Spinner, type SpinnerProps } from './Spinner'
+export { default as IconButton, type IconButtonProps } from './IconButton'
 
-import { Portal } from '@ark-ui/react'
-
-export { Portal }
+export { Portal, type PortalProps } from '@ark-ui/react'

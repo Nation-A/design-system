@@ -2,6 +2,7 @@ import { join } from 'path'
 import { getTokens } from './get-tokens'
 import { writeFile } from 'fs/promises'
 import prettier from 'prettier'
+import { Theme } from '../types/theme'
 
 const formatValue = (tokens: any, callback: (value: any) => any = (value) => value): any => {
   if (Array.isArray(tokens)) {
@@ -77,8 +78,8 @@ const formatTokensFile = async (tokens: any) => {
   return formatStringToTemplateLiteral(formattedContent)
 }
 
-const parseTokensEmotion = async () => {
-  const rawTokens = await getTokens()
+const parseTokensEmotion = async (theme: Theme = 'dark') => {
+  const rawTokens = await getTokens(theme)
 
   const {
     colors,
@@ -112,8 +113,9 @@ const parseTokensEmotion = async () => {
 
   const formattedContent = await formatTokensFile(tokens)
 
-  const typesPath = join(__dirname, '../tokens/tokens-emotion.ts')
+  const typesPath = join(__dirname, `../tokens/tokens-emotion-${theme}.ts`)
   await writeFile(typesPath, formattedContent, 'utf-8')
 }
 
-parseTokensEmotion()
+parseTokensEmotion('dark')
+parseTokensEmotion('light')

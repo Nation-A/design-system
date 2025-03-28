@@ -4,7 +4,8 @@ import { writeFile } from 'fs/promises'
 import prettier from 'prettier'
 
 const parseTokens = async () => {
-  const rawTokens = await getTokens()
+  const rawLightTokens = await getTokens('light')
+  const rawDarkTokens = await getTokens('dark')
 
   const {
     colors,
@@ -19,9 +20,12 @@ const parseTokens = async () => {
     fontWeight,
     fontFamily,
     // textDecoration,
-  } = rawTokens
+  } = rawLightTokens
   const semantic = {
-    colors: removePrimitive(colors.semantic),
+    colors: combineThemeValues(
+      removePrimitive(rawLightTokens.colors.semantic),
+      removePrimitive(rawDarkTokens.colors.semantic),
+    ),
     shadows: flattenShadow(shadow),
   }
 
@@ -103,5 +107,28 @@ const flattenTypography = (typography: any) =>
       return acc
     }, {} as any),
   )
+
+const combineThemeValues = (lightValues: any, darkValues: any): any => {
+  const combined: any = {}
+
+  for (const [key, lightValue] of Object.entries(lightValues)) {
+    if (typeof lightValue === 'object' && !Array.isArray(lightValue)) {
+      if ('value' in lightValue!) {
+        const darkValue = darkValues[key]?.value
+        console.log(lightValue, darkValue)
+        combined[key] = {
+          value: {
+            base: lightValue.value,
+            _dark: darkValue,
+          },
+        }
+      } else {
+        combined[key] = combineThemeValues(lightValue, darkValues[key] || {})
+      }
+    }
+  }
+
+  return combined
+}
 
 parseTokens()

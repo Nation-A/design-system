@@ -48,7 +48,7 @@ const toPascalCase = (str: string) => {
 const removeFillStrokeAttribute = (svgString: string): string => {
   const fillRegex = /fill="(?!none")[^"]*"/g
   const strokeRegex = /stroke="(?!none")[^"]*"/g
-  return svgString.replace(fillRegex, 'fill={color}').replace(strokeRegex, 'stroke={color}')
+  return svgString.replace(fillRegex, 'fill="currentColor"').replace(strokeRegex, 'stroke="currentColor"')
 }
 
 /**

@@ -1,16 +1,20 @@
 import { join } from 'path'
 import { readFile } from 'fs/promises'
+import { Theme } from '../types/theme'
 
-export const getTokens = async () => {
+export const getTokens = async (theme: Theme = 'dark') => {
   const tokensPath = join(__dirname, '../../../../tokens.json')
   const rawData = await readFile(tokensPath, 'utf-8')
   const tokens = JSON.parse(rawData)
-  const transformedTokens = transformTokens(tokens)
-  return transformedTokens as RawTokens
+
+  const tokenSet = theme === 'dark' ? tokens['NDS_darkMode'] : tokens['NDS_lightMode']
+  const transformedTokens = transformTokens(tokenSet)
+
+  return transformedTokens
 }
 
 const transformTokens = (tokens: any): any => {
-  const camelCaseTokens = transformKeysToCamelCase(tokens.NDS)
+  const camelCaseTokens = transformKeysToCamelCase(tokens)
   const tokensWithoutType = removeDTCG(camelCaseTokens)
   return tokensWithoutType
 }

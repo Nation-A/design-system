@@ -1,6 +1,6 @@
 {
   "name": "next-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nation-a/icons": "workspace:*",
     "@nation-a/ui": "workspace:*",
     "@tailwindcss/postcss": "^4.0.14",
     "next": "15.2.3",

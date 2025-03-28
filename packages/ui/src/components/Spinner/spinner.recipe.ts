@@ -6,13 +6,10 @@ export const spinnerRecipe = cva({
   base: {
     display: 'inline-block',
     borderWidth: 'md',
-    // borderColor: 'colorPalette.default',
     borderStyle: 'solid',
+    borderStartEndRadius: 'full',
+    borderEndStartRadius: 'full',
     borderRadius: 'full',
-    // borderBottomColor: 'transparent',
-    // borderLeftColor: 'transparent',
-    width: 'var(--size)',
-    height: 'var(--size)',
     animation: 'spin',
     animationDuration: 'slowest',
   },
@@ -21,11 +18,10 @@ export const spinnerRecipe = cva({
   },
   variants: {
     size: {
-      xs: { '--size': 'sizes.3' },
-      sm: { '--size': 'sizes.4' },
-      md: { '--size': 'sizes.6' },
-      lg: { '--size': 'sizes.8' },
-      xl: { '--size': 'sizes.12' },
+      sm: { width: 4, height: 4 },
+      md: { width: 6, height: 6 },
+      lg: { width: 12, height: 12 },
+      xl: { width: 24, height: 24 },
     },
   },
 })

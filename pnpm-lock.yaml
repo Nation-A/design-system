@@ -20,6 +20,9 @@ importers:
 
   apps/next-app:
     dependencies:
+      '@nation-a/icons':
+        specifier: workspace:*
+        version: link:../../packages/icons
       '@nation-a/ui':
         specifier: workspace:*
         version: link:../../packages/ui
