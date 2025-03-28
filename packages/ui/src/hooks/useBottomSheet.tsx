@@ -27,7 +27,7 @@ const INTERACTIVE_ELEMENTS = 'input, button, a, textarea, select, label, [role="
 
 const SPRING_CONFIG = {
   up: {
-    tension: 70, // 튕기기
+    tension: 80, // 튕기기
     friction: 10, // 묵직함
     mass: 0.1,
     velocity: 0
@@ -40,7 +40,7 @@ const SPRING_CONFIG = {
   },
   moving: {
     tension: 600,
-    friction: 10,
+    friction: 30,
     mass: 0.1,
     velocity: 0.1
   }
@@ -51,7 +51,6 @@ const useBottomSheet = (props: BottomSheetHookProps) => {
   
   const bottomSheetRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const backdropRef = useRef<HTMLDivElement>(null)
 
   const metrics = useRef<Metrics>({
     initTouchPosition: null,
@@ -140,7 +139,7 @@ const useBottomSheet = (props: BottomSheetHookProps) => {
 
     api.start({ 
       transform: `translateY(${translateYOffset}px)`,
-      config:  SPRING_CONFIG.moving
+      config: SPRING_CONFIG.moving
     });
   };
 
@@ -195,13 +194,9 @@ const useBottomSheet = (props: BottomSheetHookProps) => {
     if(isOpen) snapToMax();
     else snapToMin();
 
-
     const handleTouchMove = (e: TouchEvent) => {
-      if (backdropRef.current && backdropRef.current.contains(e.target as Node)) {
-        console.log('backdrop')
+      if (bottomSheetRef.current && !bottomSheetRef.current.contains(e.target as Node)) {
         e.preventDefault(); // backdrop에서 스크롤 막기
-      }else{
-        console.log('no backdrop')
       }
     };
 
@@ -255,7 +250,7 @@ const useBottomSheet = (props: BottomSheetHookProps) => {
     };
   }, []);
 
-  return { bottomSheetRef, contentRef, backdropRef, snapToMax, snapToMin, springs };
+  return { bottomSheetRef, contentRef, snapToMax, snapToMin, springs };
 };
 
 export default useBottomSheet;
