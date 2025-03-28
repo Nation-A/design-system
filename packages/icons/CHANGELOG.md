@@ -1,5 +1,15 @@
 # @nation-a/icons
 
+## 0.1.0
+
+### Minor Changes
+
+- 994ae12: - New icon sets added
+
+  - Icon color is changed to "currentColor"
+  - Light mode tokens added
+  - Button, IconButton added
+
 ## 0.0.6
 
 ### Patch Changes
