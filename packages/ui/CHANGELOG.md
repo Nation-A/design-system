@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.7.1
+
+### Patch Changes
+
+- 9c68c13: - added typography fontFamily
+
 ## 0.7.0
 
 ### Minor Changes
