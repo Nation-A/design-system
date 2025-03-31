@@ -1,5 +1,12 @@
 # @nation-a/ui
 
+## 0.6.0
+
+### Minor Changes
+
+- 252d61c: - added Tag Component
+  - added Navigation Component
+
 ## 0.5.1
 
 ### Patch Changes
