@@ -1,5 +1,13 @@
 # @nation-a/ui
 
+## 0.5.1
+
+### Patch Changes
+
+- 34d1776: - Text - added fonts
+
+  - Dialog - added layout components
+
 ## 0.5.0
 
 ### Minor Changes
