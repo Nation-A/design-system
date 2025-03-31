@@ -1,6 +1,6 @@
 import { cva } from '@styled-system/css'
 
-export type TagVariantProps = typeof tagRecipe.__type
+export type TagVariantProps = Omit<typeof tagRecipe.__type, 'avatar'>
 
 export const tagRecipe = cva({
   base: {
