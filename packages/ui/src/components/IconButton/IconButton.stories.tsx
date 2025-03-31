@@ -5,7 +5,7 @@ import IconButton, { IconButtonProps } from './index'
 import { ArrowRightOutlineIcon } from '@nation-a/icons'
 
 const meta: Meta<typeof IconButton> = {
-  title: 'IconButton',
+  title: 'Components/IconButton',
   component: IconButton,
   parameters: {
     layout: 'centered',

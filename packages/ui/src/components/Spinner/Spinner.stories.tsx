@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import Spinner from './index'
 
-const meta = {
-  title: 'Spinner',
+const meta: Meta<typeof Spinner> = {
+  title: 'Components/Spinner',
   component: Spinner,
   parameters: {
     layout: 'centered',
