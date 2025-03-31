@@ -8,7 +8,7 @@ export type TagProps = ButtonHTMLAttributes<HTMLDivElement> &
   TagVariantProps & {
     imageSrc?: string
     text: string
-    onDeleteClick: ()=> void
+    onDeleteClick?: ()=> void
   }
 
 const Tag = forwardRef<HTMLDivElement, TagProps>(({ color, background, radius, imageSrc, text, onDeleteClick, ...rest }, ref) => {
@@ -16,9 +16,9 @@ const Tag = forwardRef<HTMLDivElement, TagProps>(({ color, background, radius, i
 
   return (
     <StyledTag color={color} background={background} radius={radius} avatar={!!imageSrc} ref={ref} {...rest}>
-      {imageSrc ? <img src={imageSrc} width={32} height={32} alt="avatar thumbnail" /> : null}
+      {imageSrc ? <styled.img src={imageSrc} width={8} height={8} borderRadius='full' overflow='hidden' alt="avatar thumbnail" /> : null}
       {text}
-      <CloseOutlineIcon size={12} onClick={onDeleteClick} cursor='pointer'/>
+      {onDeleteClick ? <CloseOutlineIcon size={12} onClick={onDeleteClick} cursor='pointer'/>: null}
     </StyledTag>
   )
 })
