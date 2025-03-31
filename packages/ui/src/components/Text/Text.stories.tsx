@@ -4,7 +4,7 @@ import { fn } from '@storybook/test'
 import Text from './index'
 
 const meta: Meta<typeof Text> = {
-  title: 'Text',
+  title: 'Components/Text',
   component: Text,
   parameters: {
     layout: 'centered',

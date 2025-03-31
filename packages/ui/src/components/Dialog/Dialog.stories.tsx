@@ -5,8 +5,8 @@ import Dialog from './index'
 import { Button, IconButton } from '../..'
 import { ArrowRightOutlineIcon, CloseOutlineIcon } from '@nation-a/icons'
 
-const meta = {
-  title: 'Dialog',
+const meta: Meta<typeof Dialog.Root> = {
+  title: 'Components/Dialog',
   component: Dialog.Root,
   parameters: {
     layout: 'centered',

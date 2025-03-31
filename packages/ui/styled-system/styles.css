@@ -1267,6 +1267,30 @@
     padding: 8px;
 }
 
+  .bg_surface\.layer_1 {
+    background: var(--colors-surface-layer_1);
+}
+
+  .z_10 {
+    z-index: 10;
+}
+
+  .h_48px {
+    height: 48px;
+}
+
+  .w_64px {
+    width: 64px;
+}
+
+  .px_2 {
+    padding-inline: var(--spacing-2);
+}
+
+  .c_content\.neutral\.subtlest {
+    color: var(--colors-content-neutral-subtlest);
+}
+
   .sr_true {
     position: absolute;
     width: 1px;
@@ -1321,6 +1345,66 @@
 
   .h_24 {
     height: var(--sizes-24);
+}
+
+  .c_neutral {
+    color: neutral;
+}
+
+  .c_black {
+    color: black;
+}
+
+  .c_white {
+    color: white;
+}
+
+  .bg_off {
+    background: off;
+}
+
+  .py_1 {
+    padding-block: var(--spacing-1);
+}
+
+  .h_fit-content {
+    height: fit-content;
+}
+
+  .w_fit-content {
+    width: fit-content;
+}
+
+  .cursor_default {
+    cursor: default;
+}
+
+  .bdr_sm {
+    border-radius: var(--radii-sm);
+}
+
+  .bg_background\.static\.whiteAlpha\.bold {
+    background: var(--colors-background-static-white-alpha-bold);
+}
+
+  .c_content\.static\.black\.default {
+    color: var(--colors-content-static-black-default);
+}
+
+  .bg_background\.neutral\.selected {
+    background: var(--colors-background-neutral-selected);
+}
+
+  .bg_background\.static\.blackAlpha\.default {
+    background: var(--colors-background-static-black-alpha-default);
+}
+
+  .c_content\.static\.white\.default {
+    color: var(--colors-content-static-white-default);
+}
+
+  .bg_background\.static\.whiteAlpha\.selected {
+    background: var(--colors-background-static-white-alpha-selected);
 }
 
   .font_inter {
@@ -1454,6 +1538,18 @@
     flex-direction: row;
 }
 
+  .jc_space-around {
+    justify-content: space-around;
+}
+
+  .pt_2 {
+    padding-top: var(--spacing-2);
+}
+
+  .pb_8 {
+    padding-bottom: var(--spacing-8);
+}
+
   .bd-c_inherit {
     border-color: inherit;
 }
@@ -1472,6 +1568,10 @@
 
   .anim-dur_slowest {
     animation-duration: var(--durations-slowest);
+}
+
+  .pl_1 {
+    padding-left: var(--spacing-1);
 }
 
   .ff_inter {
@@ -1544,6 +1644,14 @@
 
   .closed\:anim_dialog-out:is([closed], [data-closed], [data-state="closed"]) {
     animation: var(--animations-dialog-out);
+}
+
+  .selected\:c_content\.neutral\.default:is([aria-selected=true], [data-selected]) {
+    color: var(--colors-content-neutral-default);
+}
+
+  .selected\:bg_background\.neutral\.default:is([aria-selected=true], [data-selected]) {
+    background: var(--colors-background-neutral-default);
 }
 
   .disabled\:bd-c_border\.neutral\.disabled:is(:disabled, [disabled], [data-disabled]) {
