@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.7.0
+
+### Minor Changes
+
+- 6733854: - added Navigation Component
+
 ## 0.6.0
 
 ### Minor Changes
