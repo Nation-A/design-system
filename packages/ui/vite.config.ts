@@ -4,9 +4,11 @@ import dts from 'vite-plugin-dts'
 import viteTsconfigPaths from 'vite-tsconfig-paths'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 
+const isStorybook = process.env.VITE_IS_STORYBOOK === 'true'
+
 export default defineConfig({
   optimizeDeps: {
-    exclude: ['react', 'react-dom'],
+    exclude: isStorybook ? [] : ['react', 'react-dom'],
     include: ['@pandacss/dev', '@ark-ui/react'],
   },
   plugins: [
@@ -26,9 +28,10 @@ export default defineConfig({
         skipLibCheck: true,
       },
     }),
-    viteStaticCopy({
-      targets: [{ src: 'styled-system', dest: '' }],
-    }),
+    !isStorybook &&
+      viteStaticCopy({
+        targets: [{ src: 'styled-system', dest: '' }],
+      }),
   ],
   build: {
     lib: {
@@ -38,12 +41,11 @@ export default defineConfig({
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom', /react-dom\/.*/, /^react\/.*/], // React는 외부 의존성으로 처리
+      external: isStorybook ? [] : ['react', 'react-dom', /react-dom\/.*/, /^react\/.*/],
       output: {
         inlineDynamicImports: false,
       },
     },
-
     outDir: 'dist',
     sourcemap: true,
     minify: false,

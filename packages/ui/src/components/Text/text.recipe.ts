@@ -10,6 +10,14 @@ export const textRecipe = cva({
     variant: 'body.md',
   },
   variants: {
+    font: {
+      inter: {
+        fontFamily: 'inter',
+      },
+      notoSans: {
+        fontFamily: 'notoSans',
+      },
+    },
     variant: {
       'display.lg': {
         textStyle: 'display.lg',
@@ -28,6 +36,9 @@ export const textRecipe = cva({
       },
       'title.md': {
         textStyle: 'title.md',
+      },
+      'title.sm': {
+        textStyle: 'title.sm',
       },
       'body.lg': {
         textStyle: 'body.lg',
