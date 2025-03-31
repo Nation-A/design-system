@@ -2,8 +2,6 @@ import { BottomSheet, Button, ButtonProps, Dialog, IconButton, IconButtonProps, 
 import * as Icons from '@nation-a/icons'
 import { useState } from 'react'
 import { TagProps } from '../../../../packages/ui/dist/types/components/Tag'
-import A from '../../public/avatar.png'
-
 const buttonVariants: ButtonProps['variant'][] = ['solid', 'outline', 'light']
 
 const buttonColors: ButtonProps['color'][] = [
@@ -42,9 +40,23 @@ const tagRadius: TagProps['radius'][] = ['sm', 'full']
 const imageSrc = [undefined, '/avatar.png']
 
 export default function Home() {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+
+  const changeTheme = (theme: 'light' | 'dark') => {
+    setTheme(theme)
+    if (theme === 'light') {
+      document.documentElement.classList.add('light')
+      document.documentElement.classList.remove('dark')
+    } else {
+      document.documentElement.classList.add('dark')
+      document.documentElement.classList.remove('light')
+    }
+  }
+
   return (
-      <div className="flex flex-col gap-4 p-4 dark bg-[#878787]">
-        <div className="flex flex-wrap gap-4">
+    <div className="flex flex-col gap-4 p-4 dark bg-black">
+
+      <div className="flex flex-wrap gap-4">
           {tagRadius.map((radius) => (
             <div className="flex flex-wrap gap-4">
               {tagBackground.map((bg) =>
@@ -64,13 +76,13 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="flex flex-wrap gap-4">
-          {Object.entries(Icons).map(([key, Icon]) => (
-            <IconButton key={key} variant="light">
-              <Icon />
-            </IconButton>
-          ))}
-        </div>
+      <div className="flex flex-wrap gap-4">
+        {Object.entries(Icons).map(([key, Icon]) => (
+          <IconButton key={key} variant="light">
+            <Icon />
+          </IconButton>
+        ))}
+      </div>
 
         <div className="flex flex-wrap gap-4">
           {iconButtonSizes.map((size) => (
@@ -136,26 +148,26 @@ export default function Home() {
           <Text variant="body.lg">Hello</Text>
           <Text variant="body.md">Hello</Text>
 
-          <Text variant="label.md">Hello</Text>
-          <Text variant="label.sm">Hello</Text>
+        <Text variant="label.md">Hello</Text>
+        <Text variant="label.sm">Hello</Text>
 
-          <Dialog.Root lazyMount unmountOnExit>
-            <Dialog.Trigger asChild>
-              <Button variant="solid" size="lg" color="neuroid_primary">
-                Open
-              </Button>
-            </Dialog.Trigger>
-            <Portal>
-              <Dialog.Backdrop />
-              <Dialog.Positioner>
-                <Dialog.Content>
-                  <Dialog.Title>Title</Dialog.Title>
-                  <Dialog.Description>Description</Dialog.Description>
-                </Dialog.Content>
-              </Dialog.Positioner>
-            </Portal>
-          </Dialog.Root>
-        </div>
+        <Dialog.Root lazyMount unmountOnExit>
+          <Dialog.Trigger asChild>
+            <Button variant="solid" size="lg" color="neuroid_primary">
+              Open
+            </Button>
+          </Dialog.Trigger>
+          <Portal>
+            <Dialog.Backdrop />
+            <Dialog.Positioner>
+              <Dialog.Content>
+                <Dialog.Title>Title</Dialog.Title>
+                <Dialog.Description>Description</Dialog.Description>
+              </Dialog.Content>
+            </Dialog.Positioner>
+          </Portal>
+        </Dialog.Root>
       </div>
+    </div>
   )
 }

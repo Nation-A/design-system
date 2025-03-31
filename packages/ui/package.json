@@ -14,25 +14,41 @@
     "clean": "rm -rf dist",
     "lint": "eslint src --ext ts,tsx",
     "typecheck": "tsc --noEmit",
-    "panda": "panda codegen && panda"
+    "panda": "panda codegen && panda",
+    "storybook": "pnpm panda && VITE_IS_STORYBOOK=true storybook dev -p 6006",
+    "build-storybook": "pnpm panda && storybook build"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
     "@ark-ui/react": "^5.1.0",
+    "@nation-a/icons": "workspace:*",
     "@nation-a/tokens": "workspace:*",
-    "@react-spring/web": "^9.7.5"
+    "@react-spring/web": "^9.7.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3",
     "@pandacss/dev": "^0.53.1",
+    "@storybook/addon-essentials": "^8.6.11",
+    "@storybook/addon-interactions": "^8.6.11",
+    "@storybook/addon-onboarding": "^8.6.11",
+    "@storybook/blocks": "^8.6.11",
+    "@storybook/builder-vite": "^8.6.11",
+    "@storybook/react": "^8.6.11",
+    "@storybook/react-vite": "^8.6.11",
+    "@storybook/test": "^8.6.11",
     "@types/node": "^22.13.10",
-    "@types/react": "^18.3",
-    "@types/react-dom": "^18.3",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^5.59.7",
     "@typescript-eslint/parser": "^5.59.7",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^8.40.0",
+    "eslint-plugin-storybook": "^0.12.0",
+    "storybook": "^8.6.11",
     "typescript": "^5.7.3",
     "vite": "^6.0.11",
     "vite-plugin-css-injected-by-js": "^3.5.2",

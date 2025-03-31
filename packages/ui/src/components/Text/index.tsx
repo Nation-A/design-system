@@ -5,7 +5,7 @@ import { textRecipe, TextVariantProps } from './text.recipe'
 export type TextProps = HTMLAttributes<HTMLParagraphElement> & TextVariantProps
 
 const Text = forwardRef<HTMLParagraphElement, TextProps>((props, ref) => {
-  const { variant = 'body.md', children, ...rest } = props
+  const { variant = 'body.md', font = 'notoSans', children, ...rest } = props
 
   const textType = variant?.split('.')[0] || 'body'
 
@@ -19,7 +19,7 @@ const Text = forwardRef<HTMLParagraphElement, TextProps>((props, ref) => {
   const TextComponent = componentMap[textType as keyof typeof componentMap]
 
   return (
-    <TextComponent ref={ref} textStyle={variant} {...rest}>
+    <TextComponent ref={ref} textStyle={variant} font={font} {...rest}>
       {children}
     </TextComponent>
   )
