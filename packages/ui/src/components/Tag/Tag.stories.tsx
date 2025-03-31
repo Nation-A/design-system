@@ -20,6 +20,18 @@ export const DefaultTag: Story = {
   },
 };
 
+export const NoCloseTag: Story = {
+    render: () => (
+      <div style={{ display: 'flex', gap: '1rem' }}>
+        <Tag text="Neutral No Close Tag" color="neutral" />
+        <Tag text="Black No Close Tag" color="black"/>
+        <Tag text="White No Close Tag" color="white"/>
+      </div>
+    ),
+  };
+
+  
+
 export const TagWithBackground: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -36,6 +48,8 @@ export const TagWithBackground: Story = {
     </div>
   ),
 };
+
+
 
 export const TagWithNoBackground: Story = {
   render: () => (
