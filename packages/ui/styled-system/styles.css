@@ -892,6 +892,94 @@
 }
 }
 
+  .pos_fixed {
+    position: fixed;
+}
+
+  .tch-a_pan-y {
+    touch-action: pan-y;
+}
+
+  .d_flex {
+    display: flex;
+}
+
+  .w_100\% {
+    width: 100%;
+}
+
+  .pointer-events_auto {
+    pointer-events: auto;
+}
+
+  .ov_hidden {
+    overflow: hidden;
+}
+
+  .bdr_40px_40px_0_0 {
+    border-radius: 40px 40px 0 0;
+}
+
+  .h_100\% {
+    height: 100%;
+}
+
+  .z_999 {
+    z-index: 999;
+}
+
+  .bx-sh_0_-15px_15px_0px_rgba\(0\,_0\,_0\,_0\.05\) {
+    box-shadow: 0 -15px 15px 0px rgba(0, 0, 0, 0.05);
+}
+
+  .will-change_auto {
+    will-change: auto;
+}
+
+  .z_99 {
+    z-index: 99;
+}
+
+  .h_100dvh {
+    height: 100dvh;
+}
+
+  .will-change_opacity {
+    will-change: opacity;
+}
+
+  .tch-a_none {
+    touch-action: none;
+}
+
+  .m_22px_auto {
+    margin: 22px auto;
+}
+
+  .h_1\.5 {
+    height: var(--sizes-1\.5);
+}
+
+  .min-h_1\.5 {
+    min-height: var(--sizes-1\.5);
+}
+
+  .w_45px {
+    width: 45px;
+}
+
+  .bdr_999 {
+    border-radius: 999px;
+}
+
+  .bg_\#bebebe {
+    background: #bebebe;
+}
+
+  .op_0\.5 {
+    opacity: 0.5;
+}
+
   .ap_none {
     appearance: none;
     -webkit-appearance: none;
@@ -1086,10 +1174,6 @@
     pointer-events: none;
 }
 
-  .pointer-events_auto {
-    pointer-events: auto;
-}
-
   .pos_absolute {
     position: absolute;
 }
@@ -1104,10 +1188,6 @@
 
   .op_0 {
     opacity: 0;
-}
-
-  .d_flex {
-    display: flex;
 }
 
   .gap_2 {
@@ -1129,10 +1209,6 @@
 
   .h_100vh {
     height: 100vh;
-}
-
-  .pos_fixed {
-    position: fixed;
 }
 
   .w_100vw {
@@ -1255,6 +1331,22 @@
     font: notoSans;
 }
 
+  .flex-d_column {
+    flex-direction: column;
+}
+
+  .bg-c_\#ffffff {
+    background-color: #ffffff;
+}
+
+  .top_0 {
+    top: var(--spacing-0);
+}
+
+  .ov-y_auto {
+    overflow-y: auto;
+}
+
   .ai_center {
     align-items: center;
 }
@@ -1338,20 +1430,12 @@
     top: 50%;
 }
 
-  .flex-d_column {
-    flex-direction: column;
-}
-
   .jc_flex-end {
     justify-content: flex-end;
 }
 
   .left_0 {
     left: var(--spacing-0);
-}
-
-  .top_0 {
-    top: var(--spacing-0);
 }
 
   .bg-c_surface\.layer_1 {
