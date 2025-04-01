@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import Spinner from './index'
+import { Flex } from '../Layout'
 
 const meta: Meta<typeof Spinner> = {
   title: 'Components/Spinner',
@@ -13,7 +14,6 @@ const meta: Meta<typeof Spinner> = {
 
   argTypes: {
     size: { control: 'select', options: ['sm', 'md', 'lg', 'xl'] },
-    label: { control: 'text' },
   },
 } satisfies Meta<typeof Spinner>
 
@@ -28,11 +28,11 @@ export const DefaultSpinner: Story = {
 
 export const SpinnerSizes: Story = {
   render: (args) => (
-    <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+    <Flex css={{ gap: '2rem', alignItems: 'center' }}>
       <Spinner size="sm" {...args} />
       <Spinner size="md" {...args} />
       <Spinner size="lg" {...args} />
       <Spinner size="xl" {...args} />
-    </div>
+    </Flex>
   ),
 }

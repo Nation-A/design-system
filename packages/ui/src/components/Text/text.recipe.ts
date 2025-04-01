@@ -4,7 +4,7 @@ export type TextVariantProps = typeof textRecipe.__type
 
 export const textRecipe = cva({
   base: {
-    color: 'content.neutral.default',
+    color: 'currentcolor',
   },
   defaultVariants: {
     variant: 'body.md',

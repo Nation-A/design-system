@@ -1,14 +1,15 @@
-import { forwardRef, HTMLAttributes } from 'react'
+import { forwardRef } from 'react'
 import { styled } from '@styled-system/jsx'
 import { tagRecipe, TagVariantProps } from './tag.recipe'
 import { ark } from '@ark-ui/react'
-import { CloseOutlineIcon } from '../../../../icons/src/components/index'
+import { CloseOutlineIcon } from '@nation-a/icons'
+import { HTMLStyledProps } from '@styled-system/jsx'
 
-export type TagProps = HTMLAttributes<HTMLDivElement> &
-  TagVariantProps & {
+export type TagProps = HTMLStyledProps<'div'> &
+  Omit<TagVariantProps, 'avatar'> & {
     imageSrc?: string
     text: string
-    onDeleteClick?: ()=> void
+    onDeleteClick?: () => void
   }
 
 const Tag = forwardRef<HTMLDivElement, TagProps>(({ imageSrc, text, onDeleteClick, ...rest }, ref) => {
