@@ -871,33 +871,109 @@ const tokens = {
     "value": "1rem",
     "variable": "var(--spacing-4)"
   },
+  "spacing.5": {
+    "value": "1.25rem",
+    "variable": "var(--spacing-5)"
+  },
   "spacing.6": {
     "value": "1.5rem",
     "variable": "var(--spacing-6)"
+  },
+  "spacing.7": {
+    "value": "1.75rem",
+    "variable": "var(--spacing-7)"
   },
   "spacing.8": {
     "value": "2rem",
     "variable": "var(--spacing-8)"
   },
+  "spacing.9": {
+    "value": "2.25rem",
+    "variable": "var(--spacing-9)"
+  },
+  "spacing.10": {
+    "value": "2.5rem",
+    "variable": "var(--spacing-10)"
+  },
+  "spacing.11": {
+    "value": "2.75rem",
+    "variable": "var(--spacing-11)"
+  },
   "spacing.12": {
     "value": "3rem",
     "variable": "var(--spacing-12)"
+  },
+  "spacing.14": {
+    "value": "3.5rem",
+    "variable": "var(--spacing-14)"
+  },
+  "spacing.16": {
+    "value": "4rem",
+    "variable": "var(--spacing-16)"
   },
   "spacing.20": {
     "value": "5rem",
     "variable": "var(--spacing-20)"
   },
+  "spacing.24": {
+    "value": "6rem",
+    "variable": "var(--spacing-24)"
+  },
+  "spacing.28": {
+    "value": "7rem",
+    "variable": "var(--spacing-28)"
+  },
   "spacing.30": {
     "value": "7.5rem",
     "variable": "var(--spacing-30)"
+  },
+  "spacing.32": {
+    "value": "8rem",
+    "variable": "var(--spacing-32)"
+  },
+  "spacing.36": {
+    "value": "9rem",
+    "variable": "var(--spacing-36)"
+  },
+  "spacing.40": {
+    "value": "10rem",
+    "variable": "var(--spacing-40)"
+  },
+  "spacing.44": {
+    "value": "11rem",
+    "variable": "var(--spacing-44)"
+  },
+  "spacing.48": {
+    "value": "12rem",
+    "variable": "var(--spacing-48)"
+  },
+  "spacing.52": {
+    "value": "13rem",
+    "variable": "var(--spacing-52)"
   },
   "spacing.56": {
     "value": "14rem",
     "variable": "var(--spacing-56)"
   },
+  "spacing.60": {
+    "value": "15rem",
+    "variable": "var(--spacing-60)"
+  },
+  "spacing.64": {
+    "value": "16rem",
+    "variable": "var(--spacing-64)"
+  },
   "spacing.72": {
     "value": "18rem",
     "variable": "var(--spacing-72)"
+  },
+  "spacing.80": {
+    "value": "20rem",
+    "variable": "var(--spacing-80)"
+  },
+  "spacing.96": {
+    "value": "24rem",
+    "variable": "var(--spacing-96)"
   },
   "spacing.98": {
     "value": "24rem",
@@ -910,6 +986,26 @@ const tokens = {
   "spacing.160": {
     "value": "40rem",
     "variable": "var(--spacing-160)"
+  },
+  "spacing.0.5": {
+    "value": "0.125rem",
+    "variable": "var(--spacing-0\\.5)"
+  },
+  "spacing.1.5": {
+    "value": "0.375rem",
+    "variable": "var(--spacing-1\\.5)"
+  },
+  "spacing.2.5": {
+    "value": "0.625rem",
+    "variable": "var(--spacing-2\\.5)"
+  },
+  "spacing.3.5": {
+    "value": "0.875rem",
+    "variable": "var(--spacing-3\\.5)"
+  },
+  "spacing.4.5": {
+    "value": "1.125rem",
+    "variable": "var(--spacing-4\\.5)"
   },
   "radii.none": {
     "value": "0px",
@@ -1419,33 +1515,109 @@ const tokens = {
     "value": "calc(var(--spacing-4) * -1)",
     "variable": "var(--spacing-4)"
   },
+  "spacing.-5": {
+    "value": "calc(var(--spacing-5) * -1)",
+    "variable": "var(--spacing-5)"
+  },
   "spacing.-6": {
     "value": "calc(var(--spacing-6) * -1)",
     "variable": "var(--spacing-6)"
+  },
+  "spacing.-7": {
+    "value": "calc(var(--spacing-7) * -1)",
+    "variable": "var(--spacing-7)"
   },
   "spacing.-8": {
     "value": "calc(var(--spacing-8) * -1)",
     "variable": "var(--spacing-8)"
   },
+  "spacing.-9": {
+    "value": "calc(var(--spacing-9) * -1)",
+    "variable": "var(--spacing-9)"
+  },
+  "spacing.-10": {
+    "value": "calc(var(--spacing-10) * -1)",
+    "variable": "var(--spacing-10)"
+  },
+  "spacing.-11": {
+    "value": "calc(var(--spacing-11) * -1)",
+    "variable": "var(--spacing-11)"
+  },
   "spacing.-12": {
     "value": "calc(var(--spacing-12) * -1)",
     "variable": "var(--spacing-12)"
+  },
+  "spacing.-14": {
+    "value": "calc(var(--spacing-14) * -1)",
+    "variable": "var(--spacing-14)"
+  },
+  "spacing.-16": {
+    "value": "calc(var(--spacing-16) * -1)",
+    "variable": "var(--spacing-16)"
   },
   "spacing.-20": {
     "value": "calc(var(--spacing-20) * -1)",
     "variable": "var(--spacing-20)"
   },
+  "spacing.-24": {
+    "value": "calc(var(--spacing-24) * -1)",
+    "variable": "var(--spacing-24)"
+  },
+  "spacing.-28": {
+    "value": "calc(var(--spacing-28) * -1)",
+    "variable": "var(--spacing-28)"
+  },
   "spacing.-30": {
     "value": "calc(var(--spacing-30) * -1)",
     "variable": "var(--spacing-30)"
+  },
+  "spacing.-32": {
+    "value": "calc(var(--spacing-32) * -1)",
+    "variable": "var(--spacing-32)"
+  },
+  "spacing.-36": {
+    "value": "calc(var(--spacing-36) * -1)",
+    "variable": "var(--spacing-36)"
+  },
+  "spacing.-40": {
+    "value": "calc(var(--spacing-40) * -1)",
+    "variable": "var(--spacing-40)"
+  },
+  "spacing.-44": {
+    "value": "calc(var(--spacing-44) * -1)",
+    "variable": "var(--spacing-44)"
+  },
+  "spacing.-48": {
+    "value": "calc(var(--spacing-48) * -1)",
+    "variable": "var(--spacing-48)"
+  },
+  "spacing.-52": {
+    "value": "calc(var(--spacing-52) * -1)",
+    "variable": "var(--spacing-52)"
   },
   "spacing.-56": {
     "value": "calc(var(--spacing-56) * -1)",
     "variable": "var(--spacing-56)"
   },
+  "spacing.-60": {
+    "value": "calc(var(--spacing-60) * -1)",
+    "variable": "var(--spacing-60)"
+  },
+  "spacing.-64": {
+    "value": "calc(var(--spacing-64) * -1)",
+    "variable": "var(--spacing-64)"
+  },
   "spacing.-72": {
     "value": "calc(var(--spacing-72) * -1)",
     "variable": "var(--spacing-72)"
+  },
+  "spacing.-80": {
+    "value": "calc(var(--spacing-80) * -1)",
+    "variable": "var(--spacing-80)"
+  },
+  "spacing.-96": {
+    "value": "calc(var(--spacing-96) * -1)",
+    "variable": "var(--spacing-96)"
   },
   "spacing.-98": {
     "value": "calc(var(--spacing-98) * -1)",
@@ -1458,6 +1630,26 @@ const tokens = {
   "spacing.-160": {
     "value": "calc(var(--spacing-160) * -1)",
     "variable": "var(--spacing-160)"
+  },
+  "spacing.-0.5": {
+    "value": "calc(var(--spacing-0\\.5) * -1)",
+    "variable": "var(--spacing-0\\.5)"
+  },
+  "spacing.-1.5": {
+    "value": "calc(var(--spacing-1\\.5) * -1)",
+    "variable": "var(--spacing-1\\.5)"
+  },
+  "spacing.-2.5": {
+    "value": "calc(var(--spacing-2\\.5) * -1)",
+    "variable": "var(--spacing-2\\.5)"
+  },
+  "spacing.-3.5": {
+    "value": "calc(var(--spacing-3\\.5) * -1)",
+    "variable": "var(--spacing-3\\.5)"
+  },
+  "spacing.-4.5": {
+    "value": "calc(var(--spacing-4\\.5) * -1)",
+    "variable": "var(--spacing-4\\.5)"
   },
   "colors.colorPalette.0": {
     "value": "var(--colors-color-palette-0)",

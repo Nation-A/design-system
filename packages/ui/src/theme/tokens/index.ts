@@ -5,24 +5,30 @@ import { borders } from './borders'
 import { durations } from './durations'
 import { easings } from './easings'
 import { sizes } from './sizes'
+import { spacing } from './spacing'
 import { zIndex } from './z-index'
 import { pandaTokens } from '@nation-a/tokens'
 
 export const tokens = defineTokens({
-  animations,
-  blurs,
-  borders,
   //   colors,
-  durations,
-  easings,
   //   fonts,
   //   fontSizes,
   //   fontWeights,
   //   letterSpacings,
   //   lineHeights,
   //   radii,
+  animations,
+  blurs,
+  borders,
+
+  durations,
+  easings,
+
   sizes,
-  // spacing,
   zIndex,
   ...pandaTokens.primitive,
+  spacing: {
+    ...spacing,
+    ...pandaTokens.primitive.spacing,
+  },
 })
