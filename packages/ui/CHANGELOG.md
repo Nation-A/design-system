@@ -1,5 +1,12 @@
 # @nation-a/ui
 
+## 0.8.0
+
+### Minor Changes
+
+- 864bf03: - Added Layout utils
+  - Added styled types
+
 ## 0.7.1
 
 ### Patch Changes
