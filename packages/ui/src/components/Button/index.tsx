@@ -1,46 +1,51 @@
-import { ButtonHTMLAttributes, forwardRef } from 'react'
-import { Center, styled } from '@styled-system/jsx'
+import { Box, Center } from '../Layout'
 import Spinner from '../Spinner'
-
+import { HTMLStyledProps, styled } from '@styled-system/jsx'
 import { buttonRecipe, ButtonVariantProps } from './button.recipe'
 import { ark } from '@ark-ui/react'
+import { withPolymorphicComponent } from '@/utils/with-polymorphic-component'
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
+export type ButtonProps = HTMLStyledProps<'button'> &
   ButtonVariantProps & {
     loading?: boolean
     loadingText?: React.ReactNode
   }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ loading, disabled, loadingText, children, color, variant, size, radius, ...rest }, ref) => {
-    const StyledButton = styled(ark.button, buttonRecipe)
+const Button = ({ loading, disabled, loadingText, children, color, variant, size, radius, ...rest }: ButtonProps) => {
+  const StyledButton = styled(ark.button, buttonRecipe)
 
-    return (
-      <StyledButton
-        disabled={disabled}
-        ref={ref}
-        color={color}
-        variant={variant}
-        size={size}
-        radius={radius}
-        pointerEvents={loading ? 'none' : 'auto'}
-        {...rest}
-      >
-        {loading
-          ? loadingText || (
-              <>
-                <Center inline position="absolute" transform="translate(-50%, -50%)" top="50%" insetStart="50%">
-                  <Spinner size={size === 'xs' || size === 'sm' ? 'sm' : 'md'} />
-                </Center>
-                <styled.span opacity={0}>{children}</styled.span>
-              </>
-            )
-          : children}
-      </StyledButton>
-    )
-  },
-)
+  return (
+    <StyledButton
+      disabled={disabled}
+      color={color}
+      variant={variant}
+      size={size}
+      radius={radius}
+      css={{ pointerEvents: loading ? 'none' : 'auto' }}
+      {...rest}
+    >
+      {loading
+        ? loadingText || (
+            <>
+              <Center
+                inline
+                css={{
+                  position: 'absolute',
+                  transform: 'translate(-50%, -50%)',
+                  top: '50%',
+                  insetStart: '50%',
+                }}
+              >
+                <Spinner size={size === 'xs' || size === 'sm' ? 'sm' : 'md'} />
+              </Center>
+              <Box as="span" css={{ opacity: 0 }}>
+                {children}
+              </Box>
+            </>
+          )
+        : children}
+    </StyledButton>
+  )
+}
 
-Button.displayName = 'Button'
-
-export default Button
+export default withPolymorphicComponent<typeof Button, 'button'>(Button)

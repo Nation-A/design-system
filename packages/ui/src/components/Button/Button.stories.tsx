@@ -3,6 +3,7 @@ import { fn } from '@storybook/test'
 
 import Button, { ButtonProps } from './index'
 import { ArrowRightOutlineIcon } from '@nation-a/icons'
+import { useRef } from 'react'
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
@@ -48,7 +49,14 @@ const buttonSizes: ButtonProps['size'][] = ['xs', 'sm', 'md', 'lg']
 const buttonRadii: ButtonProps['radius'][] = ['md', 'lg', 'full']
 
 export const DefaultButton: Story = {
-  render: (args) => <Button {...args}>Default Button</Button>,
+  render: (args) => {
+    const ref = useRef<HTMLButtonElement>(null)
+    return (
+      <Button ref={ref} {...args}>
+        Default Button
+      </Button>
+    )
+  },
 }
 
 export const SolidButton: Story = {

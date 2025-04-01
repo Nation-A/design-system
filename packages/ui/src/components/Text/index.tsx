@@ -1,8 +1,8 @@
-import { forwardRef, HTMLAttributes } from 'react'
-import { styled } from '@styled-system/jsx'
+import { forwardRef } from 'react'
+import { HTMLStyledProps, styled } from '@styled-system/jsx'
 import { textRecipe, TextVariantProps } from './text.recipe'
 
-export type TextProps = HTMLAttributes<HTMLParagraphElement> & TextVariantProps
+export type TextProps = HTMLStyledProps<'p'> & TextVariantProps
 
 const Text = forwardRef<HTMLParagraphElement, TextProps>((props, ref) => {
   const { variant = 'body.md', font = 'notoSans', children, ...rest } = props
@@ -19,7 +19,7 @@ const Text = forwardRef<HTMLParagraphElement, TextProps>((props, ref) => {
   const TextComponent = componentMap[textType as keyof typeof componentMap]
 
   return (
-    <TextComponent ref={ref} textStyle={variant} font={font} {...rest}>
+    <TextComponent ref={ref} css={{ textStyle: variant, fontFamily: font }} {...rest}>
       {children}
     </TextComponent>
   )
