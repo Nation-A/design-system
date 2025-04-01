@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.8.1
+
+### Patch Changes
+
+- 8241640: - Editted global css
+
 ## 0.8.0
 
 ### Minor Changes
