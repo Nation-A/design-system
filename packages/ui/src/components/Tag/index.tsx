@@ -1,21 +1,21 @@
-import { ButtonHTMLAttributes, forwardRef } from 'react'
+import { forwardRef, HTMLAttributes } from 'react'
 import { styled } from '@styled-system/jsx'
 import { tagRecipe, TagVariantProps } from './tag.recipe'
 import { ark } from '@ark-ui/react'
 import { CloseOutlineIcon } from '../../../../icons/src/components/index'
 
-export type TagProps = ButtonHTMLAttributes<HTMLDivElement> &
+export type TagProps = HTMLAttributes<HTMLDivElement> &
   TagVariantProps & {
     imageSrc?: string
     text: string
     onDeleteClick?: ()=> void
   }
 
-const Tag = forwardRef<HTMLDivElement, TagProps>(({ color, background, radius, imageSrc, text, onDeleteClick, ...rest }, ref) => {
+const Tag = forwardRef<HTMLDivElement, TagProps>(({ imageSrc, text, onDeleteClick, ...rest }, ref) => {
   const StyledTag = styled(ark.div, tagRecipe)
 
   return (
-    <StyledTag color={color} background={background} radius={radius} avatar={!!imageSrc} ref={ref} {...rest}>
+    <StyledTag avatar={!!imageSrc} ref={ref} {...rest}>
       {imageSrc ? <styled.img src={imageSrc} width={8} height={8} borderRadius='full' overflow='hidden' alt="avatar thumbnail" /> : null}
       {text}
       {onDeleteClick ? <CloseOutlineIcon size={12} onClick={onDeleteClick} cursor='pointer'/>: null}

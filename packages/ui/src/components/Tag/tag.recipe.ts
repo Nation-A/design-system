@@ -13,7 +13,8 @@ export const tagRecipe = cva({
     textStyle: 'label.md',
     height: 'fit-content',
     width: 'fit-content',
-    cursor: 'default'
+    cursor: 'default',
+    outline: 'none'
   },
   variants: {
     color: {
