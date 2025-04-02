@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Input from './index';
+import { HStack } from '@styled-system/jsx';
 
 const meta: Meta<typeof Input> = {
   title: 'Components/Input',
@@ -15,13 +16,40 @@ type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
   args: {
-    value: '',
-    placeholder: 'Text Here',
+    onFocus: () => console.log('focus'),
+    onBlur: () => console.log('')
   },
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+      {/* Solid Variant - Alpha Color */}
+      <h3>Variant: Solid - Color: Alpha</h3>
+      <HStack>
+      <Input value="" placeholder='Default State' color="alpha" variant="solid" />
+      <Input {...args} value="Selected State" placeholder='Selected State' color="alpha" variant="solid" />
+      <Input value="Disabled State" disabled placeholder='Disabled State' color="alpha" variant="solid" />
+      </HStack>
+
+      {/* Solid Variant - Neutral Color */}
+      <h3>Variant: Solid - Color: Neutral</h3>
+      <HStack>
+      <Input value="" placeholder='Default State' color="neutral" variant="solid" />
+      <Input {...args} value="Selected State" placeholder='Selected State' color="neutral" variant="solid" />
+      <Input value="Disabled State" disabled placeholder='Disabled State' color="neutral" variant="solid" />
+      </HStack>
+
+      {/* Line Variant - Neutral Color */}
+      <h3>Variant: Line - Color: Neutral</h3>
+      <HStack>
+      <Input value="" placeholder='Default State' color="neutral" variant="line" />
+      <Input {...args} value="Selected State" placeholder='Selected State' color="neutral" variant="line" />
+      <Input value="Disabled State" disabled placeholder='Disabled State' color="neutral" variant="line" />
+      </HStack>
+    </div>
+  ),
   parameters: {
     docs: {
       description: {
-        story: '기본적인 Input 컴포넌트입니다.',
+        story: 'Basic Input component showing different states (default, selected, disabled) for each style (variant and color).',
       },
     },
   },
