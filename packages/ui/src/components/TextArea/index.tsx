@@ -8,7 +8,7 @@ import { cx } from '@styled-system/css'
 
 export type TextAreaProps = HTMLStyledProps<'textarea'> &
   InputVariantProps & {
-    value: string
+    value?: string
     required?: boolean
     disabled?: boolean
     label?: string

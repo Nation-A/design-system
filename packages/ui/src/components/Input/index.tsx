@@ -6,13 +6,14 @@ import { css, cx } from '@styled-system/css'
 
 export type InputProps = HTMLStyledProps<'input'> &
   InputVariantProps & {
-    value: string
+    value?: string
     required?: boolean
     disabled?: boolean
     label?: string
     labelPosition?: 'outside' | 'inside'
     description?: string
     textLimit?: number
+    className?: string
   }
 
 const StyledInputWrapper = styled(ark.div, inputRecipe)
