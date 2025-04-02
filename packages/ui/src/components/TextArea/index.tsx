@@ -1,12 +1,12 @@
-import { forwardRef, useState, useEffect, TextareaHTMLAttributes, ReactNode } from 'react'
-import { styled, VStack } from '@styled-system/jsx'
+import { forwardRef, useState, useEffect, ReactNode } from 'react'
+import { HTMLStyledProps, styled, VStack } from '@styled-system/jsx'
 import { ark } from '@ark-ui/react'
-import { inputRecipe, InputStateType, InputVariantProps, labelRecipe } from '../Input/input.recipe'
+import { inputRecipe, inputSlotRecipe, InputStateType, InputVariantProps, labelRecipe } from '../Input/input.recipe'
 import { css } from '@styled-system/css/css'
 import { Description, RequiredStar } from '../Input'
 import { cx } from '@styled-system/css'
 
-export type TextAreaProps = TextareaHTMLAttributes<HTMLTextAreaElement> &
+export type TextAreaProps = HTMLStyledProps<'textarea'> &
   InputVariantProps & {
     value: string
     required?: boolean
@@ -25,15 +25,12 @@ const StyledLabel = styled(ark.label, labelRecipe)
 const TextLengthIndicator = ({ count, limit, disabled }: { count: number; limit?: number; disabled?: boolean }) => {
   return (
     <ark.span
-      className={css({
-        display: 'inline-block',
-        width: '100%',
-        textAlign: 'end',
-        paddingRight: 1,
-        marginTop: -0.5,
-        textStyle: 'label.sm',
-        color: disabled ? 'content.neutral.disabled' : 'content.neutral.subtlest',
-      })}
+      className={cx(
+        inputSlotRecipe().textLengthIndicator,
+        css({
+          color: disabled ? 'content.neutral.disabled' : 'content.neutral.subtlest',
+        }),
+      )}
     >{`${count}${limit ? ` / ${limit}` : ''}`}</ark.span>
   )
 }
