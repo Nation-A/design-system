@@ -21,9 +21,7 @@ const Tag = forwardRef<HTMLDivElement, TagProps>(({ imageSrc, text, onDeleteClic
       {imageSrc ? (
         <styled.img
           src={imageSrc}
-          width={8}
-          height={8}
-          className={css({ borderRadius: 'full', overflow: 'hidden' })}
+          className={css({ borderRadius: 'full', overflow: 'hidden', width: 8, height: 8 })}
           alt="avatar thumbnail"
         />
       ) : null}
