@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.9.1
+
+### Patch Changes
+
+- 5fdd83d: add tab component
+
 ## 0.9.0
 
 ### Minor Changes
