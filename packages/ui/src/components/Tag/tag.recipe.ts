@@ -14,6 +14,7 @@ export const tagRecipe = cva({
     height: 'fit-content',
     width: 'fit-content',
     cursor: 'default',
+    outline: 'none',
   },
   variants: {
     color: {

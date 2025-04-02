@@ -129,7 +129,7 @@ export const ControlledDialog: Story = {
                 <Dialog.CloseTrigger />
               </Dialog.Header>
               <Dialog.Body>
-                <p>This dialog's state is controlled externally through React state.</p>
+                <p>This dialog&apos;s state is controlled externally through React state.</p>
               </Dialog.Body>
               <Dialog.Footer>
                 <Button variant="outline" onClick={() => setOpen(false)}>
