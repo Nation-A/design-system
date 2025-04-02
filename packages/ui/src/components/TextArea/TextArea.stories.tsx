@@ -20,7 +20,6 @@ export const Default: Story = {
       {/* Solid Variant - Alpha Color */}
       <h3>Variant: Solid - Color: Alpha</h3>
       <HStack>
-        sdfsdfsdfsdfsdfsdf
         <Textarea value="" placeholder="Default" color="alpha" />
         <Textarea
           value="Selected"
