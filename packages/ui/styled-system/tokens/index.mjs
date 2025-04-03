@@ -1223,17 +1223,17 @@ const tokens = {
     "value": "var(--colors-content-zoltarina-primary-default)",
     "variable": "var(--colors-content-zoltarina-primary-default)"
   },
-  "colors.content.zoltarinaPrimary.defult_inverse": {
-    "value": "var(--colors-content-zoltarina-primary-defult_inverse)",
-    "variable": "var(--colors-content-zoltarina-primary-defult_inverse)"
+  "colors.content.zoltarinaPrimary.default_inverse": {
+    "value": "var(--colors-content-zoltarina-primary-default_inverse)",
+    "variable": "var(--colors-content-zoltarina-primary-default_inverse)"
   },
   "colors.content.heydPrimary.default": {
     "value": "var(--colors-content-heyd-primary-default)",
     "variable": "var(--colors-content-heyd-primary-default)"
   },
-  "colors.content.heydPrimary.defult_inverse": {
-    "value": "var(--colors-content-heyd-primary-defult_inverse)",
-    "variable": "var(--colors-content-heyd-primary-defult_inverse)"
+  "colors.content.heydPrimary.default_inverse": {
+    "value": "var(--colors-content-heyd-primary-default_inverse)",
+    "variable": "var(--colors-content-heyd-primary-default_inverse)"
   },
   "colors.content.static.white.bold": {
     "value": "var(--colors-content-static-white-bold)",
@@ -1282,6 +1282,30 @@ const tokens = {
   "colors.content.heybeePrimary.default_inverse": {
     "value": "var(--colors-content-heybee-primary-default_inverse)",
     "variable": "var(--colors-content-heybee-primary-default_inverse)"
+  },
+  "colors.content.neutralInverse.bold": {
+    "value": "var(--colors-content-neutral-inverse-bold)",
+    "variable": "var(--colors-content-neutral-inverse-bold)"
+  },
+  "colors.content.neutralInverse.default": {
+    "value": "var(--colors-content-neutral-inverse-default)",
+    "variable": "var(--colors-content-neutral-inverse-default)"
+  },
+  "colors.content.neutralInverse.subtle": {
+    "value": "var(--colors-content-neutral-inverse-subtle)",
+    "variable": "var(--colors-content-neutral-inverse-subtle)"
+  },
+  "colors.content.neutralInverse.subtlest": {
+    "value": "var(--colors-content-neutral-inverse-subtlest)",
+    "variable": "var(--colors-content-neutral-inverse-subtlest)"
+  },
+  "colors.content.neutralInverse.disabled": {
+    "value": "var(--colors-content-neutral-inverse-disabled)",
+    "variable": "var(--colors-content-neutral-inverse-disabled)"
+  },
+  "colors.content.neutralInverse.default_inverse": {
+    "value": "var(--colors-content-neutral-inverse-default_inverse)",
+    "variable": "var(--colors-content-neutral-inverse-default_inverse)"
   },
   "colors.background.neutral.default": {
     "value": "var(--colors-background-neutral-default)",
@@ -1414,6 +1438,18 @@ const tokens = {
   "colors.background.heybeePrimary.selected": {
     "value": "var(--colors-background-heybee-primary-selected)",
     "variable": "var(--colors-background-heybee-primary-selected)"
+  },
+  "colors.background.neutralInverse.default": {
+    "value": "var(--colors-background-neutral-inverse-default)",
+    "variable": "var(--colors-background-neutral-inverse-default)"
+  },
+  "colors.background.neutralInverse.selected": {
+    "value": "var(--colors-background-neutral-inverse-selected)",
+    "variable": "var(--colors-background-neutral-inverse-selected)"
+  },
+  "colors.background.neutralInverse.disabled": {
+    "value": "var(--colors-background-neutral-inverse-disabled)",
+    "variable": "var(--colors-background-neutral-inverse-disabled)"
   },
   "colors.surface.base": {
     "value": "var(--colors-surface-base)",
@@ -1811,21 +1847,17 @@ const tokens = {
     "value": "var(--colors-color-palette-zoltarina-primary-default)",
     "variable": "var(--colors-color-palette-zoltarina-primary-default)"
   },
-  "colors.colorPalette.zoltarinaPrimary.defult_inverse": {
-    "value": "var(--colors-color-palette-zoltarina-primary-defult_inverse)",
-    "variable": "var(--colors-color-palette-zoltarina-primary-defult_inverse)"
-  },
-  "colors.colorPalette.defult_inverse": {
-    "value": "var(--colors-color-palette-defult_inverse)",
-    "variable": "var(--colors-color-palette-defult_inverse)"
+  "colors.colorPalette.zoltarinaPrimary.default_inverse": {
+    "value": "var(--colors-color-palette-zoltarina-primary-default_inverse)",
+    "variable": "var(--colors-color-palette-zoltarina-primary-default_inverse)"
   },
   "colors.colorPalette.heydPrimary.default": {
     "value": "var(--colors-color-palette-heyd-primary-default)",
     "variable": "var(--colors-color-palette-heyd-primary-default)"
   },
-  "colors.colorPalette.heydPrimary.defult_inverse": {
-    "value": "var(--colors-color-palette-heyd-primary-defult_inverse)",
-    "variable": "var(--colors-color-palette-heyd-primary-defult_inverse)"
+  "colors.colorPalette.heydPrimary.default_inverse": {
+    "value": "var(--colors-color-palette-heyd-primary-default_inverse)",
+    "variable": "var(--colors-color-palette-heyd-primary-default_inverse)"
   },
   "colors.colorPalette.static.white.bold": {
     "value": "var(--colors-color-palette-static-white-bold)",
@@ -1914,6 +1946,30 @@ const tokens = {
   "colors.colorPalette.heybeePrimary.default_inverse": {
     "value": "var(--colors-color-palette-heybee-primary-default_inverse)",
     "variable": "var(--colors-color-palette-heybee-primary-default_inverse)"
+  },
+  "colors.colorPalette.neutralInverse.bold": {
+    "value": "var(--colors-color-palette-neutral-inverse-bold)",
+    "variable": "var(--colors-color-palette-neutral-inverse-bold)"
+  },
+  "colors.colorPalette.neutralInverse.default": {
+    "value": "var(--colors-color-palette-neutral-inverse-default)",
+    "variable": "var(--colors-color-palette-neutral-inverse-default)"
+  },
+  "colors.colorPalette.neutralInverse.subtle": {
+    "value": "var(--colors-color-palette-neutral-inverse-subtle)",
+    "variable": "var(--colors-color-palette-neutral-inverse-subtle)"
+  },
+  "colors.colorPalette.neutralInverse.subtlest": {
+    "value": "var(--colors-color-palette-neutral-inverse-subtlest)",
+    "variable": "var(--colors-color-palette-neutral-inverse-subtlest)"
+  },
+  "colors.colorPalette.neutralInverse.disabled": {
+    "value": "var(--colors-color-palette-neutral-inverse-disabled)",
+    "variable": "var(--colors-color-palette-neutral-inverse-disabled)"
+  },
+  "colors.colorPalette.neutralInverse.default_inverse": {
+    "value": "var(--colors-color-palette-neutral-inverse-default_inverse)",
+    "variable": "var(--colors-color-palette-neutral-inverse-default_inverse)"
   },
   "colors.colorPalette.neutral.selected": {
     "value": "var(--colors-color-palette-neutral-selected)",
@@ -2042,6 +2098,10 @@ const tokens = {
   "colors.colorPalette.heybeePrimary.selected": {
     "value": "var(--colors-color-palette-heybee-primary-selected)",
     "variable": "var(--colors-color-palette-heybee-primary-selected)"
+  },
+  "colors.colorPalette.neutralInverse.selected": {
+    "value": "var(--colors-color-palette-neutral-inverse-selected)",
+    "variable": "var(--colors-color-palette-neutral-inverse-selected)"
   },
   "colors.colorPalette.base": {
     "value": "var(--colors-color-palette-base)",
