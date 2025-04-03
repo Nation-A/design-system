@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Input from './index'
 import { HStack } from '@styled-system/jsx'
-import { useState } from 'react'
 
 const meta: Meta<typeof Input> = {
   title: 'Components/Input',
