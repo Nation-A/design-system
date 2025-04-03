@@ -18,14 +18,6 @@ export default meta
 
 type Story = StoryObj<BottomSheetProps>
 
-const tabs = (count: number) => {
-  return Array.from({ length: count }, (_, i) => ({
-    value: `tab${i + 1}`,
-    label: `Tab ${i + 1}`,
-    content: `Content for Tab ${i + 1}`,
-  }))
-}
-
 export const Basic: Story = {
   args: {},
   render: () => {
