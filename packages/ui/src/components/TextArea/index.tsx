@@ -57,20 +57,26 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     ref,
   ) => {
     const [state, setState] = useState<InputStateType>(disabled ? 'disabled' : 'default')
+    const [currentValue, setCurrentValue] = useState(value || '')
 
     useEffect(() => {
       setState(disabled ? 'disabled' : 'default')
     }, [disabled])
 
+    useEffect(() => {
+      setCurrentValue(value || '')
+    }, [value])
+
     const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       if (disabled) return
-      const value = e.target.value
+      const newValue = e.target.value
 
       // 글자 수 제한
-      if (textLimit && value.length > textLimit) return
+      if (textLimit && newValue.length > textLimit) return
 
+      setCurrentValue(newValue)
       // 입력값이 있을 때는 selected 상태 유지
-      setState(value ? 'selected' : 'default')
+      setState(newValue ? 'selected' : 'default')
 
       // 외부 onChange 핸들러가 있다면 실행
       onChange?.(e)
@@ -109,7 +115,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             ref={ref}
             {...rest}
           />
-          {showTextCount && <TextLengthIndicator count={value.length} limit={textLimit} disabled={disabled} />}
+          {showTextCount && <TextLengthIndicator count={currentValue.length} limit={textLimit} disabled={disabled} />}
         </StyledTextAreaWrapper>
         {description && <Description>{description}</Description>}
       </VStack>
