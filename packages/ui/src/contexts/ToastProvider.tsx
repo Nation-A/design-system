@@ -1,7 +1,7 @@
 'use client'
 import { ReactNode, useEffect } from 'react'
 import { createToaster, Toaster } from '@ark-ui/react/toast'
-
+import Toast from '@/components/Toast'
 import toast from '@/utils/toast'
 
 /**
