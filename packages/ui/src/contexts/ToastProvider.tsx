@@ -4,6 +4,11 @@ import { createToaster, Toaster } from '@ark-ui/react/toast'
 import Toast from '@/components/Toast'
 import toast from '@/utils/toast'
 
+const DURATION = {
+  DEFAULT: 2500,
+  HAS_ACTION: 5500,
+}
+
 /**
  * 토스트 UI 렌더링을 담당하는 컴포넌트
  * 앱의 루트 레벨(_app.tsx)에 배치 필수!
@@ -12,31 +17,34 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
   // toaster 생성
   const toaster = createToaster({
     placement: 'bottom',
-    duration: 3000,
+    duration: DURATION.DEFAULT,
     offsets: {
       bottom: '55px',
       top: '0px',
       left: '0px',
       right: '0px',
     },
+    overlap: true,
   })
 
   // toast 큐 이벤트 리스너
   useEffect(() => {
+    let currentZIndexCounter = 1300 // zIndex 카운터 초기화 (z-index: overlay == 1300)
+
     const showToasts = () => {
       const queuedToasts = toast._getQueue()
       queuedToasts.forEach((toastData) => {
         try {
           const options: any = {
             description: toastData.description,
+            zIndex: currentZIndexCounter++, // 증가된 zIndex 값 사용
           }
 
           // data 속성 추가
-          options.data = { icon: toastData.icon ? toastData.icon : null, asLink: toastData.asLink }
-
-          // toast duration 설정
-          if (toastData.duration) {
-            options.duration = toastData.duration
+          options.data = {
+            icon: toastData.icon ? toastData.icon : null,
+            asLink: toastData.asLink,
+            zIndex: options.zIndex, // zIndex를 data에도 저장
           }
 
           // toast action label, onClick 함수 추가
@@ -44,7 +52,13 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
             options.action = {
               label: toastData.action.label,
               onClick: toastData.action.onClick ?? (() => {}),
+              duration: DURATION.HAS_ACTION,
             }
+          }
+
+          // custom duration 있는 경우 duration 새로 설정
+          if (toastData.duration) {
+            options.duration = toastData.duration
           }
 
           toaster.create(options)
@@ -71,7 +85,11 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
       {children}
       <Toaster toaster={toaster}>
         {(toast) => (
-          <Toast.Root key={toast.id} asLink={(toast as any).data?.asLink}>
+          <Toast.Root
+            key={toast.id}
+            asLink={(toast as any).data?.asLink}
+            style={{ zIndex: (toast as any).data?.zIndex || 1000 }}
+          >
             <Toast.Content>
               {(toast as any).data?.icon && <Toast.Icon>{(toast as any).data.icon}</Toast.Icon>}
               {toast.description && <Toast.Description>{toast.description}</Toast.Description>}
