@@ -1,7 +1,7 @@
 import { tabsAnatomy } from '@ark-ui/react'
-import { sva } from '@styled-system/css'
+import { RecipeVariantProps, sva } from '@styled-system/css'
 
-export type NavigationVariantProps = keyof typeof navigationRecipe.variantMap
+export type NavigationVariantProps = RecipeVariantProps<typeof navigationRecipe>
 
 export const navigationRecipe = sva({
   className: 'navigation',

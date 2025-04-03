@@ -158,11 +158,11 @@ const semanticColor = {
     },
     zoltarinaPrimary: {
       default: `${primitiveColor.ohre['800']}`,
-      defult_inverse: `${primitiveColor.ohre['1000']}`,
+      default_inverse: `${primitiveColor.ohre['1000']}`,
     },
     heydPrimary: {
       default: `${primitiveColor.cyan['800']}`,
-      defult_inverse: `${primitiveColor.cyan['1000']}`,
+      default_inverse: `${primitiveColor.cyan['1000']}`,
     },
     static: {
       white: {
@@ -183,6 +183,14 @@ const semanticColor = {
     heybeePrimary: {
       default: `${primitiveColor.yellow['800']}`,
       default_inverse: `${primitiveColor.yellow['1000']}`,
+    },
+    neutralInverse: {
+      bold: `${primitiveColor.neutral['1100']}`,
+      default: `${primitiveColor.neutral['1000']}`,
+      subtle: `${primitiveColor.neutral['900']}`,
+      subtlest: `${primitiveColor.neutral['500']}`,
+      disabled: `${primitiveColor.neutral['600']}`,
+      default_inverse: `${primitiveColor.neutral['0']}`,
     },
   },
   background: {
@@ -248,6 +256,11 @@ const semanticColor = {
     heybeePrimary: {
       default: `${primitiveColor.yellow['500']}`,
       selected: `${primitiveColor.yellow['600']}`,
+    },
+    neutralInverse: {
+      default: `${primitiveColor.neutral['200']}`,
+      selected: `${primitiveColor.neutral['300']}`,
+      disabled: `${primitiveColor.neutral['400']}`,
     },
   },
   surface: {

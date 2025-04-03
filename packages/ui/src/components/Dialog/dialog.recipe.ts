@@ -1,22 +1,19 @@
 import { dialogAnatomy } from '@ark-ui/react'
-import { sva } from '@styled-system/css'
+import { RecipeVariantProps, sva } from '@styled-system/css'
 
-export type DialogVariantProps = keyof typeof dialogRecipe.variantMap
+export type DialogVariantProps = RecipeVariantProps<typeof dialogRecipe>
 
 export const dialogRecipe = sva({
   className: 'dialog',
   slots: [...dialogAnatomy.keys(), 'header', 'footer', 'body'],
   base: {
     backdrop: {
-      backdropFilter: 'blur(4px)',
-      background: {
-        _light: 'white.100A',
-        _dark: 'black.100A',
-      },
+      backdropFilter: 'blur(3px)',
+      background: 'shadow.overlay',
       height: '100vh',
-      left: '0',
       position: 'fixed',
       top: '0',
+      left: '0',
       width: '100vw',
       zIndex: 'overlay',
       _open: {

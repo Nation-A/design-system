@@ -1,38 +1,19 @@
-import { forwardRef, useState, useEffect, ReactNode } from 'react'
-import { HTMLStyledProps, styled, VStack } from '@styled-system/jsx'
-import { ark } from '@ark-ui/react'
-import { inputRecipe, inputSlotRecipe, InputStateType, InputVariantProps, labelRecipe } from '../Input/input.recipe'
-import { css } from '@styled-system/css/css'
-import { Description, RequiredStar } from '../Input'
+import { forwardRef, ReactNode, useCallback, useRef, useState } from 'react'
+import { HTMLStyledProps } from '@styled-system/jsx'
+import { Assign } from '@ark-ui/react'
 import { cx } from '@styled-system/css'
 
-export type TextAreaProps = HTMLStyledProps<'textarea'> &
-  InputVariantProps & {
-    value: string
-    required?: boolean
-    disabled?: boolean
-    label?: string
-    labelPosition?: 'outside' | 'inside'
-    description?: string
-    textLimit?: number
-    showTextCount?: boolean
-  }
+import { Stack, VStack } from '../Layout'
+import { InputVariantProps, inputRecipe } from '../Input/input.recipe'
 
-// StyledTextAreaWrapper의 스타일은 Input의 스타일(inputRecipe)을 따름
-const StyledTextAreaWrapper = styled(ark.div, inputRecipe)
-const StyledLabel = styled(ark.label, labelRecipe)
-
-const TextLengthIndicator = ({ count, limit, disabled }: { count: number; limit?: number; disabled?: boolean }) => {
-  return (
-    <ark.span
-      className={cx(
-        inputSlotRecipe().textLengthIndicator,
-        css({
-          color: disabled ? 'content.neutral.disabled' : 'content.neutral.subtlest',
-        }),
-      )}
-    >{`${count}${limit ? ` / ${limit}` : ''}`}</ark.span>
-  )
+export type TextAreaProps = Assign<HTMLStyledProps<'textarea'>, InputVariantProps> & {
+  required?: boolean
+  disabled?: boolean
+  label?: string
+  labelPosition?: 'outside' | 'inside'
+  description?: string
+  textLimit?: number
+  showTextCount?: boolean
 }
 
 const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
@@ -46,71 +27,87 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       labelPosition = 'outside',
       textLimit,
       showTextCount = false,
-      isTextArea,
       color,
       radius,
       variant,
       onChange,
       className,
+      css,
       ...rest
     },
     ref,
   ) => {
-    const [state, setState] = useState<InputStateType>(disabled ? 'disabled' : 'default')
+    const [count, setCount] = useState(value?.toString().length || 0)
+    const recipe = inputRecipe({
+      variant,
+      color,
+      radius,
+      isTextArea: true,
+    })
 
-    useEffect(() => {
-      setState(disabled ? 'disabled' : 'default')
-    }, [disabled])
+    const innerRef = useRef<HTMLTextAreaElement>(null)
 
-    const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const inputRef = (ref || innerRef) as React.RefObject<HTMLTextAreaElement>
+
+    const handleTextareaChange = useCallback(
+      (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        if (disabled) return
+        const { value } = e.target
+        e.target.value = value.slice(0, textLimit)
+        onChange?.(e)
+        if (showTextCount) setCount(value.length)
+      },
+      [disabled, onChange, textLimit, showTextCount],
+    )
+
+    const handleContainerClick = useCallback(() => {
       if (disabled) return
-      const value = e.target.value
+      if (inputRef.current) {
+        inputRef.current.focus()
+      }
+    }, [disabled, inputRef])
 
-      // 글자 수 제한
-      if (textLimit && value.length > textLimit) return
+    const RequiredStar = useCallback(
+      () => (
+        <span className={recipe.requiredStar} aria-hidden="true">
+          *
+        </span>
+      ),
+      [recipe.requiredStar],
+    )
 
-      // 입력값이 있을 때는 selected 상태 유지
-      setState(value ? 'selected' : 'default')
+    const Description = useCallback(
+      ({ children }: { children: ReactNode }) => <span className={recipe.description}>{children}</span>,
+      [recipe.description],
+    )
 
-      // 외부 onChange 핸들러가 있다면 실행
-      onChange?.(e)
+    const Label = useCallback(
+      ({ visible, children }: { visible: boolean; children: ReactNode }) => {
+        return visible ? (
+          <label className={recipe.label}>
+            {children}
+            {required && <RequiredStar />}
+          </label>
+        ) : null
+      },
+      [recipe.label, required, RequiredStar],
+    )
 
-      // 스크롤을 맨 아래로 이동
-      e.target.scrollTop = e.target.scrollHeight
-    }
-
-    const Label = ({ visible, children }: { visible: boolean; children: ReactNode }) => {
-      return visible ? (
-        <StyledLabel state={state} color={color} radius={radius}>
-          {children}
-          {required && <RequiredStar />}
-        </StyledLabel>
-      ) : null
-    }
+    const TextLengthIndicator = useCallback(
+      ({ count, limit }: { count: number; limit?: number }) => {
+        return <span className={recipe.textLengthIndicator}>{`${count}${limit ? ` / ${limit}` : ''}`}</span>
+      },
+      [recipe.textLengthIndicator],
+    )
 
     return (
-      <VStack gap={1}>
+      <VStack gap={1} className={'group'} data-disabled={disabled || undefined}>
         <Label visible={!!(label && labelPosition === 'outside')}>{label}</Label>
-        <StyledTextAreaWrapper
-          isTextArea={true}
-          state={state}
-          color={color}
-          radius={radius}
-          variant={variant}
-          className={cx(css({ position: 'relative', display: 'flex', flexDirection: 'column', gap: 1 }), className)}
-        >
+        <Stack gap={1} className={cx(recipe.inputContainer, className)} onClick={handleContainerClick} css={css}>
           <Label visible={!!(label && labelPosition === 'inside')}>{label}</Label>
-          <textarea
-            value={value}
-            disabled={disabled}
-            onChange={handleTextareaChange}
-            onFocus={() => !disabled && setState('selected')}
-            onBlur={() => !disabled && setState('default')}
-            ref={ref}
-            {...rest}
-          />
-          {showTextCount && <TextLengthIndicator count={value.length} limit={textLimit} disabled={disabled} />}
-        </StyledTextAreaWrapper>
+          <textarea ref={inputRef} value={value} disabled={disabled} onChange={handleTextareaChange} {...rest} />
+          {showTextCount && <TextLengthIndicator count={count} limit={textLimit} />}
+        </Stack>
         {description && <Description>{description}</Description>}
       </VStack>
     )

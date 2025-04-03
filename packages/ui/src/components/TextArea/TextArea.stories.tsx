@@ -20,11 +20,11 @@ export const Default: Story = {
       {/* Solid Variant - Alpha Color */}
       <h3>Variant: Solid - Color: Alpha</h3>
       <HStack>
-        <Textarea value="" placeholder="Default" color="alpha" />
+        <Textarea placeholder="Default" color="alpha" />
         <Textarea
-          value="Selected"
-          onFocus={() => console.log('focus')}
-          onBlur={() => console.log('blur')}
+          //   value="Selected"
+          //   onFocus={() => console.log('focus')}
+          //   onBlur={() => console.log('blur')}
           placeholder="Selected State"
           color="alpha"
         />
@@ -34,7 +34,7 @@ export const Default: Story = {
       {/* Solid Variant - Neutral Color */}
       <h3>Variant: Solid - Color: Neutral</h3>
       <HStack>
-        <Textarea value="" placeholder="Default" color="neutral" variant="solid" />
+        <Textarea placeholder="Default" color="neutral" variant="solid" />
         <Textarea
           value="Selected"
           onFocus={() => console.log('focus')}
@@ -49,7 +49,7 @@ export const Default: Story = {
       {/* Line Variant - Neutral Color */}
       <h3>Variant: Line - Color: Neutral</h3>
       <HStack>
-        <Textarea value="" placeholder="Default" color="neutral" variant="line" />
+        <Textarea placeholder="Default" color="neutral" variant="line" />
         <Textarea
           value="Selected"
           onFocus={() => console.log('focus')}
@@ -75,16 +75,9 @@ export const Default: Story = {
 export const WithDescription: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-      <Textarea value="" placeholder={`Solid Alpha`} label="Label" description="description" color={'alpha'} />
-      <Textarea value="" placeholder={`Solid Alpha`} label="Label" description="description" color={'neutral'} />
-      <Textarea
-        value=""
-        placeholder={`Line Neutral`}
-        label="Label"
-        description="description"
-        color={'neutral'}
-        variant="line"
-      />
+      <Textarea placeholder={`Solid Alpha`} label="Label" description="description" color={'alpha'} />
+      <Textarea placeholder={`Solid Alpha`} label="Label" description="description" color={'neutral'} />
+      <Textarea placeholder={`Line Neutral`} label="Label" description="description" color={'neutral'} variant="line" />
     </div>
   ),
   parameters: {
@@ -107,8 +100,8 @@ export const UIVariants: Story = {
           gap: '16px',
         }}
       >
-        <Textarea value="" placeholder={`Placeholder`} color={'alpha'} variant={'solid'} />
-        <Textarea value="" placeholder={`Placeholder`} color={'neutral'} variant={'solid'} />
+        <Textarea placeholder={`Placeholder`} color={'alpha'} variant={'solid'} />
+        <Textarea placeholder={`Placeholder`} color={'neutral'} variant={'solid'} />
       </div>
       <h3>{`Variant: Line`}</h3>
       <div
@@ -118,7 +111,7 @@ export const UIVariants: Story = {
           gap: '16px',
         }}
       >
-        <Textarea value="" placeholder={`Placeholder`} color={'neutral'} variant={'line'} />
+        <Textarea placeholder={`Placeholder`} color={'neutral'} variant={'line'} />
       </div>
     </div>
   ),
@@ -136,17 +129,17 @@ export const DisabledStates: Story = {
     <HStack>
       <VStack>
         <h3>{`Variant: Solid`}</h3>
-        <Textarea value="" placeholder={`Placeholder`} color={'alpha'} variant={'solid'} />
-        <Textarea value="" placeholder={`Placeholder`} color={'neutral'} variant={'solid'} />
+        <Textarea placeholder={`Placeholder`} color={'alpha'} variant={'solid'} />
+        <Textarea placeholder={`Placeholder`} color={'neutral'} variant={'solid'} />
         <h3>{`Variant: Line`}</h3>
-        <Textarea value="" placeholder={`Placeholder`} color={'neutral'} variant={'line'} />
+        <Textarea placeholder={`Placeholder`} color={'neutral'} variant={'line'} />
       </VStack>
       <VStack>
         <h3>{`Variant: Solid`}</h3>
-        <Textarea value="" placeholder={`Disabled`} color={'alpha'} variant={'solid'} disabled />
-        <Textarea value="" placeholder={`Disabled`} color={'neutral'} variant={'solid'} disabled />
+        <Textarea placeholder={`Disabled`} color={'alpha'} variant={'solid'} disabled />
+        <Textarea placeholder={`Disabled`} color={'neutral'} variant={'solid'} disabled />
         <h3>{`Variant: Line`}</h3>
-        <Textarea value="" placeholder={`Disabled`} color={'neutral'} variant={'line'} disabled />
+        <Textarea placeholder={`Disabled`} color={'neutral'} variant={'line'} disabled />
       </VStack>
     </HStack>
   ),
@@ -165,7 +158,6 @@ export const LabelVariations: Story = {
     <HStack>
       <VStack>
         <Textarea
-          value=""
           label="Outside Label"
           labelPosition="outside"
           placeholder={`Outside Label`}
@@ -173,7 +165,6 @@ export const LabelVariations: Story = {
           variant={'solid'}
         />
         <Textarea
-          value=""
           label="Outside Label"
           labelPosition="outside"
           placeholder={`Outside Label`}
@@ -181,7 +172,6 @@ export const LabelVariations: Story = {
           variant={'solid'}
         />
         <Textarea
-          value=""
           label="Outside Label"
           labelPosition="outside"
           placeholder={`Outside Label`}
@@ -191,7 +181,6 @@ export const LabelVariations: Story = {
       </VStack>
       <VStack>
         <Textarea
-          value=""
           label="Required Field"
           labelPosition="outside"
           required
@@ -200,7 +189,6 @@ export const LabelVariations: Story = {
           variant={'solid'}
         />
         <Textarea
-          value=""
           label="Required Field"
           labelPosition="outside"
           required
@@ -209,7 +197,6 @@ export const LabelVariations: Story = {
           variant={'solid'}
         />
         <Textarea
-          value=""
           label="Required Field"
           labelPosition="outside"
           required
@@ -220,7 +207,6 @@ export const LabelVariations: Story = {
       </VStack>
       <VStack>
         <Textarea
-          value=""
           label="Inside Label"
           labelPosition="inside"
           placeholder={`Inside Label`}
@@ -228,7 +214,6 @@ export const LabelVariations: Story = {
           variant={'solid'}
         />
         <Textarea
-          value=""
           label="Inside Label"
           labelPosition="inside"
           placeholder={`Inside Label`}
@@ -236,7 +221,6 @@ export const LabelVariations: Story = {
           variant={'solid'}
         />
         <Textarea
-          value=""
           label="Inside Label"
           labelPosition="inside"
           placeholder={`Inside Label`}
@@ -246,7 +230,6 @@ export const LabelVariations: Story = {
       </VStack>
       <VStack>
         <Textarea
-          value=""
           label="Required Field"
           labelPosition="inside"
           required
@@ -255,7 +238,6 @@ export const LabelVariations: Story = {
           variant={'solid'}
         />
         <Textarea
-          value=""
           label="Required Field"
           labelPosition="inside"
           required
@@ -264,7 +246,6 @@ export const LabelVariations: Story = {
           variant={'solid'}
         />
         <Textarea
-          value=""
           label="Required Field"
           labelPosition="inside"
           required
@@ -286,7 +267,6 @@ export const LabelVariations: Story = {
 
 export const TextLimitExample: Story = {
   args: {
-    value: '',
     label: 'Label',
     textLimit: 100,
     showTextCount: true,

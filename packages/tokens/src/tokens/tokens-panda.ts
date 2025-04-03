@@ -92,7 +92,7 @@ const semantic = {
             _dark: '{colors.ohre.400}',
           },
         },
-        defult_inverse: {
+        default_inverse: {
           value: {
             base: '{colors.ohre.1000}',
             _dark: '{colors.ohre.1000}',
@@ -106,7 +106,7 @@ const semantic = {
             _dark: '{colors.cyan.400}',
           },
         },
-        defult_inverse: {
+        default_inverse: {
           value: {
             base: '{colors.cyan.1000}',
             _dark: '{colors.cyan.1000}',
@@ -190,6 +190,44 @@ const semantic = {
           value: {
             base: '{colors.yellow.1000}',
             _dark: '{colors.yellow.1000}',
+          },
+        },
+      },
+      neutralInverse: {
+        bold: {
+          value: {
+            base: '{colors.neutral.1100}',
+            _dark: '{colors.neutral.0}',
+          },
+        },
+        default: {
+          value: {
+            base: '{colors.neutral.1000}',
+            _dark: '{colors.neutral.300}',
+          },
+        },
+        subtle: {
+          value: {
+            base: '{colors.neutral.900}',
+            _dark: '{colors.neutral.600}',
+          },
+        },
+        subtlest: {
+          value: {
+            base: '{colors.neutral.500}',
+            _dark: '{colors.neutral.900}',
+          },
+        },
+        disabled: {
+          value: {
+            base: '{colors.neutral.600}',
+            _dark: '{colors.neutral.800}',
+          },
+        },
+        default_inverse: {
+          value: {
+            base: '{colors.neutral.0}',
+            _dark: '{colors.neutral.1100}',
           },
         },
       },
@@ -420,6 +458,26 @@ const semantic = {
           value: {
             base: '{colors.yellow.600}',
             _dark: '{colors.yellow.600}',
+          },
+        },
+      },
+      neutralInverse: {
+        default: {
+          value: {
+            base: '{colors.neutral.200}',
+            _dark: '{colors.neutral.1050}',
+          },
+        },
+        selected: {
+          value: {
+            base: '{colors.neutral.300}',
+            _dark: '{colors.neutral.1000}',
+          },
+        },
+        disabled: {
+          value: {
+            base: '{colors.neutral.400}',
+            _dark: '{colors.neutral.1000}',
           },
         },
       },
