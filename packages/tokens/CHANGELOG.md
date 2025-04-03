@@ -1,5 +1,14 @@
 # @nation-a/tokens
 
+## 0.2.1
+
+### Patch Changes
+
+- 133c6db: - Added neutralInverse tokens
+
+  - Fixed typo: defult -> default
+  - Fixed bugs of uis
+
 ## 0.2.0
 
 ### Minor Changes
