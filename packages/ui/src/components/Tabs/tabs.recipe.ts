@@ -1,7 +1,7 @@
 import { tabsAnatomy } from '@ark-ui/react'
-import { sva } from '@styled-system/css'
+import { RecipeVariantProps, sva } from '@styled-system/css'
 
-export type TabsVariantProps = keyof typeof tabsRecipe.variantMap
+export type TabsVariantProps = RecipeVariantProps<typeof tabsRecipe>
 
 export const tabsRecipe = sva({
   className: 'tabs',

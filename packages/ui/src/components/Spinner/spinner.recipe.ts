@@ -1,6 +1,6 @@
-import { cva } from '@styled-system/css'
+import { RecipeVariantProps, cva } from '@styled-system/css'
 
-export type SpinnerVariantProps = typeof spinnerRecipe.__type
+export type SpinnerVariantProps = RecipeVariantProps<typeof spinnerRecipe>
 
 export const spinnerRecipe = cva({
   base: {

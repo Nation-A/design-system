@@ -1,4 +1,3 @@
-'use client'
 import { Dialog as ArkDialog } from '@ark-ui/react/dialog'
 import { createStyleContext } from '@/utils/create-style-context'
 import { dialogRecipe } from './dialog.recipe'

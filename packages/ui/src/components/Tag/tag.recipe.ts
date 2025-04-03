@@ -1,6 +1,6 @@
-import { cva } from '@styled-system/css'
+import { RecipeVariantProps, cva } from '@styled-system/css'
 
-export type TagVariantProps = typeof tagRecipe.__type
+export type TagVariantProps = RecipeVariantProps<typeof tagRecipe>
 
 export const tagRecipe = cva({
   base: {
