@@ -1,36 +1,21 @@
-import { forwardRef, useState, useEffect, ReactNode } from 'react'
-import { HTMLStyledProps, styled, VStack } from '@styled-system/jsx'
-import { ark } from '@ark-ui/react'
-import { inputRecipe, InputStateType, InputVariantProps, labelRecipe, inputSlotRecipe } from './input.recipe'
-import { css, cx } from '@styled-system/css'
+import { forwardRef, ReactNode, useCallback, useRef } from 'react'
+import { HTMLStyledProps, styled } from '@styled-system/jsx'
+import { Assign } from '@ark-ui/react'
+import { InputVariantProps, inputRecipe } from './input.recipe'
+import { cx } from '@styled-system/css'
+import { Stack, VStack } from '../Layout'
 
-export type InputProps = HTMLStyledProps<'input'> &
-  InputVariantProps & {
-    value?: string
-    required?: boolean
-    disabled?: boolean
-    label?: string
-    labelPosition?: 'outside' | 'inside'
-    description?: string
-    textLimit?: number
-    className?: string
-  }
-
-const StyledInputWrapper = styled(ark.div, inputRecipe)
-const StyledLabel = styled(ark.label, labelRecipe)
-export const RequiredStar = () => (
-  <ark.span className={inputSlotRecipe().requiredStar} aria-hidden="true">
-    *
-  </ark.span>
-)
-export const Description = ({ children }: { children: ReactNode }) => (
-  <ark.span className={inputSlotRecipe().description}>{children}</ark.span>
-)
+export type InputProps = Assign<HTMLStyledProps<'input'>, InputVariantProps> & {
+  required?: boolean
+  label?: string
+  labelPosition?: 'outside' | 'inside'
+  description?: string
+  textLimit?: number
+}
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
-      value,
       required,
       disabled,
       label,
@@ -42,61 +27,71 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       radius,
       onChange,
       className,
+      css,
       ...rest
     },
     ref,
   ) => {
-    const [state, setState] = useState<InputStateType>(disabled ? 'disabled' : 'default')
+    const recipe = inputRecipe({
+      variant,
+      color,
+      radius,
+    })
 
-    useEffect(() => {
-      setState(disabled ? 'disabled' : 'default')
-    }, [disabled])
+    const innerRef = useRef<HTMLInputElement>(null)
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputRef = (ref || innerRef) as React.RefObject<HTMLInputElement>
+
+    const handleInputChange = useCallback(
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (disabled) return
+        const { value } = e.target
+        e.target.value = value.slice(0, textLimit)
+        onChange?.(e)
+      },
+      [disabled, onChange, textLimit],
+    )
+
+    const handleContainerClick = useCallback(() => {
       if (disabled) return
+      if (inputRef.current) {
+        inputRef.current.focus()
+      }
+    }, [disabled, inputRef])
 
-      const value = e.target.value
+    const RequiredStar = useCallback(
+      () => (
+        <span className={recipe.requiredStar} aria-hidden="true">
+          *
+        </span>
+      ),
+      [recipe.requiredStar],
+    )
 
-      // 글자 수 제한
-      if (textLimit && value.length > textLimit) return
+    const Description = useCallback(
+      ({ children }: { children: ReactNode }) => <span className={recipe.description}>{children}</span>,
+      [recipe.description],
+    )
 
-      // 입력값이 있을 때는 selected 상태 유지
-      setState(value ? 'selected' : 'default')
-      // 외부 onChange 핸들러가 있다면 실행
-      onChange?.(e)
-    }
-
-    const Label = ({ visible, children }: { visible: boolean; children: ReactNode }) => {
-      console.log('color', color)
-      return visible ? (
-        <StyledLabel state={state} color={color} radius={radius}>
-          {children}
-          {required && <RequiredStar />}
-        </StyledLabel>
-      ) : null
-    }
+    const Label = useCallback(
+      ({ visible, children }: { visible: boolean; children: ReactNode }) => {
+        return visible ? (
+          <label className={recipe.label}>
+            {children}
+            {required && <RequiredStar />}
+          </label>
+        ) : null
+      },
+      [recipe.label, required, RequiredStar],
+    )
 
     return (
-      <VStack gap={1}>
+      <VStack gap={1} className={'group'} data-disabled={disabled || undefined}>
         <Label visible={!!(label && labelPosition === 'outside')}>{label}</Label>
-        <StyledInputWrapper
-          state={state}
-          variant={variant}
-          color={color}
-          radius={radius}
-          className={cx(css({ display: 'flex', flexDirection: 'column', gap: 1 }), className)}
-        >
+        <Stack gap={1} className={cx(recipe.inputContainer, className)} onClick={handleContainerClick} css={css}>
           <Label visible={!!(label && labelPosition === 'inside')}>{label}</Label>
-          <input
-            value={value}
-            disabled={disabled}
-            onFocus={() => !disabled && setState('selected')}
-            onBlur={() => !disabled && setState('default')}
-            onChange={handleInputChange}
-            ref={ref}
-            {...rest}
-          />
-        </StyledInputWrapper>
+          <styled.input ref={inputRef} disabled={disabled} onChange={handleInputChange} {...rest} />
+        </Stack>
         {description && <Description>{description}</Description>}
       </VStack>
     )

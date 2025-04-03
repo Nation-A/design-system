@@ -1,12 +1,35 @@
-import { cva, sva } from '@styled-system/css'
+import { RecipeVariantProps, sva } from '@styled-system/css'
 
-export type InputVariantProps = Omit<typeof inputRecipe.__type, 'state'>
-export type InputStateType = Pick<typeof inputRecipe.__type, 'state'>['state']
+export type InputVariantProps = RecipeVariantProps<typeof inputRecipe>
 
-export const inputSlotRecipe = sva({
+export const inputRecipe = sva({
   className: 'input',
-  slots: ['requiredStar', 'description', 'textLengthIndicator'],
+  slots: ['inputContainer', 'requiredStar', 'description', 'label', 'textLengthIndicator'],
   base: {
+    inputContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      textStyle: 'body.md',
+      cursor: 'text',
+      color: 'content.neutral.bold',
+      gap: 1,
+      borderStyle: 'solid',
+      border: 1,
+      outline: 'none',
+      p: 2,
+      '& input, & textarea': {
+        outline: 'none',
+        width: '100%',
+        height: '100%',
+      },
+      _groupDisabled: {
+        cursor: 'not-allowed',
+        color: 'content.neutral.disabled',
+      },
+    },
     requiredStar: {
       color: 'content.danger.default',
       paddingLeft: 1,
@@ -18,6 +41,12 @@ export const inputSlotRecipe = sva({
       width: '100%',
       textAlign: 'start',
     },
+    label: {
+      textStyle: 'label.sm',
+      textAlign: 'start',
+      width: '100%',
+      display: 'inline-block',
+    },
     textLengthIndicator: {
       display: 'inline-block',
       width: '100%',
@@ -25,190 +54,135 @@ export const inputSlotRecipe = sva({
       paddingRight: 1,
       marginTop: -0.5,
       textStyle: 'label.sm',
-    },
-  },
-})
-
-export const inputRecipe = cva({
-  base: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-    textStyle: 'body.md',
-    cursor: 'text',
-    color: 'content.neutral.bold',
-    gap: 1,
-    borderStyle: 'solid',
-    border: 1,
-    outline: 'none',
-    p: 2,
-    '& textarea, & input': {
-      outline: 'none',
-      width: '100%',
-      height: '100%',
+      color: 'content.neutral.subtlest',
+      _groupDisabled: { color: 'content.neutral.disabled' },
     },
   },
   variants: {
     isTextArea: {
       true: {
-        minHeight: '56px',
-        '& textarea': {
-          background: 'transparent',
-          height: '100%',
-          resize: 'none',
-          overflowY: 'auto',
+        inputContainer: {
+          minHeight: '56px',
+          '& textarea': {
+            background: 'transparent',
+            resize: 'none',
+            overflowY: 'auto',
+          },
         },
       },
       false: {
-        minHeight: '48px',
-        maxHeight: '60px',
+        inputContainer: {
+          minHeight: '48px',
+          maxHeight: '60px',
+        },
       },
     },
     variant: {
       solid: {
-        borderColor: 'transparent',
+        inputContainer: {
+          borderColor: 'transparent',
+          _focusWithin: {
+            borderColor: 'border.neutral.default',
+          },
+        },
       },
       line: {
-        background: 'transparent',
+        inputContainer: {
+          background: 'transparent',
+          border: 1,
+          borderColor: 'border.neutral.subtle',
+          _focusWithin: {
+            borderColor: 'border.neutral.default',
+          },
+          _groupDisabled: {
+            borderColor: 'border.neutral.disabled',
+          },
+        },
       },
     },
     color: {
       alpha: {
-        '&::placeholder': {
-          color: 'content.static.white.subtlest',
+        inputContainer: {
+          _placeholder: {
+            color: 'content.static.white.subtlest',
+            _groupDisabled: {
+              color: 'content.static.white.disabled',
+            },
+          },
+        },
+        label: {
+          color: 'content.neutral.default',
+          _groupDisabled: {
+            color: 'content.neutral.disabled',
+          },
         },
       },
       neutral: {
-        '&::placeholder': {
-          color: 'content.neutral.subtlest',
+        inputContainer: {
+          _placeholder: {
+            color: 'content.neutral.subtlest',
+            _groupDisabled: {
+              color: 'content.neutral.disabled',
+            },
+          },
+        },
+        label: {
+          color: 'content.neutral.subtle',
+          _groupDisabled: {
+            color: 'content.neutral.disabled',
+          },
         },
       },
     },
     radius: {
       md: {
-        borderRadius: 8,
-        px: 2,
+        inputContainer: {
+          borderRadius: 8,
+          px: 2,
+        },
       },
       lg: {
-        borderRadius: 16,
-        px: 2,
+        inputContainer: {
+          borderRadius: 16,
+          px: 2,
+        },
       },
       full: {
-        borderRadius: 9999,
-        px: 4,
+        inputContainer: {
+          borderRadius: 9999,
+          px: 4,
+        },
       },
     },
-    state: {
-      // state: Input 컴포넌트 내부 로직, 외부 노출 X (외부에선 disabled만 제어)
-      default: {
-        color: 'content.neutral.bold',
-      },
-      selected: {
-        color: 'content.neutral.bold',
-      },
-      disabled: {
-        color: 'content.neutral.disabled',
+    disabled: {
+      true: {
+        inputContainer: {
+          _groupDisabled: {},
+        },
       },
     },
   },
+
   compoundVariants: [
     {
+      variant: 'solid',
       color: 'alpha',
-      state: 'disabled',
       css: {
-        '&::placeholder': {
-          color: 'content.static.white.disabled',
-        },
-      },
-    },
-    {
-      color: 'neutral',
-      state: 'disabled',
-      css: {
-        '&::placeholder': {
-          color: 'content.neutral.disabled',
+        inputContainer: {
+          background: 'black.500A',
         },
       },
     },
     {
       variant: 'solid',
-      color: 'alpha',
-      state: 'default',
-      css: {
-        background: 'black.500A',
-      },
-    },
-    {
-      variant: 'solid',
-      color: 'alpha',
-      state: 'selected',
-      css: {
-        background: 'black.500A',
-        border: 1,
-        borderColor: 'border.neutral.default',
-      },
-    },
-    {
-      variant: 'solid',
-      color: 'alpha',
-      state: 'disabled',
-      css: {
-        background: 'black.500A',
-      },
-    },
-    {
-      variant: 'solid',
       color: 'neutral',
-      state: 'default',
       css: {
-        background: 'background.neutral.default',
-      },
-    },
-    {
-      variant: 'solid',
-      color: 'neutral',
-      state: 'selected',
-      css: {
-        background: 'background.neutral.default',
-        border: 1,
-        borderColor: 'border.neutral.default',
-      },
-    },
-    {
-      variant: 'solid',
-      color: 'neutral',
-      state: 'disabled',
-      css: {
-        background: 'background.neutral.disabled',
-      },
-    },
-    {
-      variant: 'line',
-      state: 'default',
-      css: {
-        background: 'transparent',
-        border: 1,
-        borderColor: 'border.neutral.subtle',
-      },
-    },
-    {
-      variant: 'line',
-      state: 'selected',
-      css: {
-        background: 'transparent',
-        border: 1,
-        borderColor: 'border.neutral.default',
-      },
-    },
-    {
-      variant: 'line',
-      state: 'disabled',
-      css: {
-        background: 'transparent',
-        border: 1,
-        borderColor: 'border.neutral.disabled',
+        inputContainer: {
+          background: 'background.neutral.default',
+          _groupDisabled: {
+            background: 'background.neutral.disabled',
+          },
+        },
       },
     },
   ],
@@ -216,49 +190,6 @@ export const inputRecipe = cva({
     isTextArea: false,
     variant: 'solid',
     color: 'neutral',
-    state: 'default',
-    radius: 'md',
-  },
-})
-
-export const labelRecipe = cva({
-  base: {
-    textStyle: 'label.sm',
-    textAlign: 'start',
-    width: '100%',
-    display: 'inline-block',
-  },
-  variants: {
-    state: {
-      default: {},
-      selected: {},
-      disabled: {},
-    },
-    color: {
-      alpha: {
-        color: 'content.static.white.bold',
-      },
-      neutral: {
-        color: 'content.neutral.subtle',
-      },
-    },
-    radius: {
-      md: {},
-      lg: {},
-      full: {},
-    },
-  },
-  compoundVariants: [
-    {
-      state: 'disabled',
-      css: {
-        color: 'content.neutral.disabled',
-      },
-    },
-  ],
-  defaultVariants: {
-    color: 'neutral',
-    state: 'default',
     radius: 'md',
   },
 })
