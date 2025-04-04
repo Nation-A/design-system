@@ -68,7 +68,6 @@ const useBottomSheet = (props: BottomSheetHookProps) => {
 
   const snapToMax = () => {
     const { maxTransformValue } = metrics.current
-    console.log('maxTransformValue', maxTransformValue)
     api.start({
       transform: `translateY(${maxTransformValue}px)`,
       config: SPRING_CONFIG.up,
