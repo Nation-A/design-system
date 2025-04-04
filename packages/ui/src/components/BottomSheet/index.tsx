@@ -1,6 +1,6 @@
+import { css, cx } from '@styled-system/css'
 import { ReactNode, forwardRef, useEffect, useState } from 'react'
 import { animated, SpringValue, useSpring } from '@react-spring/web'
-import { css, cx } from '@nation-a/ui/css'
 import useBottomSheet from '@/hooks/useBottomSheet'
 
 const DEFAULT_MIN_SNAP = 0
@@ -73,7 +73,7 @@ const BottomSheetFrame = forwardRef<HTMLDivElement, BottomSheetFrameProps>(
             overflow: 'hidden',
             borderRadius: '40px 40px 0 0',
             height: '100%',
-            zIndex: 99999,
+            zIndex: 999,
             backgroundColor: '#ffffff',
             shadow: '0 -15px 15px 0px rgba(0, 0, 0, 0.05)',
             willChange: 'auto',
