@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.10.1
+
+### Patch Changes
+
+- 9f80db8: BottomSheet 기능 안정화
+
 ## 0.10.0
 
 ### Minor Changes
