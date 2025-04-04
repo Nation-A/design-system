@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.10.2
+
+### Patch Changes
+
+- 1923338: - Prevented dialog's backdrop event bubbling
+
 ## 0.10.1
 
 ### Patch Changes
