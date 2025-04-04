@@ -1,7 +1,7 @@
 export type ToastVariantProps = keyof typeof toastRecipe.variantMap
 
 import { toastAnatomy } from '@ark-ui/react'
-import { sva } from 'dist/styled-system/css'
+import { sva } from '@styled-system/css'
 
 export const toastRecipe = sva({
   className: 'toast',
