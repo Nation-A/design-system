@@ -217,6 +217,7 @@ interface Background {
   heydSecondary: NeuroidPrimary2;
   static: Static2;
   heybeePrimary: NeuroidPrimary2;
+  neutralInverse: Neutral3;
 }
 
 interface Static2 {
@@ -249,10 +250,11 @@ interface Content {
   warning: Danger;
   success: Danger;
   informative: Danger;
-  zoltarinaPrimary: ZoltarinaPrimary;
-  heydPrimary: ZoltarinaPrimary;
+  zoltarinaPrimary: NeuroidPrimary;
+  heydPrimary: NeuroidPrimary;
   static: Static;
   heybeePrimary: NeuroidPrimary;
+  neutralInverse: Neutral2;
 }
 
 interface Static {
@@ -266,11 +268,6 @@ interface White {
   subtle: _0;
   subtlest: _0;
   disabled: _0;
-}
-
-interface ZoltarinaPrimary {
-  default: _0;
-  defult_inverse: _0;
 }
 
 interface Danger {

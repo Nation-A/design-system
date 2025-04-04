@@ -1,5 +1,7 @@
-import { Button, ButtonProps, Dialog, IconButton, IconButtonProps, Portal, Text } from '@nation-a/ui'
+import { Button, ButtonProps, Dialog, IconButton, IconButtonProps, Portal, Text, Tag, Flex } from '@nation-a/ui'
 import * as Icons from '@nation-a/icons'
+import { useState } from 'react'
+import { TagProps } from '@nation-a/ui'
 const buttonVariants: ButtonProps['variant'][] = ['solid', 'outline', 'light']
 
 const buttonColors: ButtonProps['color'][] = [
@@ -32,16 +34,61 @@ const iconButtonSizes: IconButtonProps['size'][] = ['sm', 'md', 'lg']
 
 const iconButtonVariants: IconButtonProps['variant'][] = ['solid', 'outline', 'light']
 
+const tagBackground: TagProps['background'][] = ['off', 'on']
+const tagColor: TagProps['color'][] = ['neutral', 'black', 'white']
+const tagRadius: TagProps['radius'][] = ['sm', 'full']
+const imageSrc = [undefined, '/avatar.png']
+
 export default function Home() {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+
+  const changeTheme = (theme: 'light' | 'dark') => {
+    setTheme(theme)
+    if (theme === 'light') {
+      document.documentElement.classList.add('light')
+      document.documentElement.classList.remove('dark')
+    } else {
+      document.documentElement.classList.add('dark')
+      document.documentElement.classList.remove('light')
+    }
+  }
+
   return (
     <div className="flex flex-col gap-4 p-4 dark bg-black">
       <div className="flex flex-wrap gap-4">
+        {tagRadius.map((radius) => (
+          <div className="flex flex-wrap gap-4">
+            {tagBackground.map((bg) => (
+              <div className="flex flex-wrap gap-4">
+                {imageSrc.map((img) => (
+                  <div className="flex flex-wrap gap-4">
+                    {tagColor.map((color) => (
+                      <div className="flex flex-wrap gap-4">
+                        <Tag
+                          background={bg}
+                          color={color}
+                          radius={radius}
+                          text={'Text'}
+                          imageSrc={img}
+                          onDeleteClick={() => console.log('delete clicked!')}
+                        ></Tag>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <Flex wrap="wrap">
         {Object.entries(Icons).map(([key, Icon]) => (
           <IconButton key={key} variant="light">
             <Icon />
           </IconButton>
         ))}
-      </div>
+      </Flex>
 
       <div className="flex flex-wrap gap-4">
         {iconButtonSizes.map((size) => (

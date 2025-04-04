@@ -1,22 +1,19 @@
 import { dialogAnatomy } from '@ark-ui/react'
-import { sva } from '@styled-system/css'
+import { RecipeVariantProps, sva } from '@styled-system/css'
 
-export type DialogVariantProps = keyof typeof dialogRecipe.variantMap
+export type DialogVariantProps = RecipeVariantProps<typeof dialogRecipe>
 
 export const dialogRecipe = sva({
   className: 'dialog',
-  slots: dialogAnatomy.keys(),
+  slots: [...dialogAnatomy.keys(), 'header', 'footer', 'body'],
   base: {
     backdrop: {
-      backdropFilter: 'blur(4px)',
-      background: {
-        _light: 'white.100A',
-        _dark: 'black.100A',
-      },
+      backdropFilter: 'blur(3px)',
+      background: 'shadow.overlay',
       height: '100vh',
-      left: '0',
       position: 'fixed',
       top: '0',
+      left: '0',
       width: '100vw',
       zIndex: 'overlay',
       _open: {
@@ -34,17 +31,23 @@ export const dialogRecipe = sva({
       overflow: 'auto',
       position: 'fixed',
       top: '0',
-      width: 'full',
-      height: 'full',
+      width: '100vw',
+      height: '100vh',
       zIndex: 'modal',
+      p: '4',
     },
     content: {
-      background: 'white',
-      borderRadius: 'sm',
-      boxShadow: 'overlay',
-      minW: 'sm',
       position: 'relative',
-      p: '3',
+      backgroundColor: 'surface.layer_1',
+      borderRadius: 'lg',
+      width: 'full',
+      minW: 'xs',
+      maxW: 'md',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '6',
+      py: '4',
+
       _open: {
         animation: 'dialog-in',
       },
@@ -52,12 +55,36 @@ export const dialogRecipe = sva({
         animation: 'dialog-out',
       },
     },
+    closeTrigger: {
+      position: 'absolute',
+      top: '4',
+      right: '4',
+    },
     title: {
-      textStyle: 'title.lg',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '1',
+      color: 'content.neutral.default',
+      textStyle: 'headline.sm',
     },
     description: {
-      color: 'content.neutral.default_inverse',
+      color: 'content.neutral.default',
       textStyle: 'body.md',
+    },
+    header: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '2',
+      px: '6',
+    },
+    footer: {
+      display: 'flex',
+      gap: '2',
+      px: '4',
+      justifyContent: 'flex-end',
+    },
+    body: {
+      px: '4',
     },
   },
 })

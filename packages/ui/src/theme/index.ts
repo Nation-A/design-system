@@ -9,9 +9,7 @@ import { tokens } from './tokens'
 export const preset = definePreset({
   name: '@nation-a/theme',
   conditions,
-  globalCss: {
-    ...globalCss,
-  },
+  globalCss,
   theme: {
     extend: {
       breakpoints,
