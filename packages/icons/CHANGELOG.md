@@ -1,5 +1,11 @@
 # @nation-a/icons
 
+## 0.2.0
+
+### Minor Changes
+
+- e8de107: Toast 컴포넌트 추가
+
 ## 0.1.0
 
 ### Minor Changes

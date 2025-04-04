@@ -1,5 +1,16 @@
 # @nation-a/ui
 
+## 0.10.0
+
+### Minor Changes
+
+- e8de107: Toast 컴포넌트 추가
+
+### Patch Changes
+
+- Updated dependencies [e8de107]
+  - @nation-a/icons@0.2.0
+
 ## 0.9.2
 
 ### Patch Changes
