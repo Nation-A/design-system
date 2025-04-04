@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import BottomSheet, { BottomSheetProps } from '.'
-import { Box } from '@styled-system/jsx'
+import { Box } from '../..'
 
 import { VStack } from '../Layout'
 import Button from '../Button'
