@@ -101,7 +101,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     )
 
     return (
-      <VStack gap={1} className={'group'} data-disabled={disabled || undefined}>
+      <VStack gap={1} className={'group'} data-disabled={disabled || undefined} css={{ width: '100%' }}>
         <Label visible={!!(label && labelPosition === 'outside')}>{label}</Label>
         <Stack gap={1} className={cx(recipe.inputContainer, className)} onClick={handleContainerClick} css={css}>
           <Label visible={!!(label && labelPosition === 'inside')}>{label}</Label>
