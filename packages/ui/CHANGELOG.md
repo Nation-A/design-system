@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.10.3
+
+### Patch Changes
+
+- 7662b90: set Input, TextArea container width to 100%
+
 ## 0.10.2
 
 ### Patch Changes
