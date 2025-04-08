@@ -94,7 +94,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         <Label visible={!!(label && labelPosition === 'outside')}>{label}</Label>{' '}
         <HStack className={cx(recipe.inputContainer, className)} onClick={handleContainerClick} css={css}>
           <Box className={recipe.adornment}>{startAdornment}</Box>
-          <Stack gap={1}>
+          <Stack gap={1} css={{ width: '100%' }}>
             <Label visible={!!(label && labelPosition === 'inside')}>{label}</Label>
 
             <styled.input ref={inputRef} disabled={disabled} onChange={handleInputChange} {...rest} />
