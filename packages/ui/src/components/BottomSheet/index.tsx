@@ -74,7 +74,7 @@ const BottomSheetFrame = forwardRef<HTMLDivElement, BottomSheetFrameProps>(
             borderRadius: '40px 40px 0 0',
             height: '100%',
             zIndex: 'modal',
-            backgroundColor: '#ffffff',
+            backgroundColor: 'surface.layer_1',
             shadow: '0 -15px 15px 0px rgba(0, 0, 0, 0.05)',
             willChange: 'auto',
           }),
