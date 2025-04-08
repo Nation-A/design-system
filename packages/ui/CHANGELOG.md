@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.10.7
+
+### Patch Changes
+
+- 8976f4f: - Fixed Input width bug
+
 ## 0.10.6
 
 ### Patch Changes
