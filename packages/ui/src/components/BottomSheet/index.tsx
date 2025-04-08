@@ -73,7 +73,7 @@ const BottomSheetFrame = forwardRef<HTMLDivElement, BottomSheetFrameProps>(
             overflow: 'hidden',
             borderRadius: '40px 40px 0 0',
             height: '100%',
-            zIndex: 999,
+            zIndex: 'modal',
             backgroundColor: '#ffffff',
             shadow: '0 -15px 15px 0px rgba(0, 0, 0, 0.05)',
             willChange: 'auto',
@@ -109,7 +109,7 @@ const Backdrop = forwardRef<HTMLDivElement, BottomSheetBackdropProps>(
     return (
       <animated.div
         className={css({
-          zIndex: 99,
+          zIndex: 'overlay',
           position: 'fixed',
           top: 0,
           width: '100%',
