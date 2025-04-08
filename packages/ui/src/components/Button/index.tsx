@@ -4,7 +4,7 @@ import { HTMLStyledProps, styled } from '@styled-system/jsx'
 import { buttonRecipe, ButtonVariantProps } from './button.recipe'
 import { ark } from '@ark-ui/react'
 import { withPolymorphicComponent } from '@/utils/with-polymorphic-component'
-
+import { memo } from 'react'
 export type ButtonProps = HTMLStyledProps<'button'> &
   ButtonVariantProps & {
     loading?: boolean
@@ -48,4 +48,4 @@ const Button = ({ loading, disabled, loadingText, children, color, variant, size
   )
 }
 
-export default withPolymorphicComponent<typeof Button, 'button'>(Button)
+export default memo(withPolymorphicComponent<typeof Button, 'button'>(Button))

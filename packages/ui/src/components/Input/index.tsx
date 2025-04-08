@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useCallback, useRef } from 'react'
+import { forwardRef, memo, ReactNode, useCallback, useRef } from 'react'
 import { HTMLStyledProps, styled } from '@styled-system/jsx'
 import { Assign } from '@ark-ui/react'
 import { InputVariantProps, inputRecipe } from './input.recipe'
@@ -99,4 +99,4 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 )
 Input.displayName = 'Input'
 
-export default Input
+export default memo(Input)

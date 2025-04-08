@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, memo } from 'react'
 import { Center, HTMLStyledProps, styled } from '@styled-system/jsx'
 import Spinner from '../Spinner'
 import { iconButtonRecipe, IconButtonVariantProps } from './icon-button.recipe'
@@ -49,4 +49,4 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
 
 IconButton.displayName = 'IconButton'
 
-export default withPolymorphicComponent<typeof IconButton, 'button'>(IconButton)
+export default memo(withPolymorphicComponent<typeof IconButton, 'button'>(IconButton))

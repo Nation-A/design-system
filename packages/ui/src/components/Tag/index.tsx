@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, memo } from 'react'
 import { styled } from '@styled-system/jsx'
 import { tagRecipe, TagVariantProps } from './tag.recipe'
 import { ark, Assign } from '@ark-ui/react'
@@ -32,4 +32,4 @@ const Tag = forwardRef<HTMLDivElement, TagProps>(({ imageSrc, text, onDeleteClic
 
 Tag.displayName = 'Tag'
 
-export default Tag
+export default memo(Tag)
