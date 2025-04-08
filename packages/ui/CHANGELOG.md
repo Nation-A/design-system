@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.10.5
+
+### Patch Changes
+
+- 8a76f41: - Added memoization
+
 ## 0.10.4
 
 ### Patch Changes
