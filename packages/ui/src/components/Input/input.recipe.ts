@@ -4,7 +4,7 @@ export type InputVariantProps = RecipeVariantProps<typeof inputRecipe>
 
 export const inputRecipe = sva({
   className: 'input',
-  slots: ['inputContainer', 'requiredStar', 'description', 'label', 'textLengthIndicator'],
+  slots: ['inputContainer', 'requiredStar', 'description', 'label', 'textLengthIndicator', 'adornment'],
   base: {
     inputContainer: {
       display: 'flex',
@@ -56,6 +56,11 @@ export const inputRecipe = sva({
       textStyle: 'label.sm',
       color: 'content.neutral.subtlest',
       _groupDisabled: { color: 'content.neutral.disabled' },
+    },
+    adornment: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
   },
   variants: {

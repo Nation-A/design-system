@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Input from './index'
 import { HStack } from '@styled-system/jsx'
-
+import { CloseOutlineIcon, SearchOutlineIcon } from '@nation-a/icons'
+import IconButton from '../IconButton'
 const meta: Meta<typeof Input> = {
   title: 'Components/Input',
   component: Input,
@@ -264,4 +265,20 @@ export const LabelVariations: Story = {
       },
     },
   },
+}
+
+export const WithIcons: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+      <Input
+        label="With Icons"
+        startAdornment={<SearchOutlineIcon />}
+        endAdornment={
+          <IconButton>
+            <CloseOutlineIcon />
+          </IconButton>
+        }
+      />
+    </div>
+  ),
 }
