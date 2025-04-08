@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.10.8
+
+### Patch Changes
+
+- 6665698: - Prevented click bubbling of Tag
+
 ## 0.10.7
 
 ### Patch Changes
