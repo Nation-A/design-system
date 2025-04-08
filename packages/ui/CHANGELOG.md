@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.10.4
+
+### Patch Changes
+
+- a32a8cf: - Changed bottom-sheet zIndex, bgColor
+
 ## 0.10.3
 
 ### Patch Changes
