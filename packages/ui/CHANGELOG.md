@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.10.6
+
+### Patch Changes
+
+- dee01d5: - Added adornment props to Input
+
 ## 0.10.5
 
 ### Patch Changes
