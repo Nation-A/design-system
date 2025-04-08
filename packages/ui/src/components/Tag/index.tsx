@@ -15,6 +15,13 @@ export type TagProps = Assign<HTMLStyledProps<'div'>, TagVariantProps> & {
 const Tag = forwardRef<HTMLDivElement, TagProps>(({ imageSrc, text, onDeleteClick, ...rest }, ref) => {
   const StyledTag = styled(ark.div, tagRecipe)
 
+  const handleClickDelete = (e: React.MouseEvent<SVGSVGElement>) => {
+    e.stopPropagation()
+    if (onDeleteClick) {
+      onDeleteClick()
+    }
+  }
+
   return (
     <StyledTag avatar={!!imageSrc} ref={ref} {...rest}>
       {imageSrc ? (
@@ -25,7 +32,9 @@ const Tag = forwardRef<HTMLDivElement, TagProps>(({ imageSrc, text, onDeleteClic
         />
       ) : null}
       {text}
-      {onDeleteClick ? <CloseOutlineIcon size={12} onClick={onDeleteClick} cursor="pointer" /> : null}
+      {onDeleteClick ? (
+        <CloseOutlineIcon size={12} onClick={handleClickDelete} className={css({ cursor: 'pointer' })} />
+      ) : null}
     </StyledTag>
   )
 })
