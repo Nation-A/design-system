@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.11.0
+
+### Minor Changes
+
+- 84894ec: - Added Tab
+
 ## 0.10.8
 
 ### Patch Changes
