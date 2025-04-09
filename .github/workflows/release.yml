@@ -68,14 +68,14 @@ jobs:
           commit_message: '[Automation] released to npm with new version'
 
       # 🔥 새로운 버전이 배포된 경우에만 Slack 알림 전송
-      - name: Send Slack NPM Release Notification
-        if: steps.changesets.outputs.published == 'true'
-        run: |
-          PACKAGES=$(echo '${{ steps.changesets.outputs.publishedPackages }}' | jq -r 'map("\(.name)@\(.version)") | join(", ")')
-          curl -X POST -H 'Content-type: application/json' --data "{
-            \"text\": \"🚀 NDS: NEW NPM Version Released! \n📦 Published Packages: ${PACKAGES}\",
-            \"username\": \"NDS Npm Release Alert Bot\",
-            \"icon_emoji\": \":rocket:\"
-          }" $SLACK_WEBHOOK_URL
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    #   - name: Send Slack NPM Release Notification
+    #     if: steps.changesets.outputs.published == 'true'
+    #     run: |
+    #       PACKAGES=$(echo '${{ steps.changesets.outputs.publishedPackages }}' | jq -r 'map("\(.name)@\(.version)") | join(", ")')
+    #       curl -X POST -H 'Content-type: application/json' --data "{
+    #         \"text\": \"🚀 NDS: NEW NPM Version Released! \n📦 Published Packages: ${PACKAGES}\",
+    #         \"username\": \"NDS Npm Release Alert Bot\",
+    #         \"icon_emoji\": \":rocket:\"
+    #       }" $SLACK_WEBHOOK_URL
+    #     env:
+    #       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

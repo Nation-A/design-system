@@ -57,7 +57,7 @@ export const tabsRecipe = sva({
       height: '2px',
       borderRadius: 'xs',
       background: 'content.neutral.bold',
-      zIndex: -1,
+
       bottom: '0px',
     },
   },

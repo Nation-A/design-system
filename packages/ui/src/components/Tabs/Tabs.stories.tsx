@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Tabs, TabsProps } from '.'
+import Tabs, { TabsProps } from '.'
 import { Box } from '@styled-system/jsx'
 import { css } from '@styled-system/css'
 
