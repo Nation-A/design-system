@@ -1,4 +1,4 @@
-import { Button, ButtonProps, Dialog, IconButton, IconButtonProps, Portal, Text, Tag, Flex } from '@nation-a/ui'
+import { Button, ButtonProps, Dialog, IconButton, IconButtonProps, Portal, Text, Tag, Flex, Tabs } from '@nation-a/ui'
 import * as Icons from '@nation-a/icons'
 import { useState } from 'react'
 import { TagProps } from '@nation-a/ui'
@@ -54,7 +54,19 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col gap-4 p-4 dark bg-black">
+    <div className="flex flex-col gap-4 p-4 light ">
+      <Flex>
+        <Tabs bottomLine variant="line" value="tab1" defaultValue={'tab1'}>
+          <Tabs.List>
+            <Tabs.Trigger value="tab1">Tab 1</Tabs.Trigger>
+            <Tabs.Trigger value="tab2">Tab 2</Tabs.Trigger>
+            <Tabs.Trigger value="tab3">Tab 3</Tabs.Trigger>
+
+            <Tabs.Indicator />
+          </Tabs.List>
+          <Tabs.Content value="tab1">Content for Tab 1</Tabs.Content>
+        </Tabs>
+      </Flex>
       <div className="flex flex-wrap gap-4">
         {tagRadius.map((radius) => (
           <div className="flex flex-wrap gap-4">

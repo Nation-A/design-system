@@ -1,6 +1,6 @@
 {
   "name": "@nation-a/ui",
-  "version": "0.10.3",
+  "version": "0.11.0",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -16,7 +16,8 @@
     "typecheck": "tsc --noEmit",
     "panda": "panda codegen && panda",
     "storybook": "pnpm panda && VITE_IS_STORYBOOK=true storybook dev -p 6006",
-    "build-storybook": "pnpm panda && storybook build"
+    "build-storybook": "pnpm panda && storybook build",
+    "dev": "pnpm storybook"
   },
   "publishConfig": {
     "access": "public"

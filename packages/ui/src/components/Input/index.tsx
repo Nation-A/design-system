@@ -1,5 +1,5 @@
-import { forwardRef, ReactNode, useCallback, useRef } from 'react'
-import { HTMLStyledProps, styled } from '@styled-system/jsx'
+import { forwardRef, memo, ReactNode, useCallback, useRef } from 'react'
+import { Box, HStack, HTMLStyledProps, styled } from '@styled-system/jsx'
 import { Assign } from '@ark-ui/react'
 import { InputVariantProps, inputRecipe } from './input.recipe'
 import { cx } from '@styled-system/css'
@@ -11,6 +11,8 @@ export type InputProps = Assign<HTMLStyledProps<'input'>, InputVariantProps> & {
   labelPosition?: 'outside' | 'inside'
   description?: string
   textLimit?: number
+  startAdornment?: ReactNode
+  endAdornment?: ReactNode
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -28,6 +30,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       onChange,
       className,
       css,
+      startAdornment,
+      endAdornment,
       ...rest
     },
     ref,
@@ -87,11 +91,16 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <VStack gap={1} className={'group'} data-disabled={disabled || undefined} css={{ width: '100%' }}>
-        <Label visible={!!(label && labelPosition === 'outside')}>{label}</Label>
-        <Stack gap={1} className={cx(recipe.inputContainer, className)} onClick={handleContainerClick} css={css}>
-          <Label visible={!!(label && labelPosition === 'inside')}>{label}</Label>
-          <styled.input ref={inputRef} disabled={disabled} onChange={handleInputChange} {...rest} />
-        </Stack>
+        <Label visible={!!(label && labelPosition === 'outside')}>{label}</Label>{' '}
+        <HStack className={cx(recipe.inputContainer, className)} onClick={handleContainerClick} css={css}>
+          <Box className={recipe.adornment}>{startAdornment}</Box>
+          <Stack gap={1} css={{ width: '100%' }}>
+            <Label visible={!!(label && labelPosition === 'inside')}>{label}</Label>
+
+            <styled.input ref={inputRef} disabled={disabled} onChange={handleInputChange} {...rest} />
+          </Stack>
+          <Box className={recipe.adornment}>{endAdornment}</Box>
+        </HStack>
         {description && <Description>{description}</Description>}
       </VStack>
     )
@@ -99,4 +108,4 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 )
 Input.displayName = 'Input'
 
-export default Input
+export default memo(Input)

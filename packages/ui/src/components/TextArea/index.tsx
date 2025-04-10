@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useCallback, useRef, useState } from 'react'
+import { forwardRef, memo, ReactNode, useCallback, useRef, useState } from 'react'
 import { HTMLStyledProps } from '@styled-system/jsx'
 import { Assign } from '@ark-ui/react'
 import { cx } from '@styled-system/css'
@@ -115,4 +115,4 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 )
 Textarea.displayName = 'Textarea'
 
-export default Textarea
+export default memo(Textarea)

@@ -1,5 +1,41 @@
 # @nation-a/ui
 
+## 0.11.0
+
+### Minor Changes
+
+- 84894ec: - Added Tab
+
+## 0.10.8
+
+### Patch Changes
+
+- 6665698: - Prevented click bubbling of Tag
+
+## 0.10.7
+
+### Patch Changes
+
+- 8976f4f: - Fixed Input width bug
+
+## 0.10.6
+
+### Patch Changes
+
+- dee01d5: - Added adornment props to Input
+
+## 0.10.5
+
+### Patch Changes
+
+- 8a76f41: - Added memoization
+
+## 0.10.4
+
+### Patch Changes
+
+- a32a8cf: - Changed bottom-sheet zIndex, bgColor
+
 ## 0.10.3
 
 ### Patch Changes

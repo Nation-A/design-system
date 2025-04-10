@@ -31,7 +31,7 @@ const Content = withContext<HTMLDivElement, TabsContentProps>(ArkTabs.Content, '
 export type TabsIndicatorProps = Assign<React.HTMLAttributes<HTMLDivElement>, ArkTabs.IndicatorBaseProps>
 const Indicator = withContext<HTMLDivElement, TabsIndicatorProps>(ArkTabs.Indicator, 'indicator')
 
-export const Tabs = Object.assign(Root, {
+const Tabs = Object.assign(Root, {
   Root,
   List,
   Trigger,
@@ -40,3 +40,5 @@ export const Tabs = Object.assign(Root, {
 })
 
 export const TabsContext = ArkTabs.Context
+
+export default Tabs

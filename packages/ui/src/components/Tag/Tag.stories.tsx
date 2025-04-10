@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Tag from './index'
 import { Flex, HStack, VStack } from '../Layout'
-
+import { fn } from '@storybook/test'
 const meta: Meta<typeof Tag> = {
   title: 'Components/Tag',
   component: Tag,
@@ -17,7 +17,7 @@ type Story = StoryObj<typeof Tag>
 export const DefaultTag: Story = {
   args: {
     text: 'Tag',
-    onDeleteClick: () => console.log('Delete clicked'),
+    onDeleteClick: fn(),
   },
 }
 
@@ -33,7 +33,7 @@ export const NoCloseTag: Story = {
 
 export const TagWithBackground: Story = {
   args: {
-    onDeleteClick: () => console.log('Delete clicked'),
+    onDeleteClick: fn(),
   },
   render: (args) => (
     <VStack gap="4">
