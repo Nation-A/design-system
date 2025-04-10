@@ -1,5 +1,5 @@
-import { css, cx } from '@styled-system/css'
-import { ReactNode, forwardRef, useEffect, useState } from 'react'
+import { css, cx, Styles } from '@styled-system/css'
+import { CSSProperties, ReactNode, forwardRef, useEffect, useState } from 'react'
 import { animated, SpringValue, useSpring } from '@react-spring/web'
 import useBottomSheet from '@/hooks/useBottomSheet'
 
@@ -19,6 +19,8 @@ export interface BottomSheetProps {
   onOpen?: () => void
   children: ReactNode
   className?: string
+  css?: Styles
+  style?: CSSProperties
   /**
    * snapPercent: window 높이 기준 바텀시트 최소 / 최대 스냅 퍼센트 (default: min: DEFAULT_MIN_SNAP, max: DEFAULT_MIN_SNAP)
    */
@@ -43,7 +45,9 @@ export interface BottomSheetProps {
 
 interface BottomSheetFrameProps {
   children: ReactNode
-  className: string
+  className?: string
+  css?: Styles
+  style?: CSSProperties
   initialOpenHeightPx: number
   springs: {
     transform: SpringValue<string>
@@ -58,7 +62,7 @@ interface BottomSheetBackdropProps {
 }
 
 const BottomSheetFrame = forwardRef<HTMLDivElement, BottomSheetFrameProps>(
-  ({ children, className, initialOpenHeightPx, springs }, ref) => {
+  ({ children, className, initialOpenHeightPx, springs, style: styleProp, css: cssProp }, ref) => {
     return (
       <animated.section
         ref={ref}
@@ -77,12 +81,14 @@ const BottomSheetFrame = forwardRef<HTMLDivElement, BottomSheetFrameProps>(
             backgroundColor: 'surface.layer_1',
             shadow: '0 -15px 15px 0px rgba(0, 0, 0, 0.05)',
             willChange: 'auto',
+            ...cssProp,
           }),
           className,
         )}
         style={{
           bottom: `calc(${initialOpenHeightPx}px - 100dvh)`,
           transform: springs.transform,
+          ...styleProp,
         }}
       >
         {children}
@@ -155,6 +161,8 @@ const BottomSheet = (props: BottomSheetProps) => {
     backdropOpacity = DEFAULT_BACKDROP_OPACITY,
     hideHandle = false,
     expendOnContentDrag = false,
+    css: cssProp,
+    style: styleProp,
   } = props
 
   const { bottomSheetRef, contentRef, snapToMin, springs } = useBottomSheet({
@@ -175,11 +183,13 @@ const BottomSheet = (props: BottomSheetProps) => {
   }, [snapPercent?.min])
 
   return (
-    <animated.div>
+    <animated.div className={css({ width: '100%' })}>
       {bgBlocking && <Backdrop isBackdropOpen={isOpen} opacity={backdropOpacity} onBackdropClick={() => snapToMin()} />}
       <BottomSheetFrame
         ref={bottomSheetRef}
         className={className}
+        style={styleProp}
+        css={cssProp}
         springs={springs}
         initialOpenHeightPx={initialOpenHeightPx}
       >
