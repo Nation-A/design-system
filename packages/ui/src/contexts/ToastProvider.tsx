@@ -1,4 +1,3 @@
-'use client'
 import { ReactNode, useEffect } from 'react'
 import { createToaster, Toaster } from '@ark-ui/react/toast'
 import Toast from '@/components/Toast'
@@ -27,6 +26,17 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
     overlap: true,
   })
 
+  // 마운트 시 준비 상태 설정
+  useEffect(() => {
+    // Toast 유틸리티에 준비 상태 알림
+    toast._setReady()
+
+    // 컴포넌트 언마운트 시 처리
+    return () => {
+      // 정리 로직 필요 시 여기에 추가
+    }
+  }, [])
+
   // toast 큐 이벤트 리스너
   useEffect(() => {
     let currentZIndexCounter = 1300 // zIndex 카운터 초기화 (z-index: overlay == 1300)
@@ -51,7 +61,11 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
           if (toastData.action) {
             options.action = {
               label: toastData.action.label,
-              onClick: toastData.action.onClick ?? (() => {}),
+              onClick:
+                toastData.action.onClick ??
+                (() => {
+                  // No-op function when onClick is not provided
+                }),
               duration: DURATION.HAS_ACTION,
             }
           }
@@ -61,15 +75,15 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
             options.duration = toastData.duration
           }
 
-          toaster.create(options)
+          // 렌더링 사이클 외부에서 토스트 생성
+          setTimeout(() => {
+            toaster.create(options)
+          }, 0)
         } catch (error) {
           console.error('Error creating toast:', error)
         }
       })
     }
-
-    // 초기 큐에 있는 토스트 표시
-    showToasts()
 
     // 이벤트 리스너 등록
     const handleToastQueue = () => showToasts()
