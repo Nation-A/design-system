@@ -1,7 +1,22 @@
-import { Button, ButtonProps, Dialog, IconButton, IconButtonProps, Portal, Text, Tag, Flex, Tabs } from '@nation-a/ui'
+import {
+  Button,
+  ButtonProps,
+  Dialog,
+  IconButton,
+  IconButtonProps,
+  Portal,
+  Text,
+  Tag,
+  Flex,
+  Tabs,
+  toast,
+} from '@nation-a/ui'
 import * as Icons from '@nation-a/icons'
 import { useState } from 'react'
 import { TagProps } from '@nation-a/ui'
+import { Sheet } from 'react-modal-sheet'
+import { css } from '@nation-a/ui/css'
+
 const buttonVariants: ButtonProps['variant'][] = ['solid', 'outline', 'light']
 
 const buttonColors: ButtonProps['color'][] = [
@@ -40,6 +55,7 @@ const tagRadius: TagProps['radius'][] = ['sm', 'full']
 const imageSrc = [undefined, '/avatar.png']
 
 export default function Home() {
+  const [isOpen, setOpen] = useState(false)
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
   const changeTheme = (theme: 'light' | 'dark') => {
@@ -53,20 +69,45 @@ export default function Home() {
     }
   }
 
+  const aa = () => {
+    toast.show('This is a toast message')
+  }
   return (
     <div className="flex flex-col gap-4 p-4 light ">
       <Flex>
-        <Tabs bottomLine variant="line" value="tab1" defaultValue={'tab1'}>
-          <Tabs.List>
-            <Tabs.Trigger value="tab1">Tab 1</Tabs.Trigger>
-            <Tabs.Trigger value="tab2">Tab 2</Tabs.Trigger>
-            <Tabs.Trigger value="tab3">Tab 3</Tabs.Trigger>
-
-            <Tabs.Indicator />
-          </Tabs.List>
-          <Tabs.Content value="tab1">Content for Tab 1</Tabs.Content>
-        </Tabs>
+        <Button onClick={aa}>Show Toast</Button>
       </Flex>
+      <button onClick={() => setOpen(true)}>Open sheet</button>
+
+      <Sheet
+        isOpen={isOpen}
+        onClose={() => setOpen(false)}
+        className={css({
+          backgroundColor: 'red',
+        })}
+      >
+        <Sheet.Container
+          className={css({
+            backgroundColor: 'red',
+            borderRadius: '100px',
+          })}
+        >
+          <Sheet.Header
+            className={css({
+              backgroundColor: 'red',
+              borderRadius: '100px',
+            })}
+          />
+          <Sheet.Content
+            style={{
+              backgroundColor: 'red',
+            }}
+          >
+            <Text>Hello</Text>
+          </Sheet.Content>
+        </Sheet.Container>
+        <Sheet.Backdrop />
+      </Sheet>
       <div className="flex flex-wrap gap-4">
         {tagRadius.map((radius) => (
           <div className="flex flex-wrap gap-4">
