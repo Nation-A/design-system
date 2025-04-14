@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.11.5
+
+### Patch Changes
+
+- 800127f: hotfix: dialog z-index 수정
+
 ## 0.11.4
 
 ### Patch Changes
