@@ -1,5 +1,12 @@
 # next-app
 
+## 0.1.23
+
+### Patch Changes
+
+- Updated dependencies [9deb2d2]
+  - @nation-a/ui@0.11.2
+
 ## 0.1.22
 
 ### Patch Changes
