@@ -8,4 +8,5 @@ export const globalCss = defineGlobalStyles({
     color: 'content.neutral.default',
     backgroundColor: 'surface.base',
   },
+  
 })

@@ -1,208 +1,153 @@
-import { css, cx, Styles } from '@styled-system/css'
-import { CSSProperties, ReactNode, forwardRef, useEffect, useState } from 'react'
-import { animated, SpringValue, useSpring } from '@react-spring/web'
-import useBottomSheet from '@/hooks/useBottomSheet'
+import { ComponentProps, ReactNode, forwardRef, createContext, useContext } from 'react'
+import { Sheet } from './src'
+import { bottomSheetRecipe, BottomSheetVariantProps } from './bottomsheet.recipe'
+import { css, cx } from '@styled-system/css'
+import { HTMLStyledProps } from '@styled-system/jsx'
+import { HStack } from '@styled-system/jsx'
 
-const DEFAULT_MIN_SNAP = 0
-const DEFAULT_MAX_SNAP = 'INNER_HEIGHT'
-const DEFAULT_BACKDROP_OPACITY = 0.5
-
-export interface BottomSheetProps {
-  isOpen: boolean
-  /**
-   * onClose: 바텀시트 close시 callback
-   */
+interface BottomSheetContextType {
+  rounded: number
   onClose?: () => void
-  /**
-   * onOpen: 바텀시트 open시 callback
-   */
-  onOpen?: () => void
-  children: ReactNode
-  className?: string
-  css?: Styles
-  style?: CSSProperties
-  /**
-   * snapPercent: window 높이 기준 바텀시트 최소 / 최대 스냅 퍼센트 (default: min: DEFAULT_MIN_SNAP, max: DEFAULT_MIN_SNAP)
-   */
-  snapPercent?: { min?: number; max?: number }
-  /**
-   * bgBlocking: 바텀시트 열림시 배경 블락킹 여부 설정 (true(default), false)
-   */
-  bgBlocking?: boolean
-  /**
-   * backdropOpacity: 바텀시트 열림시 배경 블락킹 backdrop opacity 설정 (0 ~ 1 사이 소수 값, default: DEFAULT_BACKDROP_OPACITY)
-   */
-  backdropOpacity?: number
-  /**
-   * hideHandle: 바텀시트 핸들 숨기기 설정 (true, false(default))
-   */
-  hideHandle?: boolean
-  /**
-   * expendOnContentDrag: 컨텐츠 스크롤 시 바텀시트 드래깅 여부 설정 (true, false(default))
-   */
-  expendOnContentDrag?: boolean
 }
 
-interface BottomSheetFrameProps {
-  children: ReactNode
-  className?: string
-  css?: Styles
-  style?: CSSProperties
-  initialOpenHeightPx: number
-  springs: {
-    transform: SpringValue<string>
+const BottomSheetContext = createContext<BottomSheetContextType>({ rounded: 20 })
+
+export type BottomSheetProps = Omit<ComponentProps<typeof Sheet>, 'children'> &
+  BottomSheetVariantProps & {
+    children: ReactNode
+    snapPercent?: { min: number; max: number }
+    rounded?: number
+    onClose?: () => void
   }
+
+interface BottomSheetComponent
+  extends React.ForwardRefExoticComponent<BottomSheetProps & React.RefAttributes<HTMLDivElement>> {
+  Header: typeof Header
+  Content: typeof Content
+  Backdrop: typeof Backdrop
+  Handle: typeof Handle
+  Scroller: typeof Sheet.Scroller
 }
 
-interface BottomSheetBackdropProps {
-  onBackdropClick: () => void
+const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
+  ({ children, snapPercent, fullHeight, className, rounded = 20, disableDrag, onClose, ...props }, ref) => {
+    const snapPoints = snapPercent
+      ? [snapPercent.max * window.innerHeight, snapPercent.min * window.innerHeight]
+      : undefined
 
-  isBackdropOpen: boolean
-  opacity: number
-}
+    const styles = bottomSheetRecipe({ fullHeight })
 
-const BottomSheetFrame = forwardRef<HTMLDivElement, BottomSheetFrameProps>(
-  ({ children, className, initialOpenHeightPx, springs, style: styleProp, css: cssProp }, ref) => {
     return (
-      <animated.section
-        ref={ref}
-        className={cx(
-          css({
-            position: 'fixed',
-            touchAction: 'pan-y',
-            display: 'flex',
-            flexDirection: 'column',
-            width: '100%',
-            pointerEvents: 'auto', // 제스처 이벤트 허용
-            overflow: 'hidden',
-            borderRadius: '40px 40px 0 0',
-            height: '100%',
-            zIndex: 'modal',
-            backgroundColor: 'surface.layer_1',
-            shadow: '0 -15px 15px 0px rgba(0, 0, 0, 0.05)',
-            willChange: 'auto',
-            ...cssProp,
-          }),
-          className,
-        )}
-        style={{
-          bottom: `calc(${initialOpenHeightPx}px - 100dvh)`,
-          transform: springs.transform,
-          ...styleProp,
-        }}
-      >
+      <BottomSheetContext.Provider value={{ rounded, onClose }}>
+        <Sheet
+          ref={ref}
+          snapPoints={snapPoints}
+          initialSnap={0}
+          className={cx(styles.root, className)}
+          onClose={onClose}
+          {...props}
+        >
+          {children}
+        </Sheet>
+      </BottomSheetContext.Provider>
+    )
+  },
+) as BottomSheetComponent
+
+BottomSheet.displayName = 'BottomSheet'
+
+// Compound components
+const Header = forwardRef<HTMLDivElement, BottomSheetVariantProps & { children: ReactNode; className?: string }>(
+  ({ children, className, ...props }, ref) => {
+    const styles = bottomSheetRecipe()
+
+    return (
+      <HStack ref={ref} className={cx(styles.header, className)} {...props}>
         {children}
-      </animated.section>
+      </HStack>
     )
   },
 )
+Header.displayName = 'BottomSheet.Header'
 
-const Backdrop = forwardRef<HTMLDivElement, BottomSheetBackdropProps>(
-  ({ onBackdropClick, isBackdropOpen, opacity: bgOpacity }, ref) => {
-    const [springs] = useSpring(
-      () => ({
-        from: { opacity: 0 },
-        to: { opacity: isBackdropOpen ? 1 : 0 },
-        config: {
-          tension: 200,
-          friction: 25,
-          mass: 0.8,
-        },
-      }),
-      [isBackdropOpen],
-    )
+type ContentProps = ComponentProps<typeof Sheet.Content> & HTMLStyledProps<'div'>
+
+const Content = forwardRef<HTMLStyledProps<'div'>, ContentProps>(
+  ({ className, children, css: cssProp, ...props }, ref) => {
+    const styles = bottomSheetRecipe()
+    const { rounded } = useContext(BottomSheetContext)
+    const contentClass = cx(styles.content, className, cssProp ? css(cssProp) : undefined)
 
     return (
-      <animated.div
-        className={css({
-          zIndex: 'overlay',
-          position: 'fixed',
-          top: 0,
-          width: '100%',
-          height: '100dvh',
-          willChange: 'opacity',
-          overflow: 'hidden',
-          touchAction: 'none',
-        })}
-        style={{
-          backgroundColor: springs.opacity.to((o: number) => `rgba(0, 0, 0, ${o * bgOpacity})`),
-          opacity: springs.opacity,
-          visibility: isBackdropOpen ? 'visible' : 'hidden',
-        }}
-        onClick={() => onBackdropClick()}
+      <Sheet.Container
+        style={{ backgroundColor: 'transparent', borderTopLeftRadius: rounded, borderTopRightRadius: rounded }}
+      >
+        <Sheet.Content
+          ref={ref}
+          className={contentClass}
+          style={{
+            borderTopLeftRadius: rounded,
+            borderTopRightRadius: rounded,
+          }}
+          {...props}
+        >
+          {children}
+        </Sheet.Content>
+      </Sheet.Container>
+    )
+  },
+)
+Content.displayName = 'BottomSheet.Content'
+
+type BackdropProps = ComponentProps<typeof Sheet.Backdrop> & {
+  opacity?: number
+  disableCloseOnTap?: boolean
+}
+
+// Compound components
+const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
+  ({ className, children, opacity = 0.5, disableCloseOnTap, style, ...props }, ref) => {
+    const styles = bottomSheetRecipe()
+    const { onClose } = useContext(BottomSheetContext)
+    const backdropClass = cx(styles.backdrop, className)
+    return (
+      <Sheet.Backdrop
         ref={ref}
+        className={backdropClass}
+        style={{ background: `rgba(0, 0, 0, ${opacity})`, ...style }}
+        onTap={() => {
+          if (!disableCloseOnTap) {
+            onClose?.()
+          }
+        }}
+        {...props}
       />
     )
   },
 )
+Backdrop.displayName = 'BottomSheet.Backdrop'
 
-const BottomSheetHandle = () => (
+const Handle = () => (
   <div
     className={css({
-      margin: '22px auto',
+      margin: '15px auto',
       height: 1.5,
       minHeight: 1.5,
       width: '45px',
       borderRadius: 999,
       background: '#bebebe',
+      zIndex: 0,
+      touchAction: 'none',
+      userSelect: 'none',
     })}
   />
 )
 
-const BottomSheet = (props: BottomSheetProps) => {
-  const {
-    isOpen = true,
-    onClose,
-    onOpen,
-    children,
-    className = '',
-    snapPercent,
-    bgBlocking = true,
-    backdropOpacity = DEFAULT_BACKDROP_OPACITY,
-    hideHandle = false,
-    expendOnContentDrag = false,
-    css: cssProp,
-    style: styleProp,
-  } = props
-
-  const { bottomSheetRef, contentRef, snapToMin, springs } = useBottomSheet({
-    isOpen,
-    onOpen,
-    onClose,
-    snapPercent: {
-      min: snapPercent?.min ?? DEFAULT_MIN_SNAP,
-      max: snapPercent?.max ?? DEFAULT_MAX_SNAP,
-    },
-    expendOnContentDrag,
-  })
-
-  const [initialOpenHeightPx, setInitialOpenHeightPx] = useState(DEFAULT_MIN_SNAP)
-
-  useEffect(() => {
-    if (snapPercent?.min) setInitialOpenHeightPx(window.innerHeight * snapPercent?.min)
-  }, [snapPercent?.min])
-
-  return (
-    <animated.div className={css({ width: '100%' })}>
-      {bgBlocking && <Backdrop isBackdropOpen={isOpen} opacity={backdropOpacity} onBackdropClick={() => snapToMin()} />}
-      <BottomSheetFrame
-        ref={bottomSheetRef}
-        className={className}
-        style={styleProp}
-        css={cssProp}
-        springs={springs}
-        initialOpenHeightPx={initialOpenHeightPx}
-      >
-        {!hideHandle && <BottomSheetHandle />}
-        <section ref={contentRef} className={css({ overflowY: 'auto' })}>
-          {children}
-        </section>
-      </BottomSheetFrame>
-    </animated.div>
-  )
-}
-
-BottomSheetFrame.displayName = 'BottomSheetFrame'
-Backdrop.displayName = 'Backdrop'
+// Attach compound components
+BottomSheet.Header = Header
+BottomSheet.Content = Content
+BottomSheet.Backdrop = Backdrop as any
+BottomSheet.Handle = Handle
+BottomSheet.Scroller = Sheet.Scroller
 
 export default BottomSheet
