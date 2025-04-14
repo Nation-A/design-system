@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.11.2
+
+### Patch Changes
+
+- 9deb2d2: react-modal-sheet test
+
 ## 0.11.1
 
 ### Patch Changes
