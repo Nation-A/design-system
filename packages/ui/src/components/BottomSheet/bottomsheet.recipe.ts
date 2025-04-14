@@ -15,6 +15,7 @@ export const bottomSheetRecipe = sva({
       backgroundColor: 'surface.layer_1',
       boxShadow: 'md',
       background: 'surface.layer_1',
+      zIndex: 'modal',
     },
     header: {
       display: 'flex',
@@ -33,10 +34,12 @@ export const bottomSheetRecipe = sva({
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
       boxShadow: 'overlay',
+      zIndex: 'modal',
     },
     backdrop: {
       backgroundColor: 'shadow.overlay',
       opacity: 0.5,
+      zIndex: 'overlay',
     },
   },
   variants: {

@@ -15,7 +15,7 @@ export const dialogRecipe = sva({
       top: '0',
       left: '0',
       width: '100vw',
-      zIndex: 'overlay',
+      zIndex: 'popover',
       pointerEvents: 'auto',
       _open: {
         animation: 'backdrop-in',

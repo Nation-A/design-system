@@ -1,5 +1,5 @@
 import { ComponentProps, ReactNode, forwardRef, createContext, useContext } from 'react'
-import { Sheet } from './src'
+import { Sheet } from './react-modal-sheet'
 import { bottomSheetRecipe, BottomSheetVariantProps } from './bottomsheet.recipe'
 import { css, cx } from '@styled-system/css'
 import { HTMLStyledProps } from '@styled-system/jsx'

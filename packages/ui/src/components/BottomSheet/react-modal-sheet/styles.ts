@@ -1,4 +1,4 @@
-import { type Properties } from 'csstype';
+import { type Properties } from 'csstype'
 
 export const styles: Record<string, Properties> = {
   wrapper: {
@@ -11,7 +11,7 @@ export const styles: Record<string, Properties> = {
     pointerEvents: 'none',
   },
   backdrop: {
-    zIndex: 1,
+    zIndex: 'overlay',
     position: 'fixed',
     top: 0,
     left: 0,
@@ -23,7 +23,7 @@ export const styles: Record<string, Properties> = {
     WebkitTapHighlightColor: 'transparent',
   },
   container: {
-    zIndex: 2,
+    zIndex: 'modal',
     position: 'absolute',
     left: 0,
     bottom: 0,
@@ -64,4 +64,4 @@ export const styles: Record<string, Properties> = {
     height: '100%',
     overflowY: 'auto',
   },
-};
+}

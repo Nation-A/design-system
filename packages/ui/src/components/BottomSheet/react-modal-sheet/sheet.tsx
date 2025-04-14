@@ -72,7 +72,7 @@ export const Sheet = forwardRef<any, SheetProps>(
     const y = useMotionValue(windowHeight)
 
     // +2 for tolerance in case the animated value is slightly off
-    const zIndex = useTransform(y, (value) => (value + 2 >= windowHeight ? -1 : (style?.zIndex ?? 9999)))
+    const zIndex = useTransform(y, (value) => (value + 2 >= windowHeight ? -1 : (style?.zIndex ?? 1300)))
     const visibility = useTransform(y, (value) => (value + 2 >= windowHeight ? 'hidden' : 'visible'))
 
     // Keep the callback fns up-to-date so that they can be accessed inside
