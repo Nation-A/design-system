@@ -34,7 +34,7 @@ export const dialogRecipe = sva({
       top: '0',
       width: '100vw',
       height: '100vh',
-      zIndex: 'modal',
+      zIndex: 'popover',
       p: '4',
     },
     content: {
