@@ -82,6 +82,13 @@ export const inputRecipe = sva({
         },
       },
     },
+    removeBorder: {
+      true: {
+        inputContainer: {
+          border: '0',
+        },
+      },
+    },
     variant: {
       solid: {
         inputContainer: {
@@ -196,5 +203,6 @@ export const inputRecipe = sva({
     variant: 'solid',
     color: 'neutral',
     radius: 'md',
+    removeBorder: false,
   },
 })

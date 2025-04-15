@@ -13,6 +13,7 @@ export type InputProps = Assign<HTMLStyledProps<'input'>, InputVariantProps> & {
   textLimit?: number
   startAdornment?: ReactNode
   endAdornment?: ReactNode
+  removeBorder?: boolean
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -32,6 +33,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       css,
       startAdornment,
       endAdornment,
+      removeBorder,
       ...rest
     },
     ref,
@@ -40,6 +42,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       variant,
       color,
       radius,
+      removeBorder,
     })
 
     const innerRef = useRef<HTMLInputElement>(null)

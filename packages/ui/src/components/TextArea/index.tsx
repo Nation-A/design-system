@@ -14,6 +14,7 @@ export type TextAreaProps = Assign<HTMLStyledProps<'textarea'>, InputVariantProp
   description?: string
   textLimit?: number
   showTextCount?: boolean
+  removeBorder?: boolean
 }
 
 const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
@@ -33,16 +34,20 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       onChange,
       className,
       css,
+      removeBorder,
       ...rest
     },
     ref,
   ) => {
     const [count, setCount] = useState(value?.toString().length || 0)
+
+    // TextArea의 recipe => Input의 recipe를 상속. 같은 디자인 사용
     const recipe = inputRecipe({
       variant,
       color,
       radius,
       isTextArea: true,
+      removeBorder,
     })
 
     const innerRef = useRef<HTMLTextAreaElement>(null)

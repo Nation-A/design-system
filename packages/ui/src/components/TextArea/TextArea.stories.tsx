@@ -89,6 +89,10 @@ export const WithDescription: Story = {
   },
 }
 
+export const WithRemoveBorder: Story = {
+  render: () => <Textarea placeholder={`Placeholder`} color={'alpha'} variant={'solid'} removeBorder />,
+}
+
 export const UIVariants: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>

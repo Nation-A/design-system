@@ -74,6 +74,25 @@ export const WithDescription: Story = {
   },
 }
 
+export const RemoveBorder: Story = {
+  args: {
+    value: '',
+    placeholder: 'Text Here',
+    label: '이메일',
+    description: '이메일 주소를 입력해주세요.',
+    removeBorder: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Input 컴포넌트에 description을 추가한 예시입니다. description은 입력창 아래에 안내 메시지를 표시합니다.',
+      },
+    },
+  },
+}
+
+
 export const UIVariants: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
