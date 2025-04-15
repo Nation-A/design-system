@@ -9,7 +9,7 @@ import {
   Tag,
   Flex,
   Tabs,
-  toast,
+  Toast,
 } from '@nation-a/ui'
 import * as Icons from '@nation-a/icons'
 import { useState } from 'react'
@@ -70,7 +70,7 @@ export default function Home() {
   }
 
   const aa = () => {
-    toast.show('This is a toast message')
+    Toast.show('This is a toast message')
   }
   return (
     <div className="flex flex-col gap-4 p-4 light ">
@@ -134,6 +134,8 @@ export default function Home() {
           </div>
         ))}
       </div>
+
+      <Toast.Toaster />
 
       <Flex wrap="wrap">
         {Object.entries(Icons).map(([key, Icon]) => (
