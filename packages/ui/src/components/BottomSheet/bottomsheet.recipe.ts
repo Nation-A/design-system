@@ -10,12 +10,12 @@ export const bottomSheetRecipe = sva({
       '& [data-rsbs-backdrop]': {
         background: 'rgba(0, 0, 0, 0.6)',
       },
+      zIndex: 'overlay',
     },
     container: {
       backgroundColor: 'surface.layer_1',
       boxShadow: 'md',
       background: 'surface.layer_1',
-      zIndex: 'modal',
     },
     header: {
       display: 'flex',
@@ -33,13 +33,10 @@ export const bottomSheetRecipe = sva({
       backgroundColor: 'surface.layer_1',
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
-      boxShadow: 'overlay',
-      zIndex: 'modal',
     },
     backdrop: {
       backgroundColor: 'shadow.overlay',
       opacity: 0.5,
-      zIndex: 'overlay',
     },
   },
   variants: {
