@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.11.8
+
+### Patch Changes
+
+- 30cdeff: Input, TextArea 컴포넌트에 removeBorder prop 추가
+
 ## 0.11.7
 
 ### Patch Changes
