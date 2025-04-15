@@ -30,6 +30,7 @@ interface ToastComponent extends React.ForwardRefExoticComponent<ToastProps & Re
   ActionTrigger: typeof ActionTrigger
   Toaster: typeof Toaster
   show: (description: ToastProps['description'], option?: ToastProps['option']) => void
+  error: (description: ToastProps['description'], option?: ToastProps['option']) => void
 }
 
 const Root = forwardRef<HTMLDivElement, { children: ReactNode; className?: string; width?: string }>(
@@ -125,7 +126,40 @@ Toast.Icon = Icon
 Toast.ActionTrigger = ActionTrigger
 Toast.Toaster = Toaster
 
+// 기본 Toast Show
 Toast.show = (description: ToastProps['description'], option: ToastProps['option']) => {
+  hotToast(
+    (t) => (
+      <Toast.Root width={option?.actionLabel ? 'full' : 'fit'}>
+        <Toast.Content>
+          {option?.icon && <Toast.Icon icon={option?.icon} />}
+          <Toast.Description>{description}</Toast.Description>
+        </Toast.Content>
+        {option?.actionLabel && (
+          <Toast.ActionTrigger
+            asLink={option?.asLink}
+            onClick={() => {
+              option?.onActionClick?.()
+              if (!option?.disableCloseOnActionClick) {
+                hotToast.dismiss(t.id)
+              }
+            }}
+          >
+            {option?.actionLabel}
+          </Toast.ActionTrigger>
+        )}
+      </Toast.Root>
+    ),
+    {
+      duration: option?.duration || DEFAULT_DURATION,
+      position: 'bottom-center',
+    },
+  )
+}
+
+// 에러 Toast Show
+Toast.error = (description: ToastProps['description'], option: ToastProps['option']) => {
+  console.error('error', description)
   hotToast(
     (t) => (
       <Toast.Root width={option?.actionLabel ? 'full' : 'fit'}>
