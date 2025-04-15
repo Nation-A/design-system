@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.11.7
+
+### Patch Changes
+
+- 5902e8c: Toast.error 추가
+
 ## 0.11.6
 
 ### Patch Changes
