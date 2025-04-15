@@ -1,90 +1,158 @@
 'use client'
-import { ark, Assign } from '@ark-ui/react'
-import { Toast as ArkToast, Toaster } from '@ark-ui/react/toast'
+import { forwardRef, ReactNode } from 'react'
+import { createPortal } from 'react-dom'
+import hotToast, { Toaster as HotToaster } from 'react-hot-toast'
+import { Box, HStack } from '@styled-system/jsx'
+import { cx } from '@styled-system/css'
 import { toastRecipe } from './toast.recipe'
-import type { ComponentProps, HTMLStyledProps } from 'styled-system/types'
-import { createStyleContext } from '@/utils/create-style-context'
-import React from 'react'
-const { withProvider, withContext } = createStyleContext(toastRecipe)
 
-export type ToastProps = ComponentProps<typeof Root>
+// type ToastVariant = 'success' | 'error' | 'warning' | 'info'
 
-type ToastRecipeVariants = {
-  width?: 'full' | 'fit'
-  asLink?: boolean
+const DEFAULT_DURATION = 3000 as const
+
+export interface ToastProps {
+  description: string
+  option?: {
+    icon?: ReactNode
+    actionLabel?: string
+    onActionClick?: () => void
+    duration?: number
+    asLink?: boolean
+    disableCloseOnActionClick?: boolean
+  }
 }
-type RootProps = Assign<HTMLStyledProps<'div'>, ArkToast.RootProps> & ToastRecipeVariants
 
-const OriginalRoot = withProvider<HTMLDivElement, RootProps>(ArkToast.Root, 'root')
+interface ToastComponent extends React.ForwardRefExoticComponent<ToastProps & React.RefAttributes<HTMLDivElement>> {
+  Root: typeof Root
+  Content: typeof Content
+  Description: typeof Description
+  Icon: typeof Icon
+  ActionTrigger: typeof ActionTrigger
+  Toaster: typeof Toaster
+  show: (description: ToastProps['description'], option?: ToastProps['option']) => void
+}
 
-const Root = React.forwardRef<HTMLDivElement, RootProps>((props, ref) => {
-  const { children, width, ...rest } = props
+const Root = forwardRef<HTMLDivElement, { children: ReactNode; className?: string; width?: string }>(
+  ({ children, className, width = 'fit', ...props }, ref) => {
+    const styles = toastRecipe({ width: width as 'full' | 'fit' })
+    return (
+      <Box ref={ref} className={cx(styles.root, className)} {...props}>
+        {children}
+      </Box>
+    )
+  },
+)
 
-  const hasActionTrigger = React.Children.toArray(children).some((child) => {
-    if (React.isValidElement(child)) {
-      if (child.type === ActionTrigger) {
-        return true
-      }
-
-      if (child.type === React.Fragment && child.props.children) {
-        return React.Children.toArray(child.props.children).some(
-          (fragmentChild) => React.isValidElement(fragmentChild) && fragmentChild.type === ActionTrigger,
-        )
-      }
-    }
-    return false
-  })
-
-  const widthValue = width !== undefined ? width : hasActionTrigger ? 'full' : 'fit'
-
-  return (
-    <OriginalRoot ref={ref} width={widthValue} {...rest}>
-      {children}
-    </OriginalRoot>
-  )
-})
 Root.displayName = 'Toast.Root'
 
-type ActionTriggerProps = Assign<HTMLStyledProps<'button'>, ArkToast.ActionTriggerProps> & {
-  asLink?: boolean
-  href?: string
-}
-
-// Custom ActionTrigger to support asLink prop
-const OriginalActionTrigger = withContext<HTMLButtonElement, ActionTriggerProps>(
-  ArkToast.ActionTrigger,
-  'actionTrigger',
+const Content = forwardRef<HTMLDivElement, { children: ReactNode; className?: string }>(
+  ({ children, className }, ref) => {
+    const styles = toastRecipe()
+    return (
+      <HStack ref={ref} className={cx(styles.content, className)}>
+        {children}
+      </HStack>
+    )
+  },
 )
-const OriginalActionTriggerAsLink = withContext<HTMLButtonElement, ActionTriggerProps>(ark.a, 'actionTrigger')
 
-export const ActionTrigger = React.forwardRef<HTMLButtonElement, ActionTriggerProps>((props, ref) => {
-  const { asLink, ...rest } = props
-  return asLink ? <OriginalActionTriggerAsLink ref={ref} {...rest} /> : <OriginalActionTrigger ref={ref} {...rest} />
+Content.displayName = 'Toast.Content'
+
+const Description = forwardRef<HTMLDivElement, { children: ReactNode; className?: string }>(
+  ({ children, className }, ref) => {
+    const styles = toastRecipe()
+    return (
+      <Box ref={ref} className={cx(styles.description, className)}>
+        {children}
+      </Box>
+    )
+  },
+)
+
+const Icon = forwardRef<HTMLDivElement, { icon?: ReactNode; className?: string }>(({ icon, className }, ref) => {
+  const styles = toastRecipe()
+  return (
+    <Box ref={ref} className={cx(styles.icon, className)}>
+      {icon}
+    </Box>
+  )
 })
+
+Icon.displayName = 'Toast.Icon'
+
+const ActionTrigger = forwardRef<
+  HTMLButtonElement | null,
+  { onClick: () => void; children: ReactNode; className?: string; asLink?: boolean }
+>(({ onClick, children, className, asLink = false }, ref) => {
+  const styles = toastRecipe({ asLink })
+  return (
+    <button ref={ref} className={cx(styles.actionTrigger, className)} onClick={onClick}>
+      {children}
+    </button>
+  )
+})
+
 ActionTrigger.displayName = 'Toast.ActionTrigger'
 
-export const Description = withContext<HTMLDivElement, Assign<HTMLStyledProps<'div'>, ArkToast.DescriptionProps>>(
-  ArkToast.Description,
-  'description',
-)
-export const Content = withContext<HTMLDivElement, HTMLStyledProps<'div'>>(ark.div, 'content')
-export const Icon = withContext<HTMLDivElement, HTMLStyledProps<'div'>>(ark.div, 'icon')
+const Toaster = () => {
+  return createPortal(
+    <HotToaster
+      position="bottom-center"
+      toastOptions={{
+        duration: DEFAULT_DURATION,
+        style: {
+          background: 'transparent',
+          boxShadow: 'none',
+          padding: 0,
+          margin: 0,
+        },
+      }}
+    />,
+    document.body,
+  )
+}
 
-export {
-  ToastContext as Context,
-  Toaster,
-  createToaster,
-  type ToastContextProps as ContextProps,
-  type ToasterProps,
-} from '@ark-ui/react/toast'
+Toaster.displayName = 'Toast.Toaster'
 
-const Toast = {
-  Root,
-  ActionTrigger,
-  Content,
-  Description,
-  Toaster,
-  Icon,
+const Toast = forwardRef<HTMLDivElement, ToastProps>((props, ref) => {
+  return <Box ref={ref} {...props} />
+}) as ToastComponent
+
+Toast.Root = Root
+Toast.Content = Content
+Toast.Description = Description
+Toast.Icon = Icon
+Toast.ActionTrigger = ActionTrigger
+Toast.Toaster = Toaster
+
+Toast.show = (description: ToastProps['description'], option: ToastProps['option']) => {
+  hotToast(
+    (t) => (
+      <Toast.Root width={option?.actionLabel ? 'full' : 'fit'}>
+        <Toast.Content>
+          {option?.icon && <Toast.Icon icon={option?.icon} />}
+          <Toast.Description>{description}</Toast.Description>
+        </Toast.Content>
+        {option?.actionLabel && (
+          <Toast.ActionTrigger
+            asLink={option?.asLink}
+            onClick={() => {
+              option?.onActionClick?.()
+              if (!option?.disableCloseOnActionClick) {
+                hotToast.dismiss(t.id)
+              }
+            }}
+          >
+            {option?.actionLabel}
+          </Toast.ActionTrigger>
+        )}
+      </Toast.Root>
+    ),
+    {
+      duration: option?.duration || DEFAULT_DURATION,
+      position: 'bottom-center',
+    },
+  )
 }
 
 export default Toast
