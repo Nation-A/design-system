@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.11.6
+
+### Patch Changes
+
+- fa1d25f: Toast 컴포넌트 라이브러리 도입
+
 ## 0.11.5
 
 ### Patch Changes
