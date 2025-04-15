@@ -1,11 +1,10 @@
-export type ToastVariantProps = keyof typeof toastRecipe.variantMap
-
-import { toastAnatomy } from '@ark-ui/react'
 import { sva } from '@styled-system/css'
+
+export type ToastVariantProps = keyof typeof toastRecipe.variantMap
 
 export const toastRecipe = sva({
   className: 'toast',
-  slots: [...toastAnatomy.keys(), 'content', 'icon'],
+  slots: ['root', 'content', 'description', 'actionTrigger', 'icon'],
   base: {
     root: {
       display: 'flex',
@@ -21,30 +20,18 @@ export const toastRecipe = sva({
       zIndex: 'overlay',
       fontStyle: 'body.md',
       color: 'content.neutralInverse.bold',
-      pr: 4,
-      pl: 3,
+      px: 3,
       py: 2,
       boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
-      animation: 'fadeIn 0.25s ease-out',
-      transform: 'translateY(20px)',
       shadow: 'overlay',
-      transition: 'transform 0.25s ease-out',
-      '&[data-state="open"]': {
-        animation: 'slide-in 0.4s cubic-bezier(0.05, 0.7, 0.1, 1.0)',
-        transform: 'translateY(0px)',
-      },
-      '&[data-state="closed"]': {
-        animation: 'slide-out 0.2s cubic-bezier(0.3, 0.0, 0.8, 0.15)',
-        transform: 'translateY(64px)',
-      },
     },
     content: {
       display: 'inline-flex',
       alignItems: 'center',
+      gap: 2,
     },
     description: {
       textStyle: 'body.md',
-      marginLeft: 2,
     },
     actionTrigger: {
       height: '100%',
@@ -57,7 +44,6 @@ export const toastRecipe = sva({
       px: 4,
       pr: 1,
       whiteSpace: 'nowrap',
-      transition: 'opacity 0.2s ease',
       color: 'content.neutralInverse.bold',
       '&:hover': {
         opacity: 0.8,
@@ -68,6 +54,7 @@ export const toastRecipe = sva({
       height: 6,
       minWidth: 6,
       minHeight: 6,
+      ml: -1,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -95,5 +82,9 @@ export const toastRecipe = sva({
         },
       },
     },
+  },
+  defaultVariants: {
+    width: 'full',
+    asLink: false,
   },
 })
