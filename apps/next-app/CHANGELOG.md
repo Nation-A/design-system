@@ -1,5 +1,12 @@
 # next-app
 
+## 0.1.29
+
+### Patch Changes
+
+- Updated dependencies [30cdeff]
+  - @nation-a/ui@0.11.8
+
 ## 0.1.28
 
 ### Patch Changes
