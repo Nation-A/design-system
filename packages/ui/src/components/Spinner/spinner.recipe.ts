@@ -4,14 +4,9 @@ export type SpinnerVariantProps = RecipeVariantProps<typeof spinnerRecipe>
 
 export const spinnerRecipe = cva({
   base: {
-    display: 'inline-block',
-    borderWidth: 'md',
-    borderStyle: 'solid',
-    borderStartEndRadius: 'full',
-    borderEndStartRadius: 'full',
-    borderRadius: 'full',
-    animation: 'spin',
-    animationDuration: 'slowest',
+    '& path': {
+      stroke: 'currentColor',
+    },
   },
   defaultVariants: {
     size: 'md',

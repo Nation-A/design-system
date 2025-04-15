@@ -1,16 +1,5 @@
-import {
-  Button,
-  ButtonProps,
-  Dialog,
-  IconButton,
-  IconButtonProps,
-  Portal,
-  Text,
-  Tag,
-  Flex,
-  Tabs,
-  Toast,
-} from '@nation-a/ui'
+import { Button, ButtonProps, Dialog, IconButton, IconButtonProps, Portal, Text, Tag, Flex, Toast } from '@nation-a/ui'
+
 import * as Icons from '@nation-a/icons'
 import { useState } from 'react'
 import { TagProps } from '@nation-a/ui'
@@ -75,7 +64,9 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-4 p-4 light ">
       <Flex>
-        <Button onClick={aa}>Show Toast</Button>
+        <Button onClick={aa} loading>
+          Show Toast
+        </Button>
       </Flex>
       <button onClick={() => setOpen(true)}>Open sheet</button>
 
@@ -231,4 +222,12 @@ export default function Home() {
       </div>
     </div>
   )
+}
+
+export const getServerSideProps = async () => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+  const data = await res.json()
+  return {
+    props: { data },
+  }
 }
