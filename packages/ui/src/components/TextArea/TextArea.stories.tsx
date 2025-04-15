@@ -21,13 +21,7 @@ export const Default: Story = {
       <h3>Variant: Solid - Color: Alpha</h3>
       <HStack>
         <Textarea placeholder="Default" color="alpha" />
-        <Textarea
-          //   value="Selected"
-          //   onFocus={() => console.log('focus')}
-          //   onBlur={() => console.log('blur')}
-          placeholder="Selected State"
-          color="alpha"
-        />
+        <Textarea placeholder="Selected State" color="alpha" />
         <Textarea value="Disabled" disabled placeholder="Disabled State" color="alpha" />
       </HStack>
 
@@ -90,7 +84,21 @@ export const WithDescription: Story = {
 }
 
 export const WithRemoveBorder: Story = {
-  render: () => <Textarea placeholder={`Placeholder`} color={'alpha'} variant={'solid'} removeBorder />,
+  args: {
+    removeBorder: true,
+    placeholder: 'Placeholder',
+    color: 'alpha',
+    variant: 'solid',
+  },
+}
+
+export const WithError: Story = {
+  args: {
+    error: true,
+    placeholder: 'Placeholder',
+    color: 'alpha',
+    variant: 'solid',
+  },
 }
 
 export const UIVariants: Story = {

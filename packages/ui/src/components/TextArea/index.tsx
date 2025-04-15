@@ -14,7 +14,6 @@ export type TextAreaProps = Assign<HTMLStyledProps<'textarea'>, InputVariantProp
   description?: string
   textLimit?: number
   showTextCount?: boolean
-  removeBorder?: boolean
 }
 
 const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
@@ -35,6 +34,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       className,
       css,
       removeBorder,
+      error,
       ...rest
     },
     ref,
@@ -48,6 +48,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       radius,
       isTextArea: true,
       removeBorder,
+      error,
     })
 
     const innerRef = useRef<HTMLTextAreaElement>(null)

@@ -34,6 +34,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       startAdornment,
       endAdornment,
       removeBorder,
+      error,
       ...rest
     },
     ref,
@@ -43,6 +44,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       color,
       radius,
       removeBorder,
+      error,
     })
 
     const innerRef = useRef<HTMLInputElement>(null)

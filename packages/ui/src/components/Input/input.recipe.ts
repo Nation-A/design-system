@@ -112,6 +112,19 @@ export const inputRecipe = sva({
         },
       },
     },
+    error: {
+      true: {
+        inputContainer: {
+          borderColor: 'border.danger.default',
+        },
+        description: {
+          color: 'content.danger.default',
+        },
+        label: {
+          color: 'content.danger.default',
+        },
+      },
+    },
     color: {
       alpha: {
         inputContainer: {
@@ -204,5 +217,6 @@ export const inputRecipe = sva({
     color: 'neutral',
     radius: 'md',
     removeBorder: false,
+    error: false,
   },
 })

@@ -62,13 +62,11 @@ export default function Home() {
     Toast.show('This is a toast message')
   }
   return (
-    <div className="flex flex-col gap-4 p-4 light ">
+    <div className="flex flex-col gap-4 p-4 light">
       <Flex>
-        <Button onClick={aa} loading>
-          Show Toast
-        </Button>
+        <Button onClick={aa}>Show Toast</Button>
       </Flex>
-      <button onClick={() => setOpen(true)}>Open sheet</button>
+      <Button onClick={() => setOpen(true)}>Open sheet</Button>
 
       <Sheet
         isOpen={isOpen}

@@ -16,10 +16,6 @@ export default meta
 type Story = StoryObj<typeof Input>
 
 export const Default: Story = {
-  args: {
-    onFocus: () => console.log('focus'),
-    onBlur: () => console.log(''),
-  },
   render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
       {/* Solid Variant - Alpha Color */}
@@ -59,7 +55,6 @@ export const Default: Story = {
 
 export const WithDescription: Story = {
   args: {
-    value: '',
     placeholder: 'Text Here',
     label: '이메일',
     description: '이메일 주소를 입력해주세요.',
@@ -74,9 +69,24 @@ export const WithDescription: Story = {
   },
 }
 
+export const WithError: Story = {
+  args: {
+    placeholder: 'Text Here',
+    label: '이메일',
+    description: '이메일 주소를 입력해주세요.',
+    error: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Input 컴포넌트 Error 상태 예시입니다.',
+      },
+    },
+  },
+}
+
 export const RemoveBorder: Story = {
   args: {
-    value: '',
     placeholder: 'Text Here',
     label: '이메일',
     description: '이메일 주소를 입력해주세요.',
@@ -91,7 +101,6 @@ export const RemoveBorder: Story = {
     },
   },
 }
-
 
 export const UIVariants: Story = {
   render: () => (
