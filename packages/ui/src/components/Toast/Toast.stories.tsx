@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Toast } from './index'
+import Toast from './index'
 import Button from '../Button'
 import { CheckCircleFillIcon } from '@nation-a/icons'
 import { VStack } from '@styled-system/jsx'

@@ -10,7 +10,7 @@ import { toastRecipe } from './toast.recipe'
 
 const DEFAULT_DURATION = 3000 as const
 
-interface ToastProps {
+export interface ToastProps {
   description: string
   option?: {
     icon?: ReactNode
@@ -155,4 +155,4 @@ Toast.show = (description: ToastProps['description'], option: ToastProps['option
   )
 }
 
-export { Toast }
+export default Toast
