@@ -1,6 +1,5 @@
 'use client'
 import { forwardRef, ReactNode } from 'react'
-import { createPortal } from 'react-dom'
 import hotToast, { Toaster as HotToaster } from 'react-hot-toast'
 import { Box, HStack } from '@styled-system/jsx'
 import { cx } from '@styled-system/css'
@@ -96,7 +95,7 @@ const ActionTrigger = forwardRef<
 ActionTrigger.displayName = 'Toast.ActionTrigger'
 
 const Toaster = () => {
-  return createPortal(
+  return (
     <HotToaster
       position="bottom-center"
       toastOptions={{
@@ -108,8 +107,7 @@ const Toaster = () => {
           margin: 0,
         },
       }}
-    />,
-    document.body,
+    />
   )
 }
 
