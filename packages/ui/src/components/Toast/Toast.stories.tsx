@@ -40,7 +40,7 @@ export const DefaultToast: Story = {
               },
             )
           }
-        >ß
+        >
           Show Toast With Long Text
         </Button>
       </VStack>
