@@ -14,7 +14,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "build:icons": "pnpm --filter @nation-a/icons build",
     "build:tokens": "pnpm --filter @nation-a/tokens build",
-    "dev:test": "pnpm --filter test-app dev",
+    "build:ui": "pnpm --filter @nation-a/ui build",
+    "dev:test": "pnpm --filter next-app dev",
     "dev:ui": "pnpm --filter @nation-a/ui dev",
     "release": "changeset publish",
     "changeset": "changeset"
