@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.11.10
+
+### Patch Changes
+
+- f9884d8: - Spinner lottie ssr casing
+
 ## 0.11.9
 
 ### Patch Changes
