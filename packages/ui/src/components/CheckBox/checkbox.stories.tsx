@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 
-import { Checkbox } from '.'
+import Checkbox from '.'
 import { Stack } from '../Layout'
 
 const meta: Meta<typeof Checkbox> = {

@@ -1,9 +1,9 @@
 import { forwardRef } from 'react'
 import * as StyledCheckbox from './checkbox.styled'
 
-export interface CheckboxProps extends StyledCheckbox.RootProps {}
+export type CheckboxProps = StyledCheckbox.RootProps
 
-export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>((props, ref) => {
+const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>((props, ref) => {
   const { children, ...rootProps } = props
 
   return (
@@ -43,3 +43,5 @@ const MinusIcon = () => (
     <path d="M2.91675 7H11.0834" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
+
+export default Checkbox
