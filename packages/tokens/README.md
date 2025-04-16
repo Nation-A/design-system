@@ -29,7 +29,7 @@ pnpm add @nation-a/tokens
 ```ts
 // panda.config.ts
 import { defineConfig } from '@pandacss/dev'
-import { pandaTokens } from '@nation-a/tokens'
+import { pandaTokens } from '@nation-a/tokens/pandacss'
 
 export default defineConfig({
   theme: {
@@ -46,10 +46,10 @@ export default defineConfig({
 
 ```tsx
 import { ThemeProvider } from '@emotion/react';
-import { emotionTokensDark, emotionTokensLight } from '@nation-a/tokens'
+import { emotionTokens } from '@nation-a/tokens/emotion'
 
 ...
-  <ThemeProvider theme={emotionTokensDark}>
+  <ThemeProvider theme={emotionTokens.dark}>
 ...
 ```
 
