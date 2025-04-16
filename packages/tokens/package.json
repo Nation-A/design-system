@@ -28,6 +28,16 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
+    },
+    "./pandacss": {
+      "types": "./dist/pandacss.d.ts",
+      "import": "./dist/pandacss.mjs",
+      "require": "./dist/pandacss.js"
+    },
+    "./emotion": {
+      "types": "./dist/emotion.d.ts",
+      "import": "./dist/emotion.mjs",
+      "require": "./dist/emotion.js"
     }
   }
 }

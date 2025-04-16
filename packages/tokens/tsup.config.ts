@@ -2,11 +2,10 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig({
   name: '@nation-a/tokens',
-  entry: ['src/index.ts'],
+  entry: ['src/pandacss.ts', 'src/emotion.ts', 'src/index.ts'],
   tsconfig: 'tsconfig.json',
   format: ['cjs', 'esm'],
   dts: {
-    entry: 'src/index.ts',
     resolve: true,
   },
   splitting: false,
