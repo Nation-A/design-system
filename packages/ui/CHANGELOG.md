@@ -1,5 +1,17 @@
 # @nation-a/ui
 
+## 0.12.0
+
+### Minor Changes
+
+- 7d32a69: - Added Checkbox
+  - Changed token export order
+
+### Patch Changes
+
+- Updated dependencies [7d32a69]
+  - @nation-a/tokens@0.2.2
+
 ## 0.11.11
 
 ### Patch Changes
