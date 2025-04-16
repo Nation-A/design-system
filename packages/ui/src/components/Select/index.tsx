@@ -8,6 +8,8 @@ import { Assign } from '@ark-ui/react'
 import { createStyleContext } from '@/utils/create-style-context'
 import { ComponentProps } from 'react'
 
+export { createListCollection } from '@ark-ui/react/select'
+
 const { withRootProvider, withContext } = createStyleContext(selectRecipe)
 export type SelectProps = ComponentProps<typeof Root>
 
