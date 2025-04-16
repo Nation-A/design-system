@@ -1,6 +1,6 @@
-import { sva } from '@styled-system/css'
-
 export type ToastVariantProps = keyof typeof toastRecipe.variantMap
+
+import { sva } from '@styled-system/css'
 
 export const toastRecipe = sva({
   className: 'toast',
@@ -15,10 +15,10 @@ export const toastRecipe = sva({
       height: 'fit-content',
       minHeight: '48px',
       width: 'fit-content',
-      maxWidth: '328px',
+      maxWidth: '350px',
       overflowWrap: 'anywhere',
       zIndex: 'overlay',
-      fontStyle: 'body.md',
+      textStyle: 'body.md',
       color: 'content.neutralInverse.bold',
       px: 3,
       py: 2,
@@ -44,6 +44,7 @@ export const toastRecipe = sva({
       px: 4,
       pr: 1,
       whiteSpace: 'nowrap',
+      transition: 'opacity 0.2s ease',
       color: 'content.neutralInverse.bold',
       '&:hover': {
         opacity: 0.8,

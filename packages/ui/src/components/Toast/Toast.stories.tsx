@@ -48,6 +48,19 @@ export const DefaultToast: Story = {
   },
 }
 
+export const ToastWithTypes: Story = {
+  render: () => {
+    return (
+      <VStack gap={5}>
+        <Toast.Toaster />
+        <Button onClick={() => Toast.success('This is a success toast message')}>Show Success Toast</Button>
+        <Button onClick={() => Toast.error('This is a error toast message')}>Show Error Toast</Button>
+        <Button onClick={() => Toast.show('This is a info toast message')}>Show Info Toast</Button>
+      </VStack>
+    )
+  },
+}
+
 export const ToastWithAction: Story = {
   render: () => {
     return (
@@ -92,7 +105,7 @@ export const ToastWithLink: Story = {
               actionLabel: 'Label',
               onActionClick: () => console.log('action clicked'),
               asLink: true,
-              duration: 3000,
+              duration: 99999999,
             })
           }
         >
