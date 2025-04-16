@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.11.11
+
+### Patch Changes
+
+- b2e6d80: Toast에 type 추가
+
 ## 0.11.10
 
 ### Patch Changes
