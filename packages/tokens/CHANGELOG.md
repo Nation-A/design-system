@@ -1,5 +1,12 @@
 # @nation-a/tokens
 
+## 0.2.2
+
+### Patch Changes
+
+- 7d32a69: - Added Checkbox
+  - Changed token export order
+
 ## 0.2.1
 
 ### Patch Changes
