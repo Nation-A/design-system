@@ -4,7 +4,6 @@ import { forwardRef, useEffect, useState } from 'react'
 import { spinnerRecipe, SpinnerVariantProps } from './spinner.recipe'
 import { HTMLStyledProps } from '@styled-system/jsx'
 import SpinnerLottie from '@/assets/lotties/spinner.json'
-import Lottie from 'react-lottie'
 import { Box } from '../Layout'
 import { css, cx } from '@styled-system/css'
 import { UtilityValues } from '@styled-system/types/prop-type'
@@ -15,17 +14,18 @@ export type SpinnerProps = HTMLStyledProps<'div'> &
   }
 
 const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({ className, size, color, ...props }, ref) => {
-  const [ready, setReady] = useState(false)
+  const [LottieComponent, setLottieComponent] = useState<null | React.ComponentType<any>>(null)
 
-  // Hydration 에러 방지
   useEffect(() => {
-    setReady(true)
+    import('react-lottie').then((mod) => {
+      setLottieComponent(() => mod.default)
+    })
   }, [])
 
   return (
     <Box ref={ref} {...props} className={cx(spinnerRecipe({ size }), css({ color }), className)}>
-      {ready && (
-        <Lottie
+      {LottieComponent && (
+        <LottieComponent
           options={{
             loop: true,
             autoplay: true,
@@ -43,5 +43,4 @@ const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({ className, size, col
 })
 
 Spinner.displayName = 'Spinner'
-
 export default Spinner
