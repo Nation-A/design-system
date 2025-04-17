@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.15.2
+
+### Patch Changes
+
+- 56dce7d: - Fixed BottomSheet styling bug
+
 ## 0.15.1
 
 ### Patch Changes
