@@ -25,6 +25,8 @@ const meta: Meta<typeof Button> = {
         'zoltarina_primary',
         'heyd_primary',
         'heybee_primary',
+        'blackAlpha',
+        'whiteAlpha',
         'neutral',
         'success',
         'informative',

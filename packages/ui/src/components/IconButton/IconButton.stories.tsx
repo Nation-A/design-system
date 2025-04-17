@@ -18,7 +18,15 @@ const meta: Meta<typeof IconButton> = {
     size: { control: 'select', options: ['sm', 'md', 'lg'] },
     color: {
       control: 'select',
-      options: ['neuroid_primary', 'zoltarina_primary', 'heyd_primary', 'heybee_primary', 'neutral'],
+      options: [
+        'neuroid_primary',
+        'zoltarina_primary',
+        'heyd_primary',
+        'heybee_primary',
+        'neutral',
+        'blackAlpha',
+        'whiteAlpha',
+      ],
     },
     disabled: { control: 'boolean', defaultValue: false },
     loading: { control: 'boolean', defaultValue: false },

@@ -75,6 +75,8 @@ export const iconButtonRecipe = cva({
       zoltarina_primary: {},
       heyd_primary: {},
       heybee_primary: {},
+      blackAlpha: {},
+      whiteAlpha: {},
       neutral: {},
     },
     size: {
@@ -117,7 +119,6 @@ export const iconButtonRecipe = cva({
         _hover: { background: 'background.neuroidPrimary.selected' },
       },
     },
-
     {
       variant: 'solid',
       color: 'zoltarina_primary',
@@ -145,6 +146,24 @@ export const iconButtonRecipe = cva({
         background: 'background.heybeePrimary.default',
         color: 'content.static.black.bold',
         _hover: { background: 'background.heybeePrimary.selected' },
+      },
+    },
+    {
+      variant: 'solid',
+      color: 'blackAlpha',
+      css: {
+        background: 'background.static.blackAlpha.default',
+        color: 'content.neutral.default',
+        _hover: { background: 'background.static.blackAlpha.selected' },
+      },
+    },
+    {
+      variant: 'solid',
+      color: 'whiteAlpha',
+      css: {
+        background: 'background.static.whiteAlpha.default',
+        color: 'content.neutral.default',
+        _hover: { background: 'background.static.whiteAlpha.selected' },
       },
     },
     {

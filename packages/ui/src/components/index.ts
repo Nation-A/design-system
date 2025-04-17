@@ -15,4 +15,5 @@ export { default as Select, type SelectProps, createListCollection } from './Sel
 export { default as RadioGroup, type RadioGroupProps } from './RadioGroup'
 export { default as Checkbox, type CheckboxProps } from './Checkbox'
 export { default as Switch, type SwitchProps } from './Switch'
+export { default as Fab, type FabProps } from './Fab'
 export * from './Layout'

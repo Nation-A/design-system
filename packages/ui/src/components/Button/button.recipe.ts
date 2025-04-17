@@ -71,6 +71,8 @@ export const buttonRecipe = cva({
       heyd_primary: {},
       heyd_secondary: {},
       heybee_primary: {},
+      blackAlpha: {},
+      whiteAlpha: {},
       neutral: {},
       danger: {},
       warning: {},
@@ -194,6 +196,24 @@ export const buttonRecipe = cva({
         background: 'background.heybeePrimary.default',
         color: 'content.static.black.bold',
         _hover: { background: 'background.heybeePrimary.selected' },
+      },
+    },
+    {
+      variant: 'solid',
+      color: 'blackAlpha',
+      css: {
+        background: 'background.static.blackAlpha.default',
+        color: 'content.neutral.default',
+        _hover: { background: 'background.static.blackAlpha.selected' },
+      },
+    },
+    {
+      variant: 'solid',
+      color: 'whiteAlpha',
+      css: {
+        background: 'background.static.whiteAlpha.default',
+        color: 'content.neutral.default',
+        _hover: { background: 'background.static.whiteAlpha.selected' },
       },
     },
     {
