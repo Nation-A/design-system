@@ -27,13 +27,15 @@ jobs:
         with:
           node-version: '18'
           cache: 'pnpm'
-      - run: cd packages/ui
       - run: pnpm install --frozen-lockfile
       - run: pnpm build-storybook
+        working-directory: packages/ui
         #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@latest
+
         # Options required for Chromatic's GitHub Action
         with:
           #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/intro-to-storybook/react/ko/deploy/ to obtain it
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          workingDir: packages/ui
