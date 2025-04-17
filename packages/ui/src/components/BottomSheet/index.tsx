@@ -74,9 +74,9 @@ type ContentProps = ComponentProps<typeof Sheet.Content> & HTMLStyledProps<'div'
 
 const Content = forwardRef<HTMLStyledProps<'div'>, ContentProps>(
   ({ className, children, css: cssProp, ...props }, ref) => {
-    const styles = bottomSheetRecipe()
+    const styles = bottomSheetRecipe.raw()
     const { rounded } = useContext(BottomSheetContext)
-    const contentClass = cx(styles.content, className, cssProp ? css(cssProp) : undefined)
+    const contentClass = cx(css(styles.content, cssProp), className)
 
     return (
       <Sheet.Container
