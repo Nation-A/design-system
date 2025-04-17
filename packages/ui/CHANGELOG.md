@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.15.1
+
+### Patch Changes
+
+- dbd9849: - Optional Adornments for Input
+
 ## 0.15.0
 
 ### Minor Changes
