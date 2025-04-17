@@ -18,7 +18,8 @@
     "dev:test": "pnpm --filter next-app dev",
     "dev:ui": "pnpm --filter @nation-a/ui dev",
     "release": "changeset publish",
-    "changeset": "changeset"
+    "changeset": "changeset",
+    "build:storybook": "pnpm build:tokens && pnpm build:icons && pnpm --filter @nation-a/ui build-storybook"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
