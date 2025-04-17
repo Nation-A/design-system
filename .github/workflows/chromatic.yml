@@ -28,7 +28,7 @@ jobs:
           node-version: '18'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
-      - run: pnpm build:storybook
+      - run: pnpm build:tokens && pnpm build:icons
         #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@latest
 
