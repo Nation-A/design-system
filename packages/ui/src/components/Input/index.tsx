@@ -98,13 +98,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       <VStack gap={1} className={'group'} data-disabled={disabled || undefined} css={{ width: '100%' }}>
         <Label visible={!!(label && labelPosition === 'outside')}>{label}</Label>{' '}
         <HStack className={cx(recipe.inputContainer, className)} onClick={handleContainerClick} css={css}>
-          <Box className={recipe.adornment}>{startAdornment}</Box>
+          {startAdornment && <Box className={recipe.adornment}>{startAdornment}</Box>}
           <Stack gap={1} css={{ width: '100%' }}>
             <Label visible={!!(label && labelPosition === 'inside')}>{label}</Label>
 
             <styled.input ref={inputRef} disabled={disabled} onChange={handleInputChange} {...rest} />
           </Stack>
-          <Box className={recipe.adornment}>{endAdornment}</Box>
+          {endAdornment && <Box className={recipe.adornment}>{endAdornment}</Box>}
         </HStack>
         {description && <Description>{description}</Description>}
       </VStack>
