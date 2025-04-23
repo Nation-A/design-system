@@ -1,5 +1,13 @@
 # @nation-a/test-app
 
+## 0.0.49
+
+### Patch Changes
+
+- Updated dependencies [0d22235]
+- Updated dependencies [fe4e47e]
+  - @nation-a/ui@0.15.3
+
 ## 0.0.48
 
 ### Patch Changes
