@@ -1,5 +1,5 @@
 import { forwardRef, memo, ReactNode, useCallback, useEffect, useRef, useState } from 'react'
-import { Box, HTMLStyledProps } from '@styled-system/jsx'
+import { HTMLStyledProps } from '@styled-system/jsx'
 import { Assign } from '@ark-ui/react'
 import { cx } from '@styled-system/css'
 
