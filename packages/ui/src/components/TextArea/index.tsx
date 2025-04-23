@@ -1,5 +1,5 @@
-import { forwardRef, memo, ReactNode, useCallback, useRef, useState } from 'react'
-import { HTMLStyledProps } from '@styled-system/jsx'
+import { forwardRef, memo, ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import { Box, HTMLStyledProps } from '@styled-system/jsx'
 import { Assign } from '@ark-ui/react'
 import { cx } from '@styled-system/css'
 
@@ -40,6 +40,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     ref,
   ) => {
     const [count, setCount] = useState(value?.toString().length || 0)
+    const [text, setText] = useState(value)
 
     // TextArea의 recipe => Input의 recipe를 상속. 같은 디자인 사용
     const recipe = inputRecipe({
@@ -60,8 +61,8 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         if (disabled) return
         const { value } = e.target
         e.target.value = value.slice(0, textLimit)
+        setText(e.target.value)
         onChange?.(e)
-        if (showTextCount) setCount(value.length)
       },
       [disabled, onChange, textLimit, showTextCount],
     )
@@ -99,19 +100,22 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       [recipe.label, required, RequiredStar],
     )
 
-    const TextLengthIndicator = useCallback(
-      ({ count, limit }: { count: number; limit?: number }) => {
-        return <span className={recipe.textLengthIndicator}>{`${count}${limit ? ` / ${limit}` : ''}`}</span>
-      },
-      [recipe.textLengthIndicator],
-    )
+    const TextLengthIndicator = ({ count, limit }: { count: number; limit?: number }) => {
+      return <span className={recipe.textLengthIndicator}>{`${count}${limit ? ` / ${limit}` : ''}`}</span>
+    }
+
+    useEffect(() => {
+      const textUpdated = value?.toString().slice(0, textLimit)
+      setText(textUpdated)
+      setCount(textUpdated?.length || 0)
+    }, [value])
 
     return (
       <VStack gap={1} className={'group'} data-disabled={disabled || undefined} css={{ width: '100%' }}>
         <Label visible={!!(label && labelPosition === 'outside')}>{label}</Label>
         <Stack gap={1} className={cx(recipe.inputContainer, className)} onClick={handleContainerClick} css={css}>
           <Label visible={!!(label && labelPosition === 'inside')}>{label}</Label>
-          <textarea ref={inputRef} value={value} disabled={disabled} onChange={handleTextareaChange} {...rest} />
+          <textarea ref={inputRef} value={text} disabled={disabled} onChange={handleTextareaChange} {...rest} />
           {showTextCount && <TextLengthIndicator count={count} limit={textLimit} />}
         </Stack>
         {description && <Description>{description}</Description>}
