@@ -1,5 +1,12 @@
 # @nation-a/ui
 
+## 0.15.3
+
+### Patch Changes
+
+- 0d22235: deploy: TextArea value 외부 컨트롤 시 textLimit 및 textLength 적용 안되던 오류
+- fe4e47e: TextArea value 외부 컨트롤 시 textLimit 및 textLength 적용 안되던 오류 해결
+
 ## 0.15.2
 
 ### Patch Changes
