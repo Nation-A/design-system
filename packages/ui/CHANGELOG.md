@@ -1,5 +1,12 @@
 # @nation-a/ui
 
+## 0.16.0
+
+### Minor Changes
+
+- 4d72837: - Added List
+  - Fixed Navigation bottom padding
+
 ## 0.15.3
 
 ### Patch Changes
