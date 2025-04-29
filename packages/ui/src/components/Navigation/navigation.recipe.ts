@@ -17,8 +17,7 @@ export const navigationRecipe = sva({
       flexDirection: 'row',
       justifyContent: 'space-around',
       bg: 'surface.layer_1',
-      pt: 2,
-      pb: 8,
+      py: 2,
     },
     trigger: {
       display: 'flex',

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
   type ElementType,
   type ForwardRefExoticComponent,
