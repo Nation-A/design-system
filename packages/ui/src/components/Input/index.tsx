@@ -14,6 +14,7 @@ export type InputProps = Assign<HTMLStyledProps<'input'>, InputVariantProps> & {
   startAdornment?: ReactNode
   endAdornment?: ReactNode
   removeBorder?: boolean
+  fontSize?: number
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -35,6 +36,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       endAdornment,
       removeBorder,
       error,
+      fontSize,
       ...rest
     },
     ref,
@@ -101,8 +103,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           {startAdornment && <Box className={recipe.adornment}>{startAdornment}</Box>}
           <Stack gap={1} css={{ width: '100%' }}>
             <Label visible={!!(label && labelPosition === 'inside')}>{label}</Label>
-
-            <styled.input ref={inputRef} disabled={disabled} onChange={handleInputChange} {...rest} />
+            <styled.input
+              ref={inputRef}
+              disabled={disabled}
+              onChange={handleInputChange}
+              style={{ ...rest?.style, fontSize: `${fontSize}px` }}
+              {...rest}
+            />
           </Stack>
           {endAdornment && <Box className={recipe.adornment}>{endAdornment}</Box>}
         </HStack>
