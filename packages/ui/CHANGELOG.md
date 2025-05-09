@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.16.1
+
+### Patch Changes
+
+- 5f302d6: Input fontSize prop 추가
+
 ## 0.16.0
 
 ### Minor Changes
