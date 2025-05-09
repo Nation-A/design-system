@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.16.4
+
+### Patch Changes
+
+- 88a01eb: fix: snapPercent 관련 minor error
+
 ## 0.16.3
 
 ### Patch Changes
