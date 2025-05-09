@@ -15,7 +15,8 @@ const BottomSheetContext = createContext<BottomSheetContextType>({ rounded: 20 }
 export type BottomSheetProps = Omit<ComponentProps<typeof Sheet>, 'children'> &
   BottomSheetVariantProps & {
     children: ReactNode
-    snapPercent?: { min: number; max: number }
+    snapPercent?: { min?: number; max?: number }
+    maxSnapPoint?: number
     rounded?: number
     onClose?: () => void
   }
@@ -30,10 +31,27 @@ interface BottomSheetComponent
 }
 
 const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
-  ({ children, snapPercent, fullHeight, className, rounded = 20, disableDrag, onClose, ...props }, ref) => {
-    const snapPoints = snapPercent
-      ? [snapPercent.max * window.innerHeight, snapPercent.min * window.innerHeight]
-      : undefined
+  (
+    {
+      children,
+      snapPercent = { min: 0, max: null },
+      maxSnapPoint,
+      fullHeight,
+      className,
+      rounded = 20,
+      disableDrag,
+      onClose,
+      ...props
+    },
+    ref,
+  ) => {
+    let snapPercentPoints = null
+
+    if (snapPercent.min && snapPercent.max) {
+      snapPercentPoints = [snapPercent.max * window.innerHeight, snapPercent.min * window.innerHeight]
+    }
+
+    const snapPoints = snapPercentPoints ? snapPercentPoints : maxSnapPoint ? [maxSnapPoint] : undefined
 
     const styles = bottomSheetRecipe({ fullHeight })
 
@@ -42,6 +60,7 @@ const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         <Sheet
           ref={ref}
           snapPoints={snapPoints}
+          detent={!snapPercent.max && !maxSnapPoint ? 'content-height' : undefined}
           initialSnap={0}
           className={cx(styles.root, className)}
           onClose={onClose}

@@ -159,3 +159,46 @@ export const DisableBackdropBlocking: Story = {
     )
   },
 }
+
+export const SnapPoint: Story = {
+  args: {},
+  render: () => {
+    const [isOpen, setIsOpen] = useState(false)
+    return (
+      <VStack css={{ justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <Button onClick={() => setIsOpen(true)}>Open BottomSheet</Button>
+        <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)} maxSnapPoint={300}>
+          <BottomSheet.Backdrop />
+          <BottomSheet.Content className={css({ borderTopLeftRadius: 20, borderTopRightRadius: 20 })}>
+            <BottomSheet.Handle />
+            <Text variant="title.md">Snap Point (300px)</Text>
+            <Text variant="body.md">maxSnapPoint (px단위) 값을 가진 바텀시트입니다.</Text>
+          </BottomSheet.Content>
+        </BottomSheet>
+      </VStack>
+    )
+  },
+}
+
+export const ContentHeight: Story = {
+  args: {},
+  render: () => {
+    const [isOpen, setIsOpen] = useState(false)
+    return (
+      <VStack css={{ justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <Button onClick={() => setIsOpen(true)}>Open BottomSheet</Button>
+        {/* snapPercent 값 undefined 이거나 snapPercent.max 값이 없으면 content-height 유지 */}
+        <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)} snapPercent={{ min: 0 }}>
+          <BottomSheet.Backdrop />
+          <BottomSheet.Content className={css({ borderTopLeftRadius: 20, borderTopRightRadius: 20 })}>
+            <BottomSheet.Handle />
+            <Text variant="title.md">Content Height</Text>
+            <Text variant="body.md">
+              snapPercent 값 undefined 이거나 snapPercent.max 값이 없으면 content-height을 높이로 가집니다.
+            </Text>
+          </BottomSheet.Content>
+        </BottomSheet>
+      </VStack>
+    )
+  },
+}
