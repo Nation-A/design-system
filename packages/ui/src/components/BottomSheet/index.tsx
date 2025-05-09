@@ -15,9 +15,25 @@ const BottomSheetContext = createContext<BottomSheetContextType>({ rounded: 20 }
 export type BottomSheetProps = Omit<ComponentProps<typeof Sheet>, 'children'> &
   BottomSheetVariantProps & {
     children: ReactNode
+    /**
+     * 바텀시트의 snapPoint 값을 비율로 설정합니다.
+     *
+     * max: 최대 높이 비율 (0~1, default: content-height)
+     *
+     * min: 최소 높이 비율 (0~1, default: 0)
+     */
     snapPercent?: { min?: number; max?: number }
+    /**
+     * 바텀시트의 기본 snapPoint 값을 px 단위로 설정합니다.
+     */
     maxSnapPoint?: number
+    /**
+     * 바텀시트의 border-radius 값을 설정합니다.
+     */
     rounded?: number
+    /**
+     * 바텀시트를 닫을 때 호출되는 함수입니다.
+     */
     onClose?: () => void
   }
 
