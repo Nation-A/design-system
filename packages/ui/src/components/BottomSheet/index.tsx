@@ -61,10 +61,11 @@ const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
     },
     ref,
   ) => {
+
     let snapPercentPoints = null
 
-    if (snapPercent.min && snapPercent.max) {
-      snapPercentPoints = [snapPercent.max * window.innerHeight, snapPercent.min * window.innerHeight]
+    if (snapPercent && snapPercent.max) {
+      snapPercentPoints = [snapPercent.max * window.innerHeight, snapPercent.min! * window.innerHeight]
     }
 
     const snapPoints = snapPercentPoints ? snapPercentPoints : maxSnapPoint ? [maxSnapPoint] : undefined
