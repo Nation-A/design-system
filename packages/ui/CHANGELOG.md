@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.16.2
+
+### Patch Changes
+
+- 29b39c8: feat: BottomSheet maxSnapPoint, content-height 기능 추가
+
 ## 0.16.1
 
 ### Patch Changes
