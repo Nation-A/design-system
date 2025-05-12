@@ -1,5 +1,12 @@
 # next-app
 
+## 0.1.51
+
+### Patch Changes
+
+- Updated dependencies [e20ccf6]
+  - @nation-a/ui@0.16.5
+
 ## 0.1.50
 
 ### Patch Changes
