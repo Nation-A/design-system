@@ -47,7 +47,11 @@ jobs:
       - name: Build packages
         run: pnpm build
 
-      - name: Publish packages
-        run: pnpm changeset publish
+      - name: Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm release
         env:
+          GITHUB_TOKEN: ${{ secrets.GH_NPM_RELEASE_KEY }}
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
