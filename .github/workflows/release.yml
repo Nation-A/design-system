@@ -14,70 +14,40 @@ jobs:
   release:
     runs-on: ubuntu-latest
     permissions:
-      packages: write
       contents: write
+      packages: write
     steps:
-      - name: Check if is NPM Version Bump PR
-        id: pr-title
-        run: |
-          PR_TITLE=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }} | jq -r '.title')
+      - uses: actions/checkout@v4
 
-          echo "PR title: $PR_TITLE"
-
-          if [[ "$PR_TITLE" != "Version Packages" ]]; then
-            echo "This PR is not for version bump, skipping the workflow."
-            exit 1
-          fi
-        continue-on-error: true # 버전업 npm release PR이 아니라면 후속 작업을 중단
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - run: pnpm install --frozen-lockfile
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          registry-url: https://registry.npmjs.org
 
       - name: Create .npmrc
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Apply version bumps and changelog
+        run: pnpm changeset version
+
+      - name: Commit and push version bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: release"
+          git push origin main
 
       - name: Build packages
         run: pnpm build
 
-      - name: Publish to npm
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: pnpm release
+      - name: Publish packages
+        run: pnpm changeset publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_NPM_RELEASE_KEY }}
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
-      # Commit all changed files back to the repository
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        if: steps.changesets.outputs.published == 'true'
-        with:
-          commit_message: '[Automation] released to npm with new version'
-
-      # 🔥 새로운 버전이 배포된 경우에만 Slack 알림 전송
-    #   - name: Send Slack NPM Release Notification
-    #     if: steps.changesets.outputs.published == 'true'
-    #     run: |
-    #       PACKAGES=$(echo '${{ steps.changesets.outputs.publishedPackages }}' | jq -r 'map("\(.name)@\(.version)") | join(", ")')
-    #       curl -X POST -H 'Content-type: application/json' --data "{
-    #         \"text\": \"🚀 NDS: NEW NPM Version Released! \n📦 Published Packages: ${PACKAGES}\",
-    #         \"username\": \"NDS Npm Release Alert Bot\",
-    #         \"icon_emoji\": \":rocket:\"
-    #       }" $SLACK_WEBHOOK_URL
-    #     env:
-    #       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
