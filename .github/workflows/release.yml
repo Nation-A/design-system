@@ -38,6 +38,12 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
+      - name: Debug npm registry & auth
+        run: |
+          echo "registry: $(npm config get registry)"
+          echo "whoami: $(npm whoami)"
+          npm view @nation-a/ui versions || echo "view failed"
+
       - name: Apply version bumps and changelog
         run: pnpm changeset version
 

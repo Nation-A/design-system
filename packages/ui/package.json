@@ -5,6 +5,7 @@
   "types": "./dist/types/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
+  "private": false,
   "files": [
     "dist"
   ],
@@ -20,7 +21,8 @@
     "dev": "pnpm storybook"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "dependencies": {
     "@ark-ui/react": "^5.1.0",
