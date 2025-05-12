@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.17.0
+
+### Minor Changes
+
+- bb6b50d: - Added List component
+
 ## 0.16.4
 
 ### Patch Changes
