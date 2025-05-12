@@ -23,7 +23,7 @@ const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({ className, size, col
   }, [])
 
   return (
-    <Box ref={ref} {...props} className={cx(spinnerRecipe({ size }), css({ color }), className)}>
+    <Box ref={ref} id={'spinner'} {...props} className={cx(spinnerRecipe({ size }), css({ color }), className)}>
       {LottieComponent && (
         <LottieComponent
           options={{

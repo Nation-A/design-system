@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig as defineVitestConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 import viteTsconfigPaths from 'vite-tsconfig-paths'
@@ -6,7 +6,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 const isStorybook = process.env.VITE_IS_STORYBOOK === 'true'
 
-export default defineConfig({
+export default defineVitestConfig({
   optimizeDeps: {
     exclude: isStorybook ? [] : ['react', 'react-dom'],
     include: ['@pandacss/dev', '@ark-ui/react'],
@@ -49,5 +49,17 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true,
     minify: false,
+  },
+  test: {
+    globals: true,
+    environment: 'happy-dom',
+    setupFiles: ['./src/test/setup.ts'],
+    css: true,
+    include: ['src/**/*.{test,spec}.{ts,tsx}'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html'],
+      exclude: ['node_modules/', 'src/test/'],
+    },
   },
 })

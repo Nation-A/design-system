@@ -11,7 +11,18 @@ export type ButtonProps = HTMLStyledProps<'button'> &
     loadingText?: React.ReactNode
   }
 
-const Button = ({ loading, disabled, loadingText, children, color, variant, size, radius, ...rest }: ButtonProps) => {
+const Button = ({
+  loading,
+  disabled,
+  loadingText,
+  children,
+  color,
+  variant,
+  size,
+  radius,
+  onClick,
+  ...rest
+}: ButtonProps) => {
   const StyledButton = styled(ark.button, buttonRecipe)
 
   return (
@@ -22,6 +33,7 @@ const Button = ({ loading, disabled, loadingText, children, color, variant, size
       size={size}
       radius={radius}
       css={{ pointerEvents: loading ? 'none' : 'auto' }}
+      onClick={disabled || loading ? undefined : onClick}
       {...rest}
     >
       {loading
