@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.16.6
+
+### Patch Changes
+
+- 5a1bf7c: feat: breakpoint xs 추가
+
 ## 0.16.5
 
 ### Patch Changes
