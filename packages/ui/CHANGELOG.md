@@ -1,23 +1,5 @@
 # @nation-a/ui
 
-## 0.16.5
-
-### Patch Changes
-
-- ce473e8: - Added List component export
-
-## 0.16.5
-
-### Patch Changes
-
-- 335d232: - Added List component export
-
-## 0.17.0
-
-### Minor Changes
-
-- bb6b50d: - Added List component
-
 ## 0.16.4
 
 ### Patch Changes
