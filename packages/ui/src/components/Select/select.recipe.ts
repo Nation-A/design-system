@@ -1,10 +1,11 @@
+import { selectAnatomy } from '@ark-ui/react/select'
 import { sva } from '@styled-system/css'
 
 export type SelectVariantProps = keyof typeof selectRecipe.variantMap
 
 export const selectRecipe = sva({
   className: 'select',
-  slots: ['root', 'trigger', 'content', 'item', 'label', 'valueText', 'description'],
+  slots: [...selectAnatomy.keys(), 'description'],
   base: {
     root: {
       display: 'flex',
@@ -13,6 +14,7 @@ export const selectRecipe = sva({
       width: '100%',
     },
     trigger: {
+      position: 'relative',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
@@ -28,11 +30,19 @@ export const selectRecipe = sva({
     },
     content: {
       backgroundColor: 'background.neutral.default',
-      mt: 2,
       padding: 2,
       borderRadius: 16,
       overflowY: 'auto',
       zIndex: 'dropdown',
+      display: 'flex',
+      flexDirection: 'column',
+
+      _open: {
+        animation: 'fadeIn 0.2s ease-in',
+      },
+      _closed: {
+        animation: 'fadeOut 0.2s ease-out',
+      },
     },
     item: {
       display: 'flex',
@@ -42,8 +52,10 @@ export const selectRecipe = sva({
       cursor: 'pointer',
       color: 'content.neutral.default',
       textStyle: 'label.md',
-      '&:hover': {
-        backgroundColor: 'background.neutral.hover',
+      rounded: 'sm',
+      transition: 'all 0.2s ease',
+      _hover: {
+        backgroundColor: 'background.neutral.selected',
       },
     },
     label: {

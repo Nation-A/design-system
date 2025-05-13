@@ -1,6 +1,4 @@
-'use client'
-import { forwardRef, useEffect, useState } from 'react'
-
+import { forwardRef, useState, useEffect } from 'react'
 import { spinnerRecipe, SpinnerVariantProps } from './spinner.recipe'
 import { HTMLStyledProps } from '@styled-system/jsx'
 import SpinnerLottie from '@/assets/lotties/spinner.json'

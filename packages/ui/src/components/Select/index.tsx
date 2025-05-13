@@ -29,6 +29,11 @@ const Trigger = withContext<HTMLButtonElement, TriggerProps>(({ description, ...
   )
 }, 'trigger')
 
+export const Control = withContext<HTMLDivElement, Assign<HTMLStyledProps<'div'>, ArkSelect.ControlBaseProps>>(
+  ArkSelect.Control,
+  'control',
+)
+
 type ValueTextProps = Assign<HTMLStyledProps<'span'>, ArkSelect.ValueTextProps>
 const ValueText = withContext<HTMLSpanElement, ValueTextProps>(ArkSelect.ValueText, 'valueText')
 
@@ -47,6 +52,11 @@ const Content = withContext<HTMLDivElement, ContentProps>(ArkSelect.Content, 'co
 type ItemProps = Assign<HTMLStyledProps<'div'>, ArkSelect.ItemProps>
 const Item = withContext<HTMLDivElement, ItemProps>(ArkSelect.Item, 'item')
 
+export const Positioner = withContext<HTMLDivElement, Assign<HTMLStyledProps<'div'>, ArkSelect.PositionerBaseProps>>(
+  ArkSelect.Positioner,
+  'positioner',
+)
+
 const Select = {
   Root,
   Label,
@@ -55,6 +65,8 @@ const Select = {
   Item,
   ValueText,
   Description,
+  Positioner,
+  Control,
 }
 
 export default Select

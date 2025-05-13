@@ -27,6 +27,7 @@ const items = ['React', 'Solid', 'Vue', 'Svelte']
 export const Default: Story = {
   args: {
     collection: createListCollection<string>({ items }) as any,
+    positioning: { sameWidth: true },
   },
   render: (args) => {
     const [_, setSelectedItems] = useState<string[]>([])
@@ -37,16 +38,20 @@ export const Default: Story = {
       >
         <Select.Root {...args} onValueChange={(e) => setSelectedItems(e.items)}>
           <Select.Label>Framework</Select.Label>
-          <Select.Trigger>
-            <Select.ValueText placeholder="Select a framework" />
-          </Select.Trigger>
-          <Select.Content>
-            {items.map((item) => (
-              <Select.Item key={item} item={item}>
-                {item}
-              </Select.Item>
-            ))}
-          </Select.Content>
+          <Select.Control>
+            <Select.Trigger>
+              <Select.ValueText placeholder="Select a framework" />
+            </Select.Trigger>
+          </Select.Control>
+          <Select.Positioner>
+            <Select.Content>
+              {items.map((item) => (
+                <Select.Item key={item} item={item}>
+                  {item}
+                </Select.Item>
+              ))}
+            </Select.Content>
+          </Select.Positioner>
         </Select.Root>
       </Box>
     )
@@ -56,6 +61,7 @@ export const Default: Story = {
 export const WithDescription: Story = {
   args: {
     collection: createListCollection<string>({ items }) as any,
+    positioning: { sameWidth: true },
   },
   render: (args) => {
     const [_, setSelectedItems] = useState<string[]>([])
@@ -66,19 +72,23 @@ export const WithDescription: Story = {
       >
         <Select.Root {...args} onValueChange={(e) => setSelectedItems(e.items)}>
           <Select.Label>Framework</Select.Label>
-          <Select.Trigger description="Description">
-            <CheckCircleFillIcon />
-            <Select.ValueText placeholder="Select a framework" />
-            <CheckCircleFillIcon />
-          </Select.Trigger>
-          <Select.Content>
-            {items.map((item) => (
-              <Select.Item key={item} item={item}>
-                <CheckCircleFillIcon />
-                {item}
-              </Select.Item>
-            ))}
-          </Select.Content>
+          <Select.Control>
+            <Select.Trigger description="Description">
+              <CheckCircleFillIcon />
+              <Select.ValueText placeholder="Select a framework" />
+              <CheckCircleFillIcon />
+            </Select.Trigger>
+          </Select.Control>
+          <Select.Positioner>
+            <Select.Content>
+              {items.map((item) => (
+                <Select.Item key={item} item={item}>
+                  <CheckCircleFillIcon />
+                  {item}
+                </Select.Item>
+              ))}
+            </Select.Content>
+          </Select.Positioner>
         </Select.Root>
       </Box>
     )
@@ -87,6 +97,7 @@ export const WithDescription: Story = {
 export const WithDescriptionAndCustomIcons: Story = {
   args: {
     collection: createListCollection<string>({ items }) as any,
+    positioning: { sameWidth: true },
   },
   render: (args) => {
     const [_, setSelectedItems] = useState<string[]>([])

@@ -61,7 +61,6 @@ const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
     },
     ref,
   ) => {
-
     let snapPercentPoints = null
 
     if (snapPercent && snapPercent.max) {
