@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.16.7
+
+### Patch Changes
+
+- ded04c0: - Added Select positioner
+
 ## 0.16.6
 
 ### Patch Changes
