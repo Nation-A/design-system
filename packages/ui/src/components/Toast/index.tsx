@@ -1,6 +1,6 @@
 'use client'
 import { forwardRef, ReactNode } from 'react'
-import hotToast, { Toaster as HotToaster } from 'react-hot-toast'
+import hotToast, { DefaultToastOptions, Toaster as HotToaster, ToasterProps } from 'react-hot-toast'
 import { Box, HStack } from '@styled-system/jsx'
 import { cx } from '@styled-system/css'
 import { toastRecipe } from './toast.recipe'
@@ -71,6 +71,8 @@ const Description = forwardRef<HTMLDivElement, { children: ReactNode; className?
   },
 )
 
+Description.displayName = 'Toast.Description'
+
 const Icon = forwardRef<HTMLDivElement, { icon?: ReactNode; className?: string }>(({ icon, className }, ref) => {
   const styles = toastRecipe()
   return (
@@ -96,7 +98,7 @@ const ActionTrigger = forwardRef<
 
 ActionTrigger.displayName = 'Toast.ActionTrigger'
 
-const Toaster = () => {
+const Toaster = ({ toastOptions, ...props }: { toastOptions?: DefaultToastOptions } & ToasterProps) => {
   return (
     <HotToaster
       position="bottom-center"
@@ -109,7 +111,9 @@ const Toaster = () => {
           margin: 0,
           width: '100%',
         },
+        ...toastOptions,
       }}
+      {...props}
     />
   )
 }
@@ -119,6 +123,8 @@ Toaster.displayName = 'Toast.Toaster'
 const Toast = forwardRef<HTMLDivElement, ToastProps>((props, ref) => {
   return <Box ref={ref} {...props} />
 }) as ToastComponent
+
+Toast.displayName = 'Toast'
 
 Toast.Root = Root
 Toast.Content = Content
