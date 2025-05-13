@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.16.8
+
+### Patch Changes
+
+- 0461865: feat: Toast 컴포넌트에 기본 react-hot-toast props 추가
+
 ## 0.16.7
 
 ### Patch Changes
