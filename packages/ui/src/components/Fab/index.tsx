@@ -10,7 +10,7 @@ export type FabProps = HTMLStyledProps<'button'> &
     loading?: boolean
   }
 
-const Fab = forwardRef<HTMLButtonElement, FabProps>(({ loading, disabled, children, color, ...rest }, ref) => {
+const Fab = forwardRef<HTMLButtonElement, FabProps>(({ loading, disabled, children, color, onClick, ...rest }, ref) => {
   const StyledButton = styled(ark.button, fabRecipe)
 
   return (
@@ -19,6 +19,9 @@ const Fab = forwardRef<HTMLButtonElement, FabProps>(({ loading, disabled, childr
       ref={ref}
       color={color}
       css={{ pointerEvents: loading ? 'none' : 'auto' }}
+      onClick={(e) => {
+        if (!loading && !disabled) onClick?.(e)
+      }}
       {...rest}
     >
       {loading ? (

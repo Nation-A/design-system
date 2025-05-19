@@ -9,17 +9,21 @@ describe('Button', () => {
   })
 
   it('applies different sizes correctly', () => {
-    const { rerender } = render(<Button size="sm">Small Button</Button>)
-    const button = screen.getByText('Small Button')
-    expect(button).toBeInTheDocument()
+    const { rerender } = render(<Button size="xs">XSmall Button</Button>)
+    const xsButton = screen.getByText('XSmall Button')
+    expect(xsButton).toBeInTheDocument()
+
+    rerender(<Button size="sm">Small Button</Button>)
+    const smButton = screen.getByText('Small Button')
+    expect(smButton).toBeInTheDocument()
 
     rerender(<Button size="md">Medium Button</Button>)
-    const mediumButton = screen.getByText('Medium Button')
-    expect(mediumButton).toBeInTheDocument()
+    const mdButton = screen.getByText('Medium Button')
+    expect(mdButton).toBeInTheDocument()
 
     rerender(<Button size="lg">Large Button</Button>)
-    const largeButton = screen.getByText('Large Button')
-    expect(largeButton).toBeInTheDocument()
+    const lgButton = screen.getByText('Large Button')
+    expect(lgButton).toBeInTheDocument()
   })
 
   it('applies different variants correctly', () => {
