@@ -668,13 +668,13 @@ const primitive = {
         value: '#B4B6BA',
       },
       '1000': {
-        value: '#F2F4F8',
+        value: '#DADCE0',
       },
       '1050': {
         value: '#EDEEF1',
       },
       '1100': {
-        value: '#FAFCFF',
+        value: '#F2F4F8',
       },
       '1200': {
         value: '#F8F9FF',
