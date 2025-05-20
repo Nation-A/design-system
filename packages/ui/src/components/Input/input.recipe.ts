@@ -67,7 +67,7 @@ export const inputRecipe = sva({
     isTextArea: {
       true: {
         inputContainer: {
-          minHeight: '56px',
+          minHeight: '48px',
           '& textarea': {
             background: 'transparent',
             resize: 'none',
