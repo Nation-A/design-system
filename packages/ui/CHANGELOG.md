@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.16.10
+
+### Patch Changes
+
+- 6bdf71b: fix: TextArea minHeight = 48px로 수정 (Input과 동일)
+
 ## 0.16.9
 
 ### Patch Changes
