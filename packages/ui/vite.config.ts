@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 import viteTsconfigPaths from 'vite-tsconfig-paths'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 const isStorybook = process.env.VITE_IS_STORYBOOK === 'true'
 
@@ -32,6 +33,12 @@ export default defineVitestConfig({
       viteStaticCopy({
         targets: [{ src: 'styled-system', dest: '' }],
       }),
+    visualizer({
+      open: false,
+      filename: 'dist/stats.html',
+      gzipSize: true,
+      brotliSize: true,
+    }),
   ],
   build: {
     lib: {
@@ -41,14 +48,23 @@ export default defineVitestConfig({
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: isStorybook ? [] : ['react', 'react-dom', /react-dom\/.*/, /^react\/.*/],
+      external: isStorybook
+        ? []
+        : ['react', 'react-dom', /react-dom\/.*/, /^react\/.*/, '@nation-a/icons', '@nation-a/tokens'],
       output: {
         inlineDynamicImports: false,
+        manualChunks: {
+          'ark-ui': ['@ark-ui/react'],
+          'react-spring': ['@react-spring/web'],
+          'react-hot-toast': ['react-hot-toast'],
+          'react-lottie': ['react-lottie'],
+        },
       },
     },
     outDir: 'dist',
     sourcemap: true,
-    minify: false,
+    minify: 'esbuild',
+    target: 'es2018',
   },
   test: {
     globals: true,

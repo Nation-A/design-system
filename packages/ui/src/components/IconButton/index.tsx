@@ -11,7 +11,7 @@ export type IconButtonProps = HTMLStyledProps<'button'> &
   }
 
 const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ loading, disabled, children, color, variant, size, ...rest }, ref) => {
+  ({ loading, disabled, children, color, variant, size, onClick, ...rest }, ref) => {
     const StyledButton = styled(ark.button, iconButtonRecipe)
 
     return (
@@ -22,6 +22,9 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         variant={variant}
         size={size}
         css={{ pointerEvents: loading ? 'none' : 'auto' }}
+        onClick={(e) => {
+          if (!loading && !disabled) onClick?.(e)
+        }}
         {...rest}
       >
         {loading ? (

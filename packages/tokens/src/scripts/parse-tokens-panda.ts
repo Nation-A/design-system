@@ -20,7 +20,7 @@ const parseTokens = async () => {
     fontWeight,
     fontFamily,
     // textDecoration,
-  } = rawLightTokens
+  } = rawDarkTokens
   const semantic = {
     colors: combineThemeValues(
       removePrimitive(rawLightTokens.colors.semantic),

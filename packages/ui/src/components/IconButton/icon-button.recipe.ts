@@ -128,7 +128,6 @@ export const iconButtonRecipe = cva({
         _hover: { background: 'background.zoltarinaPrimary.selected' },
       },
     },
-
     {
       variant: 'solid',
       color: 'heyd_primary',
@@ -138,7 +137,6 @@ export const iconButtonRecipe = cva({
         _hover: { background: 'background.heydPrimary.selected' },
       },
     },
-
     {
       variant: 'solid',
       color: 'heybee_primary',
