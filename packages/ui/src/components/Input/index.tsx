@@ -4,6 +4,7 @@ import { Assign } from '@ark-ui/react'
 import { InputVariantProps, inputRecipe } from './input.recipe'
 import { cx } from '@styled-system/css'
 import { Stack, VStack } from '../Layout'
+import { SystemStyleObject } from '@styled-system/types'
 
 export type InputProps = Assign<HTMLStyledProps<'input'>, InputVariantProps> & {
   required?: boolean
@@ -15,6 +16,7 @@ export type InputProps = Assign<HTMLStyledProps<'input'>, InputVariantProps> & {
   endAdornment?: ReactNode
   removeBorder?: boolean
   fontSize?: number
+  containerCss?: SystemStyleObject
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -31,7 +33,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       radius,
       onChange,
       className,
-      css,
+      containerCss,
       startAdornment,
       endAdornment,
       removeBorder,
@@ -99,7 +101,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <VStack gap={1} className={'group'} data-disabled={disabled || undefined} css={{ width: '100%' }}>
         <Label visible={!!(label && labelPosition === 'outside')}>{label}</Label>{' '}
-        <HStack className={cx(recipe.inputContainer, className)} onClick={handleContainerClick} css={css}>
+        <HStack className={cx(recipe.inputContainer, className)} onClick={handleContainerClick} css={containerCss}>
           {startAdornment && <Box className={recipe.adornment}>{startAdornment}</Box>}
           <Stack gap={1} css={{ width: '100%' }}>
             <Label visible={!!(label && labelPosition === 'inside')}>{label}</Label>

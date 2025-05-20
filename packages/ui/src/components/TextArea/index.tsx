@@ -5,6 +5,7 @@ import { cx } from '@styled-system/css'
 
 import { Stack, VStack } from '../Layout'
 import { InputVariantProps, inputRecipe } from '../Input/input.recipe'
+import { SystemStyleObject } from '@styled-system/types'
 
 export type TextAreaProps = Assign<HTMLStyledProps<'textarea'>, InputVariantProps> & {
   required?: boolean
@@ -14,6 +15,7 @@ export type TextAreaProps = Assign<HTMLStyledProps<'textarea'>, InputVariantProp
   description?: string
   textLimit?: number
   showTextCount?: boolean
+  containerCss?: SystemStyleObject
 }
 
 const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
@@ -32,7 +34,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       variant,
       onChange,
       className,
-      css,
+      containerCss,
       removeBorder,
       error,
       ...rest
@@ -113,7 +115,12 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     return (
       <VStack gap={1} className={'group'} data-disabled={disabled || undefined} css={{ width: '100%' }}>
         <Label visible={!!(label && labelPosition === 'outside')}>{label}</Label>
-        <Stack gap={1} className={cx(recipe.inputContainer, className)} onClick={handleContainerClick} css={css}>
+        <Stack
+          gap={1}
+          className={cx(recipe.inputContainer, className)}
+          onClick={handleContainerClick}
+          css={containerCss}
+        >
           <Label visible={!!(label && labelPosition === 'inside')}>{label}</Label>
           <textarea ref={inputRef} value={text} disabled={disabled} onChange={handleTextareaChange} {...rest} />
           {showTextCount && <TextLengthIndicator count={count} limit={textLimit} />}
