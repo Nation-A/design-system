@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.16.12
+
+### Patch Changes
+
+- d88088b: fix: toast root에 width: fit-content 적용
+
 ## 0.16.11
 
 ### Patch Changes
