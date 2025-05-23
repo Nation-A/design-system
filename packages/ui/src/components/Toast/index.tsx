@@ -109,7 +109,7 @@ const Toaster = ({ toastOptions, ...props }: { toastOptions?: DefaultToastOption
           boxShadow: 'none',
           padding: 0,
           margin: 0,
-          width: '100%',
+          width: 'fit-content',
         },
         ...toastOptions,
       }}
