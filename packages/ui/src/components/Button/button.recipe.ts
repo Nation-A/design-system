@@ -212,7 +212,7 @@ export const buttonRecipe = cva({
       color: 'whiteAlpha',
       css: {
         background: 'background.static.whiteAlpha.default',
-        color: 'content.neutral.default',
+        color: 'content.static.black.default',
         _hover: { background: 'background.static.whiteAlpha.selected' },
       },
     },
