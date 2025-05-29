@@ -54,6 +54,7 @@ export { default as GroupCircleFillIcon } from './GroupCircleFillIcon';
 export { default as GroupFillIcon } from './GroupFillIcon';
 export { default as HateFillIcon } from './HateFillIcon';
 export { default as HateOutlineIcon } from './HateOutlineIcon';
+export { default as HistoryOutlineIcon } from './HistoryOutlineIcon';
 export { default as HomeFillIcon } from './HomeFillIcon';
 export { default as HomeOutlineIcon } from './HomeOutlineIcon';
 export { default as InvisibleOutlineIcon } from './InvisibleOutlineIcon';

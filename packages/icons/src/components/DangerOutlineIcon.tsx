@@ -22,17 +22,14 @@ function DangerOutlineIcon({ size = 24, color = 'currentColor', ...props }: Prop
       {...props}
     >
       <path
-        id="Vector"
         d="M12 19C12.6904 19 13.25 18.4404 13.25 17.75C13.25 17.0596 12.6904 16.5 12 16.5C11.3096 16.5 10.75 17.0596 10.75 17.75C10.75 18.4404 11.3096 19 12 19Z"
         fill="currentColor"
       />
       <path
-        id="Vector2"
-        d="M12 14L12 6"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeMiterlimit="10"
-        strokeLinecap="round"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 5C12.5523 5 13 5.44772 13 6L13 14C13 14.5523 12.5523 15 12 15C11.4477 15 11 14.5523 11 14L11 6C11 5.44772 11.4477 5 12 5Z"
+        fill="currentColor"
       />
     </svg>
   )

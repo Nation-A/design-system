@@ -62,7 +62,7 @@ export default function Home() {
     Toast.show('This is a toast message')
   }
   return (
-    <div className="flex flex-col gap-4 p-4 light">
+    <div className="flex flex-col gap-4 p-4 light dark bg-black">
       <Flex>
         <Button onClick={aa}>Show Toast</Button>
       </Flex>

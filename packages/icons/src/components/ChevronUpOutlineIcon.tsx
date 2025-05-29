@@ -22,12 +22,11 @@ function ChevronUpOutlineIcon({ size = 24, color = 'currentColor', ...props }: P
       {...props}
     >
       <path
-        id="Vector"
-        d="M19 15L12 8L5 15"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        id="Vector (Stroke)"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11.2929 7.29289C11.6834 6.90237 12.3166 6.90237 12.7071 7.29289L19.7071 14.2929C20.0976 14.6834 20.0976 15.3166 19.7071 15.7071C19.3166 16.0976 18.6834 16.0976 18.2929 15.7071L12 9.41421L5.70711 15.7071C5.31658 16.0976 4.68342 16.0976 4.29289 15.7071C3.90237 15.3166 3.90237 14.6834 4.29289 14.2929L11.2929 7.29289Z"
+        fill="currentColor"
       />
     </svg>
   )
