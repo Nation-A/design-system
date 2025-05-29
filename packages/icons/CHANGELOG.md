@@ -1,5 +1,11 @@
 # @nation-a/icons
 
+## 0.2.1
+
+### Patch Changes
+
+- d6dcee6: - Added HistoryOutlineIcon
+
 ## 0.2.0
 
 ### Minor Changes
