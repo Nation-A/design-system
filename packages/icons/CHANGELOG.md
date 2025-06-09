@@ -1,5 +1,11 @@
 # @nation-a/icons
 
+## 0.3.0
+
+### Minor Changes
+
+- 83ab6aa: - Added PauseCircleOutlineIcon
+
 ## 0.2.1
 
 ### Patch Changes

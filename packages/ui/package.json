@@ -1,6 +1,6 @@
 {
   "name": "@nation-a/ui",
-  "version": "0.16.14",
+  "version": "0.16.15",
   "type": "module",
   "types": "./dist/types/index.d.ts",
   "main": "./dist/index.cjs",
