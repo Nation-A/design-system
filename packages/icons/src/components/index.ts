@@ -87,6 +87,7 @@ export { default as MyCircleOutlineIcon } from './MyCircleOutlineIcon';
 export { default as NotificationFillIcon } from './NotificationFillIcon';
 export { default as NotificationOffOutlineIcon } from './NotificationOffOutlineIcon';
 export { default as NotificationOnOutlineIcon } from './NotificationOnOutlineIcon';
+export { default as PauseCircleOutlineIcon } from './PauseCircleOutlineIcon';
 export { default as PauseFillIcon } from './PauseFillIcon';
 export { default as PauseOutlineIcon } from './PauseOutlineIcon';
 export { default as PlayCircleFillIcon } from './PlayCircleFillIcon';
