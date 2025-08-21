@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.16.17
+
+### Patch Changes
+
+- 40f7a49: Added text language variant
+
 ## 0.16.16
 
 ### Patch Changes
