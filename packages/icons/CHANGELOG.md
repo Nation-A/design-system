@@ -1,5 +1,11 @@
 # @nation-a/icons
 
+## 0.4.0
+
+### Minor Changes
+
+- bece159: Added V3 icon sets
+
 ## 0.3.0
 
 ### Minor Changes
