@@ -1,5 +1,13 @@
 # @nation-a/ui
 
+## 0.16.16
+
+### Patch Changes
+
+- 8622d12: Added Typography tokens
+- Updated dependencies [8622d12]
+  - @nation-a/tokens@0.4.0
+
 ## 0.16.15
 
 ### Patch Changes

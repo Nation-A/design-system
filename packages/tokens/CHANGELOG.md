@@ -1,5 +1,11 @@
 # @nation-a/tokens
 
+## 0.4.0
+
+### Minor Changes
+
+- 8622d12: Added Typography tokens
+
 ## 0.3.0
 
 ### Minor Changes
