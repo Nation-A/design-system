@@ -5,7 +5,7 @@ import { textRecipe, TextVariantProps } from './text.recipe'
 export type TextProps = HTMLStyledProps<'p'> & TextVariantProps
 
 const Text = forwardRef<HTMLParagraphElement, TextProps>((props, ref) => {
-  const { variant = 'body.md', font, children, ...rest } = props
+  const { variant = 'body.md', font, language, children, ...rest } = props
 
   const componentMap = {
     display: styled('h1', textRecipe),
@@ -21,7 +21,7 @@ const Text = forwardRef<HTMLParagraphElement, TextProps>((props, ref) => {
   const TextComponent = componentMap[textType as keyof typeof componentMap]
 
   return (
-    <TextComponent ref={ref} variant={variant} font={font} {...rest}>
+    <TextComponent ref={ref} variant={variant} font={font} language={language} {...rest}>
       {children}
     </TextComponent>
   )

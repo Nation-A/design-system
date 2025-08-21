@@ -8,6 +8,7 @@ export const textRecipe = cva({
   },
   defaultVariants: {
     variant: 'body.md',
+    language: 'en',
   },
   variants: {
     variant: {
@@ -59,150 +60,28 @@ export const textRecipe = cva({
         textStyle: 'label.md',
         fontFamily: 'notoSans',
       },
-      'en.title.main.22.bold': {
-        textStyle: 'en.title.main.22.bold',
-        fontFamily: 'freeman',
-      },
-      'en.title.main.24.bold': {
-        textStyle: 'en.title.main.24.bold',
-        fontFamily: 'freeman',
-      },
-      'en.title.main.30.bold': {
-        textStyle: 'en.title.main.30.bold',
-        fontFamily: 'freeman',
-      },
-      'en.title.main.56.bold': {
-        textStyle: 'en.title.main.56.bold',
-        fontFamily: 'freeman',
-      },
-      'en.title.sub.16.bold': {
-        textStyle: 'en.title.sub.16.bold',
-        fontFamily: 'freeman',
-      },
-      'en.title.sub.18.bold': {
-        textStyle: 'en.title.sub.18.bold',
-        fontFamily: 'freeman',
-      },
-      'en.title.sub.20.bold': {
-        textStyle: 'en.title.sub.20.bold',
-        fontFamily: 'freeman',
-      },
-      'en.text.chat.14.bold': {
-        textStyle: 'en.text.chat.14.bold',
-        fontFamily: 'dmSans',
-      },
-      'en.text.chat.14.regular': {
-        textStyle: 'en.text.chat.14.regular',
-        fontFamily: 'dmSans',
-      },
-      'en.text.chat.16.bold': {
-        textStyle: 'en.text.chat.16.bold',
-        fontFamily: 'dmSans',
-      },
-      'en.text.chat.16.regular': {
-        textStyle: 'en.text.chat.16.regular',
-        fontFamily: 'dmSans',
-      },
-      'en.text.body.14.bold': {
-        textStyle: 'en.text.body.14.bold',
-        fontFamily: 'dmSans',
-      },
-      'en.text.body.14.regular': {
-        textStyle: 'en.text.body.14.regular',
-        fontFamily: 'dmSans',
-      },
-      'en.text.body.16.bold': {
-        textStyle: 'en.text.body.16.bold',
-        fontFamily: 'dmSans',
-      },
-      'en.text.body.16.regular': {
-        textStyle: 'en.text.body.16.regular',
-        fontFamily: 'dmSans',
-      },
-      'en.label.caption.10.semibold': {
-        textStyle: 'en.label.caption.10.semibold',
-        fontFamily: 'dmSans',
-      },
-      'en.label.caption.12.semibold': {
-        textStyle: 'en.label.caption.12.semibold',
-        fontFamily: 'dmSans',
-      },
-      'en.label.caption.14.semibold': {
-        textStyle: 'en.label.caption.14.semibold',
-        fontFamily: 'dmSans',
-      },
-      'kr.title.main.22.bold': {
-        textStyle: 'kr.title.main.22.bold',
-        fontFamily: 'pretendard',
-      },
-      'kr.title.main.24.bold': {
-        textStyle: 'kr.title.main.24.bold',
-        fontFamily: 'pretendard',
-      },
-      'kr.title.main.30.bold': {
-        textStyle: 'kr.title.main.30.bold',
-        fontFamily: 'pretendard',
-      },
-      'kr.title.main.56.bold': {
-        textStyle: 'kr.title.main.56.bold',
-        fontFamily: 'pretendard',
-      },
-      'kr.title.sub.16.bold': {
-        textStyle: 'kr.title.sub.16.bold',
-        fontFamily: 'pretendard',
-      },
-      'kr.title.sub.18.bold': {
-        textStyle: 'kr.title.sub.18.bold',
-        fontFamily: 'pretendard',
-      },
-      'kr.title.sub.20.bold': {
-        textStyle: 'kr.title.sub.20.bold',
-        fontFamily: 'pretendard',
-      },
-      'kr.text.chat.14.bold': {
-        textStyle: 'kr.text.chat.14.bold',
-        fontFamily: 'pretendard',
-      },
-      'kr.text.chat.14.regular': {
-        textStyle: 'kr.text.chat.14.regular',
-        fontFamily: 'pretendard',
-      },
-      'kr.text.chat.16.bold': {
-        textStyle: 'kr.text.chat.16.bold',
-        fontFamily: 'pretendard',
-      },
-      'kr.text.chat.16.regular': {
-        textStyle: 'kr.text.chat.16.regular',
-        fontFamily: 'pretendard',
-      },
-      'kr.text.body.14.bold': {
-        textStyle: 'kr.text.body.14.bold',
-        fontFamily: 'pretendard',
-      },
-      'kr.text.body.14.regular': {
-        textStyle: 'kr.text.body.14.regular',
-        fontFamily: 'pretendard',
-      },
-      'kr.text.body.16.bold': {
-        textStyle: 'kr.text.body.16.bold',
-        fontFamily: 'pretendard',
-      },
-      'kr.text.body.16.regular': {
-        textStyle: 'kr.text.body.16.regular',
-        fontFamily: 'pretendard',
-      },
-      'kr.label.caption.10.semibold': {
-        textStyle: 'kr.label.caption.10.semibold',
-        fontFamily: 'pretendard',
-      },
-      'kr.label.caption.12.semibold': {
-        textStyle: 'kr.label.caption.12.semibold',
-        fontFamily: 'pretendard',
-      },
-      'kr.label.caption.14.semibold': {
-        textStyle: 'kr.label.caption.14.semibold',
-        fontFamily: 'pretendard',
-      },
+      'title.main.22.bold': {},
+      'title.main.24.bold': {},
+      'title.main.30.bold': {},
+      'title.main.56.bold': {},
+      'title.sub.16.bold': {},
+      'title.sub.18.bold': {},
+      'title.sub.20.bold': {},
+      'text.chat.14.bold': {},
+      'text.chat.14.regular': {},
+      'text.chat.16.bold': {},
+      'text.chat.16.regular': {},
+      'text.body.14.bold': {},
+      'text.body.14.regular': {},
+      'text.body.16.bold': {},
+      'text.body.16.regular': {},
+      'label.caption.10.semibold': {},
+      'label.caption.12.semibold': {},
+      'label.caption.14.semibold': {},
+    },
+    language: {
+      en: {},
+      ko: {},
     },
     font: {
       inter: {
@@ -222,4 +101,294 @@ export const textRecipe = cva({
       },
     },
   },
+  compoundVariants: [
+    {
+      variant: 'title.main.22.bold',
+      language: 'en',
+      css: {
+        textStyle: 'en.title.main.22.bold',
+        fontFamily: 'freeman',
+      },
+    },
+    {
+      variant: 'title.main.24.bold',
+      language: 'en',
+      css: {
+        textStyle: 'en.title.main.24.bold',
+        fontFamily: 'freeman',
+      },
+    },
+    {
+      variant: 'title.main.30.bold',
+      language: 'en',
+      css: {
+        textStyle: 'en.title.main.30.bold',
+        fontFamily: 'freeman',
+      },
+    },
+    {
+      variant: 'title.main.56.bold',
+      language: 'en',
+      css: {
+        textStyle: 'en.title.main.56.bold',
+        fontFamily: 'freeman',
+      },
+    },
+    {
+      variant: 'title.sub.16.bold',
+      language: 'en',
+      css: {
+        textStyle: 'en.title.sub.16.bold',
+        fontFamily: 'freeman',
+      },
+    },
+    {
+      variant: 'title.sub.18.bold',
+      language: 'en',
+      css: {
+        textStyle: 'en.title.sub.18.bold',
+        fontFamily: 'freeman',
+      },
+    },
+    {
+      variant: 'title.sub.20.bold',
+      language: 'en',
+      css: {
+        textStyle: 'en.title.sub.20.bold',
+        fontFamily: 'freeman',
+      },
+    },
+    {
+      variant: 'text.chat.14.bold',
+      language: 'en',
+      css: {
+        textStyle: 'en.text.chat.14.bold',
+        fontFamily: 'dmSans',
+      },
+    },
+    {
+      variant: 'text.chat.14.regular',
+      language: 'en',
+      css: {
+        textStyle: 'en.text.chat.14.regular',
+        fontFamily: 'dmSans',
+      },
+    },
+    {
+      variant: 'text.chat.16.bold',
+      language: 'en',
+      css: {
+        textStyle: 'en.text.chat.16.bold',
+        fontFamily: 'dmSans',
+      },
+    },
+    {
+      variant: 'text.chat.16.regular',
+      language: 'en',
+      css: {
+        textStyle: 'en.text.chat.16.regular',
+        fontFamily: 'dmSans',
+      },
+    },
+    {
+      variant: 'text.body.14.bold',
+      language: 'en',
+      css: {
+        textStyle: 'en.text.body.14.bold',
+        fontFamily: 'dmSans',
+      },
+    },
+    {
+      variant: 'text.body.14.regular',
+      language: 'en',
+      css: {
+        textStyle: 'en.text.body.14.regular',
+        fontFamily: 'dmSans',
+      },
+    },
+    {
+      variant: 'text.body.16.bold',
+      language: 'en',
+      css: {
+        textStyle: 'en.text.body.16.bold',
+        fontFamily: 'dmSans',
+      },
+    },
+    {
+      variant: 'text.body.16.regular',
+      language: 'en',
+      css: {
+        textStyle: 'en.text.body.16.regular',
+        fontFamily: 'dmSans',
+      },
+    },
+    {
+      variant: 'label.caption.10.semibold',
+      language: 'en',
+      css: {
+        textStyle: 'en.label.caption.10.semibold',
+        fontFamily: 'dmSans',
+      },
+    },
+    {
+      variant: 'label.caption.12.semibold',
+      language: 'en',
+      css: {
+        textStyle: 'en.label.caption.12.semibold',
+        fontFamily: 'dmSans',
+      },
+    },
+    {
+      variant: 'label.caption.14.semibold',
+      language: 'en',
+      css: {
+        textStyle: 'en.label.caption.14.semibold',
+        fontFamily: 'dmSans',
+      },
+    },
+    {
+      variant: 'title.main.22.bold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.title.main.22.bold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'title.main.24.bold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.title.main.24.bold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'title.main.30.bold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.title.main.30.bold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'title.main.56.bold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.title.main.56.bold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'title.sub.16.bold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.title.sub.16.bold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'title.sub.18.bold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.title.sub.18.bold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'title.sub.20.bold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.title.sub.20.bold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'text.chat.14.bold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.text.chat.14.bold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'text.chat.14.regular',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.text.chat.14.regular',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'text.chat.16.bold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.text.chat.16.bold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'text.chat.16.regular',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.text.chat.16.regular',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'text.body.14.bold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.text.body.14.bold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'text.body.14.regular',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.text.body.14.regular',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'text.body.16.bold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.text.body.16.bold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'text.body.16.regular',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.text.body.16.regular',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'label.caption.10.semibold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.label.caption.10.semibold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'label.caption.12.semibold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.label.caption.12.semibold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'label.caption.14.semibold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.label.caption.14.semibold',
+        fontFamily: 'pretendard',
+      },
+    },
+  ],
 })
