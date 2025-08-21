@@ -9,7 +9,7 @@ type Props = SVGProps<SVGSVGElement> & {
   color?: CSSProperties['color']
 }
 
-function Close_CircleFillIcon({ size = 24, color = 'currentColor', ...props }: Props) {
+function CloseCircleFillIcon({ size = 24, color = 'currentColor', ...props }: Props) {
   return (
     <svg
       width={size}
@@ -32,4 +32,4 @@ function Close_CircleFillIcon({ size = 24, color = 'currentColor', ...props }: P
   )
 }
 
-export default Close_CircleFillIcon
+export default CloseCircleFillIcon

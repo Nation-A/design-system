@@ -4,7 +4,7 @@ import hotToast, { DefaultToastOptions, Toaster as HotToaster, ToasterProps } fr
 import { Box, HStack } from '@styled-system/jsx'
 import { cx } from '@styled-system/css'
 import { toastRecipe } from './toast.recipe'
-import { CheckCircleFillIcon, Close_CircleFillIcon } from '@nation-a/icons'
+import { CheckCircleFillIcon, CloseCircleFillIcon } from '@nation-a/icons'
 
 // type ToastVariant = 'success' | 'error' | 'warning' | 'info'
 
@@ -202,7 +202,7 @@ Toast.error = (description: ToastProps['description'], option: ToastProps['optio
     (t) => (
       <Toast.Root width={option?.actionLabel ? 'full' : 'fit'}>
         <Toast.Content>
-          <Toast.Icon icon={option?.icon ?? <Close_CircleFillIcon />} />
+          <Toast.Icon icon={option?.icon ?? <CloseCircleFillIcon />} />
           <Toast.Description>{description}</Toast.Description>
         </Toast.Content>
         {option?.actionLabel && (

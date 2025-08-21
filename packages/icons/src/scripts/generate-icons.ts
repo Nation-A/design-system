@@ -72,11 +72,21 @@ const processIconData = (icon: IconaDataType[string]) => {
     return null
   }
   const iconName = icon.name
-  const filename = path.basename(toPascalCase(removeInvalidCharacters(iconName)), '.tsx')
+  let filename = path.basename(toPascalCase(removeInvalidCharacters(iconName)), '.tsx')
+
+  // V3 아이콘인 경우 파일명에서 V3 제거
+  if (filename.endsWith('V3')) {
+    filename = filename.replace('V3', '')
+  }
+
   const svgPath = getSvgPaths(icon.svg).join('\n')
 
   if (svgPath) {
-    return { filename, svgPath: toPascalCase(removeFillStrokeAttribute(svgPath)) }
+    return {
+      filename,
+      svgPath: toPascalCase(removeFillStrokeAttribute(svgPath)),
+      isV3: iconName.includes('V3') || iconName.includes('v3'),
+    }
   }
   return null
 }
@@ -85,9 +95,18 @@ const processIconData = (icon: IconaDataType[string]) => {
  * 아이콘 파일 생성
  * @param name 아이콘 이름
  * @param svgPath SVG path들
+ * @param isV3 V3 아이콘 여부
  */
-const generateIconFile = async (name: string, svgPath: string) => {
-  const outputFilePath = path.join(outputPath, `${name}Icon.tsx`)
+const generateIconFile = async (name: string, svgPath: string, isV3: boolean = false) => {
+  // V3 아이콘인지 확인하여 적절한 폴더에 생성
+  const targetPath = isV3 ? path.join(outputPath, 'v3') : outputPath
+
+  // v3 폴더가 없으면 생성
+  if (isV3 && !fs.existsSync(targetPath)) {
+    fs.mkdirSync(targetPath, { recursive: true })
+  }
+
+  const outputFilePath = path.join(targetPath, `${name}Icon.tsx`)
   const stringifiedPath = svgPath.replace(/\n/g, '')
   const outputFileContent = convertTemplateToString(name, stringifiedPath)
 
@@ -109,18 +128,22 @@ const generateIcons = async () => {
   const iconsJsonContent = fs.readFileSync(iconsJsonPath, 'utf8')
   const iconsData: IconaDataType = JSON.parse(iconsJsonContent)
 
-  const transformedIcons: Record<string, string> = {}
+  const transformedIcons: Array<{ name: string; svgPath: string; isV3: boolean }> = []
 
   // 아이콘 데이터 파싱
   Object.values(iconsData).forEach((icon) => {
     const result = processIconData(icon)
     if (result) {
-      transformedIcons[result.filename] = result.svgPath
+      transformedIcons.push({
+        name: result.filename,
+        svgPath: result.svgPath,
+        isV3: result.isV3,
+      })
     }
   })
 
   // Promise.all을 사용하여 비동기 처리
-  await Promise.all(Object.entries(transformedIcons).map(([name, svgPath]) => generateIconFile(name, svgPath)))
+  await Promise.all(transformedIcons.map(({ name, svgPath, isV3 }) => generateIconFile(name, svgPath, isV3)))
 
   console.log('Icon files have been generated in', outputPath)
 }

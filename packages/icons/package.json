@@ -44,6 +44,11 @@
       "types": "./dist/types/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
+    },
+    "./v3": {
+      "types": "./dist/types/v3/index.d.ts",
+      "require": "./dist/v3/index.cjs",
+      "import": "./dist/v3/index.mjs"
     }
   }
 }

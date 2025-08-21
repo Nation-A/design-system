@@ -1,6 +1,7 @@
 import { Button, ButtonProps, Dialog, IconButton, IconButtonProps, Portal, Text, Tag, Flex, Toast } from '@nation-a/ui'
 
 import * as Icons from '@nation-a/icons'
+import * as IconsV3 from '@nation-a/icons/v3'
 import { useState } from 'react'
 import { TagProps } from '@nation-a/ui'
 import { Sheet } from 'react-modal-sheet'
@@ -149,7 +150,7 @@ export default function Home() {
       <Toast.Toaster />
 
       <Flex wrap="wrap">
-        {Object.entries(Icons).map(([key, Icon]) => (
+        {Object.entries({ ...Icons, ...IconsV3 }).map(([key, Icon]) => (
           <IconButton key={key} variant="light">
             <Icon />
           </IconButton>
@@ -208,9 +209,13 @@ export default function Home() {
         </div>
       ))}
       <div className="flex flex-col gap-4" style={{ color: 'white' }}>
-        <Text variant="en.title.main.56.bold">Hello</Text>
+        <Text variant="title.main.56.bold" language="en">
+          Hello
+        </Text>
 
-        <Text variant="kr.title.main.24.bold">Hello</Text>
+        <Text variant="title.main.24.bold" language="ko">
+          안녕하세요
+        </Text>
 
         <Text variant="headline.md">Hello</Text>
         <Text variant="headline.sm">Hello</Text>

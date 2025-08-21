@@ -14,9 +14,15 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: 'src/index.ts',
+      entry: {
+        index: 'src/index.ts',
+        'v3/index': 'src/components/v3/index.ts',
+      },
       name: '@nation-a/icons',
-      fileName: (format) => `index.${format === 'es' ? 'mjs' : format}`,
+      fileName: (format, entryName) => {
+        const ext = format === 'es' ? 'mjs' : format
+        return entryName === 'index' ? `index.${ext}` : `${entryName}.${ext}`
+      },
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
