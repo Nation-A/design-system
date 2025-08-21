@@ -397,8 +397,8 @@ const semantic = {
         whiteAlpha: {
           bold: {
             value: {
-              base: '{colors.white.700A}',
-              _dark: '{colors.white.700A}',
+              base: '{colors.white.800A}',
+              _dark: '{colors.white.800A}',
             },
           },
           default: {
@@ -704,26 +704,35 @@ const primitive = {
       },
     },
     white: {
-      '700A': {
+      '1000A': {
+        value: '#fff',
+      },
+      '900A': {
+        value: 'rgba(255,255,255,0.9)',
+      },
+      '800A': {
         value: 'rgba(255,255,255,0.8)',
+      },
+      '700A': {
+        value: 'rgba(255,255,255,0.7)',
       },
       '600A': {
         value: 'rgba(255,255,255,0.6)',
       },
       '500A': {
-        value: 'rgba(255,255,255,0.4)',
+        value: 'rgba(255,255,255,0.5)',
       },
       '400A': {
-        value: 'rgba(255,255,255,0.32)',
+        value: 'rgba(255,255,255,0.4)',
       },
       '300A': {
-        value: 'rgba(255,255,255,0.2)',
+        value: 'rgba(255,255,255,0.3)',
       },
       '200A': {
-        value: 'rgba(255,255,255,0.12)',
+        value: 'rgba(255,255,255,0.2)',
       },
       '100A': {
-        value: 'rgba(255,255,255,0.08)',
+        value: 'rgba(255,255,255,0.1)',
       },
     },
     red: {
@@ -982,6 +991,11 @@ const primitive = {
         value: '#554506',
       },
     },
+    v3: {
+      blue: {
+        value: '#A4C4FF',
+      },
+    },
   },
   borderWidths: {
     none: {
@@ -1149,19 +1163,22 @@ const primitive = {
     bold: {
       value: '700',
     },
-    regularItalic: {
-      value: 'Italic',
-    },
-    mediumItalic: {
-      value: 'Medium Italic',
-    },
   },
   fonts: {
-    inter: {
-      value: 'Inter',
+    freeman: {
+      value: 'Freeman',
+    },
+    dmSans: {
+      value: 'DM Sans',
+    },
+    pretendard: {
+      value: 'Pretendard',
     },
     notoSans: {
       value: 'Noto Sans',
+    },
+    inter: {
+      value: 'Inter',
     },
   },
 }
@@ -1281,6 +1298,422 @@ const textStyles = {
         fontSize: '4xl',
         lineHeight: '5xl',
         letterSpacing: 'xs',
+      },
+    },
+  },
+  en: {
+    title: {
+      main: {
+        '22': {
+          bold: {
+            value: {
+              fontFamily: 'freeman',
+              fontWeight: 'regular',
+              lineHeight: '120%',
+              fontSize: '22px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+        '24': {
+          bold: {
+            value: {
+              fontFamily: 'freeman',
+              fontWeight: 'regular',
+              lineHeight: '120%',
+              fontSize: '24px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+        '30': {
+          bold: {
+            value: {
+              fontFamily: 'freeman',
+              fontWeight: 'regular',
+              lineHeight: '120%',
+              fontSize: '30px',
+              letterSpacing: '2xl',
+            },
+          },
+        },
+        '56': {
+          bold: {
+            value: {
+              fontFamily: 'freeman',
+              fontWeight: 'regular',
+              lineHeight: '100%',
+              fontSize: '56px',
+              letterSpacing: 'sm',
+            },
+          },
+        },
+      },
+      sub: {
+        '16': {
+          bold: {
+            value: {
+              fontFamily: 'freeman',
+              fontWeight: 'regular',
+              lineHeight: '120%',
+              fontSize: '16px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+        '18': {
+          bold: {
+            value: {
+              fontFamily: 'freeman',
+              fontWeight: 'regular',
+              lineHeight: '120%',
+              fontSize: '18px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+        '20': {
+          bold: {
+            value: {
+              fontFamily: 'freeman',
+              fontWeight: 'regular',
+              lineHeight: '120%',
+              fontSize: '20px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+      },
+    },
+    text: {
+      chat: {
+        '14': {
+          bold: {
+            value: {
+              fontFamily: 'dmSans',
+              fontWeight: 'bold',
+              lineHeight: '150%',
+              fontSize: '14px',
+              letterSpacing: '3xl',
+            },
+          },
+          regular: {
+            value: {
+              fontFamily: 'dmSans',
+              fontWeight: 'regular',
+              lineHeight: '150%',
+              fontSize: '14px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+        '16': {
+          bold: {
+            value: {
+              fontFamily: 'dmSans',
+              fontWeight: 'bold',
+              lineHeight: '150%',
+              fontSize: '16px',
+              letterSpacing: '3xl',
+            },
+          },
+          regular: {
+            value: {
+              fontFamily: 'dmSans',
+              fontWeight: 'regular',
+              lineHeight: '150%',
+              fontSize: '16px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+      },
+      body: {
+        '14': {
+          bold: {
+            value: {
+              fontFamily: 'dmSans',
+              fontWeight: 'bold',
+              lineHeight: '120%',
+              fontSize: '14px',
+              letterSpacing: '3xl',
+            },
+          },
+          regular: {
+            value: {
+              fontFamily: 'dmSans',
+              fontWeight: 'regular',
+              lineHeight: '120%',
+              fontSize: '14px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+        '16': {
+          bold: {
+            value: {
+              fontFamily: 'dmSans',
+              fontWeight: 'bold',
+              lineHeight: '120%',
+              fontSize: '16px',
+              letterSpacing: '3xl',
+            },
+          },
+          regular: {
+            value: {
+              fontFamily: 'dmSans',
+              fontWeight: 'regular',
+              lineHeight: '120%',
+              fontSize: '16px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+      },
+    },
+    label: {
+      caption: {
+        '10': {
+          semibold: {
+            value: {
+              fontFamily: 'dmSans',
+              fontWeight: 'semibold',
+              lineHeight: '120%',
+              fontSize: '10px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+        '12': {
+          semibold: {
+            value: {
+              fontFamily: 'dmSans',
+              fontWeight: 'semibold',
+              lineHeight: '120%',
+              fontSize: '12px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+        '14': {
+          semibold: {
+            value: {
+              fontFamily: 'dmSans',
+              fontWeight: 'semibold',
+              lineHeight: '120%',
+              fontSize: '14px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+      },
+    },
+  },
+  kr: {
+    title: {
+      main: {
+        '22': {
+          bold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'bold',
+              lineHeight: '120%',
+              fontSize: '22px',
+              letterSpacing: '2xl',
+            },
+          },
+        },
+        '24': {
+          bold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'bold',
+              lineHeight: '120%',
+              fontSize: '24px',
+              letterSpacing: '2xl',
+            },
+          },
+        },
+        '30': {
+          bold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'bold',
+              lineHeight: '120%',
+              fontSize: '30px',
+              letterSpacing: 'xl',
+            },
+          },
+        },
+        '56': {
+          bold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'bold',
+              lineHeight: '100%',
+              fontSize: '56px',
+              letterSpacing: 'sm',
+            },
+          },
+        },
+      },
+      sub: {
+        '16': {
+          bold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'bold',
+              lineHeight: '120%',
+              fontSize: '16px',
+              letterSpacing: '2xl',
+            },
+          },
+        },
+        '18': {
+          bold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'bold',
+              lineHeight: '120%',
+              fontSize: '18px',
+              letterSpacing: '2xl',
+            },
+          },
+        },
+        '20': {
+          bold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'bold',
+              lineHeight: '120%',
+              fontSize: '20px',
+              letterSpacing: '2xl',
+            },
+          },
+        },
+      },
+    },
+    text: {
+      chat: {
+        '14': {
+          bold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'bold',
+              lineHeight: '160%',
+              fontSize: '14px',
+              letterSpacing: '3xl',
+            },
+          },
+          regular: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'regular',
+              lineHeight: '160%',
+              fontSize: '14px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+        '16': {
+          bold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'bold',
+              lineHeight: '160%',
+              fontSize: '16px',
+              letterSpacing: '2xl',
+            },
+          },
+          regular: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'regular',
+              lineHeight: '160%',
+              fontSize: '16px',
+              letterSpacing: '2xl',
+            },
+          },
+        },
+      },
+      body: {
+        '14': {
+          bold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'bold',
+              lineHeight: '130%',
+              fontSize: '14px',
+              letterSpacing: '3xl',
+            },
+          },
+          regular: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'regular',
+              lineHeight: '130%',
+              fontSize: '14px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+        '16': {
+          bold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'bold',
+              lineHeight: '130%',
+              fontSize: '16px',
+              letterSpacing: '2xl',
+            },
+          },
+          regular: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'regular',
+              lineHeight: '130%',
+              fontSize: '16px',
+              letterSpacing: '2xl',
+            },
+          },
+        },
+      },
+    },
+    label: {
+      caption: {
+        '10': {
+          semibold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'semibold',
+              lineHeight: '120%',
+              fontSize: '10px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+        '12': {
+          semibold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'semibold',
+              lineHeight: '120%',
+              fontSize: '12px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
+        '14': {
+          semibold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'semibold',
+              lineHeight: '120%',
+              fontSize: '14px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
       },
     },
   },

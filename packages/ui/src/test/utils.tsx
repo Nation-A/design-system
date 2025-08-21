@@ -1,6 +1,6 @@
-import { render, RenderOptions } from '@testing-library/react'
+import { render, RenderOptions, RenderResult } from '@testing-library/react'
 import { ReactElement } from 'react'
-import userEvent from '@testing-library/user-event'
+import userEvent, { UserEvent } from '@testing-library/user-event'
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface CustomRenderOptions extends Omit<RenderOptions, 'wrapper'> {
@@ -10,7 +10,7 @@ interface CustomRenderOptions extends Omit<RenderOptions, 'wrapper'> {
 /**
  * Custom render function that includes UI providers
  */
-const customRender = (ui: ReactElement, options?: CustomRenderOptions) => {
+const customRender = (ui: ReactElement, options?: CustomRenderOptions): RenderResult & { user: UserEvent } => {
   // Use your actual UI providers here if needed (theme provider, etc.)
   return {
     user: userEvent.setup(),

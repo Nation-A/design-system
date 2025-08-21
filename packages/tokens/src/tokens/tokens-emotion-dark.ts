@@ -25,13 +25,16 @@ const primitiveColor = {
     '100A': 'rgba(0,0,0,0.08)',
   },
   white: {
-    '700A': 'rgba(255,255,255,0.8)',
+    '1000A': '#fff',
+    '900A': 'rgba(255,255,255,0.9)',
+    '800A': 'rgba(255,255,255,0.8)',
+    '700A': 'rgba(255,255,255,0.7)',
     '600A': 'rgba(255,255,255,0.6)',
-    '500A': 'rgba(255,255,255,0.4)',
-    '400A': 'rgba(255,255,255,0.32)',
-    '300A': 'rgba(255,255,255,0.2)',
-    '200A': 'rgba(255,255,255,0.12)',
-    '100A': 'rgba(255,255,255,0.08)',
+    '500A': 'rgba(255,255,255,0.5)',
+    '400A': 'rgba(255,255,255,0.4)',
+    '300A': 'rgba(255,255,255,0.3)',
+    '200A': 'rgba(255,255,255,0.2)',
+    '100A': 'rgba(255,255,255,0.1)',
   },
   red: {
     '100': '#ffeceb',
@@ -128,6 +131,9 @@ const primitiveColor = {
     '800': '#997F19',
     '900': '#77620E',
     '1000': '#554506',
+  },
+  v3: {
+    blue: '#A4C4FF',
   },
 }
 const semanticColor = {
@@ -241,7 +247,7 @@ const semanticColor = {
     },
     static: {
       whiteAlpha: {
-        bold: `${primitiveColor.white['700A']}`,
+        bold: `${primitiveColor.white['800A']}`,
         default: `${primitiveColor.white['500A']}`,
         selected: `${primitiveColor.white['600A']}`,
         disabled: `${primitiveColor.white['500A']}`,
@@ -379,12 +385,13 @@ const fontWeight = {
   medium: '500',
   semibold: '600',
   bold: '700',
-  regularItalic: 'Italic',
-  mediumItalic: 'Medium Italic',
 }
 const fontFamily = {
-  inter: 'Inter',
+  freeman: 'Freeman',
+  dmSans: 'DM Sans',
+  pretendard: 'Pretendard',
   notoSans: 'Noto Sans',
+  inter: 'Inter',
 }
 const typography = {
   body: {
@@ -408,6 +415,148 @@ const typography = {
   display: {
     md: `font-family: ${fontFamily.inter}; font-weight: ${fontWeight.bold}; font-size: ${fontSize['3xl']}; line-height: ${lineHeight['4xl']}; letter-spacing: ${letterSpacing.sm};`,
     lg: `font-family: ${fontFamily.inter}; font-weight: ${fontWeight.bold}; font-size: ${fontSize['4xl']}; line-height: ${lineHeight['5xl']}; letter-spacing: ${letterSpacing.xs};`,
+  },
+  en: {
+    title: {
+      main: {
+        '22': {
+          bold: `font-family: ${fontFamily.freeman}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 22px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+        '24': {
+          bold: `font-family: ${fontFamily.freeman}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 24px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+        '30': {
+          bold: `font-family: ${fontFamily.freeman}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 30px; letter-spacing: ${letterSpacing['2xl']};`,
+        },
+        '56': {
+          bold: `font-family: ${fontFamily.freeman}; font-weight: ${fontWeight.regular}; line-height: 100%; font-size: 56px; letter-spacing: ${letterSpacing.sm};`,
+        },
+      },
+      sub: {
+        '16': {
+          bold: `font-family: ${fontFamily.freeman}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 16px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+        '18': {
+          bold: `font-family: ${fontFamily.freeman}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 18px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+        '20': {
+          bold: `font-family: ${fontFamily.freeman}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 20px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+      },
+    },
+    text: {
+      chat: {
+        '14': {
+          bold: `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.bold}; line-height: 150%; font-size: 14px; letter-spacing: ${letterSpacing['3xl']};`,
+          regular:
+            `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.regular}; line-height: 150%; font-size: 14px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+        '16': {
+          bold: `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.bold}; line-height: 150%; font-size: 16px; letter-spacing: ${letterSpacing['3xl']};`,
+          regular:
+            `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.regular}; line-height: 150%; font-size: 16px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+      },
+      body: {
+        '14': {
+          bold: `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.bold}; line-height: 120%; font-size: 14px; letter-spacing: ${letterSpacing['3xl']};`,
+          regular:
+            `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 14px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+        '16': {
+          bold: `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.bold}; line-height: 120%; font-size: 16px; letter-spacing: ${letterSpacing['3xl']};`,
+          regular:
+            `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 16px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+      },
+    },
+    label: {
+      caption: {
+        '10': {
+          semibold:
+            `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.semibold}; line-height: 120%; font-size: 10px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+        '12': {
+          semibold:
+            `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.semibold}; line-height: 120%; font-size: 12px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+        '14': {
+          semibold:
+            `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.semibold}; line-height: 120%; font-size: 14px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+      },
+    },
+  },
+  kr: {
+    title: {
+      main: {
+        '22': {
+          bold: `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.bold}; line-height: 120%; font-size: 22px; letter-spacing: ${letterSpacing['2xl']};`,
+        },
+        '24': {
+          bold: `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.bold}; line-height: 120%; font-size: 24px; letter-spacing: ${letterSpacing['2xl']};`,
+        },
+        '30': {
+          bold: `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.bold}; line-height: 120%; font-size: 30px; letter-spacing: ${letterSpacing.xl};`,
+        },
+        '56': {
+          bold: `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.bold}; line-height: 100%; font-size: 56px; letter-spacing: ${letterSpacing.sm};`,
+        },
+      },
+      sub: {
+        '16': {
+          bold: `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.bold}; line-height: 120%; font-size: 16px; letter-spacing: ${letterSpacing['2xl']};`,
+        },
+        '18': {
+          bold: `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.bold}; line-height: 120%; font-size: 18px; letter-spacing: ${letterSpacing['2xl']};`,
+        },
+        '20': {
+          bold: `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.bold}; line-height: 120%; font-size: 20px; letter-spacing: ${letterSpacing['2xl']};`,
+        },
+      },
+    },
+    text: {
+      chat: {
+        '14': {
+          bold: `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.bold}; line-height: 160%; font-size: 14px; letter-spacing: ${letterSpacing['3xl']};`,
+          regular:
+            `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.regular}; line-height: 160%; font-size: 14px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+        '16': {
+          bold: `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.bold}; line-height: 160%; font-size: 16px; letter-spacing: ${letterSpacing['2xl']};`,
+          regular:
+            `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.regular}; line-height: 160%; font-size: 16px; letter-spacing: ${letterSpacing['2xl']};`,
+        },
+      },
+      body: {
+        '14': {
+          bold: `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.bold}; line-height: 130%; font-size: 14px; letter-spacing: ${letterSpacing['3xl']};`,
+          regular:
+            `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.regular}; line-height: 130%; font-size: 14px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+        '16': {
+          bold: `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.bold}; line-height: 130%; font-size: 16px; letter-spacing: ${letterSpacing['2xl']};`,
+          regular:
+            `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.regular}; line-height: 130%; font-size: 16px; letter-spacing: ${letterSpacing['2xl']};`,
+        },
+      },
+    },
+    label: {
+      caption: {
+        '10': {
+          semibold:
+            `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.semibold}; line-height: 120%; font-size: 10px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+        '12': {
+          semibold:
+            `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.semibold}; line-height: 120%; font-size: 12px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+        '14': {
+          semibold:
+            `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.semibold}; line-height: 120%; font-size: 14px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
+      },
+    },
   },
 }
 const textDecoration = {

@@ -5,7 +5,29 @@ import { useState } from 'react'
 import { TagProps } from '@nation-a/ui'
 import { Sheet } from 'react-modal-sheet'
 import { css } from '@nation-a/ui/css'
+import { DM_Sans, Freeman, Inter, Noto_Sans } from 'next/font/google'
 
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+})
+
+const freeman = Freeman({
+  subsets: ['latin'],
+  weight: ['400'],
+})
+
+const notoSans = Noto_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+})
+
+const fontClasses = [notoSans.className, inter.className, dmSans.className, freeman.className].join(' ')
 const buttonVariants: ButtonProps['variant'][] = ['solid', 'outline', 'light']
 
 const buttonColors: ButtonProps['color'][] = [
@@ -62,7 +84,7 @@ export default function Home() {
     Toast.show('This is a toast message')
   }
   return (
-    <div className="flex flex-col gap-4 p-4 light dark bg-black">
+    <div className={`flex flex-col gap-4 p-4 light dark bg-black ${fontClasses}`}>
       <Flex>
         <Button onClick={aa}>Show Toast</Button>
       </Flex>
@@ -185,9 +207,10 @@ export default function Home() {
           )}
         </div>
       ))}
-      <div className="flex flex-col gap-4">
-        <Text variant="display.lg">Hello</Text>
-        <Text variant="display.md">Hello</Text>
+      <div className="flex flex-col gap-4" style={{ color: 'white' }}>
+        <Text variant="en.title.main.56.bold">Hello</Text>
+
+        <Text variant="kr.title.main.24.bold">Hello</Text>
 
         <Text variant="headline.md">Hello</Text>
         <Text variant="headline.sm">Hello</Text>

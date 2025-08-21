@@ -25,13 +25,16 @@ const primitiveColor = {
     '100A': 'rgba(0,0,0,0.08)',
   },
   white: {
-    '700A': 'rgba(255,255,255,0.8)',
+    '1000A': '#fff',
+    '900A': 'rgba(255,255,255,0.9)',
+    '800A': 'rgba(255,255,255,0.8)',
+    '700A': 'rgba(255,255,255,0.7)',
     '600A': 'rgba(255,255,255,0.6)',
-    '500A': 'rgba(255,255,255,0.4)',
-    '400A': 'rgba(255,255,255,0.32)',
-    '300A': 'rgba(255,255,255,0.2)',
-    '200A': 'rgba(255,255,255,0.12)',
-    '100A': 'rgba(255,255,255,0.08)',
+    '500A': 'rgba(255,255,255,0.5)',
+    '400A': 'rgba(255,255,255,0.4)',
+    '300A': 'rgba(255,255,255,0.3)',
+    '200A': 'rgba(255,255,255,0.2)',
+    '100A': 'rgba(255,255,255,0.1)',
   },
   red: {
     '100': '#ffeceb',
@@ -241,7 +244,7 @@ const semanticColor = {
     },
     static: {
       whiteAlpha: {
-        bold: `${primitiveColor.white['700A']}`,
+        bold: `${primitiveColor.white['800A']}`,
         default: `${primitiveColor.white['500A']}`,
         selected: `${primitiveColor.white['600A']}`,
         disabled: `${primitiveColor.white['500A']}`,
@@ -379,8 +382,6 @@ const fontWeight = {
   medium: '500',
   semibold: '600',
   bold: '700',
-  regularItalic: 'Italic',
-  mediumItalic: 'Medium Italic',
 }
 const fontFamily = {
   inter: 'Inter',

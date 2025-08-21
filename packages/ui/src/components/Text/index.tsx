@@ -7,15 +7,17 @@ export type TextProps = HTMLStyledProps<'p'> & TextVariantProps
 const Text = forwardRef<HTMLParagraphElement, TextProps>((props, ref) => {
   const { variant = 'body.md', font, children, ...rest } = props
 
-  const textType = variant?.split('.')[0] || 'body'
-
   const componentMap = {
     display: styled('h1', textRecipe),
     headline: styled('h2', textRecipe),
     title: styled('h3', textRecipe),
     body: styled('p', textRecipe),
+    text: styled('p', textRecipe),
     label: styled('span', textRecipe),
   }
+
+  const variantParts = variant?.split('.') || ['body']
+  const textType = variantParts.find((part) => part in componentMap) || 'body'
   const TextComponent = componentMap[textType as keyof typeof componentMap]
 
   return (

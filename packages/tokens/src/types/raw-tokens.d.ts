@@ -2,7 +2,6 @@
 
 interface RawTokens {
   colors: Colors;
-  fontFamily: FontFamily;
   typography: Typography;
   fontWeight: FontWeight;
   textDecoration: TextDecoration;
@@ -13,6 +12,25 @@ interface RawTokens {
   borderWidth: BorderWidth;
   spacing: Spacing;
   shadow: Shadow2;
+  fontFamily: FontFamily;
+  textCase: TextCase;
+  paragraphIndent: ParagraphIndent;
+}
+
+interface ParagraphIndent {
+  '0': _0;
+}
+
+interface TextCase {
+  none: _0;
+}
+
+interface FontFamily {
+  freeman: _0;
+  dmSans: _0;
+  pretendard: _0;
+  notoSans: _0;
+  inter: _0;
 }
 
 interface Shadow2 {
@@ -109,8 +127,6 @@ interface FontWeight {
   medium: _0;
   semibold: _0;
   bold: _0;
-  regularItalic: _0;
-  mediumItalic: _0;
 }
 
 interface Typography {
@@ -119,6 +135,65 @@ interface Typography {
   title: Body;
   headline: Label;
   display: Display;
+  en: En;
+  kr: En;
+}
+
+interface En {
+  title: Title;
+  text: Text;
+  label: Label2;
+}
+
+interface Label2 {
+  caption: Caption;
+}
+
+interface Caption {
+  '10': _10;
+  '12': _10;
+  '14': _10;
+}
+
+interface _10 {
+  semibold: Md;
+}
+
+interface Text {
+  chat: Chat;
+  body: Chat;
+}
+
+interface Chat {
+  '14': _14;
+  '16': _14;
+}
+
+interface _14 {
+  bold: Md;
+  regular: Md;
+}
+
+interface Title {
+  main: Main;
+  sub: Sub;
+}
+
+interface Sub {
+  '16': _22;
+  '18': _22;
+  '20': _22;
+}
+
+interface Main {
+  '22': _22;
+  '24': _22;
+  '30': _22;
+  '56': _22;
+}
+
+interface _22 {
+  bold: Md;
 }
 
 interface Display {
@@ -147,11 +222,6 @@ interface Value {
   fontSize: string;
   lineHeight: string;
   letterSpacing: string;
-}
-
-interface FontFamily {
-  inter: _0;
-  notoSans: _0;
 }
 
 interface Colors {
@@ -258,11 +328,11 @@ interface Content {
 }
 
 interface Static {
-  white: White;
-  black: White;
+  white: White2;
+  black: White2;
 }
 
-interface White {
+interface White2 {
   bold: _0;
   default: _0;
   subtle: _0;
@@ -291,7 +361,7 @@ interface Neutral2 {
 interface Primitive {
   neutral: Neutral;
   black: Black;
-  white: Black;
+  white: White;
   red: Red;
   orange: Red;
   blue: Red;
@@ -300,6 +370,11 @@ interface Primitive {
   ohre: Red;
   cyan: Red;
   yellow: Red;
+  v3: V3;
+}
+
+interface V3 {
+  blue: _0;
 }
 
 interface Red {
@@ -313,6 +388,19 @@ interface Red {
   '800': _0;
   '900': _0;
   '1000': _0;
+}
+
+interface White {
+  '1000A': _0;
+  '900A': _0;
+  '800A': _0;
+  '700A': _0;
+  '600A': _0;
+  '500A': _0;
+  '400A': _0;
+  '300A': _0;
+  '200A': _0;
+  '100A': _0;
 }
 
 interface Black {
