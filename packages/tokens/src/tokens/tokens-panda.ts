@@ -481,6 +481,14 @@ const semantic = {
           },
         },
       },
+      v3: {
+        default: {
+          value: {
+            base: '#404040',
+            _dark: '#404040',
+          },
+        },
+      },
     },
     surface: {
       base: {

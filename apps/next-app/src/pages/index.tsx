@@ -1,4 +1,16 @@
-import { Button, ButtonProps, Dialog, IconButton, IconButtonProps, Portal, Text, Tag, Flex, Toast } from '@nation-a/ui'
+import {
+  Button,
+  ButtonProps,
+  Dialog,
+  IconButton,
+  IconButtonProps,
+  Portal,
+  Text,
+  Tag,
+  Flex,
+  Toast,
+  Box,
+} from '@nation-a/ui'
 
 import * as Icons from '@nation-a/icons'
 import * as IconsV3 from '@nation-a/icons/v3'
@@ -90,6 +102,9 @@ export default function Home() {
         <Button onClick={aa}>Show Toast</Button>
       </Flex>
       <Button onClick={() => setOpen(true)}>Open sheet</Button>
+      <Box className={css({ width: 100, height: 100 })}>
+        <Text>Hello</Text>
+      </Box>
 
       <Sheet
         isOpen={isOpen}

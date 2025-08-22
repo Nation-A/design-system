@@ -268,6 +268,9 @@ const semanticColor = {
       selected: `${primitiveColor.neutral['1000']}`,
       disabled: `${primitiveColor.neutral['1000']}`,
     },
+    v3: {
+      default: '#404040',
+    },
   },
   surface: {
     base: `${primitiveColor.neutral['0']}`,

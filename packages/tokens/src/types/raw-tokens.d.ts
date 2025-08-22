@@ -288,6 +288,7 @@ interface Background {
   static: Static2;
   heybeePrimary: NeuroidPrimary2;
   neutralInverse: Neutral3;
+  v3: Danger;
 }
 
 interface Static2 {
