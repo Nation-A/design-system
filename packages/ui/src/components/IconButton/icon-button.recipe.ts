@@ -53,7 +53,10 @@ export const iconButtonRecipe = cva({
           pointerEvents: 'none',
         },
         _hover: {
-          background: 'background.neutral.selected',
+          background: 'black.100A',
+          _dark: {
+            background: 'white.100A',
+          },
         },
       },
       light: {
@@ -66,7 +69,10 @@ export const iconButtonRecipe = cva({
           pointerEvents: 'none',
         },
         _hover: {
-          background: 'background.neutral.selected',
+          background: 'black.100A',
+          _dark: {
+            background: 'white.100A',
+          },
         },
       },
     },
