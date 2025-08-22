@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.16.21
+
+### Patch Changes
+
+- 7e3716c: Added button icon size preseve mode
+
 ## 0.16.20
 
 ### Patch Changes
