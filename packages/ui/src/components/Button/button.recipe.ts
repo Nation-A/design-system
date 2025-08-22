@@ -92,7 +92,8 @@ export const buttonRecipe = cva({
         textStyle: 'label.sm',
         px: '8px',
         gap: 1,
-        '& :where(svg)': {
+        // preserveIconSize가 false일 때만 아이콘 크기 강제 적용
+        '&:not([data-preserve-icon-size="true"]) svg': {
           width: '20px',
           height: '20px',
         },
@@ -102,7 +103,8 @@ export const buttonRecipe = cva({
         textStyle: 'label.sm',
         px: '16px',
         gap: 1,
-        '& :where(svg)': {
+        // preserveIconSize가 false일 때만 아이콘 크기 강제 적용
+        '&:not([data-preserve-icon-size="true"]) svg': {
           width: '20px',
           height: '20px',
         },
@@ -112,7 +114,8 @@ export const buttonRecipe = cva({
         textStyle: 'label.md',
         px: '20px',
         gap: 1,
-        '& :where(svg)': {
+        // preserveIconSize가 false일 때만 아이콘 크기 강제 적용
+        '&:not([data-preserve-icon-size="true"]) svg': {
           width: '24px',
           height: '24px',
         },
@@ -122,7 +125,8 @@ export const buttonRecipe = cva({
         textStyle: 'body.lg',
         px: '28px',
         gap: 1,
-        '& :where(svg)': {
+        // preserveIconSize가 false일 때만 아이콘 크기 강제 적용
+        '&:not([data-preserve-icon-size="true"]) svg': {
           width: '24px',
           height: '24px',
         },

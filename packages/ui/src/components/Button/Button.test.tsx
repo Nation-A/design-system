@@ -102,4 +102,26 @@ describe('Button', () => {
     await user.click(screen.getByTestId('loading-button'))
     expect(handleClick).not.toHaveBeenCalled()
   })
+
+  it('applies preserveIconSize prop correctly', () => {
+    const { rerender } = render(<Button data-testid="button-default">Default Button</Button>)
+    const defaultButton = screen.getByTestId('button-default')
+    expect(defaultButton).not.toHaveAttribute('data-preserve-icon-size')
+
+    rerender(
+      <Button data-testid="button-preserve" preserveIconSize>
+        Preserve Icon Size
+      </Button>,
+    )
+    const preserveButton = screen.getByTestId('button-preserve')
+    expect(preserveButton).toHaveAttribute('data-preserve-icon-size', 'true')
+
+    rerender(
+      <Button data-testid="button-no-preserve" preserveIconSize={false}>
+        No Preserve Icon Size
+      </Button>,
+    )
+    const noPreserveButton = screen.getByTestId('button-no-preserve')
+    expect(noPreserveButton).toHaveAttribute('data-preserve-icon-size', 'false')
+  })
 })

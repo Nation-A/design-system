@@ -152,4 +152,30 @@ describe('IconButton', () => {
     const lightPrimaryIconButton = screen.getByTestId('icon-button-light-primary')
     expect(lightPrimaryIconButton).not.toHaveClass('bg_background.heydPrimary.default')
   })
+
+  it('applies preserveIconSize prop correctly', () => {
+    const { rerender } = render(
+      <IconButton data-testid="icon-button-default">
+        <AddOutlineIcon />
+      </IconButton>,
+    )
+    const defaultIconButton = screen.getByTestId('icon-button-default')
+    expect(defaultIconButton).not.toHaveAttribute('data-preserve-icon-size')
+
+    rerender(
+      <IconButton data-testid="icon-button-preserve" preserveIconSize>
+        <AddOutlineIcon />
+      </IconButton>,
+    )
+    const preserveIconButton = screen.getByTestId('icon-button-preserve')
+    expect(preserveIconButton).toHaveAttribute('data-preserve-icon-size', 'true')
+
+    rerender(
+      <IconButton data-testid="icon-button-no-preserve" preserveIconSize={false}>
+        <AddOutlineIcon />
+      </IconButton>,
+    )
+    const noPreserveIconButton = screen.getByTestId('icon-button-no-preserve')
+    expect(noPreserveIconButton).toHaveAttribute('data-preserve-icon-size', 'false')
+  })
 })
