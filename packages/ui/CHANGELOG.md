@@ -1,5 +1,14 @@
 # @nation-a/ui
 
+## 0.16.22
+
+### Patch Changes
+
+- d48d0e4: Updated icons and typo tokens
+- Updated dependencies [d48d0e4]
+  - @nation-a/tokens@0.4.2
+  - @nation-a/icons@0.4.1
+
 ## 0.16.21
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @nation-a/tokens
 
+## 0.4.2
+
+### Patch Changes
+
+- d48d0e4: Updated icons and typo tokens
+
 ## 0.4.1
 
 ### Patch Changes
