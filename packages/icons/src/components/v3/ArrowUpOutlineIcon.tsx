@@ -9,7 +9,7 @@ type Props = SVGProps<SVGSVGElement> & {
   color?: CSSProperties['color']
 }
 
-function ArrowDownOutlineIcon({ size = 24, color = 'currentColor', ...props }: Props) {
+function ArrowUpOutlineIcon({ size = 24, color = 'currentColor', ...props }: Props) {
   return (
     <svg
       width={size}
@@ -23,7 +23,7 @@ function ArrowDownOutlineIcon({ size = 24, color = 'currentColor', ...props }: P
     >
       <path
         id="Vector"
-        d="M11.1616 21.2498L12.0091 22.0973L12.8566 21.2498L18.8566 15.2498L19.7041 14.4023L18.0054 12.7036C17.9566 12.7523 16.3554 14.3536 13.2054 17.5036V2.40234H10.8054V17.5036C7.65539 14.3536 6.05414 12.7523 6.00539 12.7036L4.30664 14.4023L5.15414 15.2498L11.1541 21.2498H11.1616Z"
+        d="M11.1616 3.24985L12.0091 2.40234L12.8566 3.24985L18.8566 9.24984L19.7041 10.0973L18.0054 11.7961C17.9566 11.7473 16.3554 10.1461 13.2054 6.99609V22.0973H10.8054V6.99609C7.65539 10.1461 6.05414 11.7473 6.00539 11.7961L4.30664 10.0973L5.15414 9.24984L11.1541 3.24985H11.1616Z"
         fill="currentColor"
         fillOpacity="0.9"
       />
@@ -31,4 +31,4 @@ function ArrowDownOutlineIcon({ size = 24, color = 'currentColor', ...props }: P
   )
 }
 
-export default ArrowDownOutlineIcon
+export default ArrowUpOutlineIcon

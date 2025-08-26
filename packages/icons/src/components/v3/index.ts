@@ -1,5 +1,6 @@
 export { default as ActionOulineIcon } from './ActionOulineIcon';
 export { default as ArrowDownOutlineIcon } from './ArrowDownOutlineIcon';
+export { default as ArrowUpOutlineIcon } from './ArrowUpOutlineIcon';
 export { default as BookFillIcon } from './BookFillIcon';
 export { default as ChatFillIcon } from './ChatFillIcon';
 export { default as ChevronLeftOutlineIcon } from './ChevronLeftOutlineIcon';
@@ -11,7 +12,7 @@ export { default as DeleteOutlineIcon } from './DeleteOutlineIcon';
 export { default as EllipsisOutlineIcon } from './EllipsisOutlineIcon';
 export { default as HeartFillIcon } from './HeartFillIcon';
 export { default as HeartOutlineIcon } from './HeartOutlineIcon';
-export { default as IghtbulbFillIcon } from './IghtbulbFillIcon';
+export { default as LightbulbFillIcon } from './LightbulbFillIcon';
 export { default as LockFillIcon } from './LockFillIcon';
 export { default as MessageSmileOutlineIcon } from './MessageSmileOutlineIcon';
 export { default as NavCommentFillIcon } from './NavCommentFillIcon';

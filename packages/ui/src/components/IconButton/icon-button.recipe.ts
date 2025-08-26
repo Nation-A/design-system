@@ -53,7 +53,10 @@ export const iconButtonRecipe = cva({
           pointerEvents: 'none',
         },
         _hover: {
-          background: 'background.neutral.selected',
+          background: 'black.100A',
+          _dark: {
+            background: 'white.100A',
+          },
         },
       },
       light: {
@@ -66,7 +69,10 @@ export const iconButtonRecipe = cva({
           pointerEvents: 'none',
         },
         _hover: {
-          background: 'background.neutral.selected',
+          background: 'black.100A',
+          _dark: {
+            background: 'white.100A',
+          },
         },
       },
     },
@@ -84,7 +90,8 @@ export const iconButtonRecipe = cva({
         h: 7,
         w: 7,
         p: '4px',
-        '& :where(svg)': {
+        // preserveIconSize가 false일 때만 아이콘 크기 강제 적용
+        '&:not([data-preserve-icon-size="true"]) svg': {
           width: '20px',
           height: '20px',
         },
@@ -93,7 +100,8 @@ export const iconButtonRecipe = cva({
         h: 8,
         w: 8,
         p: '4px',
-        '& :where(svg)': {
+        // preserveIconSize가 false일 때만 아이콘 크기 강제 적용
+        '&:not([data-preserve-icon-size="true"]) svg': {
           width: '24px',
           height: '24px',
         },
@@ -102,7 +110,8 @@ export const iconButtonRecipe = cva({
         h: 10,
         w: 10,
         p: '8px',
-        '& :where(svg)': {
+        // preserveIconSize가 false일 때만 아이콘 크기 강제 적용
+        '&:not([data-preserve-icon-size="true"]) svg': {
           width: '24px',
           height: '24px',
         },

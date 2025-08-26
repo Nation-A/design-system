@@ -1482,6 +1482,15 @@ const textStyles = {
     label: {
       caption: {
         '10': {
+          regular: {
+            value: {
+              fontFamily: 'dmSans',
+              fontWeight: 'regular',
+              lineHeight: '120%',
+              fontSize: '10px',
+              letterSpacing: '3xl',
+            },
+          },
           semibold: {
             value: {
               fontFamily: 'dmSans',
@@ -1493,6 +1502,15 @@ const textStyles = {
           },
         },
         '12': {
+          regular: {
+            value: {
+              fontFamily: 'dmSans',
+              fontWeight: 'regular',
+              lineHeight: '120%',
+              fontSize: '12px',
+              letterSpacing: '3xl',
+            },
+          },
           semibold: {
             value: {
               fontFamily: 'dmSans',
@@ -1690,6 +1708,15 @@ const textStyles = {
     label: {
       caption: {
         '10': {
+          regular: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'regular',
+              lineHeight: '120%',
+              fontSize: '10px',
+              letterSpacing: '3xl',
+            },
+          },
           semibold: {
             value: {
               fontFamily: 'pretendard',
@@ -1701,6 +1728,15 @@ const textStyles = {
           },
         },
         '12': {
+          regular: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'regular',
+              lineHeight: '120%',
+              fontSize: '12px',
+              letterSpacing: '3xl',
+            },
+          },
           semibold: {
             value: {
               fontFamily: 'pretendard',

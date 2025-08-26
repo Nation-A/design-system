@@ -55,11 +55,18 @@ export const buttonRecipe = cva({
       },
       light: {
         background: 'transparent',
+
         _disabled: {
           background: 'transparent',
           color: 'content.neutral.disabled',
           cursor: 'not-allowed',
           pointerEvents: 'none',
+        },
+        _hover: {
+          background: 'black.100A',
+          _dark: {
+            background: 'white.100A',
+          },
         },
       },
     },
@@ -85,7 +92,8 @@ export const buttonRecipe = cva({
         textStyle: 'label.sm',
         px: '8px',
         gap: 1,
-        '& :where(svg)': {
+        // preserveIconSize가 false일 때만 아이콘 크기 강제 적용
+        '&:not([data-preserve-icon-size="true"]) svg': {
           width: '20px',
           height: '20px',
         },
@@ -95,7 +103,8 @@ export const buttonRecipe = cva({
         textStyle: 'label.sm',
         px: '16px',
         gap: 1,
-        '& :where(svg)': {
+        // preserveIconSize가 false일 때만 아이콘 크기 강제 적용
+        '&:not([data-preserve-icon-size="true"]) svg': {
           width: '20px',
           height: '20px',
         },
@@ -105,7 +114,8 @@ export const buttonRecipe = cva({
         textStyle: 'label.md',
         px: '20px',
         gap: 1,
-        '& :where(svg)': {
+        // preserveIconSize가 false일 때만 아이콘 크기 강제 적용
+        '&:not([data-preserve-icon-size="true"]) svg': {
           width: '24px',
           height: '24px',
         },
@@ -115,7 +125,8 @@ export const buttonRecipe = cva({
         textStyle: 'body.lg',
         px: '28px',
         gap: 1,
-        '& :where(svg)': {
+        // preserveIconSize가 false일 때만 아이콘 크기 강제 적용
+        '&:not([data-preserve-icon-size="true"]) svg': {
           width: '24px',
           height: '24px',
         },
@@ -316,7 +327,10 @@ export const buttonRecipe = cva({
         color: 'content.neutral.default',
         borderColor: 'border.neutral.default',
         _hover: {
-          background: 'background.neutral.selected',
+          background: 'black.100A',
+          _dark: {
+            background: 'white.100A',
+          },
           color: 'content.neutral.bold',
         },
       },
@@ -373,99 +387,63 @@ export const buttonRecipe = cva({
       variant: 'light',
       color: 'neuroid_primary',
       css: {
-        background: 'transparent',
         color: 'content.neuroidPrimary.default',
-        _hover: {
-          textDecoration: 'underline',
-        },
       },
     },
     {
       variant: 'light',
       color: 'zoltarina_primary',
       css: {
-        background: 'transparent',
         color: 'content.zoltarinaPrimary.default',
-        _hover: {
-          textDecoration: 'underline',
-        },
       },
     },
     {
       variant: 'light',
       color: 'heyd_primary',
       css: {
-        background: 'transparent',
         color: 'content.heydPrimary.default',
-        _hover: {
-          textDecoration: 'underline',
-        },
       },
     },
     {
       variant: 'light',
       color: 'heybee_primary',
       css: {
-        background: 'transparent',
         color: 'content.heybeePrimary.default',
-        _hover: {
-          textDecoration: 'underline',
-        },
       },
     },
     {
       variant: 'light',
       color: 'neutral',
       css: {
-        background: 'transparent',
         color: 'content.neutral.bold',
-        _hover: {
-          textDecoration: 'underline',
-        },
       },
     },
     {
       variant: 'light',
       color: 'danger',
       css: {
-        background: 'transparent',
         color: 'content.danger.default',
-        _hover: {
-          textDecoration: 'underline',
-        },
       },
     },
     {
       variant: 'light',
       color: 'warning',
       css: {
-        background: 'transparent',
         color: 'content.warning.default',
-        _hover: {
-          textDecoration: 'underline',
-        },
       },
     },
     {
       variant: 'light',
       color: 'success',
       css: {
-        background: 'transparent',
         color: 'content.success.default',
-        _hover: {
-          textDecoration: 'underline',
-        },
       },
     },
     {
       variant: 'light',
       color: 'informative',
       css: {
-        background: 'transparent',
         color: 'content.informative.default',
-        _hover: {
-          textDecoration: 'underline',
-        },
       },
     },
   ],

@@ -9,7 +9,7 @@ type Props = SVGProps<SVGSVGElement> & {
   color?: CSSProperties['color']
 }
 
-function IghtbulbFillIcon({ size = 24, color = 'currentColor', ...props }: Props) {
+function LightbulbFillIcon({ size = 24, color = 'currentColor', ...props }: Props) {
   return (
     <svg
       width={size}
@@ -31,4 +31,4 @@ function IghtbulbFillIcon({ size = 24, color = 'currentColor', ...props }: Props
   )
 }
 
-export default IghtbulbFillIcon
+export default LightbulbFillIcon

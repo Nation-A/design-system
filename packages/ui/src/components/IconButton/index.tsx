@@ -8,10 +8,12 @@ import { withPolymorphicComponent } from '@/utils/with-polymorphic-component'
 export type IconButtonProps = HTMLStyledProps<'button'> &
   IconButtonVariantProps & {
     loading?: boolean
+    /** 아이콘 컴포넌트의 size prop을 우선시할지 여부 (기본값: false) */
+    preserveIconSize?: boolean
   }
 
 const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ loading, disabled, children, color, variant, size, onClick, ...rest }, ref) => {
+  ({ loading, disabled, children, color, variant, size, onClick, preserveIconSize, ...rest }, ref) => {
     const StyledButton = styled(ark.button, iconButtonRecipe)
 
     return (
@@ -21,6 +23,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         color={color}
         variant={variant}
         size={size}
+        data-preserve-icon-size={preserveIconSize}
         css={{ pointerEvents: loading ? 'none' : 'auto' }}
         onClick={(e) => {
           if (!loading && !disabled) onClick?.(e)

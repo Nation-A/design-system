@@ -9,6 +9,8 @@ export type ButtonProps = HTMLStyledProps<'button'> &
   ButtonVariantProps & {
     loading?: boolean
     loadingText?: React.ReactNode
+    /** 아이콘 컴포넌트의 size prop을 우선시할지 여부 (기본값: false) */
+    preserveIconSize?: boolean
   }
 
 const Button = ({
@@ -21,6 +23,7 @@ const Button = ({
   size,
   radius,
   onClick,
+  preserveIconSize,
   ...rest
 }: ButtonProps) => {
   const StyledButton = styled(ark.button, buttonRecipe)
@@ -32,6 +35,7 @@ const Button = ({
       variant={variant}
       size={size}
       radius={radius}
+      data-preserve-icon-size={preserveIconSize}
       css={{ pointerEvents: loading ? 'none' : 'auto' }}
       onClick={disabled || loading ? undefined : onClick}
       {...rest}

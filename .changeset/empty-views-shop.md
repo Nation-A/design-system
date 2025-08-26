@@ -1,6 +1,7 @@
 ---
 '@nation-a/tokens': patch
+'@nation-a/icons': patch
 '@nation-a/ui': patch
 ---
 
-Added background v3
+Updated icons and typo tokens
