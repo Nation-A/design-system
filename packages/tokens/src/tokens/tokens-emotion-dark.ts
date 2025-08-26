@@ -476,10 +476,14 @@ const typography = {
     label: {
       caption: {
         '10': {
+          regular:
+            `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 10px; letter-spacing: ${letterSpacing['3xl']};`,
           semibold:
             `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.semibold}; line-height: 120%; font-size: 10px; letter-spacing: ${letterSpacing['3xl']};`,
         },
         '12': {
+          regular:
+            `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 12px; letter-spacing: ${letterSpacing['3xl']};`,
           semibold:
             `font-family: ${fontFamily.dmSans}; font-weight: ${fontWeight.semibold}; line-height: 120%; font-size: 12px; letter-spacing: ${letterSpacing['3xl']};`,
         },
@@ -547,10 +551,14 @@ const typography = {
     label: {
       caption: {
         '10': {
+          regular:
+            `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 10px; letter-spacing: ${letterSpacing['3xl']};`,
           semibold:
             `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.semibold}; line-height: 120%; font-size: 10px; letter-spacing: ${letterSpacing['3xl']};`,
         },
         '12': {
+          regular:
+            `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 12px; letter-spacing: ${letterSpacing['3xl']};`,
           semibold:
             `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.semibold}; line-height: 120%; font-size: 12px; letter-spacing: ${letterSpacing['3xl']};`,
         },

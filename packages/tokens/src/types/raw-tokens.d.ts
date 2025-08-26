@@ -152,10 +152,15 @@ interface Label2 {
 interface Caption {
   '10': _10;
   '12': _10;
-  '14': _10;
+  '14': _142;
+}
+
+interface _142 {
+  semibold: Md;
 }
 
 interface _10 {
+  regular: Md;
   semibold: Md;
 }
 

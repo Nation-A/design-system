@@ -76,7 +76,9 @@ export const textRecipe = cva({
       'text.body.16.bold': {},
       'text.body.16.regular': {},
       'label.caption.10.semibold': {},
+      'label.caption.10.regular': {},
       'label.caption.12.semibold': {},
+      'label.caption.12.regular': {},
       'label.caption.14.semibold': {},
     },
     language: {
@@ -223,10 +225,26 @@ export const textRecipe = cva({
       },
     },
     {
+      variant: 'label.caption.10.regular',
+      language: 'en',
+      css: {
+        textStyle: 'en.label.caption.10.regular',
+        fontFamily: 'dmSans',
+      },
+    },
+    {
       variant: 'label.caption.10.semibold',
       language: 'en',
       css: {
         textStyle: 'en.label.caption.10.semibold',
+        fontFamily: 'dmSans',
+      },
+    },
+    {
+      variant: 'label.caption.12.regular',
+      language: 'en',
+      css: {
+        textStyle: 'en.label.caption.12.regular',
         fontFamily: 'dmSans',
       },
     },
@@ -367,10 +385,26 @@ export const textRecipe = cva({
       },
     },
     {
+      variant: 'label.caption.10.regular',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.label.caption.10.regular',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
       variant: 'label.caption.10.semibold',
       language: 'ko',
       css: {
         textStyle: 'kr.label.caption.10.semibold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'label.caption.12.regular',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.label.caption.12.regular',
         fontFamily: 'pretendard',
       },
     },

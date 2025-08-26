@@ -43,7 +43,7 @@ export const tabsRecipe = sva({
         cursor: 'not-allowed',
       },
       _hover: {
-        color: 'content.neutral.hovered',
+        color: 'content.neutral.bold',
       },
       _selected: {
         color: 'content.neutral.bold',
