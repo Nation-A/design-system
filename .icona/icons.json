@@ -1692,5 +1692,16 @@
       "3x": "",
       "4x": ""
     }
+  },
+  "infinity_outline_v3": {
+    "svg": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g id=\"infinity_outline_v3\">\n<path id=\"Vector\" d=\"M1 6.5H9.25L9.58 6.94L12 10.1678L14.42 6.94L14.75 6.5H23V17.5H14.75L14.42 17.06L12 13.8322L9.58 17.06L9.25 17.5H1V6.5ZM10.625 12L8.15 8.7H3.2V15.3H8.15L10.625 12ZM13.375 12L15.85 15.3H20.8V8.7H15.85L13.375 12Z\" fill=\"white\" fill-opacity=\"0.9\"/>\n</g>\n</svg>\n",
+    "metadatas": [],
+    "name": "infinity_outline_v3",
+    "png": {
+      "1x": "",
+      "2x": "",
+      "3x": "",
+      "4x": ""
+    }
   }
 }
