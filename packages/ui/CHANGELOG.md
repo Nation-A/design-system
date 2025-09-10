@@ -1,5 +1,13 @@
 # @nation-a/ui
 
+## 0.16.23
+
+### Patch Changes
+
+- a5ab130: Added icons and changed Checkbox component style
+- Updated dependencies [a5ab130]
+  - @nation-a/icons@0.4.2
+
 ## 0.16.22
 
 ### Patch Changes

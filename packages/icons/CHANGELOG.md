@@ -1,5 +1,11 @@
 # @nation-a/icons
 
+## 0.4.2
+
+### Patch Changes
+
+- a5ab130: Added icons and changed Checkbox component style
+
 ## 0.4.1
 
 ### Patch Changes
