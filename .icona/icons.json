@@ -1682,6 +1682,17 @@
       "4x": ""
     }
   },
+  "check_outline_v3": {
+    "svg": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g id=\"check_outline_v3\">\n<path id=\"Vector 97\" d=\"M4 11L10.5 18L20 6\" stroke=\"white\" stroke-width=\"2\"/>\n</g>\n</svg>\n",
+    "metadatas": [],
+    "name": "check_outline_v3",
+    "png": {
+      "1x": "",
+      "2x": "",
+      "3x": "",
+      "4x": ""
+    }
+  },
   "checkbox_outline_v3": {
     "svg": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g id=\"checkbox_outline_v3\">\n<path id=\"Vector\" d=\"M18.6 5.4V18.6H5.40001V5.4H18.6ZM5.40001 3.6H3.60001V20.4H20.4V3.6H5.40001Z\" fill=\"white\" fill-opacity=\"0.9\"/>\n</g>\n</svg>\n",
     "metadatas": [],
