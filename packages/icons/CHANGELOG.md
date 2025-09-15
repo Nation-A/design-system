@@ -1,5 +1,11 @@
 # @nation-a/icons
 
+## 0.4.3
+
+### Patch Changes
+
+- 1750194: Added globe icons
+
 ## 0.4.2
 
 ### Patch Changes
