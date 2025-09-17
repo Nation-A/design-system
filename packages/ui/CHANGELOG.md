@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.16.25
+
+### Patch Changes
+
+- 62d4945: Changed Navigation component item props
+
 ## 0.16.24
 
 ### Patch Changes
