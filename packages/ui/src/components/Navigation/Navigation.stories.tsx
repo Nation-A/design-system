@@ -27,10 +27,22 @@ export const Default: Story = {
   render: (args) => (
     <Navigation.Root lazyMount unmountOnExit {...args}>
       <Navigation.List>
-        <Navigation.Item value="discover" icon={<LanguageOutlineIcon />} label="Discover" />
-        <Navigation.Item value="activity" icon={<GroupFillIcon />} label="Activity" />
-        <Navigation.Item value="create" icon={<AddCircleOutlineIcon />} label="Create" />
-        <Navigation.Item value="my" icon={<UserOutlineIcon />} label="My" />
+        <Navigation.Item value="discover">
+          <LanguageOutlineIcon />
+          Discover
+        </Navigation.Item>
+        <Navigation.Item value="activity">
+          <GroupFillIcon />
+          Activity
+        </Navigation.Item>
+        <Navigation.Item value="create">
+          <AddCircleOutlineIcon />
+          Create
+        </Navigation.Item>
+        <Navigation.Item value="my">
+          <UserOutlineIcon />
+          My
+        </Navigation.Item>
       </Navigation.List>
     </Navigation.Root>
   ),

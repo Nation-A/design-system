@@ -8,7 +8,6 @@ export const navigationRecipe = sva({
   slots: tabsAnatomy.keys(),
   base: {
     root: {
-      bg: 'surface.layer_1',
       zIndex: 10,
     },
     list: {
@@ -36,11 +35,17 @@ export const navigationRecipe = sva({
       rounded: 'lg',
       cursor: 'pointer',
       _hover: {
-        bg: 'background.neutral.selected',
+        bg: '#00000012',
+        _dark: {
+          bg: '#FFFFFF12',
+        },
       },
       _selected: {
         color: 'content.neutral.default',
-        bg: 'background.neutral.default',
+        bg: '#00000008',
+        _dark: {
+          bg: '#FFFFFF08',
+        },
       },
     },
   },
