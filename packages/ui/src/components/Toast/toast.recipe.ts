@@ -11,7 +11,7 @@ export const toastRecipe = sva({
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: 'background.neutralInverse.default',
-      borderRadius: 16,
+      rounded: 'md',
       height: 'fit-content',
       minHeight: '48px',
       width: 'fit-content',

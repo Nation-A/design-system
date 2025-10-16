@@ -1,6 +1,6 @@
 'use client'
 import { forwardRef, ReactNode } from 'react'
-import hotToast, { DefaultToastOptions, Toaster as HotToaster, ToasterProps } from 'react-hot-toast'
+import hotToast, { DefaultToastOptions, Toaster as HotToaster, ToasterProps, ToastPosition } from 'react-hot-toast'
 import { Box, HStack } from '@styled-system/jsx'
 import { cx } from '@styled-system/css'
 import { toastRecipe } from './toast.recipe'
@@ -19,6 +19,7 @@ export interface ToastProps {
     duration?: number
     asLink?: boolean
     disableCloseOnActionClick?: boolean
+    position?: ToastPosition
   }
 }
 
@@ -133,8 +134,7 @@ Toast.Icon = Icon
 Toast.ActionTrigger = ActionTrigger
 Toast.Toaster = Toaster
 
-// 기본 Info Toast Show
-Toast.show = (description: ToastProps['description'], option: ToastProps['option']) => {
+const showToast = (description: ToastProps['description'], option?: ToastProps['option']) => {
   hotToast(
     (t) => (
       <Toast.Root width={option?.actionLabel ? 'full' : 'fit'}>
@@ -159,72 +159,23 @@ Toast.show = (description: ToastProps['description'], option: ToastProps['option
     ),
     {
       duration: option?.duration || DEFAULT_DURATION,
-      position: 'bottom-center',
+      position: option?.position || 'bottom-center',
     },
   )
 }
 
+// 기본 Info Toast Show
+Toast.show = showToast
+
 // Success Toast Show
-Toast.success = (description: ToastProps['description'], option: ToastProps['option']) => {
-  hotToast(
-    (t) => (
-      <Toast.Root width={option?.actionLabel ? 'full' : 'fit'}>
-        <Toast.Content>
-          <Toast.Icon icon={option?.icon ?? <CheckCircleFillIcon />} />
-          <Toast.Description>{description}</Toast.Description>
-        </Toast.Content>
-        {option?.actionLabel && (
-          <Toast.ActionTrigger
-            asLink={option?.asLink}
-            onClick={() => {
-              option?.onActionClick?.()
-              if (!option?.disableCloseOnActionClick) {
-                hotToast.dismiss(t.id)
-              }
-            }}
-          >
-            {option?.actionLabel}
-          </Toast.ActionTrigger>
-        )}
-      </Toast.Root>
-    ),
-    {
-      duration: option?.duration || DEFAULT_DURATION,
-      position: 'bottom-center',
-    },
-  )
+Toast.success = (description: ToastProps['description'], option?: Omit<ToastProps['option'], 'icon'>) => {
+  return showToast(description, { ...option, icon: <CheckCircleFillIcon /> })
 }
 
 // Error Toast Show
 Toast.error = (description: ToastProps['description'], option: ToastProps['option']) => {
   console.error('error', description)
-  hotToast(
-    (t) => (
-      <Toast.Root width={option?.actionLabel ? 'full' : 'fit'}>
-        <Toast.Content>
-          <Toast.Icon icon={option?.icon ?? <CloseCircleFillIcon />} />
-          <Toast.Description>{description}</Toast.Description>
-        </Toast.Content>
-        {option?.actionLabel && (
-          <Toast.ActionTrigger
-            asLink={option?.asLink}
-            onClick={() => {
-              option?.onActionClick?.()
-              if (!option?.disableCloseOnActionClick) {
-                hotToast.dismiss(t.id)
-              }
-            }}
-          >
-            {option?.actionLabel}
-          </Toast.ActionTrigger>
-        )}
-      </Toast.Root>
-    ),
-    {
-      duration: option?.duration || DEFAULT_DURATION,
-      position: 'bottom-center',
-    },
-  )
+  return showToast(description, { ...option, icon: <CloseCircleFillIcon /> })
 }
 
 export default Toast
