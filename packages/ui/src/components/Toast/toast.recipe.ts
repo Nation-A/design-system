@@ -30,16 +30,12 @@ export const toastRecipe = sva({
       alignItems: 'center',
       gap: 2,
     },
-    description: {
-      textStyle: 'body.md',
-    },
     actionTrigger: {
       height: '100%',
       width: 'fit-content',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      textStyle: 'title.sm',
       cursor: 'pointer',
       px: 4,
       pr: 1,
@@ -75,6 +71,24 @@ export const toastRecipe = sva({
         },
       },
     },
+    language: {
+      en: {
+        description: {
+          textStyle: 'en.text.body.14.bold',
+        },
+        actionTrigger: {
+          textStyle: 'en.text.body.14.bold',
+        },
+      },
+      ko: {
+        description: {
+          textStyle: 'ko.text.body.14.bold',
+        },
+        actionTrigger: {
+          textStyle: 'ko.text.body.14.bold',
+        },
+      },
+    },
     asLink: {
       true: {
         actionTrigger: {
@@ -87,5 +101,6 @@ export const toastRecipe = sva({
   defaultVariants: {
     width: 'full',
     asLink: false,
+    language: 'en',
   },
 })

@@ -5,6 +5,7 @@ import { Box, HStack } from '@styled-system/jsx'
 import { cx } from '@styled-system/css'
 import { toastRecipe } from './toast.recipe'
 import { CheckCircleFillIcon, CloseCircleFillIcon } from '@nation-a/icons'
+import { useLanguage } from '../LanguageProvider'
 
 // type ToastVariant = 'success' | 'error' | 'warning' | 'info'
 
@@ -63,7 +64,8 @@ Content.displayName = 'Toast.Content'
 
 const Description = forwardRef<HTMLDivElement, { children: ReactNode; className?: string }>(
   ({ children, className }, ref) => {
-    const styles = toastRecipe()
+    const { language } = useLanguage()
+    const styles = toastRecipe({ language })
     return (
       <Box ref={ref} className={cx(styles.description, className)}>
         {children}
@@ -89,7 +91,8 @@ const ActionTrigger = forwardRef<
   HTMLButtonElement | null,
   { onClick: () => void; children: ReactNode; className?: string; asLink?: boolean }
 >(({ onClick, children, className, asLink = false }, ref) => {
-  const styles = toastRecipe({ asLink })
+  const { language } = useLanguage()
+  const styles = toastRecipe({ asLink, language })
   return (
     <button ref={ref} className={cx(styles.actionTrigger, className)} onClick={onClick}>
       {children}

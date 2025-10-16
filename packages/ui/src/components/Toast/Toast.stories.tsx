@@ -105,7 +105,7 @@ export const ToastWithLink: Story = {
               actionLabel: 'Label',
               onActionClick: () => console.log('action clicked'),
               asLink: true,
-              duration: 99999999,
+              //   duration: 99999999,
             })
           }
         >
