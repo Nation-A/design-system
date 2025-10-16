@@ -31,5 +31,6 @@ export { default as ThumbsDownFillIcon } from './ThumbsDownFillIcon';
 export { default as ThumbsDownOutlineIcon } from './ThumbsDownOutlineIcon';
 export { default as ThumbsUpFillIcon } from './ThumbsUpFillIcon';
 export { default as ThumbsUpOutlineIcon } from './ThumbsUpOutlineIcon';
+export { default as UnlockFillIcon } from './UnlockFillIcon';
 export { default as VideoFillIcon } from './VideoFillIcon';
 export { default as WandMagicFillIcon } from './WandMagicFillIcon';
