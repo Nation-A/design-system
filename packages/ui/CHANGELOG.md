@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.16.26
+
+### Patch Changes
+
+- e227e4f: Added position option to Toast component
+
 ## 0.16.25
 
 ### Patch Changes
