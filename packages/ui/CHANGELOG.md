@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.16.28
+
+### Patch Changes
+
+- edf0563: Added Language provider
+
 ## 0.16.27
 
 ### Patch Changes
