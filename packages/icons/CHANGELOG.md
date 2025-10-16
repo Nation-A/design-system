@@ -1,5 +1,11 @@
 # @nation-a/icons
 
+## 0.4.4
+
+### Patch Changes
+
+- d0c1006: Added UnlockFillIcon
+
 ## 0.4.3
 
 ### Patch Changes

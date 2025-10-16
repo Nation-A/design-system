@@ -1,5 +1,13 @@
 # next-app
 
+## 0.1.73
+
+### Patch Changes
+
+- Updated dependencies [d0c1006]
+  - @nation-a/icons@0.4.4
+  - @nation-a/ui@0.16.27
+
 ## 0.1.72
 
 ### Patch Changes
