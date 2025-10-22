@@ -3,10 +3,9 @@ import { ComponentProps } from '@styled-system/types'
 import { Tabs as ArkTabs } from '@ark-ui/react/tabs'
 import { createStyleContext } from '@styled-system/jsx'
 
-const { withRootProvider, withContext } = createStyleContext(tabsRecipe)
+const { withProvider, withContext } = createStyleContext(tabsRecipe)
 
-const Root = withRootProvider(ArkTabs.Root)
-
+const Root = withProvider(ArkTabs.Root, 'root')
 export type TabsProps = ComponentProps<typeof Root>
 
 export type TabsListProps = ComponentProps<typeof List>

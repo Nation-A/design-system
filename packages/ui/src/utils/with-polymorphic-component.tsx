@@ -10,7 +10,10 @@ type PropsWithAs<C extends ElementType, Props = Record<string, unknown>> = AsPro
   Omit<Props, keyof AsProp<C>> &
   Omit<React.ComponentPropsWithoutRef<C>, keyof Props | keyof AsProp<C>>
 
-type PolymorphicComponentProps<C extends ElementType, Props = Record<string, unknown>> = PropsWithAs<C, Props> & {
+export type PolymorphicComponentProps<C extends ElementType, Props = Record<string, unknown>> = PropsWithAs<
+  C,
+  Props
+> & {
   ref?: React.ComponentPropsWithRef<C>['ref']
 }
 

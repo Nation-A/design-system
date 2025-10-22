@@ -1,11 +1,11 @@
 'use client'
 import { ReactNode } from 'react'
 import hotToast, { DefaultToastOptions, Toaster as HotToaster, ToasterProps, ToastPosition } from 'react-hot-toast'
-import { Box, HStack } from '@styled-system/jsx'
 import { cx } from '@styled-system/css'
 import { toastRecipe } from './toast.recipe'
 import { CheckCircleFillIcon, CloseCircleFillIcon } from '@nation-a/icons'
 import { useLanguage } from '../LanguageProvider'
+import { Box, HStack } from '../Layout'
 
 // type ToastVariant = 'success' | 'error' | 'warning' | 'info'
 
