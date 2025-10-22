@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import Select from './index'
-import { CollectionItem, createListCollection } from '@ark-ui/react'
+import { createListCollection } from '@ark-ui/react'
 import { useState } from 'react'
 import { Box } from '@styled-system/jsx'
 import { CheckCircleFillIcon, ChevronDownOutlineIcon } from '@nation-a/icons'
@@ -20,7 +20,7 @@ const items = ['React', 'Solid', 'Vue', 'Svelte']
 
 export const Default: Story = {
   render: () => {
-    const [_, setSelectedItems] = useState<string[]>([])
+    const [, setSelectedItems] = useState<string[]>([])
 
     return (
       <Box
@@ -29,7 +29,7 @@ export const Default: Story = {
         <Select.Root
           collection={createListCollection<string>({ items })}
           positioning={{ sameWidth: true }}
-          onValueChange={(e: CollectionItem) => setSelectedItems(e.items)}
+          onValueChange={(e) => setSelectedItems(e.items)}
         >
           <Select.Label>Framework</Select.Label>
           <Select.Control>
@@ -54,7 +54,7 @@ export const Default: Story = {
 
 export const WithDescription: Story = {
   render: () => {
-    const [_, setSelectedItems] = useState<string[]>([])
+    const [, setSelectedItems] = useState<string[]>([])
 
     return (
       <Box
@@ -63,7 +63,7 @@ export const WithDescription: Story = {
         <Select.Root
           collection={createListCollection<string>({ items })}
           positioning={{ sameWidth: true }}
-          onValueChange={(e: CollectionItem) => setSelectedItems(e.items)}
+          onValueChange={(e) => setSelectedItems(e.items)}
         >
           <Select.Label>Framework</Select.Label>
           <Select.Control>
@@ -90,7 +90,7 @@ export const WithDescription: Story = {
 }
 export const WithDescriptionAndCustomIcons: Story = {
   render: () => {
-    const [_, setSelectedItems] = useState<string[]>([])
+    const [, setSelectedItems] = useState<string[]>([])
 
     return (
       <Box
@@ -99,7 +99,7 @@ export const WithDescriptionAndCustomIcons: Story = {
         <Select.Root
           collection={createListCollection<string>({ items })}
           positioning={{ sameWidth: true }}
-          onValueChange={(e: CollectionItem) => setSelectedItems(e.items)}
+          onValueChange={(e) => setSelectedItems(e.items)}
         >
           <Select.Label>Framework</Select.Label>
           <Select.Trigger description="Description">

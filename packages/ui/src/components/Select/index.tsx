@@ -1,6 +1,6 @@
 'use client'
 
-import { Select as ArkSelect, CollectionItem, SelectRootComponent } from '@ark-ui/react/select'
+import { Select as ArkSelect, CollectionItem, SelectRootComponentProps } from '@ark-ui/react/select'
 import { selectRecipe } from './select.recipe'
 import Text from '../Text'
 import { HTMLStyledProps } from '@styled-system/jsx'
@@ -13,7 +13,10 @@ export { createListCollection } from '@ark-ui/react/select'
 const { withProvider, withContext } = createStyleContext(selectRecipe)
 
 export type SelectProps = ComponentProps<typeof Root>
-const Root = withProvider<SelectRootComponent<CollectionItem>>(ArkSelect.Root, 'root')
+const Root = withProvider(
+  (props: SelectRootComponentProps<CollectionItem>) => <ArkSelect.Root<CollectionItem> {...props} />,
+  'root',
+)
 
 const Label = withContext(ArkSelect.Label, 'label')
 
