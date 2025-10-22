@@ -1,5 +1,11 @@
 # @nation-a/icons
 
+## 0.5.0
+
+### Minor Changes
+
+- fbb91b0: Migration to react v19
+
 ## 0.4.4
 
 ### Patch Changes

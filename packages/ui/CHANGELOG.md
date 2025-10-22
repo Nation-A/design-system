@@ -1,5 +1,16 @@
 # @nation-a/ui
 
+## 0.17.0
+
+### Minor Changes
+
+- fbb91b0: Migration to react v19
+
+### Patch Changes
+
+- Updated dependencies [fbb91b0]
+  - @nation-a/icons@0.5.0
+
 ## 0.16.28
 
 ### Patch Changes
