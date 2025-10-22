@@ -1,27 +1,27 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState } from 'react'
-import BottomSheet, { BottomSheetProps } from '.'
+import BottomSheet from '.'
 import Button from '../Button'
 import Text from '../Text'
 import { VStack } from '@styled-system/jsx'
 import { css } from '@styled-system/css'
 import { LanguageProvider } from '../LanguageProvider'
+import { fn } from 'storybook/internal/test'
 
-const meta: Meta<typeof BottomSheet> = {
+const meta = {
   title: 'Components/BottomSheet',
   component: BottomSheet,
   parameters: {
     layout: 'fullscreen',
   },
   argTypes: {},
-}
+} satisfies Meta<typeof BottomSheet>
 
 export default meta
-
-type Story = StoryObj<BottomSheetProps>
+type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {
-  args: {},
+  args: { isOpen: false, onClose: fn(), children: <></> },
   render: () => {
     const [isOpen, setIsOpen] = useState(false)
     return (
@@ -43,7 +43,7 @@ export const Basic: Story = {
 }
 
 export const WithoutHandle: Story = {
-  args: {},
+  args: { isOpen: false, onClose: fn(), children: <></> },
   render: () => {
     const [isOpen, setIsOpen] = useState(false)
     return (
@@ -64,7 +64,7 @@ export const WithoutHandle: Story = {
 }
 
 export const CustomRounded: Story = {
-  args: {},
+  args: { isOpen: false, onClose: fn(), children: <></> },
   render: () => {
     const [isOpen, setIsOpen] = useState(false)
     return (
@@ -85,7 +85,7 @@ export const CustomRounded: Story = {
 }
 
 export const WithoutDefaultPadding: Story = {
-  args: {},
+  args: { isOpen: false, onClose: fn(), children: <></> },
   render: () => {
     const [isOpen, setIsOpen] = useState(false)
     return (
@@ -106,7 +106,7 @@ export const WithoutDefaultPadding: Story = {
 }
 
 export const CustomDesignWithScroller: Story = {
-  args: {},
+  args: { isOpen: false, onClose: fn(), children: <></> },
   render: () => {
     const [isOpen, setIsOpen] = useState(false)
     return (
@@ -151,7 +151,7 @@ export const CustomDesignWithScroller: Story = {
 }
 
 export const DisableBackdropBlocking: Story = {
-  args: {},
+  args: { isOpen: false, onClose: fn(), children: <></> },
   render: () => {
     const [isOpen, setIsOpen] = useState(false)
     return (
@@ -174,7 +174,7 @@ export const DisableBackdropBlocking: Story = {
 }
 
 export const SnapPoint: Story = {
-  args: {},
+  args: { isOpen: false, onClose: fn(), children: <></> },
   render: () => {
     const [isOpen, setIsOpen] = useState(false)
     return (
@@ -196,7 +196,7 @@ export const SnapPoint: Story = {
 }
 
 export const ContentHeight: Story = {
-  args: {},
+  args: { isOpen: false, onClose: fn(), children: <></> },
   render: () => {
     const [isOpen, setIsOpen] = useState(false)
     return (

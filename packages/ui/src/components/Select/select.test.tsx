@@ -13,7 +13,7 @@ const items: Item[] = [
   { label: 'Option 3', value: '3' },
 ]
 
-const collection = createListCollection({
+const collection = createListCollection<Item>({
   items,
   itemToString: (item) => item.label,
   itemToValue: (item) => item.value,

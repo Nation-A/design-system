@@ -1,19 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import Toast from './index'
 import Button from '../Button'
 import { CheckCircleFillIcon } from '@nation-a/icons'
 import { VStack } from '@styled-system/jsx'
-const meta: Meta<typeof Toast> = {
+const meta = {
   title: 'Components/Toast',
-  component: Toast.Root,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-}
+} satisfies Meta<typeof Toast>
 
 export default meta
-type Story = StoryObj<typeof Toast>
+type Story = StoryObj<typeof meta>
 
 export const DefaultToast: Story = {
   render: () => {

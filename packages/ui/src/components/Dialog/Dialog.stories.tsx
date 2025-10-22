@@ -1,20 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState } from 'react'
 
 import Dialog from './index'
 import { Button, IconButton } from '../..'
 import { ArrowRightOutlineIcon, CloseOutlineIcon } from '@nation-a/icons'
 
-const meta: Meta<typeof Dialog.Root> = {
+const meta = {
   title: 'Components/Dialog',
-  component: Dialog.Root,
   parameters: {
     layout: 'centered',
   },
-
   tags: ['autodocs'],
-
-  argTypes: {},
+  component: Dialog.Root,
 } satisfies Meta<typeof Dialog.Root>
 
 export default meta

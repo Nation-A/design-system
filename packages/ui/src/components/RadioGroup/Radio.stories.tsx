@@ -1,10 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import RadioGroup from './index'
 
-const meta: Meta<typeof RadioGroup.Root> = {
+const meta = {
   title: 'Components/Radio',
-  component: RadioGroup.Root,
   parameters: {
     layout: 'centered',
   },

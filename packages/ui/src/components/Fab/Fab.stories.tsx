@@ -1,12 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import { fn } from 'storybook/test'
 
 import Fab from './index'
 import { ChevronRightOutlineIcon } from '@nation-a/icons'
 
-const meta: Meta<typeof Fab> = {
+const meta = {
   title: 'Components/Fab',
-  component: Fab,
   parameters: {
     layout: 'centered',
   },
@@ -45,12 +44,9 @@ export const DefaultIconButton: Story = {
 }
 
 export const LoadingIconButton: Story = {
-  args: {
-    loading: true,
-  },
-  render: (args) => (
+  render: () => (
     <div style={{ display: 'flex', gap: '1rem' }}>
-      <Fab variant="solid" {...args}>
+      <Fab variant="solid" loading>
         <ChevronRightOutlineIcon />
       </Fab>
     </div>

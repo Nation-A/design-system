@@ -1,18 +1,18 @@
-import { forwardRef } from 'react'
 import * as StyledSwitch from './switch.styled'
 
-export type SwitchProps = StyledSwitch.RootProps
+export type SwitchProps = StyledSwitch.SwitchProps
 
-const Switch = forwardRef<HTMLLabelElement, SwitchProps>((props, ref) => {
+const Switch = (props: SwitchProps) => {
+  const { ref, ...rest } = props
   return (
-    <StyledSwitch.Root ref={ref} {...props}>
+    <StyledSwitch.Root ref={ref} {...rest}>
       <StyledSwitch.Control>
         <StyledSwitch.Thumb />
       </StyledSwitch.Control>
       <StyledSwitch.HiddenInput />
     </StyledSwitch.Root>
   )
-})
+}
 
 Switch.displayName = 'Switch'
 

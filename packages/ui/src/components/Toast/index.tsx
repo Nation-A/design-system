@@ -1,5 +1,5 @@
 'use client'
-import { forwardRef, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import hotToast, { DefaultToastOptions, Toaster as HotToaster, ToasterProps, ToastPosition } from 'react-hot-toast'
 import { Box, HStack } from '@styled-system/jsx'
 import { cx } from '@styled-system/css'
@@ -22,9 +22,12 @@ export interface ToastProps {
     disableCloseOnActionClick?: boolean
     position?: ToastPosition
   }
+  ref?: React.Ref<HTMLDivElement>
 }
 
-interface ToastComponent extends React.ForwardRefExoticComponent<ToastProps & React.RefAttributes<HTMLDivElement>> {
+interface ToastComponent {
+  (props: ToastProps): React.ReactElement
+  displayName?: string
   Root: typeof Root
   Content: typeof Content
   Description: typeof Description
@@ -36,61 +39,91 @@ interface ToastComponent extends React.ForwardRefExoticComponent<ToastProps & Re
   error: (description: ToastProps['description'], option?: ToastProps['option']) => void
 }
 
-const Root = forwardRef<HTMLDivElement, { children: ReactNode; className?: string; width?: string }>(
-  ({ children, className, width = 'fit', ...props }, ref) => {
-    const styles = toastRecipe({ width: width as 'full' | 'fit' })
-    return (
-      <Box ref={ref} className={cx(styles.root, className)} {...props}>
-        {children}
-      </Box>
-    )
-  },
-)
+const Root = ({
+  children,
+  className,
+  width = 'fit',
+  ref,
+  ...props
+}: {
+  children: ReactNode
+  className?: string
+  width?: string
+  ref?: React.Ref<HTMLDivElement>
+}) => {
+  const styles = toastRecipe({ width: width as 'full' | 'fit' })
+  return (
+    <Box ref={ref} className={cx(styles.root, className)} {...props}>
+      {children}
+    </Box>
+  )
+}
 
 Root.displayName = 'Toast.Root'
 
-const Content = forwardRef<HTMLDivElement, { children: ReactNode; className?: string }>(
-  ({ children, className }, ref) => {
-    const styles = toastRecipe()
-    return (
-      <HStack ref={ref} className={cx(styles.content, className)}>
-        {children}
-      </HStack>
-    )
-  },
-)
+const Content = ({
+  children,
+  className,
+  ref,
+}: {
+  children: ReactNode
+  className?: string
+  ref?: React.Ref<HTMLDivElement>
+}) => {
+  const styles = toastRecipe()
+  return (
+    <HStack ref={ref} className={cx(styles.content, className)}>
+      {children}
+    </HStack>
+  )
+}
 
 Content.displayName = 'Toast.Content'
 
-const Description = forwardRef<HTMLDivElement, { children: ReactNode; className?: string }>(
-  ({ children, className }, ref) => {
-    const { language } = useLanguage()
-    const styles = toastRecipe({ language })
-    return (
-      <Box ref={ref} className={cx(styles.description, className)}>
-        {children}
-      </Box>
-    )
-  },
-)
+const Description = ({
+  children,
+  className,
+  ref,
+}: {
+  children: ReactNode
+  className?: string
+  ref?: React.Ref<HTMLDivElement>
+}) => {
+  const { language } = useLanguage()
+  const styles = toastRecipe({ language })
+  return (
+    <Box ref={ref} className={cx(styles.description, className)}>
+      {children}
+    </Box>
+  )
+}
 
 Description.displayName = 'Toast.Description'
 
-const Icon = forwardRef<HTMLDivElement, { icon?: ReactNode; className?: string }>(({ icon, className }, ref) => {
+const Icon = ({ icon, className, ref }: { icon?: ReactNode; className?: string; ref?: React.Ref<HTMLDivElement> }) => {
   const styles = toastRecipe()
   return (
     <Box ref={ref} className={cx(styles.icon, className)}>
       {icon}
     </Box>
   )
-})
+}
 
 Icon.displayName = 'Toast.Icon'
 
-const ActionTrigger = forwardRef<
-  HTMLButtonElement | null,
-  { onClick: () => void; children: ReactNode; className?: string; asLink?: boolean }
->(({ onClick, children, className, asLink = false }, ref) => {
+const ActionTrigger = ({
+  onClick,
+  children,
+  className,
+  asLink = false,
+  ref,
+}: {
+  onClick: () => void
+  children: ReactNode
+  className?: string
+  asLink?: boolean
+  ref?: React.Ref<HTMLButtonElement>
+}) => {
   const { language } = useLanguage()
   const styles = toastRecipe({ asLink, language })
   return (
@@ -98,7 +131,7 @@ const ActionTrigger = forwardRef<
       {children}
     </button>
   )
-})
+}
 
 ActionTrigger.displayName = 'Toast.ActionTrigger'
 
@@ -124,8 +157,9 @@ const Toaster = ({ toastOptions, ...props }: { toastOptions?: DefaultToastOption
 
 Toaster.displayName = 'Toast.Toaster'
 
-const Toast = forwardRef<HTMLDivElement, ToastProps>((props, ref) => {
-  return <Box ref={ref} {...props} />
+const Toast = ((props: ToastProps) => {
+  const { ref, ...rest } = props
+  return <Box ref={ref} {...rest} />
 }) as ToastComponent
 
 Toast.displayName = 'Toast'
@@ -176,7 +210,7 @@ Toast.success = (description: ToastProps['description'], option?: Omit<ToastProp
 }
 
 // Error Toast Show
-Toast.error = (description: ToastProps['description'], option: ToastProps['option']) => {
+Toast.error = (description: ToastProps['description'], option?: ToastProps['option']) => {
   console.error('error', description)
   return showToast(description, { ...option, icon: <CloseCircleFillIcon /> })
 }

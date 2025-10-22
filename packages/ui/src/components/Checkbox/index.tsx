@@ -1,10 +1,9 @@
-import { forwardRef } from 'react'
 import * as StyledCheckbox from './checkbox.styled'
 
 export type CheckboxProps = StyledCheckbox.RootProps
 
-const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>((props, ref) => {
-  const { children, ...rootProps } = props
+const Checkbox = (props: CheckboxProps) => {
+  const { children, ref, ...rootProps } = props
 
   return (
     <StyledCheckbox.Root ref={ref} {...rootProps}>
@@ -20,7 +19,7 @@ const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>((props, ref) => {
       <StyledCheckbox.HiddenInput />
     </StyledCheckbox.Root>
   )
-})
+}
 
 Checkbox.displayName = 'Checkbox'
 

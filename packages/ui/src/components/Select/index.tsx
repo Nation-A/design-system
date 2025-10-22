@@ -1,61 +1,54 @@
 'use client'
 
-import { Select as ArkSelect } from '@ark-ui/react/select'
+import { Select as ArkSelect, CollectionItem, SelectRootComponent } from '@ark-ui/react/select'
 import { selectRecipe } from './select.recipe'
 import Text from '../Text'
 import { HTMLStyledProps } from '@styled-system/jsx'
 import { Assign } from '@ark-ui/react'
-import { createStyleContext } from '@/utils/create-style-context'
+import { createStyleContext } from '@styled-system/jsx'
 import { ComponentProps } from 'react'
 
 export { createListCollection } from '@ark-ui/react/select'
 
-const { withRootProvider, withContext } = createStyleContext(selectRecipe)
+const { withProvider, withContext } = createStyleContext(selectRecipe)
+
 export type SelectProps = ComponentProps<typeof Root>
+const Root = withProvider<SelectRootComponent<CollectionItem>>(ArkSelect.Root, 'root')
 
-type RootProps<T> = Assign<HTMLStyledProps<'div'>, { collection: any } & ArkSelect.RootProps<T>>
-const Root = withRootProvider<RootProps<any>>(withContext<HTMLDivElement, RootProps<any>>(ArkSelect.Root, 'root'))
+const Label = withContext(ArkSelect.Label, 'label')
 
-type LabelProps = Assign<HTMLStyledProps<'label'>, ArkSelect.LabelProps>
-const Label = withContext<HTMLLabelElement, LabelProps>(ArkSelect.Label, 'label')
-
-type TriggerProps = Assign<HTMLStyledProps<'button'>, ArkSelect.TriggerProps & { description?: string }>
-const Trigger = withContext<HTMLButtonElement, TriggerProps>(({ description, ...props }: TriggerProps) => {
-  return (
-    <>
-      <ArkSelect.Trigger {...props} />
-      {description && <Description text={description} />}
-    </>
-  )
-}, 'trigger')
-
-export const Control = withContext<HTMLDivElement, Assign<HTMLStyledProps<'div'>, ArkSelect.ControlBaseProps>>(
-  ArkSelect.Control,
-  'control',
+const Trigger = withContext(
+  ({ description, ...props }: Assign<HTMLStyledProps<'button'>, ArkSelect.TriggerProps & { description?: string }>) => {
+    return (
+      <>
+        <ArkSelect.Trigger {...props} />
+        {description && <Description text={description} />}
+      </>
+    )
+  },
+  'trigger',
 )
 
-type ValueTextProps = Assign<HTMLStyledProps<'span'>, ArkSelect.ValueTextProps>
-const ValueText = withContext<HTMLSpanElement, ValueTextProps>(ArkSelect.ValueText, 'valueText')
+const Control = withContext(ArkSelect.Control, 'control')
 
-type DescriptionProps = Assign<HTMLStyledProps<'div'>, { text: string; className?: string }>
-const Description = withContext<HTMLDivElement, DescriptionProps>(({ className, text, ...props }: DescriptionProps) => {
-  return (
-    <Text className={className} {...props}>
-      {text}
-    </Text>
-  )
-}, 'description')
+const ValueText = withContext(ArkSelect.ValueText, 'valueText')
 
-type ContentProps = Assign<HTMLStyledProps<'div'>, ArkSelect.ContentProps & { radius?: 'md' | 'lg' }>
-const Content = withContext<HTMLDivElement, ContentProps>(ArkSelect.Content, 'content')
-
-type ItemProps = Assign<HTMLStyledProps<'div'>, ArkSelect.ItemProps>
-const Item = withContext<HTMLDivElement, ItemProps>(ArkSelect.Item, 'item')
-
-export const Positioner = withContext<HTMLDivElement, Assign<HTMLStyledProps<'div'>, ArkSelect.PositionerBaseProps>>(
-  ArkSelect.Positioner,
-  'positioner',
+const Description = withContext(
+  ({ className, text, ...props }: Assign<HTMLStyledProps<'div'>, { text: string; className?: string }>) => {
+    return (
+      <Text className={className} {...props}>
+        {text}
+      </Text>
+    )
+  },
+  'description',
 )
+
+const Content = withContext(ArkSelect.Content, 'content')
+
+const Item = withContext(ArkSelect.Item, 'item')
+
+const Positioner = withContext(ArkSelect.Positioner, 'positioner')
 
 const Select = {
   Root,

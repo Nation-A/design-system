@@ -1,58 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import Tabs, { TabsProps } from '.'
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import Tabs from '.'
 import { Box } from '@styled-system/jsx'
 import { css } from '@styled-system/css'
 
-const meta: Meta<typeof Tabs> = {
+const meta = {
   title: 'Components/Tabs',
-  component: Tabs,
   parameters: {
     layout: 'centered',
   },
-  argTypes: {
-    variant: {
-      control: { type: 'select' },
-      options: ['line', 'enclosed'],
-      description: '탭 스타일 변형',
-      table: {
-        type: { summary: 'line | enclosed' },
-        defaultValue: { summary: 'line' },
-      },
-    },
-    fitted: {
-      control: { type: 'boolean' },
-      description: '탭 스타일 변형',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-      },
-    },
-    bottomLine: {
-      control: { type: 'boolean' },
-      description: '탭 스타일 변형',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'true' },
-      },
-    },
-    shadow: {
-      control: { type: 'boolean' },
-      description: '탭 스타일 변형',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-      },
-    },
-    defaultValue: {
-      control: 'text',
-      description: '기본 선택 탭',
-    },
-  },
-}
+} satisfies Meta<typeof Tabs>
 
 export default meta
 
-type Story = StoryObj<TabsProps>
+type Story = StoryObj<typeof meta>
 
 const TAB_COUNT_FITTED_MAX = 15
 const TAB_COUNT_FITTED_MIN = 3
@@ -88,19 +48,15 @@ const TabContent = ({ count, slice }: { count: number; slice?: number }) => {
 }
 
 export const Basic: Story = {
-  args: {
-    defaultValue: 'tab1',
-    variant: 'line',
-  },
-  render: (args) => (
+  render: () => (
     <Box className={css({ maxWidth: '500px' })}>
-      <Tabs {...args}>
+      <Tabs defaultValue="tab1" variant="line">
         <TabContent count={TAB_COUNT_FITTED_MAX} />
       </Tabs>
-      <Tabs {...args}>
+      <Tabs defaultValue="tab1" variant="line">
         <TabContent count={TAB_COUNT_FITTED_MAX} slice={TAB_COUNT_FITTED_MIN} />
       </Tabs>
-      <Tabs {...args} fitted>
+      <Tabs defaultValue="tab1" variant="line" fitted>
         <TabContent count={TAB_COUNT_FITTED_MAX} slice={TAB_COUNT_FITTED_MIN} />
       </Tabs>
     </Box>
@@ -108,19 +64,15 @@ export const Basic: Story = {
 }
 
 export const Enclosed: Story = {
-  args: {
-    defaultValue: 'tab1',
-    variant: 'enclosed',
-  },
-  render: (args) => (
+  render: () => (
     <Box className={css({ maxWidth: '500px' })}>
-      <Tabs {...args}>
+      <Tabs defaultValue="tab1" variant="enclosed">
         <TabContent count={TAB_COUNT_FITTED_MAX} />
       </Tabs>
-      <Tabs {...args}>
+      <Tabs defaultValue="tab1" variant="enclosed">
         <TabContent count={TAB_COUNT_FITTED_MAX} slice={3} />
       </Tabs>
-      <Tabs {...args} fitted>
+      <Tabs defaultValue="tab1" variant="enclosed" fitted>
         <TabContent count={TAB_COUNT_FITTED_MAX} slice={TAB_COUNT_FITTED_MIN} />
       </Tabs>
     </Box>
@@ -128,16 +80,12 @@ export const Enclosed: Story = {
 }
 
 export const Fitted: Story = {
-  args: {
-    defaultValue: 'tab1',
-    fitted: true,
-  },
-  render: (args) => (
+  render: () => (
     <Box className={css({ width: '500px', display: 'flex', flexDirection: 'column', gap: '24px' })}>
-      <Tabs {...args}>
+      <Tabs defaultValue="tab1" fitted>
         <TabContent count={TAB_COUNT_FITTED_MAX} slice={5} />
       </Tabs>
-      <Tabs {...args} variant="enclosed">
+      <Tabs defaultValue="tab1" variant="enclosed" fitted>
         <TabContent count={TAB_COUNT_FITTED_MAX} slice={5} />
       </Tabs>
     </Box>
@@ -145,20 +93,15 @@ export const Fitted: Story = {
 }
 
 export const BottomLine: Story = {
-  args: {
-    defaultValue: 'tab1',
-    variant: 'line',
-    bottomLine: false,
-  },
-  render: (args) => (
+  render: () => (
     <Box className={css({ width: '500px', display: 'flex', flexDirection: 'column', gap: '24px' })}>
-      <Tabs {...args}>
+      <Tabs defaultValue="tab1" variant="line" bottomLine={false}>
         <TabContent count={TAB_COUNT_FITTED_MAX} />
       </Tabs>
-      <Tabs {...args}>
+      <Tabs defaultValue="tab1" variant="line" bottomLine={false}>
         <TabContent count={TAB_COUNT_FITTED_MAX} slice={5} />
       </Tabs>
-      <Tabs {...args} fitted>
+      <Tabs defaultValue="tab1" variant="line" bottomLine={false} fitted>
         <TabContent count={TAB_COUNT_FITTED_MAX} slice={5} />
       </Tabs>
     </Box>
@@ -166,20 +109,15 @@ export const BottomLine: Story = {
 }
 
 export const Shadow: Story = {
-  args: {
-    defaultValue: 'tab1',
-    variant: 'line',
-    shadow: true,
-  },
-  render: (args) => (
+  render: () => (
     <Box className={css({ width: '500px', display: 'flex', flexDirection: 'column', gap: '24px' })}>
-      <Tabs {...args}>
+      <Tabs defaultValue="tab1" variant="line" shadow>
         <TabContent count={TAB_COUNT_FITTED_MAX} />
       </Tabs>
-      <Tabs {...args}>
+      <Tabs defaultValue="tab1" variant="line" shadow>
         <TabContent count={TAB_COUNT_FITTED_MAX} slice={5} />
       </Tabs>
-      <Tabs {...args} fitted>
+      <Tabs defaultValue="tab1" variant="line" shadow fitted>
         <TabContent count={TAB_COUNT_FITTED_MAX} slice={5} />
       </Tabs>
     </Box>

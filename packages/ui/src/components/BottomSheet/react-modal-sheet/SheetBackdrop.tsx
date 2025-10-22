@@ -1,4 +1,3 @@
-import { forwardRef } from 'react'
 import { motion } from 'motion/react'
 
 import { type SheetBackdropProps } from './types'
@@ -6,7 +5,12 @@ import { styles } from './styles'
 
 const isClickable = (props: any) => !!props.onClick || !!props.onTap
 
-export const SheetBackdrop = forwardRef<any, SheetBackdropProps>(({ style = {}, className = '', ...rest }, ref) => {
+export const SheetBackdrop = ({
+  style = {},
+  className = '',
+  ref,
+  ...rest
+}: SheetBackdropProps & { ref?: React.Ref<any> }) => {
   const Comp = isClickable(rest) ? motion.button : motion.div
   const pointerEvents = isClickable(rest) ? 'auto' : 'none'
 
@@ -21,6 +25,6 @@ export const SheetBackdrop = forwardRef<any, SheetBackdropProps>(({ style = {}, 
       exit={{ opacity: 0 }}
     />
   )
-})
+}
 
 SheetBackdrop.displayName = 'SheetBackdrop'

@@ -1,23 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import List, { ListProps } from '.'
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import List from '.'
 import { HStack } from '../Layout'
 import { CheckCircleOutlineIcon, ChevronRightOutlineIcon, GroupCircleFillIcon } from '@nation-a/icons'
 
-const meta: Meta<typeof List> = {
+const meta = {
   title: 'Components/List',
   component: List,
   parameters: {
     layout: 'centered',
   },
-  argTypes: {
-    size: {},
-    density: {},
-  },
-}
+} satisfies Meta<typeof List>
 
 export default meta
 
-type Story = StoryObj<ListProps>
+type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {
   args: {},

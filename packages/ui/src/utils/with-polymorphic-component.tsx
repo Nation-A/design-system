@@ -6,9 +6,13 @@ type AsProp<C extends ElementType> = {
   as?: C
 }
 
-type PropsWithAs<C extends ElementType, Props = {}> = AsProp<C> &
-  Props &
-  Omit<React.ComponentPropsWithoutRef<C>, keyof (AsProp<C> & Props)>
+type PropsWithAs<C extends ElementType, Props = Record<string, unknown>> = AsProp<C> &
+  Omit<Props, keyof AsProp<C>> &
+  Omit<React.ComponentPropsWithoutRef<C>, keyof Props | keyof AsProp<C>>
+
+type PolymorphicComponentProps<C extends ElementType, Props = Record<string, unknown>> = PropsWithAs<C, Props> & {
+  ref?: React.ComponentPropsWithRef<C>['ref']
+}
 
 /**
  * 다형성 컴포넌트를 생성하는 유틸리티 함수 (ArkUI와는 사용시 충돌이 발생할 수 있음)
@@ -19,22 +23,19 @@ type PropsWithAs<C extends ElementType, Props = {}> = AsProp<C> &
  * @returns as가 추가된 컴포넌트
  */
 export function withPolymorphicComponent<
-  ComponentType extends React.ComponentType<any>,
+  ComponentType extends React.ComponentType<Record<string, unknown>>,
   DefaultTag extends ElementType = 'div',
-  OwnProps = React.ComponentPropsWithoutRef<ComponentType>,
 >(Component: ComponentType) {
-  type ComponentProps = React.ComponentPropsWithoutRef<ComponentType>
+  type BaseProps = Omit<React.ComponentPropsWithoutRef<ComponentType>, 'as'>
 
-  const PolymorphicComponent = React.forwardRef<React.ElementRef<DefaultTag>, PropsWithAs<DefaultTag, ComponentProps>>(
-    (props, ref) => {
-      const { as, ...restProps } = props as any
-      return <Component as={as} ref={ref} {...restProps} />
-    },
-  )
+  const PolymorphicComponent = React.forwardRef<unknown, PropsWithAs<DefaultTag, BaseProps>>((props, ref) => {
+    return React.createElement(Component, { ...props, ref } as unknown as React.ComponentProps<ComponentType> &
+      React.Attributes)
+  })
 
   PolymorphicComponent.displayName = `withPolymorphic(${Component.displayName || 'Component'})`
 
-  return PolymorphicComponent as <C extends ElementType = DefaultTag>(
-    props: PropsWithAs<C, OwnProps> & { ref?: React.Ref<React.ElementRef<C>> },
+  return PolymorphicComponent as unknown as <C extends ElementType = DefaultTag>(
+    props: PolymorphicComponentProps<C, BaseProps>,
   ) => React.ReactElement
 }

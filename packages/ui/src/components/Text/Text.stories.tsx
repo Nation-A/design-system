@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import { fn } from 'storybook/test'
 
 import Text from './index'
 import { LanguageProvider, useLanguage } from '../LanguageProvider'
 import Button from '../Button'
 
-const meta: Meta<typeof Text> = {
+const meta = {
   title: 'Components/Text',
   component: Text,
   parameters: {

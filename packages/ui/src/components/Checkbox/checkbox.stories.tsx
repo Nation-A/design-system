@@ -1,18 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import { fn } from 'storybook/test'
 
 import Checkbox from '.'
 import { Stack } from '../Layout'
 
-const meta: Meta<typeof Checkbox> = {
+const meta = {
   title: 'Components/CheckBox',
   component: Checkbox,
   parameters: {
     layout: 'centered',
   },
-
   tags: ['autodocs'],
-
   args: { onClick: fn() },
 } satisfies Meta<typeof Checkbox>
 
@@ -20,7 +18,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Base: Story = {
-  args: { children: 'Label' },
+  render: (args) => {
+    return <Checkbox {...args}>Label</Checkbox>
+  },
 }
 
 export const Variant: Story = {
