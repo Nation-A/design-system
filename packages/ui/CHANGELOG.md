@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.17.2
+
+### Patch Changes
+
+- 9116a52: Fixed SelectRoot type definition
+
 ## 0.17.1
 
 ### Patch Changes
