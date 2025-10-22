@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.17.1
+
+### Patch Changes
+
+- 96ec08b: Fixed type errors
+
 ## 0.17.0
 
 ### Minor Changes
