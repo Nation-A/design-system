@@ -120,3 +120,37 @@ export const WithDescriptionAndCustomIcons: Story = {
     )
   },
 }
+
+export const Controlled: Story = {
+  render: () => {
+    const [selectedItems, setSelectedItems] = useState<string[]>([])
+
+    return (
+      <Box
+        css={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', width: '90vw', p: 10 }}
+      >
+        <Select.Root
+          collection={createListCollection<string>({ items })}
+          positioning={{ sameWidth: true }}
+          value={[selectedItems[0]]}
+          onValueChange={(e) => setSelectedItems(e.items)}
+        >
+          <Select.Label>Framework</Select.Label>
+          <Select.Trigger description="Description">
+            <CheckCircleFillIcon />
+            <Select.ValueText placeholder="Select a framework" />
+            <ChevronDownOutlineIcon />
+          </Select.Trigger>
+          <Select.Content>
+            {items.map((item) => (
+              <Select.Item key={item} item={item}>
+                <CheckCircleFillIcon />
+                {item}
+              </Select.Item>
+            ))}
+          </Select.Content>
+        </Select.Root>
+      </Box>
+    )
+  },
+}
