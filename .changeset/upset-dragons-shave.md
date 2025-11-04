@@ -1,5 +1,5 @@
 ---
-"@nation-a/icons": patch
+'@nation-a/icons': patch
 ---
 
 Icons updated from .icona/icons.json
