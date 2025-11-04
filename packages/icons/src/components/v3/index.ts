@@ -13,6 +13,7 @@ export { default as CompassFillIcon } from './CompassFillIcon';
 export { default as DartFillIcon } from './DartFillIcon';
 export { default as DeleteOutlineIcon } from './DeleteOutlineIcon';
 export { default as EllipsisOutlineIcon } from './EllipsisOutlineIcon';
+export { default as GamepadFillIcon } from './GamepadFillIcon';
 export { default as GlobeFillIcon } from './GlobeFillIcon';
 export { default as GlobeOutlineIcon } from './GlobeOutlineIcon';
 export { default as HeartFillIcon } from './HeartFillIcon';
