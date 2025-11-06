@@ -1334,6 +1334,17 @@ const textStyles = {
             },
           },
         },
+        '28': {
+          bold: {
+            value: {
+              fontFamily: 'freeman',
+              fontWeight: 'regular',
+              lineHeight: '120%',
+              fontSize: '28px',
+              letterSpacing: '3xl',
+            },
+          },
+        },
         '30': {
           bold: {
             value: {
@@ -1556,6 +1567,17 @@ const textStyles = {
               fontWeight: 'bold',
               lineHeight: '120%',
               fontSize: '24px',
+              letterSpacing: '2xl',
+            },
+          },
+        },
+        '28': {
+          bold: {
+            value: {
+              fontFamily: 'pretendard',
+              fontWeight: 'bold',
+              lineHeight: '120%',
+              fontSize: '28px',
               letterSpacing: '2xl',
             },
           },

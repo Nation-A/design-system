@@ -428,6 +428,9 @@ const typography = {
         '24': {
           bold: `font-family: ${fontFamily.freeman}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 24px; letter-spacing: ${letterSpacing['3xl']};`,
         },
+        '28': {
+          bold: `font-family: ${fontFamily.freeman}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 28px; letter-spacing: ${letterSpacing['3xl']};`,
+        },
         '30': {
           bold: `font-family: ${fontFamily.freeman}; font-weight: ${fontWeight.regular}; line-height: 120%; font-size: 30px; letter-spacing: ${letterSpacing['2xl']};`,
         },
@@ -502,6 +505,9 @@ const typography = {
         },
         '24': {
           bold: `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.bold}; line-height: 120%; font-size: 24px; letter-spacing: ${letterSpacing['2xl']};`,
+        },
+        '28': {
+          bold: `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.bold}; line-height: 120%; font-size: 28px; letter-spacing: ${letterSpacing['2xl']};`,
         },
         '30': {
           bold: `font-family: ${fontFamily.pretendard}; font-weight: ${fontWeight.bold}; line-height: 120%; font-size: 30px; letter-spacing: ${letterSpacing.xl};`,

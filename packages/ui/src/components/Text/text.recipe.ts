@@ -62,6 +62,7 @@ export const textRecipe = cva({
       },
       'title.main.22.bold': {},
       'title.main.24.bold': {},
+      'title.main.28.bold': {},
       'title.main.30.bold': {},
       'title.main.56.bold': {},
       'title.sub.16.bold': {},
@@ -117,6 +118,14 @@ export const textRecipe = cva({
       language: 'en',
       css: {
         textStyle: 'en.title.main.24.bold',
+        fontFamily: 'freeman',
+      },
+    },
+    {
+      variant: 'title.main.28.bold',
+      language: 'en',
+      css: {
+        textStyle: 'en.title.main.28.bold',
         fontFamily: 'freeman',
       },
     },
@@ -277,6 +286,14 @@ export const textRecipe = cva({
       language: 'ko',
       css: {
         textStyle: 'kr.title.main.24.bold',
+        fontFamily: 'pretendard',
+      },
+    },
+    {
+      variant: 'title.main.28.bold',
+      language: 'ko',
+      css: {
+        textStyle: 'kr.title.main.28.bold',
         fontFamily: 'pretendard',
       },
     },
