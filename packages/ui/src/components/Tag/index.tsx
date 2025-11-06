@@ -1,4 +1,3 @@
-import { forwardRef, memo } from 'react'
 import { styled } from '@styled-system/jsx'
 import { tagRecipe, TagVariantProps } from './tag.recipe'
 import { ark, Assign } from '@ark-ui/react'
@@ -12,7 +11,7 @@ export type TagProps = Assign<HTMLStyledProps<'div'>, TagVariantProps> & {
   onDeleteClick?: () => void
 }
 
-const Tag = forwardRef<HTMLDivElement, TagProps>(({ imageSrc, text, onDeleteClick, ...rest }, ref) => {
+const Tag = ({ imageSrc, text, onDeleteClick, ref, ...rest }: TagProps) => {
   const StyledTag = styled(ark.div, tagRecipe)
 
   const handleClickDelete = (e: React.MouseEvent<SVGSVGElement>) => {
@@ -37,8 +36,8 @@ const Tag = forwardRef<HTMLDivElement, TagProps>(({ imageSrc, text, onDeleteClic
       ) : null}
     </StyledTag>
   )
-})
+}
 
 Tag.displayName = 'Tag'
 
-export default memo(Tag)
+export default Tag

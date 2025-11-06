@@ -1,4 +1,4 @@
-import { forwardRef, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { spinnerRecipe, SpinnerVariantProps } from './spinner.recipe'
 import { HTMLStyledProps } from '@styled-system/jsx'
 import SpinnerLottie from '@/assets/lotties/spinner.json'
@@ -11,7 +11,7 @@ export type SpinnerProps = HTMLStyledProps<'div'> &
     color?: UtilityValues['color']
   }
 
-const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({ className, size, color, ...props }, ref) => {
+const Spinner = ({ className, size, color, ref, ...props }: SpinnerProps) => {
   const [LottieComponent, setLottieComponent] = useState<null | React.ComponentType<any>>(null)
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({ className, size, col
       )}
     </Box>
   )
-})
+}
 
 Spinner.displayName = 'Spinner'
 export default Spinner

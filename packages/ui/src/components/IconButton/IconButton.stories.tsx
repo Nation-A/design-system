@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import IconButton, { IconButtonProps } from './index'
 import { ArrowRightOutlineIcon } from '@nation-a/icons'
+import { fn } from 'storybook/internal/test'
 
-const meta: Meta<typeof IconButton> = {
+const meta = {
   title: 'Components/IconButton',
   component: IconButton,
   parameters: {
@@ -54,13 +54,10 @@ export const DefaultIconButton: Story = {
 }
 
 export const SolidIconButton: Story = {
-  args: {
-    variant: 'solid',
-  },
-  render: (args) => (
+  render: () => (
     <div style={{ display: 'flex', gap: '1rem' }}>
       {buttonSizes.map((size) => (
-        <IconButton key={size} variant="solid" size={size} {...args}>
+        <IconButton key={size} variant="solid" size={size}>
           <ArrowRightOutlineIcon />
         </IconButton>
       ))}
@@ -69,13 +66,10 @@ export const SolidIconButton: Story = {
 }
 
 export const OutlineIconButton: Story = {
-  args: {
-    variant: 'outline',
-  },
-  render: (args) => (
+  render: () => (
     <div style={{ display: 'flex', gap: '1rem' }}>
       {buttonSizes.map((size) => (
-        <IconButton key={size} variant="outline" size={size} {...args}>
+        <IconButton key={size} variant="outline" size={size}>
           <ArrowRightOutlineIcon />
         </IconButton>
       ))}
@@ -84,13 +78,10 @@ export const OutlineIconButton: Story = {
 }
 
 export const LightIconButton: Story = {
-  args: {
-    variant: 'light',
-  },
-  render: (args) => (
+  render: () => (
     <div style={{ display: 'flex', gap: '1rem' }}>
       {buttonSizes.map((size) => (
-        <IconButton key={size} variant="light" size={size} {...args}>
+        <IconButton key={size} variant="light" size={size}>
           <ArrowRightOutlineIcon />
         </IconButton>
       ))}
@@ -99,18 +90,15 @@ export const LightIconButton: Story = {
 }
 
 export const LoadingIconButton: Story = {
-  args: {
-    loading: true,
-  },
-  render: (args) => (
+  render: () => (
     <div style={{ display: 'flex', gap: '1rem' }}>
-      <IconButton variant="solid" size="md" {...args}>
+      <IconButton variant="solid" size="md" loading>
         <ArrowRightOutlineIcon />
       </IconButton>
-      <IconButton variant="outline" size="md" {...args}>
+      <IconButton variant="outline" size="md" loading>
         <ArrowRightOutlineIcon />
       </IconButton>
-      <IconButton variant="light" size="md" {...args}>
+      <IconButton variant="light" size="md" loading>
         <ArrowRightOutlineIcon />
       </IconButton>
     </div>

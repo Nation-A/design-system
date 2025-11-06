@@ -1,11 +1,12 @@
-import { forwardRef } from 'react'
 import { HTMLStyledProps, styled } from '@styled-system/jsx'
 import { textRecipe, TextVariantProps } from './text.recipe'
+import { useLanguage } from '../LanguageProvider'
 
 export type TextProps = HTMLStyledProps<'p'> & TextVariantProps
 
-const Text = forwardRef<HTMLParagraphElement, TextProps>((props, ref) => {
-  const { variant = 'body.md', font, language, children, ...rest } = props
+const Text = (props: TextProps) => {
+  const { variant = 'text.body.16.regular', font, language, children, ref, ...rest } = props
+  const { language: languageContext } = useLanguage()
 
   const componentMap = {
     display: styled('h1', textRecipe),
@@ -21,11 +22,11 @@ const Text = forwardRef<HTMLParagraphElement, TextProps>((props, ref) => {
   const TextComponent = componentMap[textType as keyof typeof componentMap]
 
   return (
-    <TextComponent ref={ref} variant={variant} font={font} language={language} {...rest}>
+    <TextComponent ref={ref} variant={variant} font={font} language={language || languageContext} {...rest}>
       {children}
     </TextComponent>
   )
-})
+}
 
 Text.displayName = 'Text'
 

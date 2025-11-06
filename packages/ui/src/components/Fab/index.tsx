@@ -1,4 +1,4 @@
-import { forwardRef, memo } from 'react'
+import { memo } from 'react'
 import { Center, HTMLStyledProps, styled } from '@styled-system/jsx'
 import Spinner from '../Spinner'
 import { fabRecipe, FabVariantProps } from './fab.recipe'
@@ -10,7 +10,7 @@ export type FabProps = HTMLStyledProps<'button'> &
     loading?: boolean
   }
 
-const Fab = forwardRef<HTMLButtonElement, FabProps>(({ loading, disabled, children, color, onClick, ...rest }, ref) => {
+const Fab = ({ loading, disabled, children, color, onClick, ref, ...rest }: FabProps) => {
   const StyledButton = styled(ark.button, fabRecipe)
 
   return (
@@ -44,7 +44,7 @@ const Fab = forwardRef<HTMLButtonElement, FabProps>(({ loading, disabled, childr
       )}
     </StyledButton>
   )
-})
+}
 
 Fab.displayName = 'Fab'
 

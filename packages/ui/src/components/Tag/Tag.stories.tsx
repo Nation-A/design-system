@@ -1,24 +1,20 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import Tag from './index'
 import { Flex, HStack, VStack } from '../Layout'
-import { fn } from '@storybook/test'
-const meta: Meta<typeof Tag> = {
+import { fn } from 'storybook/test'
+const meta = {
   title: 'Components/Tag',
-  component: Tag,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-}
+} satisfies Meta<typeof Tag>
 
 export default meta
-type Story = StoryObj<typeof Tag>
+type Story = StoryObj<typeof meta>
 
 export const DefaultTag: Story = {
-  args: {
-    text: 'Tag',
-    onDeleteClick: fn(),
-  },
+  render: () => <Tag text="Tag" onDeleteClick={fn()} />,
 }
 
 export const NoCloseTag: Story = {
@@ -32,9 +28,6 @@ export const NoCloseTag: Story = {
 }
 
 export const TagWithBackground: Story = {
-  args: {
-    onDeleteClick: fn(),
-  },
   render: (args) => (
     <VStack gap="4">
       <HStack gap="4">
@@ -52,29 +45,21 @@ export const TagWithBackground: Story = {
 }
 
 export const TagWithNoBackground: Story = {
-  args: {
-    background: 'off',
-    onDeleteClick: () => console.log('Delete clicked'),
-  },
-  render: (args) => (
+  render: () => (
     <HStack gap="4">
-      <Tag {...args} text="Neutral" color="neutral" />
-      <Tag {...args} text="Black" color="black" />
-      <Tag {...args} text="White" color="white" />
+      <Tag background="off" text="Neutral" color="neutral" />
+      <Tag background="off" text="Black" color="black" />
+      <Tag background="off" text="White" color="white" />
     </HStack>
   ),
 }
 
 export const TagWithImage: Story = {
-  args: {
-    imageSrc: 'https://placehold.co/32x32',
-    onDeleteClick: () => console.log('Delete clicked'),
-  },
-  render: (args) => (
+  render: () => (
     <Flex css={{ gap: '1rem' }}>
-      <Tag {...args} text="Neutral Avatar" color="neutral" />
-      <Tag {...args} text="Black Avatar" color="black" />
-      <Tag {...args} text="White Avatar" color="white" />
+      <Tag imageSrc="https://placehold.co/32x32" text="Neutral Avatar" color="neutral" />
+      <Tag imageSrc="https://placehold.co/32x32" text="Black Avatar" color="black" />
+      <Tag imageSrc="https://placehold.co/32x32" text="White Avatar" color="white" />
     </Flex>
   ),
 }

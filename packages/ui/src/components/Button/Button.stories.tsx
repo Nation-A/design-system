@@ -1,51 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import Button, { ButtonProps } from './index'
 import { ArrowRightOutlineIcon } from '@nation-a/icons'
 import { useRef } from 'react'
 
-const meta: Meta<typeof Button> = {
+const meta = {
   title: 'Components/Button',
   component: Button,
   parameters: {
     layout: 'centered',
   },
-
   tags: ['autodocs'],
-
-  argTypes: {
-    variant: { control: 'select', options: ['solid', 'outline', 'light'] },
-    size: { control: 'select', options: ['xs', 'sm', 'md', 'lg'] },
-    radius: { control: 'select', options: ['md', 'lg', 'full'] },
-    color: {
-      control: 'select',
-      options: [
-        'neuroid_primary',
-        'zoltarina_primary',
-        'heyd_primary',
-        'heybee_primary',
-        'blackAlpha',
-        'whiteAlpha',
-        'neutral',
-        'success',
-        'informative',
-        'warning',
-        'danger',
-      ],
-    },
-    fullWidth: { control: 'boolean', defaultValue: false },
-    disabled: { control: 'boolean', defaultValue: false },
-    loading: { control: 'boolean', defaultValue: false },
-    loadingText: { control: 'text', defaultValue: undefined },
-    preserveIconSize: {
-      control: 'boolean',
-      defaultValue: false,
-      description: '아이콘 컴포넌트의 size prop을 우선시할지 여부',
-    },
-  },
-
-  args: { onClick: fn() },
 } satisfies Meta<typeof Button>
 
 export default meta
@@ -55,7 +20,60 @@ const buttonSizes: ButtonProps['size'][] = ['xs', 'sm', 'md', 'lg']
 
 const buttonRadii: ButtonProps['radius'][] = ['md', 'lg', 'full']
 
+const buttonVariants: ButtonProps['variant'][] = ['solid', 'outline', 'light']
+
+const buttonColors: ButtonProps['color'][] = [
+  'neuroid_primary',
+  'neuroid_secondary',
+  'zoltarina_primary',
+  'zoltarina_secondary',
+  'heyd_primary',
+  'heyd_secondary',
+  'heybee_primary',
+  'blackAlpha',
+  'whiteAlpha',
+  'neutral',
+  'danger',
+  'warning',
+  'success',
+  'informative',
+]
+
 export const DefaultButton: Story = {
+  argTypes: {
+    size: {
+      control: 'select',
+      options: buttonSizes,
+    },
+    radius: {
+      control: 'select',
+      options: buttonRadii,
+    },
+    variant: {
+      control: 'select',
+      options: buttonVariants,
+    },
+    color: {
+      control: 'select',
+      options: buttonColors,
+    },
+    fullWidth: {
+      control: 'boolean',
+    },
+    loading: {
+      control: 'boolean',
+    },
+    loadingText: {
+      control: 'text',
+    },
+    preserveIconSize: {
+      control: 'boolean',
+    },
+    onClick: {
+      action: 'clicked',
+    },
+  },
+
   render: (args) => {
     const ref = useRef<HTMLButtonElement>(null)
     return (
@@ -67,15 +85,12 @@ export const DefaultButton: Story = {
 }
 
 export const SolidButton: Story = {
-  args: {
-    variant: 'solid',
-  },
-  render: (args) => (
+  render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       {buttonSizes.map((size) => (
         <div key={size} style={{ display: 'flex', gap: '1rem' }}>
           {buttonRadii.map((radius) => (
-            <Button key={radius} variant="solid" radius={radius} size={size} {...args}>
+            <Button key={radius} variant="solid" radius={radius} size={size}>
               {size} {radius} <ArrowRightOutlineIcon />
             </Button>
           ))}
@@ -86,15 +101,12 @@ export const SolidButton: Story = {
 }
 
 export const OutlineButton: Story = {
-  args: {
-    variant: 'outline',
-  },
-  render: (args) => (
+  render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       {buttonSizes.map((size) => (
         <div key={size} style={{ display: 'flex', gap: '1rem' }}>
           {buttonRadii.map((radius) => (
-            <Button key={radius} variant="outline" radius={radius} size={size} {...args}>
+            <Button key={radius} variant="outline" radius={radius} size={size}>
               {size} {radius}
               <ArrowRightOutlineIcon />
             </Button>
@@ -106,15 +118,12 @@ export const OutlineButton: Story = {
 }
 
 export const LightButton: Story = {
-  args: {
-    variant: 'light',
-  },
-  render: (args) => (
+  render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       {buttonSizes.map((size) => (
         <div key={size} style={{ display: 'flex', gap: '1rem' }}>
           {buttonRadii.map((radius) => (
-            <Button key={radius} variant="light" radius={radius} size={size} {...args}>
+            <Button key={radius} variant="light" radius={radius} size={size}>
               {size} {radius}
               <ArrowRightOutlineIcon />
             </Button>

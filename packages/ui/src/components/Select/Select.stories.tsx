@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import Select from './index'
 import { createListCollection } from '@ark-ui/react'
 import { useState } from 'react'
@@ -7,15 +7,9 @@ import { CheckCircleFillIcon, ChevronDownOutlineIcon } from '@nation-a/icons'
 
 const meta = {
   title: 'Components/Select',
-  component: Select.Root,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
-  },
-  argTypes: {
-    className: {
-      control: 'text',
-    },
   },
 } satisfies Meta<typeof Select.Root>
 
@@ -25,18 +19,18 @@ type Story = StoryObj<typeof meta>
 const items = ['React', 'Solid', 'Vue', 'Svelte']
 
 export const Default: Story = {
-  args: {
-    collection: createListCollection<string>({ items }) as any,
-    positioning: { sameWidth: true },
-  },
-  render: (args) => {
-    const [_, setSelectedItems] = useState<string[]>([])
+  render: () => {
+    const [, setSelectedItems] = useState<string[]>([])
 
     return (
       <Box
         css={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', width: '90vw', p: 10 }}
       >
-        <Select.Root {...args} onValueChange={(e) => setSelectedItems(e.items)}>
+        <Select.Root
+          collection={createListCollection<string>({ items })}
+          positioning={{ sameWidth: true }}
+          onValueChange={(e) => setSelectedItems(e.items)}
+        >
           <Select.Label>Framework</Select.Label>
           <Select.Control>
             <Select.Trigger>
@@ -59,18 +53,18 @@ export const Default: Story = {
 }
 
 export const WithDescription: Story = {
-  args: {
-    collection: createListCollection<string>({ items }) as any,
-    positioning: { sameWidth: true },
-  },
-  render: (args) => {
-    const [_, setSelectedItems] = useState<string[]>([])
+  render: () => {
+    const [, setSelectedItems] = useState<string[]>([])
 
     return (
       <Box
         css={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', width: '90vw', p: 10 }}
       >
-        <Select.Root {...args} onValueChange={(e) => setSelectedItems(e.items)}>
+        <Select.Root
+          collection={createListCollection<string>({ items })}
+          positioning={{ sameWidth: true }}
+          onValueChange={(e) => setSelectedItems(e.items)}
+        >
           <Select.Label>Framework</Select.Label>
           <Select.Control>
             <Select.Trigger description="Description">
@@ -95,18 +89,52 @@ export const WithDescription: Story = {
   },
 }
 export const WithDescriptionAndCustomIcons: Story = {
-  args: {
-    collection: createListCollection<string>({ items }) as any,
-    positioning: { sameWidth: true },
-  },
-  render: (args) => {
-    const [_, setSelectedItems] = useState<string[]>([])
+  render: () => {
+    const [, setSelectedItems] = useState<string[]>([])
 
     return (
       <Box
         css={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', width: '90vw', p: 10 }}
       >
-        <Select.Root {...args} onValueChange={(e) => setSelectedItems(e.items)}>
+        <Select.Root
+          collection={createListCollection<string>({ items })}
+          positioning={{ sameWidth: true }}
+          onValueChange={(e) => setSelectedItems(e.items)}
+        >
+          <Select.Label>Framework</Select.Label>
+          <Select.Trigger description="Description">
+            <CheckCircleFillIcon />
+            <Select.ValueText placeholder="Select a framework" />
+            <ChevronDownOutlineIcon />
+          </Select.Trigger>
+          <Select.Content>
+            {items.map((item) => (
+              <Select.Item key={item} item={item}>
+                <CheckCircleFillIcon />
+                {item}
+              </Select.Item>
+            ))}
+          </Select.Content>
+        </Select.Root>
+      </Box>
+    )
+  },
+}
+
+export const Controlled: Story = {
+  render: () => {
+    const [selectedItems, setSelectedItems] = useState<string[]>([])
+
+    return (
+      <Box
+        css={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', width: '90vw', p: 10 }}
+      >
+        <Select.Root
+          collection={createListCollection<string>({ items })}
+          positioning={{ sameWidth: true }}
+          value={[selectedItems[0]]}
+          onValueChange={(e) => setSelectedItems(e.items)}
+        >
           <Select.Label>Framework</Select.Label>
           <Select.Trigger description="Description">
             <CheckCircleFillIcon />

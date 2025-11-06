@@ -1,5 +1,84 @@
 # @nation-a/ui
 
+## 0.17.3
+
+### Patch Changes
+
+- Updated dependencies [08e59cc]
+  - @nation-a/icons@0.5.1
+
+## 0.17.2
+
+### Patch Changes
+
+- 9116a52: Fixed SelectRoot type definition
+
+## 0.17.1
+
+### Patch Changes
+
+- 96ec08b: Fixed type errors
+
+## 0.17.0
+
+### Minor Changes
+
+- fbb91b0: Migration to react v19
+
+### Patch Changes
+
+- Updated dependencies [fbb91b0]
+  - @nation-a/icons@0.5.0
+
+## 0.16.28
+
+### Patch Changes
+
+- edf0563: Added Language provider
+
+## 0.16.27
+
+### Patch Changes
+
+- Updated dependencies [d0c1006]
+  - @nation-a/icons@0.4.4
+
+## 0.16.26
+
+### Patch Changes
+
+- e227e4f: Added position option to Toast component
+
+## 0.16.25
+
+### Patch Changes
+
+- 62d4945: Changed Navigation component item props
+
+## 0.16.24
+
+### Patch Changes
+
+- Updated dependencies [1750194]
+  - @nation-a/icons@0.4.3
+
+## 0.16.23
+
+### Patch Changes
+
+- a5ab130: Added icons and changed Checkbox component style
+- Updated dependencies [a5ab130]
+  - @nation-a/icons@0.4.2
+
+## 0.16.22
+
+### Patch Changes
+
+- d48d0e4: Updated icons and typo tokens
+- Updated dependencies [d48d0e4]
+  - @nation-a/tokens@0.4.2
+  - @nation-a/icons@0.4.1
+
 ## 0.16.21
 
 ### Patch Changes

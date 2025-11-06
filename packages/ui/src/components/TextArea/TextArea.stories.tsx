@@ -1,18 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import Textarea from './index'
 import { HStack, VStack } from '@styled-system/jsx'
 
-const meta: Meta<typeof Textarea> = {
+const meta = {
   title: 'Components/TextArea',
-  component: Textarea,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-}
+} satisfies Meta<typeof Textarea>
 
 export default meta
-type Story = StoryObj<typeof Textarea>
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   render: () => (
@@ -84,21 +83,11 @@ export const WithDescription: Story = {
 }
 
 export const WithRemoveBorder: Story = {
-  args: {
-    removeBorder: true,
-    placeholder: 'Placeholder',
-    color: 'alpha',
-    variant: 'solid',
-  },
+  render: () => <Textarea removeBorder placeholder="Placeholder" color="alpha" variant="solid" />,
 }
 
 export const WithError: Story = {
-  args: {
-    error: true,
-    placeholder: 'Placeholder',
-    color: 'alpha',
-    variant: 'solid',
-  },
+  render: () => <Textarea error placeholder="Placeholder" color="alpha" variant="solid" />,
 }
 
 export const UIVariants: Story = {
@@ -278,12 +267,7 @@ export const LabelVariations: Story = {
 }
 
 export const TextLimitExample: Story = {
-  args: {
-    label: 'Label',
-    textLimit: 100,
-    showTextCount: true,
-    placeholder: 'Maximum 100 characters allowed',
-  },
+  render: () => <Textarea label="Label" textLimit={100} showTextCount placeholder="Maximum 100 characters allowed" />,
   parameters: {
     docs: {
       description: {

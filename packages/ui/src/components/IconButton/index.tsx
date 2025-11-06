@@ -1,9 +1,7 @@
-import { forwardRef, memo } from 'react'
 import { Center, HTMLStyledProps, styled } from '@styled-system/jsx'
 import Spinner from '../Spinner'
 import { iconButtonRecipe, IconButtonVariantProps } from './icon-button.recipe'
 import { ark } from '@ark-ui/react'
-import { withPolymorphicComponent } from '@/utils/with-polymorphic-component'
 
 export type IconButtonProps = HTMLStyledProps<'button'> &
   IconButtonVariantProps & {
@@ -12,47 +10,58 @@ export type IconButtonProps = HTMLStyledProps<'button'> &
     preserveIconSize?: boolean
   }
 
-const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ loading, disabled, children, color, variant, size, onClick, preserveIconSize, ...rest }, ref) => {
-    const StyledButton = styled(ark.button, iconButtonRecipe)
+const IconButton = ({
+  loading,
+  disabled,
+  children,
+  color,
+  variant,
+  size,
+  onClick,
+  preserveIconSize,
+  ref,
+  ...rest
+}: IconButtonProps) => {
+  const StyledButton = styled(ark.button, iconButtonRecipe)
 
-    return (
-      <StyledButton
-        disabled={disabled}
-        ref={ref}
-        color={color}
-        variant={variant}
-        size={size}
-        data-preserve-icon-size={preserveIconSize}
-        css={{ pointerEvents: loading ? 'none' : 'auto' }}
-        onClick={(e) => {
-          if (!loading && !disabled) onClick?.(e)
+  const content: React.ReactNode = loading ? (
+    <>
+      <Center
+        inline
+        css={{
+          position: 'absolute',
+          transform: 'translate(-50%, -50%)',
+          top: '50%',
+          insetStart: '50%',
         }}
-        {...rest}
       >
-        {loading ? (
-          <>
-            <Center
-              inline
-              css={{
-                position: 'absolute',
-                transform: 'translate(-50%, -50%)',
-                top: '50%',
-                insetStart: '50%',
-              }}
-            >
-              <Spinner size={size === 'lg' ? 'md' : 'sm'} />
-            </Center>
-            <styled.span css={{ opacity: 0 }}>{children}</styled.span>
-          </>
-        ) : (
-          children
-        )}
-      </StyledButton>
-    )
-  },
-)
+        <Spinner size={size === 'lg' ? 'md' : 'sm'} />
+      </Center>
+      <styled.span css={{ opacity: 0 }}>{children}</styled.span>
+    </>
+  ) : (
+    children
+  )
+
+  return (
+    <StyledButton
+      disabled={disabled}
+      ref={ref}
+      color={color}
+      variant={variant}
+      size={size}
+      data-preserve-icon-size={preserveIconSize}
+      css={{ pointerEvents: loading ? 'none' : 'auto' }}
+      onClick={(e) => {
+        if (!loading && !disabled) onClick?.(e)
+      }}
+      {...rest}
+    >
+      {content}
+    </StyledButton>
+  )
+}
 
 IconButton.displayName = 'IconButton'
 
-export default memo(withPolymorphicComponent<typeof IconButton, 'button'>(IconButton))
+export default IconButton

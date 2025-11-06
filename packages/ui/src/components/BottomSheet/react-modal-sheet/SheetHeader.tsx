@@ -1,4 +1,3 @@
-import { forwardRef } from 'react'
 import { motion, useTransform } from 'motion/react'
 
 import { type SheetDraggableProps } from './types'
@@ -7,7 +6,13 @@ import { useDragConstraints } from './hooks'
 import { mergeRefs } from './utils'
 import { styles } from './styles'
 
-export const SheetHeader = forwardRef<any, SheetDraggableProps>(({ children, style, disableDrag, ...rest }, ref) => {
+export const SheetHeader = ({
+  children,
+  style,
+  disableDrag,
+  ref,
+  ...rest
+}: SheetDraggableProps & { ref?: React.Ref<HTMLDivElement> }) => {
   const { indicatorRotation, dragProps } = useSheetContext()
   const { constraintsRef, onMeasureDragConstraints } = useDragConstraints()
   const _dragProps = disableDrag ? undefined : dragProps
@@ -19,7 +24,7 @@ export const SheetHeader = forwardRef<any, SheetDraggableProps>(({ children, sty
   return (
     <motion.div
       {...rest}
-      ref={mergeRefs([ref, constraintsRef])}
+      ref={mergeRefs([ref ?? null, constraintsRef])}
       style={{ ...styles.headerWrapper, ...style }}
       {..._dragProps}
       dragConstraints={constraintsRef}
@@ -39,6 +44,6 @@ export const SheetHeader = forwardRef<any, SheetDraggableProps>(({ children, sty
       )}
     </motion.div>
   )
-})
+}
 
 SheetHeader.displayName = 'SheetHeader'

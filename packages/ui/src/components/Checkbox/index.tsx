@@ -1,10 +1,9 @@
-import { forwardRef } from 'react'
 import * as StyledCheckbox from './checkbox.styled'
 
 export type CheckboxProps = StyledCheckbox.RootProps
 
-const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>((props, ref) => {
-  const { children, ...rootProps } = props
+const Checkbox = (props: CheckboxProps) => {
+  const { children, ref, ...rootProps } = props
 
   return (
     <StyledCheckbox.Root ref={ref} {...rootProps}>
@@ -20,7 +19,7 @@ const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>((props, ref) => {
       <StyledCheckbox.HiddenInput />
     </StyledCheckbox.Root>
   )
-})
+}
 
 Checkbox.displayName = 'Checkbox'
 
@@ -31,8 +30,8 @@ const CheckIcon = () => (
       d="M11.6666 3.5L5.24992 9.91667L2.33325 7"
       stroke="currentColor"
       strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      strokeLinecap="square"
+      strokeLinejoin="miter"
     />
   </svg>
 )
@@ -40,7 +39,7 @@ const CheckIcon = () => (
 const MinusIcon = () => (
   <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
     <title>Minus Icon</title>
-    <path d="M2.91675 7H11.0834" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M2.91675 7H11.0834" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter" />
   </svg>
 )
 

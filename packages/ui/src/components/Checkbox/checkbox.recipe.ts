@@ -13,17 +13,17 @@ export const checkboxRecipe = sva({
       gap: 2,
     },
     label: {
-      color: 'content.neutral.bold',
+      color: 'white.900A',
       textStyle: 'label.md',
       _disabled: {
-        color: 'content.neutral.disabled',
+        color: 'white.500A',
         cursor: 'not-allowed',
       },
     },
     control: {
       alignItems: 'center',
-      borderColor: 'content.neutral.bold',
-      borderWidth: '1px',
+      borderColor: 'white.900A',
+      borderWidth: '1.5px',
       color: 'content.neutralInverse.bold',
       cursor: 'pointer',
       display: 'flex',
@@ -31,37 +31,37 @@ export const checkboxRecipe = sva({
       transitionDuration: 'normal',
       transitionProperty: 'border-color, background',
       transitionTimingFunction: 'default',
-      width: 4.5,
-      height: 4.5,
+      width: 3.5,
+      height: 3.5,
       '& svg': {
         width: 2.5,
         height: 2.5,
       },
 
       _hover: {
-        borderColor: 'content.neutral.subtle',
+        borderColor: 'white.800A',
       },
       _checked: {
-        bg: 'content.neutral.bold',
+        bg: 'white.900A',
         _hover: {
-          bg: 'content.neutral.subtle',
+          bg: 'white.800A',
         },
         _disabled: {
-          bg: '!content.neutral.disabled',
+          bg: '!white.500A',
         },
       },
       _indeterminate: {
-        bg: 'content.neutral.bold',
-        borderColor: 'content.neutral.bold',
+        bg: 'white.900A',
+        borderColor: 'white.900A',
         _hover: {
-          bg: 'content.neutral.subtle',
+          bg: 'white.800A',
         },
         _disabled: {
-          bg: '!content.neutral.disabled',
+          bg: '!white.500A',
         },
       },
       _disabled: {
-        borderColor: '!content.neutral.disabled',
+        borderColor: '!white.500A',
         cursor: 'not-allowed',
         touchAction: 'none',
       },
@@ -80,7 +80,7 @@ export const checkboxRecipe = sva({
     variant: {
       square: {
         control: {
-          borderRadius: 'sm',
+          //   borderRadius: 'sm',
         },
       },
       round: {

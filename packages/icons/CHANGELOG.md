@@ -1,5 +1,41 @@
 # @nation-a/icons
 
+## 0.5.1
+
+### Patch Changes
+
+- 08e59cc: Icons updated from .icona/icons.json
+
+## 0.5.0
+
+### Minor Changes
+
+- fbb91b0: Migration to react v19
+
+## 0.4.4
+
+### Patch Changes
+
+- d0c1006: Added UnlockFillIcon
+
+## 0.4.3
+
+### Patch Changes
+
+- 1750194: Added globe icons
+
+## 0.4.2
+
+### Patch Changes
+
+- a5ab130: Added icons and changed Checkbox component style
+
+## 0.4.1
+
+### Patch Changes
+
+- d48d0e4: Updated icons and typo tokens
+
 ## 0.4.0
 
 ### Minor Changes

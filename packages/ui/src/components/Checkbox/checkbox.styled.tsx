@@ -1,42 +1,23 @@
 'use client'
-import type { Assign } from '@ark-ui/react'
 import { Checkbox } from '@ark-ui/react/checkbox'
-import { type CheckboxVariantProps, checkboxRecipe } from './checkbox.recipe'
-import type { ComponentProps, HTMLStyledProps } from 'styled-system/types'
-import { createStyleContext } from '@/utils/create-style-context'
+import { checkboxRecipe } from './checkbox.recipe'
+import type { ComponentProps } from 'styled-system/types'
+import { createStyleContext } from '@styled-system/jsx'
 
 const { withProvider, withContext } = createStyleContext(checkboxRecipe)
 
 export type RootProviderProps = ComponentProps<typeof RootProvider>
-export const RootProvider = withProvider<
-  HTMLLabelElement,
-  Assign<Assign<HTMLStyledProps<'label'>, Checkbox.RootProviderBaseProps>, CheckboxVariantProps>
->(Checkbox.RootProvider, 'root')
+export const RootProvider = withProvider(Checkbox.RootProvider, 'root')
 
 export type RootProps = ComponentProps<typeof Root>
-export const Root = withProvider<
-  HTMLLabelElement,
-  Assign<Assign<HTMLStyledProps<'label'>, Checkbox.RootBaseProps>, CheckboxVariantProps>
->(Checkbox.Root, 'root')
+export const Root = withProvider(Checkbox.Root, 'root')
 
-export const Control = withContext<HTMLDivElement, Assign<HTMLStyledProps<'div'>, Checkbox.ControlBaseProps>>(
-  Checkbox.Control,
-  'control',
-)
+export const Control = withContext(Checkbox.Control, 'control')
 
-export const Group = withContext<HTMLDivElement, Assign<HTMLStyledProps<'div'>, Checkbox.GroupBaseProps>>(
-  Checkbox.Group,
-  'group',
-)
+export const Group = withContext(Checkbox.Group, 'group')
 
-export const Indicator = withContext<HTMLDivElement, Assign<HTMLStyledProps<'div'>, Checkbox.IndicatorBaseProps>>(
-  Checkbox.Indicator,
-  'indicator',
-)
+export const Indicator = withContext(Checkbox.Indicator, 'indicator')
 
-export const Label = withContext<HTMLSpanElement, Assign<HTMLStyledProps<'span'>, Checkbox.LabelBaseProps>>(
-  Checkbox.Label,
-  'label',
-)
+export const Label = withContext(Checkbox.Label, 'label')
 
 export { CheckboxContext as Context, CheckboxHiddenInput as HiddenInput } from '@ark-ui/react/checkbox'

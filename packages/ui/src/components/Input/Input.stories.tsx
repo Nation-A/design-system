@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import Input from './index'
 import { HStack } from '@styled-system/jsx'
 import { CloseOutlineIcon, SearchOutlineIcon } from '@nation-a/icons'

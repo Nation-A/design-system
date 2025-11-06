@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import Switch from './index'
 import { Flex } from '../Layout'
@@ -9,9 +9,7 @@ const meta: Meta<typeof Switch> = {
   parameters: {
     layout: 'centered',
   },
-
   tags: ['autodocs'],
-
   argTypes: {
     size: { control: 'select', options: ['md', 'lg'] },
     color: { control: 'select', options: ['neutral', 'neuroid', 'heyd', 'heybee', 'zoltarina'] },

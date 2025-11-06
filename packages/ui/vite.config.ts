@@ -13,7 +13,11 @@ export default defineVitestConfig({
     include: ['@pandacss/dev', '@ark-ui/react'],
   },
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: ['babel-plugin-react-compiler'],
+      },
+    }),
     viteTsconfigPaths(),
     dts({
       entryRoot: 'src',

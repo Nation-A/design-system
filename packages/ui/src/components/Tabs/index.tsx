@@ -1,28 +1,24 @@
-import React from 'react'
-import { tabsRecipe, TabsVariantProps } from './tabs.recipe'
+import { tabsRecipe } from './tabs.recipe'
 import { ComponentProps } from '@styled-system/types'
 import { Tabs as ArkTabs } from '@ark-ui/react/tabs'
-import { createStyleContext } from '@/utils/create-style-context'
-import { Assign } from '@ark-ui/react'
+import { createStyleContext } from '@styled-system/jsx'
 
-const { withRootProvider, withContext } = createStyleContext(tabsRecipe)
+const { withProvider, withContext } = createStyleContext(tabsRecipe)
 
-type RootProps = Assign<ArkTabs.RootProps, TabsVariantProps>
-const Root = withRootProvider<RootProps>(ArkTabs.Root)
-
+const Root = withProvider(ArkTabs.Root, 'root')
 export type TabsProps = ComponentProps<typeof Root>
 
-export type TabsListProps = Assign<React.HTMLAttributes<HTMLDivElement>, ArkTabs.ListBaseProps>
-const List = withContext<HTMLDivElement, TabsListProps>(ArkTabs.List, 'list')
+export type TabsListProps = ComponentProps<typeof List>
+const List = withContext(ArkTabs.List, 'list')
 
-export type TabsTriggerProps = Assign<React.HTMLAttributes<HTMLButtonElement>, ArkTabs.TriggerBaseProps>
-const Trigger = withContext<HTMLButtonElement, TabsTriggerProps>(ArkTabs.Trigger, 'trigger')
+export type TabsTriggerProps = ComponentProps<typeof Trigger>
+const Trigger = withContext(ArkTabs.Trigger, 'trigger')
 
-export type TabsContentProps = Assign<React.HTMLAttributes<HTMLDivElement>, ArkTabs.ContentBaseProps>
-const Content = withContext<HTMLDivElement, TabsContentProps>(ArkTabs.Content, 'content')
+export type TabsContentProps = ComponentProps<typeof Content>
+const Content = withContext(ArkTabs.Content, 'content')
 
-export type TabsIndicatorProps = Assign<React.HTMLAttributes<HTMLDivElement>, ArkTabs.IndicatorBaseProps>
-const Indicator = withContext<HTMLDivElement, TabsIndicatorProps>(ArkTabs.Indicator, 'indicator')
+export type TabsIndicatorProps = ComponentProps<typeof Indicator>
+const Indicator = withContext(ArkTabs.Indicator, 'indicator')
 
 const Tabs = Object.assign(Root, {
   Root,

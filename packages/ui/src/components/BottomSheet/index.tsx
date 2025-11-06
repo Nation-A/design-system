@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode, forwardRef, createContext, useContext } from 'react'
+import { ComponentProps, ReactNode, createContext, useContext } from 'react'
 import { Sheet } from './react-modal-sheet'
 import { bottomSheetRecipe, BottomSheetVariantProps } from './bottomsheet.recipe'
 import { css, cx } from '@styled-system/css'
@@ -37,129 +37,115 @@ export type BottomSheetProps = Omit<ComponentProps<typeof Sheet>, 'children'> &
     onClose?: () => void
   }
 
-interface BottomSheetComponent
-  extends React.ForwardRefExoticComponent<BottomSheetProps & React.RefAttributes<HTMLDivElement>> {
-  Header: typeof Header
-  Content: typeof Content
-  Backdrop: typeof Backdrop
-  Handle: typeof Handle
-  Scroller: typeof Sheet.Scroller
+const BottomSheet = ({
+  ref,
+  children,
+  snapPercent = { min: 0, max: undefined },
+  maxSnapPoint,
+  fullHeight,
+  className,
+  rounded = 20,
+  onClose,
+  ...props
+}: BottomSheetProps) => {
+  let snapPercentPoints = null
+
+  if (snapPercent && snapPercent.max) {
+    snapPercentPoints = [snapPercent.max * window.innerHeight, snapPercent.min! * window.innerHeight]
+  }
+
+  const snapPoints = snapPercentPoints ? snapPercentPoints : maxSnapPoint ? [maxSnapPoint] : undefined
+
+  const styles = bottomSheetRecipe({ fullHeight })
+
+  return (
+    <BottomSheetContext.Provider value={{ rounded, onClose }}>
+      <Sheet
+        ref={ref}
+        snapPoints={snapPoints}
+        detent={!snapPercent.max && !maxSnapPoint ? 'content-height' : undefined}
+        initialSnap={0}
+        className={cx(styles.root, className)}
+        onClose={onClose}
+        {...props}
+      >
+        {children}
+      </Sheet>
+    </BottomSheetContext.Provider>
+  )
 }
-
-const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
-  (
-    {
-      children,
-      snapPercent = { min: 0, max: null },
-      maxSnapPoint,
-      fullHeight,
-      className,
-      rounded = 20,
-      disableDrag,
-      onClose,
-      ...props
-    },
-    ref,
-  ) => {
-    let snapPercentPoints = null
-
-    if (snapPercent && snapPercent.max) {
-      snapPercentPoints = [snapPercent.max * window.innerHeight, snapPercent.min! * window.innerHeight]
-    }
-
-    const snapPoints = snapPercentPoints ? snapPercentPoints : maxSnapPoint ? [maxSnapPoint] : undefined
-
-    const styles = bottomSheetRecipe({ fullHeight })
-
-    return (
-      <BottomSheetContext.Provider value={{ rounded, onClose }}>
-        <Sheet
-          ref={ref}
-          snapPoints={snapPoints}
-          detent={!snapPercent.max && !maxSnapPoint ? 'content-height' : undefined}
-          initialSnap={0}
-          className={cx(styles.root, className)}
-          onClose={onClose}
-          {...props}
-        >
-          {children}
-        </Sheet>
-      </BottomSheetContext.Provider>
-    )
-  },
-) as BottomSheetComponent
 
 BottomSheet.displayName = 'BottomSheet'
 
 // Compound components
-const Header = forwardRef<HTMLDivElement, BottomSheetVariantProps & { children: ReactNode; className?: string }>(
-  ({ children, className, ...props }, ref) => {
-    const styles = bottomSheetRecipe()
+const Header = ({
+  children,
+  className,
+  ref,
+  ...props
+}: BottomSheetVariantProps & { children: ReactNode; className?: string; ref?: React.Ref<HTMLDivElement> }) => {
+  const styles = bottomSheetRecipe()
 
-    return (
-      <HStack ref={ref} className={cx(styles.header, className)} {...props}>
-        {children}
-      </HStack>
-    )
-  },
-)
+  return (
+    <HStack ref={ref} className={cx(styles.header, className)} {...props}>
+      {children}
+    </HStack>
+  )
+}
 Header.displayName = 'BottomSheet.Header'
 
-type ContentProps = ComponentProps<typeof Sheet.Content> & HTMLStyledProps<'div'>
+type ContentProps = ComponentProps<typeof Sheet.Content> & HTMLStyledProps<'div'> & { ref?: React.Ref<any> }
 
-const Content = forwardRef<HTMLStyledProps<'div'>, ContentProps>(
-  ({ className, children, css: cssProp, ...props }, ref) => {
-    const styles = bottomSheetRecipe.raw()
-    const { rounded } = useContext(BottomSheetContext)
-    const contentClass = cx(css(styles.content, cssProp), className)
+const Content = ({ className, children, css: cssProp, ref, ...props }: ContentProps) => {
+  const styles = bottomSheetRecipe.raw()
+  const { rounded } = useContext(BottomSheetContext)
+  const contentClass = cx(css(styles.content, cssProp), className)
 
-    return (
-      <Sheet.Container
-        style={{ backgroundColor: 'transparent', borderTopLeftRadius: rounded, borderTopRightRadius: rounded }}
+  return (
+    <Sheet.Container
+      style={{ backgroundColor: 'transparent', borderTopLeftRadius: rounded, borderTopRightRadius: rounded }}
+    >
+      <Sheet.Content
+        ref={ref}
+        className={contentClass}
+        style={{
+          borderTopLeftRadius: rounded,
+          borderTopRightRadius: rounded,
+        }}
+        {...props}
       >
-        <Sheet.Content
-          ref={ref}
-          className={contentClass}
-          style={{
-            borderTopLeftRadius: rounded,
-            borderTopRightRadius: rounded,
-          }}
-          {...props}
-        >
-          {children}
-        </Sheet.Content>
-      </Sheet.Container>
-    )
-  },
-)
+        {children}
+      </Sheet.Content>
+    </Sheet.Container>
+  )
+}
 Content.displayName = 'BottomSheet.Content'
 
 type BackdropProps = ComponentProps<typeof Sheet.Backdrop> & {
   opacity?: number
   disableCloseOnTap?: boolean
+  ref?: React.Ref<HTMLDivElement>
 }
 
 // Compound components
-const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
-  ({ className, children, opacity = 0.5, disableCloseOnTap, style, ...props }, ref) => {
-    const styles = bottomSheetRecipe()
-    const { onClose } = useContext(BottomSheetContext)
-    const backdropClass = cx(styles.backdrop, className)
-    return (
-      <Sheet.Backdrop
-        ref={ref}
-        className={backdropClass}
-        style={{ background: `rgba(0, 0, 0, ${opacity})`, ...style }}
-        onTap={() => {
-          if (!disableCloseOnTap) {
-            onClose?.()
-          }
-        }}
-        {...props}
-      />
-    )
-  },
-)
+const Backdrop = ({ className, children, opacity = 0.5, disableCloseOnTap, style, ref, ...props }: BackdropProps) => {
+  const styles = bottomSheetRecipe()
+  const { onClose } = useContext(BottomSheetContext)
+  const backdropClass = cx(styles.backdrop, className)
+  return (
+    <Sheet.Backdrop
+      ref={ref}
+      className={backdropClass}
+      style={{ background: `rgba(0, 0, 0, ${opacity})`, ...style }}
+      onTap={() => {
+        if (!disableCloseOnTap) {
+          onClose?.()
+        }
+      }}
+      {...props}
+    />
+  )
+}
 Backdrop.displayName = 'BottomSheet.Backdrop'
 
 const Handle = () => (

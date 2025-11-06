@@ -3,11 +3,15 @@ import Spinner from '../Spinner'
 import { HTMLStyledProps, styled } from '@styled-system/jsx'
 import { buttonRecipe, ButtonVariantProps } from './button.recipe'
 import { ark } from '@ark-ui/react'
-import { withPolymorphicComponent } from '@/utils/with-polymorphic-component'
-import { memo } from 'react'
 export type ButtonProps = HTMLStyledProps<'button'> &
   ButtonVariantProps & {
+    /**
+     * 버튼이 로딩 중일 때 표시할지 여부 (기본값: false)
+     */
     loading?: boolean
+    /**
+     * 버튼이 로딩 중일 때 표시할 텍스트
+     */
     loadingText?: React.ReactNode
     /** 아이콘 컴포넌트의 size prop을 우선시할지 여부 (기본값: false) */
     preserveIconSize?: boolean
@@ -64,4 +68,4 @@ const Button = ({
   )
 }
 
-export default memo(withPolymorphicComponent<typeof Button, 'button'>(Button))
+export default Button
