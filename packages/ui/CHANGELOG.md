@@ -1,5 +1,13 @@
 # @nation-a/ui
 
+## 0.17.4
+
+### Patch Changes
+
+- 79d7e41: Added typo token(title.28.bold)
+- Updated dependencies [79d7e41]
+  - @nation-a/tokens@0.4.3
+
 ## 0.17.3
 
 ### Patch Changes

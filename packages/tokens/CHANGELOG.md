@@ -1,5 +1,11 @@
 # @nation-a/tokens
 
+## 0.4.3
+
+### Patch Changes
+
+- 79d7e41: Added typo token(title.28.bold)
+
 ## 0.4.2
 
 ### Patch Changes
