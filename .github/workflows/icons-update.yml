@@ -1,11 +1,11 @@
 name: Update Icons
 
 on:
-  #   push:
-  #     branches:
-  #       - main
-  #     paths:
-  #       - '.icona/icons.json'
+  push:
+    branches:
+      - main
+    paths:
+      - '.icona/icons.json'
   workflow_dispatch:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
@@ -27,7 +27,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -67,4 +67,6 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m "chore: update icons from .icona/icons.json"
-          git push origin main
+          git fetch origin main
+          git rebase origin/main || (git rebase --abort && exit 1)
+          git push origin HEAD:main
