@@ -1,11 +1,11 @@
-name: Update Icons
+name: Update Icons (TEST)
 
 on:
-  #   push:
-  #     branches:
-  #       - main
-  #     paths:
-  #       - '.icona/icons.json'
+  push:
+    branches:
+      - staging
+    paths:
+      - '.icona/icons.json'
   workflow_dispatch:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
@@ -67,4 +67,4 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m "chore: update icons from .icona/icons.json"
-          git push origin main
+          git push origin staging
