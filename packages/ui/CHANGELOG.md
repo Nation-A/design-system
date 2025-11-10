@@ -1,5 +1,12 @@
 # @nation-a/ui
 
+## 0.17.5
+
+### Patch Changes
+
+- Updated dependencies [35182c4]
+  - @nation-a/icons@0.5.2
+
 ## 0.17.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @nation-a/icons
 
+## 0.5.2
+
+### Patch Changes
+
+- 35182c4: Icons updated from .icona/icons.json
+
 ## 0.5.1
 
 ### Patch Changes
