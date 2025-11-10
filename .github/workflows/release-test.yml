@@ -7,11 +7,17 @@ on:
     paths:
       - '.changeset/**'
   workflow_dispatch:
+  workflow_run:
+    workflows:
+      - Update Icons (TEST)
+    types:
+      - completed
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
+    if: ${{ github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'staging') }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -19,6 +25,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.ref }}
 
       - uses: pnpm/action-setup@v4
       - run: pnpm install --frozen-lockfile
