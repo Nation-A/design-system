@@ -28,6 +28,7 @@ export { default as NavMyFillIcon } from './NavMyFillIcon';
 export { default as RecreateOutlineIcon } from './RecreateOutlineIcon';
 export { default as SearchOutlineIcon } from './SearchOutlineIcon';
 export { default as SendFillIcon } from './SendFillIcon';
+export { default as TestOulineIcon } from './TestOulineIcon';
 export { default as ThumbsDownFillIcon } from './ThumbsDownFillIcon';
 export { default as ThumbsDownOutlineIcon } from './ThumbsDownOutlineIcon';
 export { default as ThumbsUpFillIcon } from './ThumbsUpFillIcon';
