@@ -26,7 +26,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.ref }}
+          ref: ${{ github.event_name == 'workflow_run' && format('refs/heads/{0}', github.event.workflow_run.head_branch) || github.ref }}
+          fetch-depth: 0
 
       - uses: pnpm/action-setup@v4
       - run: pnpm install --frozen-lockfile
