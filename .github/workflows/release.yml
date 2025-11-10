@@ -10,6 +10,7 @@ on:
   workflow_run:
     workflows:
       - Update Icons
+      - Update Tokens
     types:
       - completed
 

@@ -1,0 +1,71 @@
+name: Update Tokens
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'tokens.json'
+  workflow_dispatch:
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  update-tokens:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build tokens
+        run: pnpm build:tokens
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create changeset
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          CHANGESET_FILE=".changeset/$(date +%s)-tokens-update.md"
+          cat > "$CHANGESET_FILE" << EOF
+          ---
+          "@nation-a/tokens": patch
+          ---
+
+          Tokens updated from tokens.json
+          EOF
+          echo "Changeset created: $CHANGESET_FILE"
+
+      - name: Commit and push changes
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: update tokens from tokens.json"
+          git fetch origin main
+          git rebase origin/main || (git rebase --abort && exit 1)
+          git push origin HEAD:main
