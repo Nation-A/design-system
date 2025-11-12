@@ -1,5 +1,11 @@
 # @nation-a/ui
 
+## 0.17.6
+
+### Patch Changes
+
+- 1c6d3f4: Changed Tabs design
+
 ## 0.17.5
 
 ### Patch Changes
