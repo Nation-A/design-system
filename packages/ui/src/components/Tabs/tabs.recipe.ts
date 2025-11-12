@@ -14,6 +14,7 @@ export const tabsRecipe = sva({
     },
     list: {
       display: 'flex',
+      gap: 4,
       flexShrink: '0',
       flexDirection: 'row',
       overflowX: 'auto',
@@ -28,11 +29,9 @@ export const tabsRecipe = sva({
       color: 'content.neutral.subtlest',
       cursor: 'pointer',
       display: 'inline-flex',
-      flexShrink: '0',
-      gap: '2',
+      flexShrink: 0,
+      gap: 2,
       justifyContent: 'center',
-      px: '4',
-      py: '2',
       textStyle: 'label.md',
       transition: 'all',
       transitionDuration: 'normal',
@@ -50,14 +49,13 @@ export const tabsRecipe = sva({
       },
     },
     content: {
-      pt: '4',
+      pt: 4,
     },
     indicator: {
       width: 'var(--width)',
       height: '2px',
       borderRadius: 'xs',
       background: 'content.neutral.bold',
-
       bottom: '0px',
     },
   },
@@ -68,15 +66,21 @@ export const tabsRecipe = sva({
           borderBottomWidth: '1px',
           borderColor: 'background.neutral.selected',
         },
+        trigger: {
+          px: 0,
+          pt: 3,
+          pb: 1.5,
+        },
       },
       enclosed: {
         list: {
-          p: '16px 0 0 16px',
-          borderRadius: 'md',
-          gap: '16',
+          rounded: 'md',
+          gap: 4,
         },
         trigger: {
-          borderRadius: 'full',
+          rounded: 'full',
+          px: 4,
+          py: 2,
           _selected: {
             background: 'background.neutral.selected',
           },
