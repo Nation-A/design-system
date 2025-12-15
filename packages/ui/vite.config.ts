@@ -49,6 +49,7 @@ export default defineVitestConfig({
       entry: {
         index: 'src/index.ts',
         toast: 'src/toast/index.ts',
+        lottie: 'src/lottie/index.ts',
         providers: 'src/providers/index.ts',
       },
       name: '@nation-a/ui',
@@ -65,13 +66,13 @@ export default defineVitestConfig({
             '@nation-a/icons',
             '@nation-a/tokens',
             'react-hot-toast', // toast 진입점에서만 로드되도록 외부 의존성으로 분리
+            'react-lottie', // lottie 진입점에서만 로드되도록 외부 의존성으로 분리
           ],
       output: {
         inlineDynamicImports: false,
         manualChunks: {
           'ark-ui': ['@ark-ui/react'],
           'react-spring': ['@react-spring/web'],
-          'react-lottie': ['react-lottie'],
         },
       },
     },
