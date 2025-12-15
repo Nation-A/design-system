@@ -37,7 +37,6 @@
     "motion": "^12.23.24",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-hot-toast": "^2.6.0",
     "react-lottie": "^1.2.10"
   },
   "devDependencies": {
@@ -79,18 +78,33 @@
   },
   "peerDependencies": {
     "react": "^19",
-    "react-dom": "^19"
+    "react-dom": "^19",
+    "react-hot-toast": "^2.6.0"
   },
   "peerDependenciesMeta": {
     "@pandacss/dev": {
       "optional": true
+    },
+    "react-hot-toast": {
+      "optional": true
     }
   },
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.js"
+    },
+    "./toast": {
+      "types": "./dist/types/toast/index.d.ts",
+      "require": "./dist/toast.cjs",
+      "import": "./dist/toast.js"
+    },
+    "./providers": {
+      "types": "./dist/types/providers/index.d.ts",
+      "require": "./dist/providers.cjs",
+      "import": "./dist/providers.js"
     },
     "./css": {
       "types": "./dist/styled-system/css/index.d.ts",

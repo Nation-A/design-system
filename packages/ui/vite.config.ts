@@ -46,21 +46,31 @@ export default defineVitestConfig({
   ],
   build: {
     lib: {
-      entry: 'src/index.ts',
+      entry: {
+        index: 'src/index.ts',
+        toast: 'src/toast/index.ts',
+        providers: 'src/providers/index.ts',
+      },
       name: '@nation-a/ui',
-      fileName: (format) => `index.${format === 'es' ? 'js' : format}`,
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
       external: isStorybook
         ? []
-        : ['react', 'react-dom', /react-dom\/.*/, /^react\/.*/, '@nation-a/icons', '@nation-a/tokens'],
+        : [
+            'react',
+            'react-dom',
+            /react-dom\/.*/,
+            /^react\/.*/,
+            '@nation-a/icons',
+            '@nation-a/tokens',
+            'react-hot-toast', // toast 진입점에서만 로드되도록 외부 의존성으로 분리
+          ],
       output: {
         inlineDynamicImports: false,
         manualChunks: {
           'ark-ui': ['@ark-ui/react'],
           'react-spring': ['@react-spring/web'],
-          'react-hot-toast': ['react-hot-toast'],
           'react-lottie': ['react-lottie'],
         },
       },
