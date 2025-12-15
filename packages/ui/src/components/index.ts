@@ -1,8 +1,7 @@
 export { default as Button, type ButtonProps } from './Button'
 export { default as Text, type TextProps } from './Text'
 export { default as Dialog, type DialogProps } from './Dialog'
-// Spinner는 '@nation-a/ui/lottie'에서 별도로 import 해야 합니다 (번들 최적화)
-// export { default as Spinner, type SpinnerProps } from './Spinner'
+export { default as Spinner, type SpinnerProps } from './Spinner'
 export { default as IconButton, type IconButtonProps } from './IconButton'
 export { default as BottomSheet, type BottomSheetProps } from './BottomSheet'
 export { default as Navigation, type NavigationProps, type NavigationTriggerProps } from './Navigation'
