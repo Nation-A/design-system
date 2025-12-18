@@ -2676,7 +2676,7 @@
     "metadatas": [],
     "figma": {
       "name": "bell_fill_v3",
-      "key": "347e75d4f2037175a3e31f86e19dc3404a302a74",
+      "key": "4ffb65794ea8a3c0047cd4b848f126ca186f8ff2",
       "description": ""
     },
     "name": "bell_fill_v3",
@@ -2808,6 +2808,22 @@
       "description": ""
     },
     "name": "bell_2_fill_v3",
+    "png": {
+      "1x": "",
+      "2x": "",
+      "3x": "",
+      "4x": ""
+    }
+  },
+  "skip_fill_v3": {
+    "svg": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g id=\"Skip_fill_v3\">\n<path id=\"Vector\" d=\"M12.4 13V18L19.6 12L12.4 6V11L6.40002 6V18L12.4 13Z\" fill=\"white\" fill-opacity=\"0.9\"/>\n</g>\n</svg>\n",
+    "metadatas": [],
+    "figma": {
+      "name": "Skip_fill_v3",
+      "key": "d4a51fbaa75904cc146826e8495dc05b3bd665ce",
+      "description": ""
+    },
+    "name": "skip_fill_v3",
     "png": {
       "1x": "",
       "2x": "",
