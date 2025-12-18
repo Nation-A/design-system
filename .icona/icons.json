@@ -2143,6 +2143,22 @@
       "4x": ""
     }
   },
+  "bullhorn_outline_v3": {
+    "svg": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g id=\"bullhorn_outline_v3\">\n<path id=\"Vector\" d=\"M16.665 4.82625L18.0638 3.6H20.4V20.4H18.0638L16.665 19.1738C15.03 17.745 12.9638 16.9125 10.8 16.8112V21.6H7.20002V16.8H2.40002V7.2H10.3688C12.6863 7.1925 14.9213 6.34875 16.665 4.82625ZM10.8 14.4V14.4075C13.4363 14.5088 15.9675 15.4763 18 17.16V6.83625C15.9675 8.52 13.4363 9.4875 10.8 9.58875V14.4Z\" fill=\"white\" fill-opacity=\"0.9\"/>\n</g>\n</svg>\n",
+    "metadatas": [],
+    "figma": {
+      "name": "bullhorn_outline_v3",
+      "key": "e65afc70ae7db662808eeaa52ea3ae692592ba71",
+      "description": ""
+    },
+    "name": "bullhorn_outline_v3",
+    "png": {
+      "1x": "",
+      "2x": "",
+      "3x": "",
+      "4x": ""
+    }
+  },
   "action_ouline_v3": {
     "svg": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g id=\"action_ouline_v3\">\n<path id=\"Vector\" d=\"M10.5063 4H13.5063V9.40312L18.1844 6.70312L19.6844 9.3L15.0063 12L19.6844 14.7L18.1844 17.2969L13.5063 14.5969V20H10.5063V14.5969L5.82812 17.2969L4.32812 14.7L9.00625 12L4.32812 9.3L5.82812 6.70312L10.5063 9.40312V4Z\" fill=\"white\" fill-opacity=\"0.9\"/>\n</g>\n</svg>\n",
     "metadatas": [],
@@ -2676,7 +2692,7 @@
     "metadatas": [],
     "figma": {
       "name": "bell_fill_v3",
-      "key": "347e75d4f2037175a3e31f86e19dc3404a302a74",
+      "key": "4ffb65794ea8a3c0047cd4b848f126ca186f8ff2",
       "description": ""
     },
     "name": "bell_fill_v3",
@@ -2808,6 +2824,70 @@
       "description": ""
     },
     "name": "bell_2_fill_v3",
+    "png": {
+      "1x": "",
+      "2x": "",
+      "3x": "",
+      "4x": ""
+    }
+  },
+  "skip_fill_v3": {
+    "svg": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g id=\"Skip_fill_v3\">\n<path id=\"Vector\" d=\"M12.4 13V18L19.6 12L12.4 6V11L6.40002 6V18L12.4 13Z\" fill=\"white\" fill-opacity=\"0.9\"/>\n</g>\n</svg>\n",
+    "metadatas": [],
+    "figma": {
+      "name": "Skip_fill_v3",
+      "key": "d4a51fbaa75904cc146826e8495dc05b3bd665ce",
+      "description": ""
+    },
+    "name": "skip_fill_v3",
+    "png": {
+      "1x": "",
+      "2x": "",
+      "3x": "",
+      "4x": ""
+    }
+  },
+  "bell_3_fill_v3": {
+    "svg": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g id=\"bell_3_fill_v3\">\n<path id=\"Vector\" opacity=\"0.4\" d=\"M3 18H21L18 13.2V9.6C18 6.6975 15.9375 4.275 13.2 3.72V2.4H10.8V3.72C8.0625 4.275 6 6.6975 6 9.6V13.2L3 18Z\" fill=\"white\" fill-opacity=\"0.9\"/>\n<path id=\"Vector_2\" d=\"M9.67499 19.8C9.94124 20.835 10.8825 21.6 12 21.6C13.1175 21.6 14.0587 20.835 14.325 19.8H9.67499Z\" fill=\"white\" fill-opacity=\"0.9\"/>\n</g>\n</svg>\n",
+    "metadatas": [],
+    "figma": {
+      "name": "bell_3_fill_v3",
+      "key": "6f68cb095a05df6f4cba53584f14f9f85025d532",
+      "description": ""
+    },
+    "name": "bell_3_fill_v3",
+    "png": {
+      "1x": "",
+      "2x": "",
+      "3x": "",
+      "4x": ""
+    }
+  },
+  "bell_new_fill_v3": {
+    "svg": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g id=\"bell_new_fill_v3\">\n<path id=\"Subtract\" d=\"M14.3252 19.7988C14.0588 20.8337 13.1174 21.5986 12 21.5986C10.8826 21.5986 9.94117 20.8337 9.6748 19.7988H14.3252ZM13.2002 2.39844V3.71875C13.7188 3.82391 14.2131 3.99583 14.6738 4.22559C13.1166 4.77272 12 6.25576 12 8C12 10.2091 13.7909 12 16 12C16.7289 12 17.4115 11.8035 18 11.4629V13.1982L21 17.998H3L6 13.1982V9.59863C6 6.69622 8.06243 4.27385 10.7998 3.71875V2.39844H13.2002Z\" fill=\"white\" fill-opacity=\"0.9\"/>\n<circle id=\"Ellipse 203\" cx=\"16\" cy=\"8\" r=\"4\" fill=\"url(#paint0_linear_5464_1060)\"/>\n</g>\n<defs>\n<linearGradient id=\"paint0_linear_5464_1060\" x1=\"19\" y1=\"5.5\" x2=\"12.5\" y2=\"10.5\" gradientUnits=\"userSpaceOnUse\">\n<stop stop-color=\"#A4C4FF\"/>\n<stop offset=\"1\" stop-color=\"#78A2EF\"/>\n</linearGradient>\n</defs>\n</svg>\n",
+    "metadatas": [],
+    "figma": {
+      "name": "bell_new_fill_v3",
+      "key": "e7fa63221b01b2485da5b30bb9e50561e0d5dbbb",
+      "description": ""
+    },
+    "name": "bell_new_fill_v3",
+    "png": {
+      "1x": "",
+      "2x": "",
+      "3x": "",
+      "4x": ""
+    }
+  },
+  "gift_fill_v3": {
+    "svg": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g id=\"gift_fill_v3\">\n<path id=\"Vector\" d=\"M14.4563 4.98C14.7413 4.49625 15.2588 4.2 15.8175 4.2H15.9C16.7288 4.2 17.4 4.87125 17.4 5.7C17.4 6.52875 16.7288 7.2 15.9 7.2H13.1513L14.4563 4.98ZM9.54377 4.98L10.8488 7.2H8.10002C7.27127 7.2 6.60002 6.52875 6.60002 5.7C6.60002 4.87125 7.27127 4.2 8.10002 4.2H8.18252C8.74127 4.2 9.26252 4.49625 9.54377 4.98ZM12.9038 4.06875L12 5.60625L11.0963 4.06875C10.4888 3.03375 9.37877 2.4 8.18252 2.4H8.10002C6.27752 2.4 4.80002 3.8775 4.80002 5.7C4.80002 6.24 4.93127 6.75 5.16002 7.2H2.40002V10.8H21.6V7.2H18.84C19.0688 6.75 19.2 6.24 19.2 5.7C19.2 3.8775 17.7225 2.4 15.9 2.4H15.8175C14.6213 2.4 13.5113 3.03375 12.9038 4.065V4.06875ZM20.4 12.6H12.9V20.4H20.4V12.6ZM11.1 12.6H3.60002V20.4H11.1V12.6Z\" fill=\"white\" fill-opacity=\"0.9\"/>\n</g>\n</svg>\n",
+    "metadatas": [],
+    "figma": {
+      "name": "gift_fill_v3",
+      "key": "677b4773c3db61e75dafcbf30a1aba56989b5eaf",
+      "description": ""
+    },
+    "name": "gift_fill_v3",
     "png": {
       "1x": "",
       "2x": "",
