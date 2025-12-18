@@ -1,7 +1,9 @@
 export { default as ActionOulineIcon } from './ActionOulineIcon';
 export { default as ArrowDownOutlineIcon } from './ArrowDownOutlineIcon';
 export { default as ArrowUpOutlineIcon } from './ArrowUpOutlineIcon';
+export { default as Bell2FillIcon } from './Bell2FillIcon';
 export { default as BellFillIcon } from './BellFillIcon';
+export { default as BellOutlineIcon } from './BellOutlineIcon';
 export { default as BookFillIcon } from './BookFillIcon';
 export { default as CalendarFillIcon } from './CalendarFillIcon';
 export { default as ChatFillIcon } from './ChatFillIcon';
@@ -37,6 +39,7 @@ export { default as NavCommentFillIcon } from './NavCommentFillIcon';
 export { default as NavHomeFillIcon } from './NavHomeFillIcon';
 export { default as NavMyFillIcon } from './NavMyFillIcon';
 export { default as RecreateOutlineIcon } from './RecreateOutlineIcon';
+export { default as SearchFillIcon } from './SearchFillIcon';
 export { default as SearchOutlineIcon } from './SearchOutlineIcon';
 export { default as SendFillIcon } from './SendFillIcon';
 export { default as SmileFillIcon } from './SmileFillIcon';
