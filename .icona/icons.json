@@ -2144,7 +2144,7 @@
     }
   },
   "bullhorn_outline_v3": {
-    "svg": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g id=\"bullhorn_outline_v3\">\n<path id=\"Vector\" d=\"M16.665 4.82625L18.0638 3.6H20.4V20.4H18.0638L16.665 19.1738C15.03 17.745 12.9638 16.9125 10.8 16.8112V21.6H7.20002V16.8H2.40002V7.2H10.3688C12.6863 7.1925 14.9213 6.34875 16.665 4.82625ZM10.8 14.4V14.4075C13.4363 14.5088 15.9675 15.4763 18 17.16V6.83625C15.9675 8.52 13.4363 9.4875 10.8 9.58875V14.4Z\" fill=\"white\" fill-opacity=\"0.9\"/>\n</g>\n</svg>\n",
+    "svg": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g id=\"bullhorn_outline_v3\">\n<path id=\"Vector\" d=\"M16.665 4.82625L18.0638 3.6H20.4V20.4H18.0638L16.665 19.1738C15.03 17.745 12.9638 16.9125 10.8 16.8113V21.6H7.20002V16.8H2.40002V7.2H10.3688C12.6863 7.1925 14.9213 6.34875 16.665 4.82625ZM10.8 14.4V14.4075C13.4363 14.5088 15.9675 15.4763 18 17.16V6.83625C15.9675 8.52 13.4363 9.4875 10.8 9.58875V14.4Z\" fill=\"white\" fill-opacity=\"0.9\"/>\n</g>\n</svg>\n",
     "metadatas": [],
     "figma": {
       "name": "bullhorn_outline_v3",
@@ -2840,22 +2840,6 @@
       "description": ""
     },
     "name": "skip_fill_v3",
-    "png": {
-      "1x": "",
-      "2x": "",
-      "3x": "",
-      "4x": ""
-    }
-  },
-  "bell_3_fill_v3": {
-    "svg": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g id=\"bell_3_fill_v3\">\n<path id=\"Vector\" opacity=\"0.4\" d=\"M3 18H21L18 13.2V9.6C18 6.6975 15.9375 4.275 13.2 3.72V2.4H10.8V3.72C8.0625 4.275 6 6.6975 6 9.6V13.2L3 18Z\" fill=\"white\" fill-opacity=\"0.9\"/>\n<path id=\"Vector_2\" d=\"M9.67499 19.8C9.94124 20.835 10.8825 21.6 12 21.6C13.1175 21.6 14.0587 20.835 14.325 19.8H9.67499Z\" fill=\"white\" fill-opacity=\"0.9\"/>\n</g>\n</svg>\n",
-    "metadatas": [],
-    "figma": {
-      "name": "bell_3_fill_v3",
-      "key": "6f68cb095a05df6f4cba53584f14f9f85025d532",
-      "description": ""
-    },
-    "name": "bell_3_fill_v3",
     "png": {
       "1x": "",
       "2x": "",
