@@ -2,7 +2,6 @@ export { default as ActionOulineIcon } from './ActionOulineIcon';
 export { default as ArrowDownOutlineIcon } from './ArrowDownOutlineIcon';
 export { default as ArrowUpOutlineIcon } from './ArrowUpOutlineIcon';
 export { default as Bell2FillIcon } from './Bell2FillIcon';
-export { default as Bell3FillIcon } from './Bell3FillIcon';
 export { default as BellFillIcon } from './BellFillIcon';
 export { default as BellNewFillIcon } from './BellNewFillIcon';
 export { default as BellOutlineIcon } from './BellOutlineIcon';
