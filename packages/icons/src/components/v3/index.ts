@@ -27,6 +27,7 @@ export { default as EditOutlineIcon } from './EditOutlineIcon';
 export { default as EllipsisOutlineIcon } from './EllipsisOutlineIcon';
 export { default as ExportOutlineIcon } from './ExportOutlineIcon';
 export { default as FileExportOutlineIcon } from './FileExportOutlineIcon';
+export { default as FireFillIcon } from './FireFillIcon';
 export { default as GamepadFillIcon } from './GamepadFillIcon';
 export { default as GearOutlineIcon } from './GearOutlineIcon';
 export { default as GiftFillIcon } from './GiftFillIcon';
