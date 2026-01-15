@@ -1,5 +1,16 @@
 # @nation-a/ui
 
+## 0.18.7
+
+### Patch Changes
+
+- Migrate from deprecated react-lottie to lottie-react
+
+  - Replace react-lottie with lottie-react dependency
+  - Update Spinner component to use lottie-react API
+  - Remove @types/react-lottie devDependency (lottie-react has built-in types)
+  - Simplify Spinner component by removing dynamic import
+
 ## 0.18.6
 
 ### Patch Changes

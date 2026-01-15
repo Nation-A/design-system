@@ -106,8 +106,8 @@ vi.mock('@zag-js/switch', () => ({
   })),
 }))
 
-// Mock react-lottie to avoid canvas issues
-vi.mock('react-lottie', () => ({
+// Mock lottie-react to avoid canvas issues
+vi.mock('lottie-react', () => ({
   default: vi.fn(() => null),
 }))
 

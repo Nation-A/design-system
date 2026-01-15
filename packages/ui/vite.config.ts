@@ -72,7 +72,7 @@ export default defineVitestConfig({
         manualChunks: {
           'ark-ui': ['@ark-ui/react'],
           'react-spring': ['@react-spring/web'],
-          'react-lottie': ['react-lottie'],
+          'lottie-react': ['lottie-react'],
         },
       },
     },
