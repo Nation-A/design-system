@@ -21,6 +21,7 @@ export interface ToastProps {
     asLink?: boolean
     disableCloseOnActionClick?: boolean
     position?: ToastPosition
+    language?: 'en' | 'ko'
   }
   ref?: React.Ref<HTMLDivElement>
 }
@@ -83,13 +84,16 @@ Content.displayName = 'Toast.Content'
 const Description = ({
   children,
   className,
+  language: propLanguage,
   ref,
 }: {
   children: ReactNode
   className?: string
+  language?: 'en' | 'ko'
   ref?: React.Ref<HTMLDivElement>
 }) => {
-  const { language } = useLanguage()
+  const { language: contextLanguage } = useLanguage()
+  const language = propLanguage ?? contextLanguage
   const styles = toastRecipe({ language })
   return (
     <Box ref={ref} className={cx(styles.description, className)}>
@@ -116,15 +120,18 @@ const ActionTrigger = ({
   children,
   className,
   asLink = false,
+  language: propLanguage,
   ref,
 }: {
   onClick: () => void
   children: ReactNode
   className?: string
   asLink?: boolean
+  language?: 'en' | 'ko'
   ref?: React.Ref<HTMLButtonElement>
 }) => {
-  const { language } = useLanguage()
+  const { language: contextLanguage } = useLanguage()
+  const language = propLanguage ?? contextLanguage
   const styles = toastRecipe({ asLink, language })
   return (
     <button ref={ref} className={cx(styles.actionTrigger, className)} onClick={onClick}>
@@ -177,11 +184,12 @@ const showToast = (description: ToastProps['description'], option?: ToastProps['
       <Toast.Root width={option?.actionLabel ? 'full' : 'fit'}>
         <Toast.Content>
           {option?.icon && <Toast.Icon icon={option?.icon} />}
-          <Toast.Description>{description}</Toast.Description>
+          <Toast.Description language={option?.language}>{description}</Toast.Description>
         </Toast.Content>
         {option?.actionLabel && (
           <Toast.ActionTrigger
             asLink={option?.asLink}
+            language={option?.language}
             onClick={() => {
               option?.onActionClick?.()
               if (!option?.disableCloseOnActionClick) {

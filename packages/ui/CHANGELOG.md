@@ -1,5 +1,15 @@
 # @nation-a/ui
 
+## 0.18.8
+
+### Patch Changes
+
+- fix(Toast): language prop을 통해 Portal 외부에서도 language variant 적용 가능하도록 수정
+
+  - Toast.show(), Toast.success(), Toast.error() 옵션에 language 추가
+  - Toast.Description, Toast.ActionTrigger에 language prop 추가
+  - prop으로 전달된 language가 context보다 우선 적용됨
+
 ## 0.18.7
 
 ### Patch Changes
