@@ -1,5 +1,14 @@
 # @nation-a/ui
 
+## 0.18.9
+
+### Patch Changes
+
+- cf02157: fix(Toast): language variant textStyle 네이밍 수정 (ko → kr)
+
+  - Toast recipe의 ko variant에서 잘못된 textStyle 참조 수정
+  - ko.text.body.14.bold → kr.text.body.14.bold
+
 ## 0.18.8
 
 ### Patch Changes
