@@ -82,10 +82,10 @@ export const toastRecipe = sva({
       },
       ko: {
         description: {
-          textStyle: 'ko.text.body.14.bold',
+          textStyle: 'kr.text.body.14.bold',
         },
         actionTrigger: {
-          textStyle: 'ko.text.body.14.bold',
+          textStyle: 'kr.text.body.14.bold',
         },
       },
     },
